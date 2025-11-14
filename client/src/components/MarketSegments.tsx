@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import sportsImage from "@assets/generated_images/Edgy_modern_sports_visual_1cd3bb51.png";
-import transportationImage from "@assets/generated_images/Edgy_transportation_visual_3a94fd09.png";
-import travelImage from "@assets/generated_images/Edgy_travel_visual_cd89b49b.png";
-import entertainmentImage from "@assets/generated_images/Edgy_entertainment_industry_visual_37f091ea.png";
+import sportsImage from "@assets/generated_images/Professional_stadium_aerial_view_1d2bbe4c.png";
+import transportationImage from "@assets/generated_images/Interstate_with_transport_trucks_cfc5f42f.png";
+import travelImage from "@assets/generated_images/Airplane_over_mountains_d31d9a17.png";
+import entertainmentImage from "@assets/generated_images/Videographer_at_race_track_0269301f.png";
 
 const markets = [
   {
