@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import sportsImage from "@assets/generated_images/Sports_field_aerial_view_3eb581a1.png";
 import transportationImage from "@assets/generated_images/Transportation_truck_on_highway_2832b6de.png";
 import travelImage from "@assets/generated_images/Travel_airplane_above_clouds_7d7258d4.png";
+import entertainmentImage from "@assets/generated_images/Entertainment_industry_insurance_visual_6247569e.png";
 
 const markets = [
   {
@@ -46,6 +47,19 @@ const markets = [
     ],
     contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
   },
+  {
+    id: "entertainment",
+    name: "Entertainment Market",
+    description: "Specialized coverage for live events, concerts, film production, and talent management with comprehensive protection.",
+    image: entertainmentImage,
+    stats: [
+      "12+ A-Rated Markets",
+      "Event Coverage to $50M+",
+      "Production Insurance",
+      "Talent & Venue Protection"
+    ],
+    contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
+  },
 ];
 
 export default function MarketSegments() {
@@ -66,7 +80,7 @@ export default function MarketSegments() {
             Curated Markets. Built-in Tech. Bigger Wins.
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-markets">
-            One application connects you to curated specialty markets for Sports, Transportation, and Travel with technology that delivers coverage with ease.
+            One application connects you to curated specialty markets for Sports, Transportation, Travel, and Entertainment with technology that delivers coverage with ease.
           </p>
         </div>
 
