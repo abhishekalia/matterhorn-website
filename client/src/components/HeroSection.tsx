@@ -11,11 +11,19 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0A1628] via-[#0F1B2D] to-background">
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center scale-105 animate-subtle-zoom"
+        style={{ backgroundImage: `url(${matterhornHero})` }}
+        data-testid="hero-background"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/90 via-[#1B2A41]/85 to-[#0A1628]/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+      </div>
+      
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slower" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slower" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -42,7 +50,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="text-base px-8 py-6 bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 border-2 border-primary/50"
+            className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
             onClick={() => scrollToSection("contact")}
             data-testid="button-connect"
           >
@@ -52,7 +60,7 @@ export default function HeroSection() {
           <Button
             size="lg"
             variant="outline"
-            className="text-base px-8 py-6 bg-white/5 backdrop-blur-md border-2 border-primary/40 text-white hover:bg-primary/10 hover:border-primary/60 shadow-lg shadow-primary/20"
+            className="text-base px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
             onClick={() => scrollToSection("markets")}
             data-testid="button-view-markets"
           >
