@@ -13,11 +13,17 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center scale-105 animate-subtle-zoom"
         style={{ backgroundImage: `url(${matterhornHero})` }}
         data-testid="hero-background"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/90 via-[#1B2A41]/85 to-[#0A1628]/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+      </div>
+      
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slower" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
