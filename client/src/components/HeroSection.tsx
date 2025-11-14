@@ -31,20 +31,21 @@ export default function HeroSection() {
           className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           data-testid="hero-heading"
         >
-          AI-Led Specialty Insurance
-          <br />
-          <span className="text-white/90">Program Design Shop</span>
+          Digitally Led{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary animate-gradient">
+            Program Design Shop
+          </span>
         </h1>
 
         <p
           className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-medium"
           data-testid="hero-subheading"
         >
-          Working Exclusively with Brokers
+          Where AI Meets Specialty Insurance Expertise
         </p>
 
         <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="hero-description">
-          We exist to make brokers unstoppable. One application connects you to curated specialty markets, custom program design, and technology that delivers coverage effortlessly.
+          Custom programs designed for brokers. Instant quotes. Curated markets. Technology that makes coverage effortless.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

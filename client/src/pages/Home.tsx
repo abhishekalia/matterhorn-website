@@ -21,9 +21,9 @@ export default function Home() {
       <CustomCursor />
       <Navigation />
       <HeroSection />
+      <AboutMatterhorn />
       <StatsSection />
       <WhyMatterhorn />
-      <AboutMatterhorn />
       <TechnologyShowcase />
       <ProcessSection />
       <MarketSegments />
