@@ -96,6 +96,41 @@ const marketDetails = [
     ],
     contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
   },
+  {
+    id: "entertainment",
+    name: "Entertainment",
+    markets: "12+ A-Rated Markets",
+    segments: [
+      "Live Events & Concerts",
+      "Film & Television Production",
+      "Talent & Performers",
+      "Venues & Theaters",
+      "Festivals & Special Events",
+      "Production Companies"
+    ],
+    clients: [
+      "Event Producers",
+      "Talent Agencies",
+      "Production Companies",
+      "Venue Operators"
+    ],
+    coverages: [
+      "Event Cancellation",
+      "General Liability",
+      "Production Insurance",
+      "Equipment & Property",
+      "Non-Appearance",
+      "Weather Protection",
+      "Audience Protection"
+    ],
+    tools: [
+      "Event Coverage Management",
+      "Automated Policy Issuance",
+      "Real-time COI Generation",
+      "Consolidated Digital Application"
+    ],
+    contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
+  },
 ];
 
 export default function DetailedMarkets() {
