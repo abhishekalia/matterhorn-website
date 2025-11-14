@@ -1,0 +1,62 @@
+import { Card } from "@/components/ui/card";
+import { Zap, Brain, Award } from "lucide-react";
+
+const benefits = [
+  {
+    icon: Zap,
+    title: "Product Value",
+    subtitle: "Broker-Focused Efficiency",
+    description: "We make insurance brokers more productive. Increase efficiency, improve performance, and overcome resource constraints to deliver better results for your clients.",
+  },
+  {
+    icon: Brain,
+    title: "Technology Innovation",
+    subtitle: "AI-Powered Automation",
+    description: "Leverage data across the insurance lifecycle with our AI-powered engineering applications. Unlock the value of data with open digital twin software and boost productivity.",
+  },
+  {
+    icon: Award,
+    title: "Industry Leadership",
+    subtitle: "Curated Markets",
+    description: "Partner with the digital delivery leader. Benefit from open standards, open-source technologies, and open APIs so data flows seamlessly across your ecosystem.",
+  },
+];
+
+export default function WhyMatterhorn() {
+  return (
+    <section className="py-24 bg-card" id="why-matterhorn" data-testid="section-why-matterhorn">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-why-matterhorn">
+            Why Matterhorn?
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-why-matterhorn">
+            Fast, flexible, and built for brokers. We combine curated markets, cutting-edge technology, and industry expertise.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => {
+            const Icon = benefit.icon;
+            return (
+              <Card key={index} className="p-8 hover-elevate transition-all" data-testid={`benefit-card-${index}`}>
+                <div className="bg-primary/10 w-16 h-16 rounded-md flex items-center justify-center mb-6">
+                  <Icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2" data-testid={`benefit-title-${index}`}>
+                  {benefit.title}
+                </h3>
+                <p className="text-sm font-semibold text-primary mb-3" data-testid={`benefit-subtitle-${index}`}>
+                  {benefit.subtitle}
+                </p>
+                <p className="text-muted-foreground leading-relaxed" data-testid={`benefit-description-${index}`}>
+                  {benefit.description}
+                </p>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
