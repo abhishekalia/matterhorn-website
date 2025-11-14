@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { TrendingUp, Users, Zap, CheckCircle2 } from "lucide-react";
+import { TrendingUp, Users, Zap, CheckCircle2, Mountain } from "lucide-react";
 
 const caseStudies = [
   {
@@ -124,13 +124,16 @@ export default function CaseStudies() {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-            Proven Results
-          </Badge>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              Proven Results
+            </Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-case-studies">
             Real-World Success Stories
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-case-studies">
+          <p className="text-lg text-foreground/70 max-w-3xl mx-auto" data-testid="description-case-studies">
             See how brokers are using Matterhorn to win more business, reduce admin, and deliver exceptional value to their clients
           </p>
         </div>

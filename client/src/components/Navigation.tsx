@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Mountain } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -39,7 +39,8 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between gap-8">
           <Link href="/" data-testid="link-home">
-            <div className="flex items-center gap-3 cursor-pointer">
+            <div className="flex items-center gap-2 cursor-pointer group">
+              <Mountain className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
               <div className="text-2xl font-bold text-primary">MATTERHORN</div>
             </div>
           </Link>

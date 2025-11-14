@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mountain } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import sportsImage from "@assets/generated_images/Professional_stadium_aerial_view_1d2bbe4c.png";
 import transportationImage from "@assets/generated_images/Interstate_with_transport_trucks_cfc5f42f.png";
@@ -77,10 +77,16 @@ export default function MarketSegments() {
     <section className="py-24 bg-background" id="markets" ref={elementRef} data-testid="section-markets">
       <div className="max-w-7xl mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              Our Markets
+            </Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-markets">
             Curated Markets. Built-in Tech. Bigger Wins.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-markets">
+          <p className="text-lg text-foreground/70 max-w-3xl mx-auto" data-testid="description-markets">
             One application connects you to curated specialty markets for Sports, Transportation, Travel, and Entertainment with technology that delivers coverage with ease.
           </p>
         </div>

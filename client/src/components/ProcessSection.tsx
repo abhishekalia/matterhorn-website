@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, Zap, Rocket, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2, Zap, Rocket, TrendingUp, Mountain, ArrowRight } from "lucide-react";
 
 const steps = [
   {
@@ -34,10 +36,16 @@ export default function ProcessSection() {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              Getting Started
+            </Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-process">
             Your Path to Success
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-process">
+          <p className="text-lg text-foreground/70 max-w-3xl mx-auto" data-testid="description-process">
             From application to submission in 24 hours. Our streamlined process gets you selling faster.
           </p>
         </div>
@@ -62,13 +70,28 @@ export default function ProcessSection() {
                   <h3 className="text-lg font-bold text-foreground mb-3" data-testid={`process-title-${index}`}>
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed" data-testid={`process-description-${index}`}>
+                  <p className="text-sm text-foreground/70 leading-relaxed" data-testid={`process-description-${index}`}>
                     {step.description}
                   </p>
                 </div>
               </Card>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90"
+            onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }}
+            data-testid="button-get-started-process"
+          >
+            Get Started Today
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </div>
     </section>

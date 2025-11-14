@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Cpu, Database, Lock, Sparkles, BarChart3, Workflow } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Cpu, Database, Lock, Sparkles, BarChart3, Workflow, Mountain, ArrowRight } from "lucide-react";
 
 const technologies = [
   {
@@ -52,13 +53,16 @@ export default function TechnologyShowcase() {
       
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/20 text-white border-primary/30">
-            Cutting-Edge Technology
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" data-testid="heading-technology">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/20 text-white border-primary/30">
+              Cutting-Edge Technology
+            </Badge>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white" data-testid="heading-technology">
             Built for the Future of Insurance
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto" data-testid="description-technology">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto" data-testid="description-technology">
             Enterprise-grade technology stack powering the next generation of specialty insurance distribution
           </p>
         </div>
@@ -83,12 +87,28 @@ export default function TechnologyShowcase() {
                 <h3 className="text-lg font-bold text-white mb-3" data-testid={`tech-title-${index}`}>
                   {tech.title}
                 </h3>
-                <p className="text-sm text-white/70 leading-relaxed" data-testid={`tech-description-${index}`}>
+                <p className="text-sm text-white/80 leading-relaxed" data-testid={`tech-description-${index}`}>
                   {tech.description}
                 </p>
               </Card>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button 
+            size="lg" 
+            variant="outline"
+            className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+            onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }}
+            data-testid="button-request-demo"
+          >
+            Request a Demo
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </div>
     </section>

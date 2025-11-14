@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Users, TrendingUp, Target, Shield, Zap, CheckCircle2, Award, Globe } from "lucide-react";
+import { Users, TrendingUp, Target, Shield, Zap, CheckCircle2, Award, Globe, Mountain } from "lucide-react";
 
 const partnerships = [
   {
@@ -138,13 +138,16 @@ export default function PartnershipsSection() {
       
       <div className="relative max-w-7xl mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-            Strategic Partnerships
-          </Badge>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              Strategic Partnerships
+            </Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-partnerships">
             Growing Together
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-partnerships">
+          <p className="text-lg text-foreground/70 max-w-3xl mx-auto" data-testid="description-partnerships">
             Our partnerships fuel broker success by aligning with trusted organizations to deliver exclusive programs with built-in distribution and credibility
           </p>
         </div>

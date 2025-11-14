@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Mail } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Mail, Mountain } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import johnWarren from "@assets/generated_images/John_Warren_professional_headshot_10e233bf.png";
 import wayneGutridge from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
@@ -44,10 +45,16 @@ export default function TeamSection() {
     <section className="py-24 bg-background" id="team" ref={elementRef} data-testid="section-team">
       <div className="max-w-7xl mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              Our Team
+            </Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-team">
             Meet Our Managing Team
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-team">
+          <p className="text-lg text-foreground/70 max-w-3xl mx-auto" data-testid="description-team">
             Over 100+ combined years of insurance experience, looking forward to working with you
           </p>
         </div>
@@ -76,7 +83,7 @@ export default function TeamSection() {
               <p className="text-sm font-semibold text-primary text-center mb-4" data-testid={`team-title-${index}`}>
                 {member.title}
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-grow" data-testid={`team-bio-${index}`}>
+              <p className="text-sm text-foreground/70 leading-relaxed mb-6 flex-grow" data-testid={`team-bio-${index}`}>
                 {member.bio}
               </p>
               <a

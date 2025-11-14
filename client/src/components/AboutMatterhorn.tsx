@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building2, Cpu, Zap, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Building2, Cpu, Zap, Shield, Mountain, ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const features = [
@@ -44,13 +45,16 @@ export default function AboutMatterhorn() {
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
-            About Matterhorn
-          </Badge>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              About Matterhorn
+            </Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-about">
             An AI-Led Insurance Design Shop
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="description-about">
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed" data-testid="description-about">
             We're not a traditional MGA. As an MGU + MGA hybrid, we combine underwriting authority with cutting-edge AI technology to design, deliver, and manage specialty insurance programs that actually work for brokers.
           </p>
         </div>
@@ -75,7 +79,7 @@ export default function AboutMatterhorn() {
                   <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`about-title-${index}`}>
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed" data-testid={`about-description-${index}`}>
+                  <p className="text-foreground/70 leading-relaxed" data-testid={`about-description-${index}`}>
                     {feature.description}
                   </p>
                 </div>
@@ -88,12 +92,24 @@ export default function AboutMatterhorn() {
           <Card className="p-10 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
             <div className="max-w-3xl mx-auto text-center">
               <h3 className="text-2xl font-bold text-foreground mb-4">Built Different. Built Better.</h3>
-              <p className="text-muted-foreground leading-relaxed mb-2">
+              <p className="text-foreground/70 leading-relaxed mb-2">
                 Every program we design is backed by our proprietary AI engine that continuously learns from submission data, claims history, and market performance. This means better risk selection, faster turnaround, and programs that evolve with your business.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-foreground/70 leading-relaxed mb-6">
                 Unlike traditional MGAs that simply place business, we architect solutions—combining underwriting expertise, technology infrastructure, and operational excellence into turnkey programs that scale.
               </p>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90"
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+                data-testid="button-learn-more-about"
+              >
+                Learn More About Our Approach
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
             </div>
           </Card>
         </div>

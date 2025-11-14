@@ -5,7 +5,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card } from "@/components/ui/card";
-import { Mail } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Mail, Mountain } from "lucide-react";
 
 const marketDetails = [
   {
@@ -138,10 +139,16 @@ export default function DetailedMarkets() {
     <section className="py-24 bg-card" data-testid="section-detailed-markets">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Mountain className="w-5 h-5 text-primary" />
+            <Badge className="bg-primary/10 text-primary border-primary/20">
+              Market Details
+            </Badge>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-detailed-markets">
             Market Segments
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="description-detailed-markets">
+          <p className="text-lg text-foreground/70 max-w-3xl mx-auto" data-testid="description-detailed-markets">
             Deep dive into our specialty markets with comprehensive coverage options and advanced technology
           </p>
         </div>

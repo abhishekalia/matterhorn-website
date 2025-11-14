@@ -53,7 +53,7 @@ export default function StatsSection() {
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-3 group-hover:scale-110 transition-transform" data-testid={`stat-value-${index}`}>
                   {stat.value}
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground font-medium" data-testid={`stat-label-${index}`}>
+                <div className="text-sm md:text-base text-foreground/70 font-medium" data-testid={`stat-label-${index}`}>
                   {stat.label}
                 </div>
               </div>
