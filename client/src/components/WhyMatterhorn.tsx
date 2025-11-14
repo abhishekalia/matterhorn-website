@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Zap, Brain, Award } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const benefits = [
   {
@@ -23,10 +24,12 @@ const benefits = [
 ];
 
 export default function WhyMatterhorn() {
+  const { isVisible, elementRef } = useScrollAnimation();
+
   return (
-    <section className="py-24 bg-card" id="why-matterhorn" data-testid="section-why-matterhorn">
+    <section className="py-24 bg-card" id="why-matterhorn" ref={elementRef} data-testid="section-why-matterhorn">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-why-matterhorn">
             Why Matterhorn?
           </h2>
@@ -39,7 +42,14 @@ export default function WhyMatterhorn() {
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <Card key={index} className="p-8 hover-elevate transition-all" data-testid={`benefit-card-${index}`}>
+              <Card 
+                key={index} 
+                className={`p-8 hover-elevate transition-all duration-700 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+                data-testid={`benefit-card-${index}`}
+              >
                 <div className="bg-primary/10 w-16 h-16 rounded-md flex items-center justify-center mb-6">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>

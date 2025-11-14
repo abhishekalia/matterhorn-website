@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import sportsImage from "@assets/generated_images/Sports_field_aerial_view_3eb581a1.png";
 import transportationImage from "@assets/generated_images/Transportation_truck_on_highway_2832b6de.png";
 import travelImage from "@assets/generated_images/Travel_airplane_above_clouds_7d7258d4.png";
@@ -48,6 +49,8 @@ const markets = [
 ];
 
 export default function MarketSegments() {
+  const { isVisible, elementRef } = useScrollAnimation();
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -56,9 +59,9 @@ export default function MarketSegments() {
   };
 
   return (
-    <section className="py-24 bg-background" id="markets" data-testid="section-markets">
+    <section className="py-24 bg-background" id="markets" ref={elementRef} data-testid="section-markets">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-markets">
             Curated Markets. Built-in Tech. Bigger Wins.
           </h2>
@@ -71,7 +74,10 @@ export default function MarketSegments() {
           {markets.map((market, index) => (
             <Card
               key={market.id}
-              className="overflow-hidden hover-elevate transition-all group"
+              className={`overflow-hidden hover-elevate transition-all duration-700 group ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
               data-testid={`market-card-${market.id}`}
             >
               <div className="grid md:grid-cols-2 gap-0">

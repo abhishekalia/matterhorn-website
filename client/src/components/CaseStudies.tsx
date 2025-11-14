@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const caseStudies = [
   {
@@ -45,10 +46,12 @@ const caseStudies = [
 ];
 
 export default function CaseStudies() {
+  const { isVisible, elementRef } = useScrollAnimation();
+
   return (
-    <section className="py-24 bg-card" id="case-studies" data-testid="section-case-studies">
+    <section className="py-24 bg-card" id="case-studies" ref={elementRef} data-testid="section-case-studies">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-case-studies">
             Success Stories
           </h2>
@@ -59,7 +62,14 @@ export default function CaseStudies() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {caseStudies.map((study, index) => (
-            <Card key={index} className="p-8 hover-elevate transition-all" data-testid={`case-study-${index}`}>
+            <Card 
+              key={index} 
+              className={`p-8 hover-elevate transition-all duration-700 ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+              data-testid={`case-study-${index}`}
+            >
               <Badge className="mb-4" data-testid={`case-study-badge-${index}`}>Case Study {index + 1}</Badge>
               <h3 className="text-2xl font-bold text-foreground mb-4" data-testid={`case-study-title-${index}`}>
                 {study.title}

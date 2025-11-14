@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Mail } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import johnWarren from "@assets/generated_images/John_Warren_professional_headshot_10e233bf.png";
 import wayneGutridge from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
 import stephenMueller from "@assets/generated_images/Stephen_Mueller_professional_headshot_9b80fbdf.png";
@@ -29,10 +30,12 @@ const team = [
 ];
 
 export default function TeamSection() {
+  const { isVisible, elementRef } = useScrollAnimation();
+
   return (
-    <section className="py-24 bg-background" id="team" data-testid="section-team">
+    <section className="py-24 bg-background" id="team" ref={elementRef} data-testid="section-team">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-team">
             Meet Our Managing Team
           </h2>
@@ -43,7 +46,14 @@ export default function TeamSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, index) => (
-            <Card key={index} className="p-6 hover-elevate transition-all flex flex-col" data-testid={`team-card-${index}`}>
+            <Card 
+              key={index} 
+              className={`p-6 hover-elevate transition-all duration-700 flex flex-col ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+              data-testid={`team-card-${index}`}
+            >
               <div className="mb-6">
                 <img
                   src={member.image}
