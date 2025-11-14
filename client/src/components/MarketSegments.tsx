@@ -1,11 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import sportsImage from "@assets/generated_images/Sports_field_aerial_view_3eb581a1.png";
 import transportationImage from "@assets/generated_images/Transportation_truck_on_highway_2832b6de.png";
 import travelImage from "@assets/generated_images/Travel_airplane_above_clouds_7d7258d4.png";
-import entertainmentImage from "@assets/generated_images/Entertainment_industry_insurance_visual_6247569e.png";
+import entertainmentImage from "@assets/generated_images/Edgy_entertainment_industry_visual_ebce9968.png";
 
 const markets = [
   {
@@ -88,21 +89,28 @@ export default function MarketSegments() {
           {markets.map((market, index) => (
             <Card
               key={market.id}
-              className={`overflow-hidden hover-elevate transition-all duration-700 group ${
+              className={`overflow-hidden transition-all duration-700 group border-2 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 relative ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
               data-testid={`market-card-${market.id}`}
             >
-              <div className="grid md:grid-cols-2 gap-0">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="grid md:grid-cols-2 gap-0 relative">
                 <div
-                  className="relative h-64 md:h-auto bg-cover bg-center"
+                  className="relative h-64 md:h-auto bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"
                   style={{ backgroundImage: `url(${market.image})` }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/70 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-primary/90 text-white border-primary">
+                      Premium Market
+                    </Badge>
+                  </div>
                 </div>
-                <div className="p-8 md:p-12 flex flex-col justify-center">
-                  <h3 className="text-3xl font-bold text-foreground mb-4" data-testid={`market-name-${market.id}`}>
+                <div className="p-8 md:p-12 flex flex-col justify-center relative">
+                  <h3 className="text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors" data-testid={`market-name-${market.id}`}>
                     {market.name}
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed" data-testid={`market-description-${market.id}`}>
@@ -110,14 +118,23 @@ export default function MarketSegments() {
                   </p>
                   <div className="grid grid-cols-2 gap-3 mb-6">
                     {market.stats.map((stat, idx) => (
-                      <div key={idx} className="flex items-start gap-2" data-testid={`market-stat-${market.id}-${idx}`}>
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                        <span className="text-sm text-foreground">{stat}</span>
-                      </div>
+                      <Badge 
+                        key={idx} 
+                        variant="outline" 
+                        className="justify-start p-2 text-xs border-primary/20 bg-primary/5"
+                        data-testid={`market-stat-${market.id}-${idx}`}
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
+                        {stat}
+                      </Badge>
                     ))}
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4 items-start">
-                    <Button onClick={() => scrollToSection(market.id)} data-testid={`button-explore-${market.id}`}>
+                    <Button 
+                      onClick={() => scrollToSection(market.id)} 
+                      className="group-hover:scale-105 transition-transform"
+                      data-testid={`button-explore-${market.id}`}
+                    >
                       Explore Market
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>

@@ -3,6 +3,7 @@ import CustomCursor from "@/components/CustomCursor";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import WhyMatterhorn from "@/components/WhyMatterhorn";
+import AboutMatterhorn from "@/components/AboutMatterhorn";
 import TechnologyShowcase from "@/components/TechnologyShowcase";
 import ProcessSection from "@/components/ProcessSection";
 import MarketSegments from "@/components/MarketSegments";
@@ -22,6 +23,7 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <WhyMatterhorn />
+      <AboutMatterhorn />
       <TechnologyShowcase />
       <ProcessSection />
       <MarketSegments />
