@@ -4,6 +4,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import johnWarren from "@assets/generated_images/John_Warren_professional_headshot_10e233bf.png";
 import wayneGutridge from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
 import stephenMueller from "@assets/generated_images/Stephen_Mueller_professional_headshot_9b80fbdf.png";
+import isaacAllen from "@assets/generated_images/Isaac_Allen_professional_headshot_640e0cbc.png";
 
 const team = [
   {
@@ -27,6 +28,13 @@ const team = [
     bio: "Stephen is an insurance industry leader with experience across Life, A&H, and P&C, holding senior roles at Unum, Zurich, and Intact. Formerly Zurich's Global Head of Sales in Switzerland, he has built high-growth businesses, including two successful A&H ventures. A published author on benefit and risk trends, he also founded Ridge Youth Sports and serves on the Board of the Boomer Esiason Foundation.",
     email: "smueller@matterhornprotects.com"
   },
+  {
+    name: "Isaac Allen",
+    title: "Managing Partner",
+    image: isaacAllen,
+    bio: "Isaac brings extensive expertise in insurance technology and operations, specializing in program development and broker partnerships. With a proven track record in building scalable insurance solutions, he focuses on leveraging AI and automation to streamline underwriting and enhance broker efficiency. His leadership ensures seamless delivery of innovative programs across multiple specialty markets.",
+    email: "iallen@matterhornprotects.com"
+  },
 ];
 
 export default function TeamSection() {
@@ -44,7 +52,7 @@ export default function TeamSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map((member, index) => (
             <Card 
               key={index} 
