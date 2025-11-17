@@ -13,26 +13,26 @@ export default function BrokerCTA() {
         <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="heading-broker-cta">
           Getting Started with Matterhorn
         </h2>
-        <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto" data-testid="description-broker-cta">
+        <p className="text-xl text-foreground/80 mb-8 max-w-3xl mx-auto" data-testid="description-broker-cta">
           Quick application, get approved, gain access
         </p>
 
         <div className="bg-background/50 backdrop-blur-sm border border-border rounded-md p-8 mb-8">
-          <p className="text-lg text-foreground leading-relaxed mb-6">
+          <p className="text-lg text-foreground/90 leading-relaxed mb-6">
             Ready to join Matterhorn's broker network? Simply complete the broker application below. Our team will review your submission and select top applicants for appointment. Once approved, you'll gain immediate access to Matterhorn's markets, programs, and technology.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mb-6">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium">Same-day market access</span>
+              <span className="text-sm font-medium text-foreground">Same-day market access</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium">Immediate appointments</span>
+              <span className="text-sm font-medium text-foreground">Immediate appointments</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium">Full platform access</span>
+              <span className="text-sm font-medium text-foreground">Full platform access</span>
             </div>
           </div>
         </div>

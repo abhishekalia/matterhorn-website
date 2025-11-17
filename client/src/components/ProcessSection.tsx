@@ -137,18 +137,30 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        <div className={`text-center mt-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 text-lg px-10 py-7"
             onClick={() => {
+              const element = document.getElementById('brokers');
+              if (element) element.scrollIntoView({ behavior: 'smooth' });
+            }}
+            data-testid="button-become-broker"
+          >
+            Become a Broker
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+          <Button 
+            size="lg" 
+            variant="outline"
+            className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-10 py-7"
+            onClick={() => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            data-testid="button-get-started-process"
+            data-testid="button-contact-us"
           >
-            Get Started Today
-            <ArrowRight className="ml-2 w-5 h-5" />
+            Contact Us
           </Button>
         </div>
       </div>
