@@ -74,7 +74,7 @@ export default function TeamSection() {
                   src={member.image}
                   alt={member.name}
                   className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-border"
-                  style={member.name === "Wayne Gutridge" ? { objectPosition: 'center 30%' } : undefined}
+                  style={member.name === "Wayne Gutridge" ? { objectPosition: 'center 40%' } : undefined}
                   data-testid={`team-image-${index}`}
                 />
               </div>
