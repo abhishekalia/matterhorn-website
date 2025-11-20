@@ -5,7 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import johnWarren from "@assets/IMG_27C9BDA84A01-1_1763404670413.jpeg";
 import wayneGutridge from "@assets/Image-1 (6)_1763404834391.jpg";
 import stephenMueller from "@assets/Image-1 (4)_1763404552938.jpg";
-import isaacAllen from "@assets/generated_images/Isaac_Allen_professional_headshot_640e0cbc.png";
+import isaacAllen from "@assets/1688067024442_1763676137179.jpeg";
 
 const team = [
   {
