@@ -164,7 +164,7 @@ export default function DetailedMarkets() {
             >
               <AccordionTrigger className="px-6 hover:no-underline hover-elevate" data-testid={`accordion-trigger-${market.id}`}>
                 <div className="flex items-center gap-4 text-left">
-                  <div className="text-xl font-bold">{market.name}</div>
+                  <div className="text-xl font-bold text-[#f7f7f7]">{market.name}</div>
                   <div className="text-sm text-muted-foreground">{market.markets}</div>
                 </div>
               </AccordionTrigger>
