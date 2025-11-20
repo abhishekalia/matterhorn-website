@@ -116,7 +116,7 @@ export default function MarketSegments() {
                   </div>
                 </div>
                 <div className="p-8 md:p-12 flex flex-col justify-center relative">
-                  <h3 className="text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors" data-testid={`market-name-${market.id}`}>
+                  <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-primary transition-colors" data-testid={`market-name-${market.id}`}>
                     {market.name}
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed" data-testid={`market-description-${market.id}`}>
