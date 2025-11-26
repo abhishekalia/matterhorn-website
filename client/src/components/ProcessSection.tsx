@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, Zap, Rocket, TrendingUp, Mountain, ArrowRight, Clock } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "wouter";
+import { ContactFormModal } from "./ContactFormModal";
 
 const steps = [
   {
@@ -38,6 +40,7 @@ const steps = [
 
 export default function ProcessSection() {
   const { isVisible, elementRef } = useScrollAnimation();
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   return (
     <section className="py-32 bg-gradient-to-br from-[#0A1628] via-[#1B2A41] to-[#0A1628] relative overflow-hidden" data-testid="section-process" ref={elementRef}>
@@ -154,15 +157,18 @@ export default function ProcessSection() {
             size="lg" 
             variant="outline"
             className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-10 py-7"
-            asChild
+            onClick={() => setContactModalOpen(true)}
             data-testid="button-contact-us"
           >
-            <a href="mailto:support@matterhornprotects.com">
-              Contact Us
-            </a>
+            Contact Us
           </Button>
         </div>
       </div>
+
+      <ContactFormModal 
+        open={contactModalOpen} 
+        onOpenChange={setContactModalOpen} 
+      />
     </section>
   );
 }
