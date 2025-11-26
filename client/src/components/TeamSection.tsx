@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Mountain } from "lucide-react";
+import { Mountain } from "lucide-react";
+import { SiLinkedin } from "react-icons/si";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import johnWarren from "@assets/IMG_27C9BDA84A01-1_1763404670413.jpeg";
 import wayneGutridge from "@assets/Image-1 (6)_1763404834391.jpg";
@@ -13,28 +14,28 @@ const team = [
     title: "Managing Partner",
     image: johnWarren,
     bio: "John is a veteran revenue and strategy leader with deep expertise in Insurtech, Cyber, Life, Health, and Employee Benefits. He has launched market-changing products, led GTM strategies, and driven growth at AIG, Symetra, Prudential, and others. For the past 7 years, he has consulted for leading Insurtech firms, helping optimize client engagement and reduce acquisition costs.",
-    email: "jwarren@matterhornprotects.com"
+    linkedin: "https://www.linkedin.com/in/jrwarren/"
   },
   {
     name: "Wayne Gutridge",
     title: "Managing Partner",
     image: wayneGutridge,
     bio: "Wayne is a seasoned business development leader specializing in alternative distribution and integrated product strategies. He has held senior roles at AIG/Starr, Zurich NA, and Transamerica, launching profitable A&H programs for organizations like Wells Fargo, AMA, Citigroup, and the U.S. Olympic Committee. Recognized as a Global A&H expert, he has driven workplace, affinity, and financial wellness strategies worldwide.",
-    email: "wgutridge@matterhornprotects.com"
+    linkedin: "https://www.linkedin.com/in/wayne-gutridge-05a50210/"
   },
   {
     name: "Stephen Mueller",
     title: "Managing Partner",
     image: stephenMueller,
     bio: "Stephen is an insurance industry leader with experience across Life, A&H, and P&C, holding senior roles at Unum, Zurich, and Intact. Formerly Zurich's Global Head of Sales in Switzerland, he has built high-growth businesses, including two successful A&H ventures. A published author on benefit and risk trends, he also founded Ridge Youth Sports and serves on the Board of the Boomer Esiason Foundation.",
-    email: "smueller@matterhornprotects.com"
+    linkedin: "https://www.linkedin.com/in/stephen-mueller-98561212/"
   },
   {
     name: "Isaac Allen",
     title: "Managing Partner",
     image: isaacAllen,
     bio: "Isaac brings extensive expertise in insurance technology and operations, specializing in program development and broker partnerships. With a proven track record in building scalable insurance solutions, he focuses on leveraging AI and automation to streamline underwriting and enhance broker efficiency. His leadership ensures seamless delivery of innovative programs across multiple specialty markets.",
-    email: "iallen@matterhornprotects.com"
+    linkedin: "https://www.linkedin.com/in/isaacallen1982/"
   },
 ];
 
@@ -63,7 +64,7 @@ export default function TeamSection() {
           {team.map((member, index) => (
             <Card 
               key={index} 
-              className={`p-6 hover-elevate transition-all duration-700 flex flex-col ${
+              className={`p-6 hover-elevate transition-all duration-700 flex flex-col overflow-visible ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
@@ -88,12 +89,14 @@ export default function TeamSection() {
                 {member.bio}
               </p>
               <a
-                href={`mailto:${member.email}`}
-                className="flex items-center justify-center gap-2 text-sm font-medium text-primary hover:underline"
-                data-testid={`team-email-${index}`}
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 text-sm font-medium text-[#0A66C2] hover:text-[#004182] transition-colors"
+                data-testid={`team-linkedin-${index}`}
               >
-                <Mail className="w-4 h-4" />
-                Contact
+                <SiLinkedin className="w-5 h-5" />
+                Connect on LinkedIn
               </a>
             </Card>
           ))}
