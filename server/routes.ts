@@ -61,7 +61,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const { data, error } = await resend.emails.send({
         from: "Matterhorn Contact Form <onboarding@resend.dev>",
-        to: ["support@matterhornprotects.com"],
+        to: ["ak@myspark.cc"],
         subject: `Contact Form Submission from ${safeFirstName} ${safeLastName}`,
         html: `
           <h2>New Contact Form Submission</h2>
