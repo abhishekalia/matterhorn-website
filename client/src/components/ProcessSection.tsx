@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, Zap, Rocket, TrendingUp, Mountain, ArrowRight, Clock } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Link } from "wouter";
 
 const steps = [
   {
@@ -141,14 +142,13 @@ export default function ProcessSection() {
           <Button 
             size="lg" 
             className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 text-lg px-10 py-7"
-            onClick={() => {
-              const element = document.getElementById('brokers');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
+            asChild
             data-testid="button-become-broker"
           >
-            Become a Broker
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <Link href="/brokers">
+              Become a Broker
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
           </Button>
           <Button 
             size="lg" 

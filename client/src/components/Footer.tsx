@@ -40,11 +40,13 @@ export default function Footer() {
             <Button 
               size="lg"
               className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30"
-              onClick={() => scrollToSection("brokers")}
+              asChild
               data-testid="footer-cta-broker"
             >
-              Become a Broker
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <Link href="/brokers">
+                Become a Broker
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
             </Button>
           </div>
 
