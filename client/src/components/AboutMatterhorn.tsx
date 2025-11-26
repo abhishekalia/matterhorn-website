@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Building2, Cpu, Zap, Shield, Mountain, ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ContactFormModal } from "./ContactFormModal";
 
 const features = [
   {
@@ -29,6 +31,7 @@ const features = [
 
 export default function AboutMatterhorn() {
   const { isVisible, elementRef } = useScrollAnimation();
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   return (
     <section 
@@ -65,7 +68,7 @@ export default function AboutMatterhorn() {
             return (
               <Card
                 key={index}
-                className={`p-8 hover-elevate transition-all duration-700 group relative overflow-hidden ${
+                className={`p-8 hover-elevate transition-all duration-700 group relative overflow-visible ${
                   isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
@@ -98,19 +101,24 @@ export default function AboutMatterhorn() {
               <p className="text-foreground/70 leading-relaxed mb-6">
                 Unlike traditional MGAs that simply place business, we architect solutions—combining underwriting expertise, technology infrastructure, and operational excellence into turnkey programs that scale.
               </p>
-              <a href="mailto:support@matterhornprotects.com" data-testid="button-learn-more-about">
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90"
-                >
-                  Learn More About Our Approach
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </a>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90"
+                onClick={() => setContactModalOpen(true)}
+                data-testid="button-learn-more-about"
+              >
+                Learn More About Our Approach
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
             </div>
           </Card>
         </div>
       </div>
+
+      <ContactFormModal 
+        open={contactModalOpen} 
+        onOpenChange={setContactModalOpen} 
+      />
     </section>
   );
 }

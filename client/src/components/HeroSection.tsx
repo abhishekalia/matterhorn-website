@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { ContactFormModal } from "./ContactFormModal";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 
 export default function HeroSection() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -49,17 +53,14 @@ export default function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a 
-            href="mailto:support@matterhornprotects.com"
+          <Button
+            size="lg"
+            className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
+            onClick={() => setContactModalOpen(true)}
             data-testid="button-connect"
           >
-            <Button
-              size="lg"
-              className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
-            >
-              Connect with Our Team
-            </Button>
-          </a>
+            Connect with Our Team
+          </Button>
           <Button
             size="lg"
             variant="outline"
@@ -79,6 +80,11 @@ export default function HeroSection() {
           <ChevronDown className="w-8 h-8" />
         </button>
       </div>
+
+      <ContactFormModal 
+        open={contactModalOpen} 
+        onOpenChange={setContactModalOpen} 
+      />
     </section>
   );
 }
