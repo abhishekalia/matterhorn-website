@@ -52,11 +52,13 @@ export default function HeroSection() {
           <Button
             size="lg"
             className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
-            onClick={() => scrollToSection("contact")}
+            asChild
             data-testid="button-connect"
           >
-            Connect with Our Team
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <a href="mailto:support@matterhornprotects.com">
+              Connect with Our Team
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </Button>
           <Button
             size="lg"

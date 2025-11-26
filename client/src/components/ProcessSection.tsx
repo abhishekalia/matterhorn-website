@@ -154,13 +154,12 @@ export default function ProcessSection() {
             size="lg" 
             variant="outline"
             className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-10 py-7"
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
+            asChild
             data-testid="button-contact-us"
           >
-            Contact Us
+            <a href="mailto:support@matterhornprotects.com">
+              Contact Us
+            </a>
           </Button>
         </div>
       </div>
