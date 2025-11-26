@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import CustomCursor from "@/components/CustomCursor";
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,10 @@ const requirements = [
 ];
 
 export default function BrokerPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   const scrollToApply = () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   };
