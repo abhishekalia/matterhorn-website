@@ -1,6 +1,16 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 import { z } from 'zod';
+import type { IncomingMessage, ServerResponse } from 'http';
+
+interface VercelRequest extends IncomingMessage {
+  body: any;
+  query: { [key: string]: string | string[] };
+}
+
+interface VercelResponse extends ServerResponse {
+  status: (code: number) => VercelResponse;
+  json: (data: any) => void;
+}
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
