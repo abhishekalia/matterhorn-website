@@ -98,18 +98,15 @@ export default function AboutMatterhorn() {
               <p className="text-foreground/70 leading-relaxed mb-6">
                 Unlike traditional MGAs that simply place business, we architect solutions—combining underwriting expertise, technology infrastructure, and operational excellence into turnkey programs that scale.
               </p>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90"
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                data-testid="button-learn-more-about"
-              >
-                Learn More About Our Approach
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <a href="mailto:support@matterhornprotects.com" data-testid="button-learn-more-about">
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90"
+                >
+                  Learn More About Our Approach
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
             </div>
           </Card>
         </div>
