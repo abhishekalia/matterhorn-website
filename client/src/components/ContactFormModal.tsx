@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useMutation } from "@tanstack/react-query";
 import {
   Dialog,
   DialogContent,
@@ -22,7 +22,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import { Send } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
+import { apiRequest } from "@/lib/queryClient";
 
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -44,7 +45,6 @@ interface ContactFormModalProps {
 
 export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -58,31 +58,30 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
     },
   });
 
-  const onSubmit = (data: ContactFormValues) => {
-    setIsSubmitting(true);
-    
-    const subject = encodeURIComponent(`Contact Form Submission from ${data.firstName} ${data.lastName}`);
-    const body = encodeURIComponent(
-      `First Name: ${data.firstName}\n` +
-      `Last Name: ${data.lastName}\n` +
-      `Is a Broker: ${data.isBroker === "yes" ? "Yes" : "No"}\n` +
-      `Phone: ${data.phone}\n` +
-      `Email: ${data.email}\n\n` +
-      `Message:\n${data.message}`
-    );
-
-    window.location.href = `mailto:support@matterhornprotects.com?subject=${subject}&body=${body}`;
-
-    toast({
-      title: "Email client opened",
-      description: "Please send the email from your email application to complete your submission.",
-    });
-
-    setTimeout(() => {
-      setIsSubmitting(false);
+  const submitMutation = useMutation({
+    mutationFn: async (data: ContactFormValues) => {
+      const response = await apiRequest("POST", "/api/contact", data);
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
       form.reset();
       onOpenChange(false);
-    }, 1000);
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Failed to send message",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: ContactFormValues) => {
+    submitMutation.mutate(data);
   };
 
   return (
@@ -226,11 +225,11 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
             <Button 
               type="submit" 
               className="w-full bg-primary hover:bg-primary/90"
-              disabled={isSubmitting}
+              disabled={submitMutation.isPending}
               data-testid="button-submit-contact"
             >
-              {isSubmitting ? (
-                "Submitting..."
+              {submitMutation.isPending ? (
+                "Sending..."
               ) : (
                 <>
                   <Send className="mr-2 h-4 w-4" />
