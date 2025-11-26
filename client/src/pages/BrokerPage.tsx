@@ -249,7 +249,7 @@ export default function BrokerPage() {
           </Card>
 
           <p className="text-sm text-foreground/60">
-            Questions? Email us at <a href="mailto:brokers@matterhornprotects.com" className="text-primary hover:underline">brokers@matterhornprotects.com</a>
+            Questions? Email us at <a href="mailto:support@matterhornprotects.com" className="text-primary hover:underline">support@matterhornprotects.com</a>
           </p>
         </div>
       </section>

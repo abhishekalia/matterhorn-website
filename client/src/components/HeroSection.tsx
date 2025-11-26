@@ -57,7 +57,6 @@ export default function HeroSection() {
           >
             <a href="mailto:support@matterhornprotects.com">
               Connect with Our Team
-              <ArrowRight className="ml-2 w-5 h-5" />
             </a>
           </Button>
           <Button
