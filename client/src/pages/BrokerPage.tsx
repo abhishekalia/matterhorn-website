@@ -13,7 +13,6 @@ import { MarketingSection } from "@/components/broker/MarketingSection";
 import { MarketingLandingPagesSection } from "@/components/broker/MarketingLandingPagesSection";
 import { CaseStudiesSection } from "@/components/broker/CaseStudiesSection";
 import { AppointmentProcessSection } from "@/components/broker/AppointmentProcessSection";
-import { ContactSection } from "@/components/broker/ContactSection";
 import { ResourcesSection } from "@/components/broker/ResourcesSection";
 import { FAQSection } from "@/components/broker/FAQSection";
 import { DisclaimerSection } from "@/components/broker/DisclaimerSection";
@@ -49,7 +48,6 @@ export default function BrokerPage() {
         <MarketingLandingPagesSection />
         <CaseStudiesSection />
         <AppointmentProcessSection />
-        <ContactSection />
         <ResourcesSection />
         <FAQSection />
         <DisclaimerSection />
