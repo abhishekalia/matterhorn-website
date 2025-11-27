@@ -55,29 +55,35 @@ export function HeroSection({
           >
             <source src={videoUrl} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/90 via-[#1B2A41]/85 to-[#0A1628]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
         </motion.div>
       ) : (
         <motion.div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center scale-105 animate-subtle-zoom"
           style={{
             backgroundImage: `url(${heroImage})`,
-            y: scrollY * 0.5,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/90 via-[#1B2A41]/85 to-[#0A1628]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
         </motion.div>
       )}
 
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slower" />
+      </div>
+
       <div className="container mx-auto px-6 relative z-10 pt-24 pb-16">
         <motion.div
-          className="max-w-4xl"
+          className="max-w-4xl text-center mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-serif font-semibold mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             data-testid="text-hero-headline"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,10 +93,14 @@ export function HeroSection({
               ease: [0.22, 0.61, 0.36, 1],
             }}
           >
-            Build and Scale Specialty Programs with Matterhorn Insurance Group.
+            Build and Scale{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary animate-gradient">
+              Specialty Programs
+            </span>{" "}
+            with Matterhorn
           </motion.h1>
           <motion.p
-            className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl"
+            className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-medium"
             data-testid="text-hero-subhead"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,11 +110,24 @@ export function HeroSection({
               ease: [0.22, 0.61, 0.36, 1],
             }}
           >
+            AI-Powered Insurance Program Design
+          </motion.p>
+          <motion.p
+            className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed"
+            data-testid="text-hero-description"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0.22, 0.61, 0.36, 1],
+            }}
+          >
             We partner with brokers to design, launch, and manage specialty
             programs—powered by AI and guided by experienced underwriters.
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -116,7 +139,7 @@ export function HeroSection({
             <Button
               size="lg"
               onClick={onGetAppointedClick}
-              className="text-lg px-8"
+              className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
               data-testid="button-get-appointed-hero"
             >
               Get Appointed
@@ -126,7 +149,7 @@ export function HeroSection({
               size="lg"
               variant="outline"
               onClick={onExploreProgramsClick}
-              className="text-lg px-8 bg-background/20 backdrop-blur-sm border-primary/20"
+              className="text-base px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
               data-testid="button-explore-programs"
             >
               Explore Programs
