@@ -1,5 +1,6 @@
 // client/src/pages/BrokerPage.tsx
 
+import { useEffect } from "react";
 import { Header } from "@/components/broker/Header";
 import { HeroSection } from "@/components/broker/HeroSection";
 import { CredoSection } from "@/components/broker/CredoSection";
@@ -21,6 +22,10 @@ import { FloatingCTA } from "@/components/broker/FloatingCTA";
 import { CustomCursor } from "@/components/broker/CustomCursor";
 
 export default function BrokerPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
