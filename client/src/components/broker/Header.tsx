@@ -41,7 +41,7 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border"
+          ? "bg-[#0A1628]/95 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
       }`}
       data-testid="header-main"
@@ -54,7 +54,7 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
         >
           <div className="flex items-center gap-2">
             <Mountain className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-            <span className="text-xl md:text-2xl font-semibold tracking-tight text-primary">
+            <span className="text-xl md:text-2xl font-semibold tracking-tight text-white">
               MATTERHORN
             </span>
           </div>
@@ -65,7 +65,7 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="px-3 py-2 text-sm text-muted-foreground hover-elevate rounded-md transition-colors"
+              className="px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-md transition-colors"
               data-testid={`link-${item.id}`}
             >
               {item.label}
@@ -76,14 +76,14 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
         <div className="flex items-center gap-3">
           <Button
             onClick={onGetAppointedClick}
-            className="hidden lg:flex"
+            className="hidden lg:flex bg-primary hover:bg-primary/90"
             data-testid="button-get-appointed-header"
           >
             Get Appointed
           </Button>
 
           <button
-            className="lg:hidden p-2 hover-elevate rounded-md"
+            className="lg:hidden p-2 text-white hover:bg-white/10 rounded-md"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="button-mobile-menu"
           >
@@ -98,7 +98,7 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
 
       {isMobileMenuOpen && (
         <div
-          className="lg:hidden bg-card border-t border-border"
+          className="lg:hidden bg-[#0A1628]/95 backdrop-blur-md border-t border-white/10"
           data-testid="mobile-menu"
         >
           <nav className="container mx-auto px-6 py-4 flex flex-col gap-2">
@@ -106,7 +106,7 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="px-3 py-2 text-left text-sm text-muted-foreground hover-elevate rounded-md"
+                className="px-3 py-2 text-left text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-md"
                 data-testid={`link-mobile-${item.id}`}
               >
                 {item.label}
@@ -114,7 +114,7 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
             ))}
             <Button
               onClick={onGetAppointedClick}
-              className="mt-2"
+              className="mt-2 bg-primary hover:bg-primary/90"
               data-testid="button-get-appointed-mobile"
             >
               Get Appointed

@@ -30,12 +30,12 @@ function ProgramCard({ program, sectorKey, index }: ProgramCardProps) {
 
   return (
     <Card
-      className="p-4 transition-all duration-300 cursor-pointer group border-2 border-transparent hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 hover:scale-[1.02] active:scale-[0.99]"
+      className="p-4 transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:border-primary/40"
       data-testid={`card-program-${sectorKey}-${index}`}
     >
       <div className="flex items-start justify-between mb-3">
         <h3
-          className="font-semibold group-hover:text-primary transition-colors duration-200"
+          className="font-semibold text-white group-hover:text-primary transition-colors duration-200"
           data-testid={`text-program-name-${sectorKey}-${index}`}
         >
           {program.name}
@@ -48,7 +48,7 @@ function ProgramCard({ program, sectorKey, index }: ProgramCardProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="w-full justify-between mb-2 text-xs hover:bg-primary/10 hover:text-primary transition-colors"
+            className="w-full justify-between mb-2 text-xs text-white/70 hover:bg-white/10 hover:text-primary transition-colors"
             data-testid={`button-toggle-coverages-${sectorKey}-${index}`}
           >
             <span>Available Coverages ({program.coverages.length})</span>
@@ -61,7 +61,7 @@ function ProgramCard({ program, sectorKey, index }: ProgramCardProps) {
           {program.coverages.map((coverage, idx) => (
             <div
               key={idx}
-              className="text-xs text-muted-foreground pl-2 py-1 border-l-2 border-primary/20 hover:border-primary hover:text-foreground hover:bg-primary/5 transition-all cursor-default rounded-r"
+              className="text-xs text-white/60 pl-2 py-1 border-l-2 border-primary/20 hover:border-primary hover:text-white hover:bg-white/5 transition-all cursor-default rounded-r"
               data-testid={`text-coverage-${sectorKey}-${index}-${idx}`}
             >
               • {coverage}
@@ -74,7 +74,7 @@ function ProgramCard({ program, sectorKey, index }: ProgramCardProps) {
         <Button
           variant="ghost"
           size="sm"
-          className="text-xs justify-start px-2 h-auto py-1.5 hover:bg-primary/10 hover:text-primary transition-all"
+          className="text-xs justify-start px-2 h-auto py-1.5 text-white/70 hover:bg-white/10 hover:text-primary transition-all"
           onClick={() => console.log(`Request sheet for ${program.name}`)}
           data-testid={`button-request-sheet-${sectorKey}-${index}`}
         >
@@ -84,7 +84,7 @@ function ProgramCard({ program, sectorKey, index }: ProgramCardProps) {
         <Button
           variant="default"
           size="sm"
-          className="text-xs w-full hover:scale-[1.02] active:scale-[0.98] transition-transform"
+          className="text-xs w-full bg-primary hover:bg-primary/90"
           onClick={() => console.log(`Request application for ${program.name}`)}
           data-testid={`button-request-application-${sectorKey}-${index}`}
         >
@@ -410,21 +410,30 @@ export function ProgramsSection() {
   return (
     <section
       id="programs"
-      className="py-24 bg-background"
+      className="py-24 relative overflow-hidden"
       data-testid="section-programs"
+      style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
     >
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2
-            className="text-4xl md:text-5xl font-serif font-semibold mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
             data-testid="text-programs-title"
           >
-            Programs We Operate
+            Programs We{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+              Operate
+            </span>
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
             <Badge
               variant="outline"
-              className="text-sm px-4 py-2"
+              className="text-sm px-4 py-2 bg-white/5 border-white/20 text-white"
               data-testid="badge-coverage"
             >
               <MapPin className="w-4 h-4 mr-2" />
@@ -432,7 +441,7 @@ export function ProgramsSection() {
             </Badge>
             <Badge
               variant="outline"
-              className="text-sm px-4 py-2"
+              className="text-sm px-4 py-2 bg-white/5 border-white/20 text-white"
               data-testid="badge-digital"
             >
               <Laptop className="w-4 h-4 mr-2" />
@@ -442,13 +451,13 @@ export function ProgramsSection() {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 md:grid-cols-4 mb-12">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 md:grid-cols-4 mb-12 bg-white/5 border border-white/10">
             {Object.entries(sectors).map(([key, sector]) => (
               <TabsTrigger
                 key={key}
                 value={key}
                 data-testid={`tab-${key}`}
-                className="text-sm md:text-base"
+                className="text-sm md:text-base text-white/70 data-[state=active]:bg-primary data-[state=active]:text-white"
               >
                 {sector.title}
               </TabsTrigger>
@@ -458,12 +467,12 @@ export function ProgramsSection() {
           {Object.entries(sectors).map(([key, sector]) => (
             <TabsContent key={key} value={key}>
               <div className="grid lg:grid-cols-2 gap-8">
-                <Card className="overflow-hidden h-80 lg:h-auto">
+                <Card className="overflow-hidden h-80 lg:h-auto bg-white/5 backdrop-blur-md border-white/10">
                   <div
                     className="w-full h-full bg-cover bg-center"
                     style={{ backgroundImage: `url(${sector.image})` }}
                   >
-                    <div className="w-full h-full bg-gradient-to-t from-background/90 to-transparent" />
+                    <div className="w-full h-full bg-gradient-to-t from-[#0A1628]/90 to-transparent" />
                   </div>
                 </Card>
 

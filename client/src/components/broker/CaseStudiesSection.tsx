@@ -180,36 +180,40 @@ export function CaseStudiesSection() {
   return (
     <section
       id="case-studies"
-      className="py-24 bg-background relative overflow-hidden"
+      className="py-24 relative overflow-hidden"
       data-testid="section-case-studies"
+      style={{ background: 'linear-gradient(to bottom, #1B2A41, #0A1628)' }}
     >
-      {/* Edgy animated background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
-      <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
-      <div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse pointer-events-none"
-        style={{ animationDelay: "1s" }}
-      />
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse pointer-events-none" />
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse pointer-events-none"
+          style={{ animationDelay: "1s" }}
+        />
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
             <Badge
               variant="outline"
-              className="mb-4 text-sm px-4 py-2"
+              className="mb-4 text-sm px-4 py-2 bg-white/5 border-white/20 text-white"
               data-testid="badge-success-stories"
             >
               <Award className="w-4 h-4 mr-2" />
               Success Stories
             </Badge>
             <h2
-              className="text-4xl md:text-5xl font-serif font-semibold mb-4"
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
               data-testid="text-case-studies-title"
             >
-              Case Studies
+              Case{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+                Studies
+              </span>
             </h2>
             <p
-              className="text-lg text-muted-foreground max-w-3xl mx-auto"
+              className="text-lg text-white/80 max-w-3xl mx-auto"
               data-testid="text-case-studies-description"
             >
               Real examples of custom programs we have designed and how they
@@ -228,7 +232,7 @@ export function CaseStudiesSection() {
                 viewport={{ once: true }}
               >
                 <Card
-                  className="relative overflow-hidden hover-elevate transition-all duration-500 group h-full"
+                  className="relative overflow-hidden transition-all duration-500 group h-full bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10"
                   data-testid={`card-case-study-${study.id}`}
                 >
                   {/* Dynamic gradient background on hover */}
@@ -250,7 +254,7 @@ export function CaseStudiesSection() {
                         {study.sector}
                       </Badge>
                       <h3
-                        className="text-2xl font-serif font-semibold mb-3 group-hover:text-primary transition-colors"
+                        className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors"
                         data-testid={`text-case-study-title-${study.id}`}
                       >
                         {study.title}
@@ -266,7 +270,7 @@ export function CaseStudiesSection() {
                         </h4>
                       </div>
                       <p
-                        className="text-sm text-muted-foreground pl-3"
+                        className="text-sm text-white/70 pl-3"
                         data-testid={`text-challenge-${study.id}`}
                       >
                         {study.challenge}
@@ -282,7 +286,7 @@ export function CaseStudiesSection() {
                         </h4>
                       </div>
                       <p
-                        className="text-sm text-muted-foreground pl-3"
+                        className="text-sm text-white/70 pl-3"
                         data-testid={`text-solution-${study.id}`}
                       >
                         {study.solution}
@@ -293,7 +297,7 @@ export function CaseStudiesSection() {
                     <div className="grid md:grid-cols-2 gap-6 mt-auto">
                       {/* Client Benefits */}
                       <div className="space-y-3">
-                        <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground flex items-center gap-2">
+                        <h4 className="text-xs font-semibold uppercase tracking-wide text-white/50 flex items-center gap-2">
                           <Shield className="w-3 h-3" />
                           Client Benefits
                         </h4>
@@ -308,7 +312,7 @@ export function CaseStudiesSection() {
                                 className={`w-4 h-4 mt-0.5 flex-shrink-0 ${study.accentColor}`}
                               />
                               <div>
-                                <p className="text-foreground">
+                                <p className="text-white">
                                   {benefit.text}
                                 </p>
                                 {benefit.metric && (
@@ -326,7 +330,7 @@ export function CaseStudiesSection() {
 
                       {/* Broker Benefits */}
                       <div className="space-y-3">
-                        <h4 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground flex items-center gap-2">
+                        <h4 className="text-xs font-semibold uppercase tracking-wide text-white/50 flex items-center gap-2">
                           <TrendingUp className="w-3 h-3" />
                           Broker Benefits
                         </h4>
@@ -339,7 +343,7 @@ export function CaseStudiesSection() {
                             >
                               <benefit.icon className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary" />
                               <div>
-                                <p className="text-foreground">
+                                <p className="text-white">
                                   {benefit.text}
                                 </p>
                                 {benefit.metric && (
@@ -355,11 +359,11 @@ export function CaseStudiesSection() {
                     </div>
 
                     {/* CTA */}
-                    <div className="mt-6 pt-6 border-t border-border">
+                    <div className="mt-6 pt-6 border-t border-white/10">
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="w-full group/btn"
+                        className="w-full group/btn text-white/70 hover:text-white hover:bg-white/10"
                         onClick={() =>
                           console.log(`Learn more about ${study.title}`)
                         }
@@ -381,23 +385,22 @@ export function CaseStudiesSection() {
 
         <ScrollReveal delay={0.4}>
           <div className="mt-16 text-center">
-            <Card className="inline-block p-8 bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20 relative overflow-hidden group">
-              {/* Animated background */}
+            <Card className="inline-block p-8 bg-white/5 backdrop-blur-md border-white/10 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/20 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">
                 <Award className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-serif font-semibold mb-2">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   Ready to Create Your Success Story?
                 </h3>
-                <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+                <p className="text-white/70 mb-6 max-w-xl mx-auto">
                   Let us design a custom program that drives revenue for you and
                   value for your clients.
                 </p>
                 <Button
                   variant="default"
                   size="lg"
-                  className="group/cta"
+                  className="group/cta bg-primary hover:bg-primary/90"
                   data-testid="button-start-conversation"
                 >
                   Start the Conversation

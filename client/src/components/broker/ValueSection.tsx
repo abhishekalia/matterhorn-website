@@ -49,15 +49,27 @@ const values = [
 
 export function ValueSection() {
   return (
-    <section className="py-24 bg-card" data-testid="section-value">
-      <div className="container mx-auto px-6">
+    <section 
+      className="py-24 relative overflow-hidden" 
+      data-testid="section-value"
+      style={{ background: 'linear-gradient(to bottom, #1B2A41, #0A1628)' }}
+    >
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2
-              className="text-4xl md:text-5xl font-serif font-semibold mb-4"
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
               data-testid="text-value-title"
             >
-              What We Do
+              What We{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+                Do
+              </span>
             </h2>
           </div>
         </ScrollReveal>
@@ -68,22 +80,22 @@ export function ValueSection() {
             return (
               <ScrollReveal key={index} delay={index * 0.05} direction="up">
                 <Card
-                  className="p-6 hover-elevate transition-all duration-300 h-full"
+                  className="p-6 transition-all duration-300 h-full bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10"
                   data-testid={`card-value-${index}`}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-md flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-primary/20 rounded-md flex items-center justify-center flex-shrink-0">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3
-                        className="text-lg font-serif font-semibold mb-2"
+                        className="text-lg font-bold text-white mb-2"
                         data-testid={`text-value-title-${index}`}
                       >
                         {value.title}
                       </h3>
                       <p
-                        className="text-sm text-muted-foreground"
+                        className="text-sm text-white/70"
                         data-testid={`text-value-description-${index}`}
                       >
                         {value.description}

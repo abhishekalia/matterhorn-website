@@ -73,11 +73,11 @@ export function AppointmentForm() {
     return (
       <div className="text-center py-12">
         <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-        <h3 className="text-2xl font-semibold mb-2">Thank You!</h3>
-        <p className="text-muted-foreground mb-6">
+        <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
+        <p className="text-white/70 mb-6">
           Your message has been sent. We'll be in touch soon.
         </p>
-        <Button onClick={() => setIsSuccess(false)} variant="outline">
+        <Button onClick={() => setIsSuccess(false)} variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
           Send Another Message
         </Button>
       </div>
@@ -93,9 +93,9 @@ export function AppointmentForm() {
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>First Name</FormLabel>
+                <FormLabel className="text-white">First Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="John" {...field} data-testid="input-first-name" />
+                  <Input placeholder="John" {...field} data-testid="input-first-name" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -106,9 +106,9 @@ export function AppointmentForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Last Name</FormLabel>
+                <FormLabel className="text-white">Last Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Doe" {...field} data-testid="input-last-name" />
+                  <Input placeholder="Doe" {...field} data-testid="input-last-name" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -121,7 +121,7 @@ export function AppointmentForm() {
           name="isBroker"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Are you a broker?</FormLabel>
+              <FormLabel className="text-white">Are you a broker?</FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
@@ -129,12 +129,12 @@ export function AppointmentForm() {
                   className="flex gap-6"
                 >
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yes" id="broker-yes" data-testid="radio-broker-yes" />
-                    <label htmlFor="broker-yes" className="cursor-pointer">Yes</label>
+                    <RadioGroupItem value="yes" id="broker-yes" data-testid="radio-broker-yes" className="border-white/30 text-primary" />
+                    <label htmlFor="broker-yes" className="cursor-pointer text-white">Yes</label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="no" id="broker-no" data-testid="radio-broker-no" />
-                    <label htmlFor="broker-no" className="cursor-pointer">No</label>
+                    <RadioGroupItem value="no" id="broker-no" data-testid="radio-broker-no" className="border-white/30 text-primary" />
+                    <label htmlFor="broker-no" className="cursor-pointer text-white">No</label>
                   </div>
                 </RadioGroup>
               </FormControl>
@@ -148,9 +148,9 @@ export function AppointmentForm() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone Number</FormLabel>
+              <FormLabel className="text-white">Phone Number</FormLabel>
               <FormControl>
-                <Input placeholder="(555) 123-4567" {...field} data-testid="input-phone" />
+                <Input placeholder="(555) 123-4567" {...field} data-testid="input-phone" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -162,9 +162,9 @@ export function AppointmentForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email Address</FormLabel>
+              <FormLabel className="text-white">Email Address</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" />
+                <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" className="bg-white/10 border-white/20 text-white placeholder:text-white/50" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -176,11 +176,11 @@ export function AppointmentForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel className="text-white">Message</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Tell us about your business and how we can help..."
-                  className="min-h-[120px]"
+                  className="min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-white/50"
                   {...field}
                   data-testid="textarea-message"
                 />
@@ -193,7 +193,7 @@ export function AppointmentForm() {
         <Button
           type="submit"
           size="lg"
-          className="w-full"
+          className="w-full bg-primary hover:bg-primary/90"
           disabled={isSubmitting}
           data-testid="button-submit"
         >

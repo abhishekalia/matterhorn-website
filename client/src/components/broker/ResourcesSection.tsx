@@ -33,19 +33,28 @@ export function ResourcesSection() {
   return (
     <section
       id="resources"
-      className="py-24 bg-card"
+      className="py-24 relative overflow-hidden"
       data-testid="section-resources"
+      style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
     >
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2
-            className="text-4xl md:text-5xl font-serif font-semibold mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
             data-testid="text-resources-title"
           >
-            Resources & Downloads
+            Resources &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+              Downloads
+            </span>
           </h2>
           <p
-            className="text-lg text-muted-foreground"
+            className="text-lg text-white/80"
             data-testid="text-resources-description"
           >
             Everything you need to get started and succeed.
@@ -58,20 +67,20 @@ export function ResourcesSection() {
             return (
               <Card
                 key={index}
-                className="p-6 hover-elevate transition-all duration-300"
+                className="p-6 transition-all duration-300 bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10"
                 data-testid={`card-resource-${index}`}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-md flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-primary/20 rounded-md flex items-center justify-center mb-4">
                   <Icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3
-                  className="text-lg font-serif font-semibold mb-2"
+                  className="text-lg font-bold text-white mb-2"
                   data-testid={`text-resource-title-${index}`}
                 >
                   {resource.title}
                 </h3>
                 <p
-                  className="text-sm text-muted-foreground mb-4"
+                  className="text-sm text-white/70 mb-4"
                   data-testid={`text-resource-description-${index}`}
                 >
                   {resource.description}
@@ -79,7 +88,7 @@ export function ResourcesSection() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="w-full"
+                  className="w-full text-white/70 hover:text-white hover:bg-white/10"
                   onClick={() => console.log(`${resource.action} clicked`)}
                   data-testid={`button-resource-${index}`}
                 >

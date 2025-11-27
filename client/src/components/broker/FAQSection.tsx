@@ -50,14 +50,27 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-24 bg-background" data-testid="section-faq">
-      <div className="container mx-auto px-6">
+    <section 
+      id="faq" 
+      className="py-24 relative overflow-hidden" 
+      data-testid="section-faq"
+      style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
+    >
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2
-            className="text-4xl md:text-5xl font-serif font-semibold mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
             data-testid="text-faq-title"
           >
-            Frequently Asked Questions
+            Frequently Asked{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+              Questions
+            </span>
           </h2>
         </div>
 
@@ -67,19 +80,19 @@ export function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border border-border rounded-md px-6 bg-card"
+                className="border border-white/10 rounded-md px-6 bg-white/5 backdrop-blur-md"
                 data-testid={`accordion-faq-${index}`}
               >
                 <AccordionTrigger
-                  className="text-left hover:no-underline"
+                  className="text-left hover:no-underline text-white"
                   data-testid={`accordion-trigger-${index}`}
                 >
-                  <span className="font-serif font-semibold">
+                  <span className="font-bold">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
                 <AccordionContent
-                  className="text-muted-foreground"
+                  className="text-white/70"
                   data-testid={`accordion-content-${index}`}
                 >
                   {faq.answer}

@@ -1,13 +1,17 @@
 export function DisclaimerSection() {
   return (
-    <section className="py-12 bg-muted" data-testid="section-disclaimer">
+    <section 
+      className="py-12 relative" 
+      data-testid="section-disclaimer"
+      style={{ background: '#0A1628' }}
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-sm font-semibold mb-3 text-muted-foreground">
+          <h3 className="text-sm font-semibold mb-3 text-white/50">
             LEGAL DISCLAIMER
           </h3>
           <p
-            className="text-xs text-muted-foreground leading-relaxed"
+            className="text-xs text-white/40 leading-relaxed"
             data-testid="text-disclaimer"
           >
             Matterhorn Insurance Group is not offering coverage directly to

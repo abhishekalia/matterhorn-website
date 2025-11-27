@@ -28,19 +28,29 @@ const steps = [
 export function AppointmentProcessSection() {
   return (
     <section
-      className="py-24 bg-card"
+      id="appointment"
+      className="py-24 relative overflow-hidden"
       data-testid="section-appointment-process"
+      style={{ background: 'linear-gradient(to bottom, #1B2A41, #0A1628)' }}
     >
-      <div className="container mx-auto px-6">
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2
-            className="text-4xl md:text-5xl font-serif font-semibold mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
             data-testid="text-process-title"
           >
-            Get Appointed in Three Steps
+            Get Appointed in{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+              Three Steps
+            </span>
           </h2>
           <p
-            className="text-lg text-muted-foreground"
+            className="text-lg text-white/80"
             data-testid="text-process-description"
           >
             Immediate onboarding for qualified brokers.
@@ -53,7 +63,7 @@ export function AppointmentProcessSection() {
             return (
               <Card
                 key={index}
-                className="p-8 text-center hover-elevate transition-all duration-300"
+                className="p-8 text-center transition-all duration-300 bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10"
                 data-testid={`card-step-${index}`}
               >
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
@@ -63,13 +73,13 @@ export function AppointmentProcessSection() {
                   STEP {step.number}
                 </div>
                 <h3
-                  className="text-xl font-serif font-semibold mb-3"
+                  className="text-xl font-bold text-white mb-3"
                   data-testid={`text-step-title-${index}`}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className="text-muted-foreground"
+                  className="text-white/70"
                   data-testid={`text-step-description-${index}`}
                 >
                   {step.description}
