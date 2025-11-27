@@ -1,0 +1,127 @@
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Mountain } from "lucide-react";
+
+interface HeaderProps {
+  onGetAppointedClick: () => void;
+}
+
+export function Header({ onGetAppointedClick }: HeaderProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const navItems = [
+    { label: "About", id: "about" },
+    { label: "Sectors", id: "sectors" },
+    { label: "Technology", id: "technology" },
+    { label: "Markets", id: "markets" },
+    { label: "Programs", id: "programs" },
+    { label: "Resources", id: "resources" },
+    { label: "FAQ", id: "faq" },
+    { label: "Contact", id: "contact" },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md border-b border-border"
+          : "bg-transparent"
+      }`}
+      data-testid="header-main"
+    >
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-3 hover:opacity-90 transition-all group"
+          data-testid="logo-header"
+        >
+          <div className="flex items-center gap-2">
+            <Mountain className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+            <span className="text-xl md:text-2xl font-semibold tracking-tight text-primary">
+              MATTERHORN
+            </span>
+          </div>
+        </button>
+
+        <nav className="hidden lg:flex items-center gap-1">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="px-3 py-2 text-sm text-muted-foreground hover-elevate rounded-md transition-colors"
+              data-testid={`link-${item.id}`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <Button
+            onClick={onGetAppointedClick}
+            className="hidden lg:flex"
+            data-testid="button-get-appointed-header"
+          >
+            Get Appointed
+          </Button>
+
+          <button
+            className="lg:hidden p-2 hover-elevate rounded-md"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            data-testid="button-mobile-menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {isMobileMenuOpen && (
+        <div
+          className="lg:hidden bg-card border-t border-border"
+          data-testid="mobile-menu"
+        >
+          <nav className="container mx-auto px-6 py-4 flex flex-col gap-2">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="px-3 py-2 text-left text-sm text-muted-foreground hover-elevate rounded-md"
+                data-testid={`link-mobile-${item.id}`}
+              >
+                {item.label}
+              </button>
+            ))}
+            <Button
+              onClick={onGetAppointedClick}
+              className="mt-2"
+              data-testid="button-get-appointed-mobile"
+            >
+              Get Appointed
+            </Button>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}

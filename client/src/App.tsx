@@ -9,6 +9,7 @@ import BrokerPage from "@/pages/BrokerPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 
+
 function Router() {
   return (
     <Switch>
