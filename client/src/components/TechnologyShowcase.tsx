@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Cpu, Database, Lock, Sparkles, BarChart3, Workflow, Mountain, ArrowRight } from "lucide-react";
+import { ContactFormModal } from "./ContactFormModal";
 
 const technologies = [
   {
@@ -43,6 +45,8 @@ const technologies = [
 ];
 
 export default function TechnologyShowcase() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  
   return (
     <section className="py-24 bg-gradient-to-br from-[#0A1628] to-[#1B2A41] text-white relative overflow-hidden" data-testid="section-technology">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
@@ -100,10 +104,7 @@ export default function TechnologyShowcase() {
             size="lg" 
             variant="outline"
             className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onClick={() => setIsContactOpen(true)}
             data-testid="button-request-demo"
           >
             Request a Demo
@@ -111,6 +112,11 @@ export default function TechnologyShowcase() {
           </Button>
         </div>
       </div>
+      
+      <ContactFormModal 
+        open={isContactOpen} 
+        onOpenChange={setIsContactOpen} 
+      />
     </section>
   );
 }
