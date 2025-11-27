@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Mountain } from "lucide-react";
 
@@ -47,14 +48,12 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
       data-testid="header-main"
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2 cursor-pointer group"
-          data-testid="logo-header"
-        >
-          <Mountain className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-          <div className="text-2xl font-bold text-primary">MATTERHORN</div>
-        </button>
+        <Link href="/" data-testid="logo-header">
+          <div className="flex items-center gap-2 cursor-pointer group">
+            <Mountain className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+            <div className="text-2xl font-bold text-primary">MATTERHORN</div>
+          </div>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
