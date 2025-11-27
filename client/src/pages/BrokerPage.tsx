@@ -26,13 +26,6 @@ export default function BrokerPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const scrollToPrograms = () => {
     const element = document.getElementById("programs");
     if (element) {
@@ -43,12 +36,9 @@ export default function BrokerPage() {
   return (
     <div className="min-h-screen dark">
       <CustomCursor />
-      <Header onGetAppointedClick={scrollToContact} />
+      <Header />
       <main>
-        <HeroSection
-          onGetAppointedClick={scrollToContact}
-          onExploreProgramsClick={scrollToPrograms}
-        />
+        <HeroSection onExploreProgramsClick={scrollToPrograms} />
         <CredoSection />
         <ValueSection />
         <TechnologySection />
@@ -65,7 +55,7 @@ export default function BrokerPage() {
         <DisclaimerSection />
       </main>
       <Footer />
-      <FloatingCTA onGetAppointedClick={scrollToContact} />
+      <FloatingCTA />
     </div>
   );
 }

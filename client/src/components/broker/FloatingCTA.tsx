@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
 
-interface FloatingCTAProps {
-  onGetAppointedClick: () => void;
-}
+const JOTFORM_URL = "https://form.jotform.com/250985130794060";
 
-export function FloatingCTA({ onGetAppointedClick }: FloatingCTAProps) {
+export function FloatingCTA() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -25,12 +23,14 @@ export function FloatingCTA({ onGetAppointedClick }: FloatingCTAProps) {
       data-testid="floating-cta"
     >
       <Button
-        onClick={onGetAppointedClick}
+        asChild
         size="lg"
         className="shadow-lg shadow-primary/30 bg-primary hover:bg-primary/90"
         data-testid="button-floating-appointed"
       >
-        Apply to Get Appointed
+        <a href={JOTFORM_URL} target="_blank" rel="noopener noreferrer">
+          Apply to Get Appointed
+        </a>
       </Button>
       <Button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

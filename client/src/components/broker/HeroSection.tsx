@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 
+const JOTFORM_URL = "https://form.jotform.com/250985130794060";
+
 interface HeroSectionProps {
-  onGetAppointedClick: () => void;
   onExploreProgramsClick: () => void;
 }
 
 export function HeroSection({
-  onGetAppointedClick,
   onExploreProgramsClick,
 }: HeroSectionProps) {
   const [scrollY, setScrollY] = useState(0);
@@ -137,13 +137,15 @@ export function HeroSection({
             }}
           >
             <Button
+              asChild
               size="lg"
-              onClick={onGetAppointedClick}
               className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
               data-testid="button-get-appointed-hero"
             >
-              Get Appointed
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <a href={JOTFORM_URL} target="_blank" rel="noopener noreferrer">
+                Get Appointed
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
             </Button>
             <Button
               size="lg"
