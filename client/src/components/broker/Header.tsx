@@ -49,15 +49,11 @@ export function Header({ onGetAppointedClick }: HeaderProps) {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-3 hover:opacity-90 transition-all group"
+          className="flex items-center gap-2 cursor-pointer group"
           data-testid="logo-header"
         >
-          <div className="flex items-center gap-2">
-            <Mountain className="w-7 h-7 md:w-8 md:h-8 text-primary" />
-            <span className="text-xl md:text-2xl font-semibold tracking-tight text-white">
-              MATTERHORN
-            </span>
-          </div>
+          <Mountain className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+          <div className="text-2xl font-bold text-primary">MATTERHORN</div>
         </button>
 
         <nav className="hidden lg:flex items-center gap-1">

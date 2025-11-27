@@ -36,7 +36,7 @@ export default function BrokerPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dark">
       <CustomCursor />
       <Header onGetAppointedClick={scrollToContact} />
       <main>
