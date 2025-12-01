@@ -1,9 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Sparkles, TrendingUp } from "lucide-react";
+import { ExternalLink, Sparkles, TrendingUp, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
+import { useLocation } from "wouter";
 
 interface LandingPage {
   name: string;
@@ -11,6 +12,7 @@ interface LandingPage {
   sector: string;
   gradient: string;
   url: string;
+  isInternal?: boolean;
 }
 
 const landingPages: LandingPage[] = [
@@ -35,7 +37,8 @@ const landingPages: LandingPage[] = [
     description: "Tailored coverage for the fastest-growing sport in America",
     sector: "Sports",
     gradient: "from-green-600/20 via-emerald-600/20 to-teal-800/20",
-    url: "/landing/pickleball",
+    url: "/pickleball",
+    isInternal: true,
   },
   {
     name: "Youth Sports Program",
@@ -70,11 +73,21 @@ const sectorColors = {
 };
 
 export function MarketingLandingPagesSection() {
+  const [, setLocation] = useLocation();
+  
   const groupedBySize = [
     landingPages.slice(0, 2),
     landingPages.slice(2, 4),
     landingPages.slice(4, 6),
   ];
+
+  const handleAccessClick = (page: LandingPage) => {
+    if (page.isInternal) {
+      setLocation(page.url);
+    } else {
+      window.open(page.url, "_blank");
+    }
+  };
 
   return (
     <section
@@ -185,11 +198,15 @@ export function MarketingLandingPagesSection() {
                           <Button
                             variant="default"
                             className="flex-1 group/btn bg-primary hover:bg-primary/90"
-                            onClick={() => window.open(page.url, "_blank")}
+                            onClick={() => handleAccessClick(page)}
                             data-testid={`button-view-landing-${page.name.toLowerCase().replace(/\s+/g, "-")}`}
                           >
                             Access Now
-                            <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                            {page.isInternal ? (
+                              <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                            ) : (
+                              <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                            )}
                           </Button>
                           <Button
                             variant="outline"
