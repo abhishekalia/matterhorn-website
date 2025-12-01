@@ -35,7 +35,10 @@ import {
   TrendingDown,
   Sparkles,
   Mountain,
+  Mail,
+  Phone,
 } from "lucide-react";
+import CustomCursor from "@/components/CustomCursor";
 
 const US_STATES = [
   "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
@@ -164,8 +167,17 @@ export default function PickleballPage() {
     console.log("Broker application submitted:", formData);
   };
 
+  const navItems = [
+    { label: "Coverage", id: "coverage" },
+    { label: "Benefits", id: "why-choose" },
+    { label: "Franchise", id: "franchise" },
+    { label: "Broker", id: "broker-application" },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <CustomCursor />
+      
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -175,6 +187,21 @@ export default function PickleballPage() {
               <span className="text-xl font-bold text-white">MATTERHORN</span>
             </div>
           </Link>
+          
+          {/* Navigation Menu */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-emerald-400/80 hover:text-emerald-400 transition-colors font-medium"
+                data-testid={`nav-${item.id}`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+          
           <Button
             onClick={() => scrollToSection("broker-application")}
             className="bg-emerald-600 hover:bg-emerald-700 text-white"
@@ -297,7 +324,7 @@ export default function PickleballPage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-20" data-testid="section-why-choose">
+      <section id="why-choose" className="py-20" data-testid="section-why-choose">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" data-testid="text-why-choose-title">
@@ -391,7 +418,7 @@ export default function PickleballPage() {
       </section>
 
       {/* Franchise Programs Section */}
-      <section className="py-20" data-testid="section-franchise">
+      <section id="franchise" className="py-20" data-testid="section-franchise">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
@@ -583,27 +610,27 @@ export default function PickleballPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-material-overview">
-              <h3 className="text-xl font-bold text-white mb-2">Coverage Overview</h3>
-              <p className="text-slate-400 mb-4">Comprehensive one-page guide explaining all nine coverage types and what they protect against.</p>
+            <Card className="bg-slate-800/50 border-slate-700 p-6 flex flex-col" data-testid="card-material-overview">
+              <h3 className="text-xl font-bold text-white mb-2 text-center">Coverage Overview</h3>
+              <p className="text-slate-400 mb-4 text-center flex-1">Comprehensive one-page guide explaining all nine coverage types and what they protect against.</p>
               <Button variant="outline" className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20">
                 <Download className="w-4 h-4 mr-2" />
                 Download Overview
               </Button>
             </Card>
 
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-material-comparison">
-              <h3 className="text-xl font-bold text-white mb-2">Cost Comparison</h3>
-              <p className="text-slate-400 mb-4">Detailed breakdown showing market rates vs. Matterhorn rates with $16,000 annual savings example.</p>
+            <Card className="bg-slate-800/50 border-slate-700 p-6 flex flex-col" data-testid="card-material-comparison">
+              <h3 className="text-xl font-bold text-white mb-2 text-center">Cost Comparison</h3>
+              <p className="text-slate-400 mb-4 text-center flex-1">Detailed breakdown showing market rates vs. Matterhorn rates with $16,000 annual savings example.</p>
               <Button variant="outline" className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20">
                 <Download className="w-4 h-4 mr-2" />
                 Download Comparison
               </Button>
             </Card>
 
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-material-benefits">
-              <h3 className="text-xl font-bold text-white mb-2">Benefits Guide</h3>
-              <p className="text-slate-400 mb-4">Complete benefits guide highlighting why organizations choose Matterhorn and what's included.</p>
+            <Card className="bg-slate-800/50 border-slate-700 p-6 flex flex-col" data-testid="card-material-benefits">
+              <h3 className="text-xl font-bold text-white mb-2 text-center">Benefits Guide</h3>
+              <p className="text-slate-400 mb-4 text-center flex-1">Complete benefits guide highlighting why organizations choose Matterhorn and what's included.</p>
               <Button variant="outline" className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20">
                 <Download className="w-4 h-4 mr-2" />
                 Download Guide
@@ -855,7 +882,7 @@ export default function PickleballPage() {
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
             Start your application today and join thousands of pickleball organizations that trust Matterhorn for their insurance needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button
               size="lg"
               onClick={() => scrollToSection("broker-application")}
@@ -867,11 +894,35 @@ export default function PickleballPage() {
             <Button
               size="lg"
               variant="outline"
+              asChild
               className="border-slate-600 text-white hover:bg-slate-800 px-8 py-6 text-lg"
               data-testid="button-call-us"
             >
-              Call Us: (555) 123-4567
+              <a href="tel:1-844-600-0611">
+                <Phone className="w-5 h-5 mr-2" />
+                Call Us: 1-844-600-0611
+              </a>
             </Button>
+          </div>
+          
+          {/* Contact Info */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-slate-400">
+            <a 
+              href="mailto:support@matterhornprotects.com" 
+              className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
+              data-testid="link-email"
+            >
+              <Mail className="w-5 h-5" />
+              support@matterhornprotects.com
+            </a>
+            <a 
+              href="tel:1-844-600-0611" 
+              className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
+              data-testid="link-phone"
+            >
+              <Phone className="w-5 h-5" />
+              1-844-600-0611
+            </a>
           </div>
         </div>
       </section>
