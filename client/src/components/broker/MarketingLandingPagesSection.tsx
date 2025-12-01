@@ -169,14 +169,14 @@ export function MarketingLandingPagesSection() {
                           </div>
                         </div>
 
-                        <div className="flex flex-wrap justify-center gap-2 mb-6 flex-1">
-                          <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                        <div className="flex flex-wrap justify-center items-center gap-2 mb-6 w-full">
+                          <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full text-center">
                             Mobile Optimized
                           </div>
-                          <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                          <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full text-center">
                             SEO Ready
                           </div>
-                          <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full">
+                          <div className="text-xs bg-primary/20 text-primary px-3 py-1 rounded-full text-center">
                             Lead Capture
                           </div>
                         </div>

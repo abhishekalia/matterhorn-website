@@ -1,0 +1,123 @@
+{
+  "colorScheme": "dark",
+  "fonts": [
+    {
+      "family": "Flecham",
+      "role": "body"
+    },
+    {
+      "family": "Graphik",
+      "role": "body"
+    },
+    {
+      "family": "Arial",
+      "role": "body"
+    },
+    {
+      "family": "Helvetica Neue",
+      "role": "body"
+    },
+    {
+      "family": "Inter",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#0471CA",
+    "accent": "#0471CA",
+    "background": "#000000",
+    "textPrimary": "#000000",
+    "link": "#0471CA"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Flecham",
+      "heading": "Flecham"
+    },
+    "fontStacks": {
+      "heading": [
+        "Flecham",
+        "sans-serif"
+      ],
+      "body": [
+        "Arial",
+        "Helvetica Neue",
+        "Helvetica",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Arial",
+        "Helvetica Neue",
+        "Helvetica",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "65px",
+      "h2": "90px",
+      "body": "14px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 8,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "0px"
+    },
+    "buttonPrimary": {
+      "background": "#000000",
+      "textColor": "#FFFFFF",
+      "borderColor": "#444444",
+      "borderRadius": "5px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "transparent",
+      "textColor": "#FFFFFF",
+      "borderColor": "#444444",
+      "borderRadius": "5px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.png",
+    "favicon": "File saved at: attached_assets/favicon.jpg",
+    "ogImage": "File saved at: attached_assets/ogImage.png"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Logo #0 visually represents the brand name 'The World's First Peer' with stylized text spelling ZEVO, matching the brand identity. It is located in the header and links to the homepage, making it the main brand logo.",
+    "confidence": 0.95
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 5,
+      "text": "Download on theApp Store",
+      "reasoning": "Button #5 has vibrant color (#000000) and action-oriented text ('Download on the App Store'), making it the primary CTA. It stands out as the main action users are encouraged to take."
+    },
+    "secondary": {
+      "index": 8,
+      "text": "Log into ZEVOWeb Platform",
+      "reasoning": "Button #8 has a transparent background, making it less prominent than the primary button. It is a different color group than the primary button, fulfilling the requirement for a secondary action."
+    },
+    "confidence": 0.9
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "high",
+    "targetAudience": "tech-savvy individuals interested in EV car sharing."
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.9,
+    "colors": 0.95,
+    "overall": 0.925
+  }
+}
