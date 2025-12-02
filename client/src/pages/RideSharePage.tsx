@@ -17,9 +17,10 @@ import {
   Users,
   Truck,
   FileCheck,
+  Navigation,
 } from "lucide-react";
 import { SiAppstore, SiGoogleplay } from "react-icons/si";
-import phoneMapImage from "@assets/Screenshot_2025-12-02_at_1.06.45_PM_1764698808222.png";
+import phoneMapImage from "@assets/dark_mode_map_interface_preview_1764699767282.png";
 
 export default function RideSharePage() {
   useEffect(() => {
@@ -242,12 +243,62 @@ export default function RideSharePage() {
                   }}
                   style={{ transformStyle: 'preserve-3d' }}
                 >
-                  <img 
-                    src={phoneMapImage} 
-                    alt="Pilot App Interface showing live load tracking" 
-                    className="w-full max-w-[340px] h-auto drop-shadow-2xl transition-all duration-500 group-hover:drop-shadow-[0_35px_60px_rgba(21,93,252,0.4)]"
-                    data-testid="img-phone-mockup"
-                  />
+                  {/* Phone Frame */}
+                  <div className="relative w-[300px] transition-shadow duration-500 group-hover:drop-shadow-[0_35px_60px_rgba(21,93,252,0.4)]">
+                    {/* Phone outer shell */}
+                    <div className="relative bg-gradient-to-b from-[#2a2a2a] via-[#1f1f1f] to-[#1a1a1a] rounded-[3rem] p-[3px] shadow-[0_0_0_1px_rgba(255,255,255,0.1),0_25px_50px_-12px_rgba(0,0,0,0.8)]">
+                      {/* Phone inner bezel */}
+                      <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] rounded-[2.8rem] p-2">
+                        {/* Side buttons - Volume */}
+                        <div className="absolute -left-[3px] top-28 w-[3px] h-8 bg-gradient-to-r from-[#2a2a2a] to-[#1f1f1f] rounded-l-sm" />
+                        <div className="absolute -left-[3px] top-40 w-[3px] h-8 bg-gradient-to-r from-[#2a2a2a] to-[#1f1f1f] rounded-l-sm" />
+                        {/* Side button - Power */}
+                        <div className="absolute -right-[3px] top-32 w-[3px] h-12 bg-gradient-to-l from-[#2a2a2a] to-[#1f1f1f] rounded-r-sm" />
+                        
+                        {/* Screen container */}
+                        <div className="relative bg-black rounded-[2.4rem] overflow-hidden">
+                          {/* Dynamic Island / Notch */}
+                          <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-20 flex items-center justify-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-[#1a1a1a] ring-1 ring-[#333]" />
+                            <div className="w-3 h-3 rounded-full bg-[#0a0a0a] ring-1 ring-[#222]" />
+                          </div>
+                          
+                          {/* Screen content - Map Image */}
+                          <div className="relative aspect-[9/19.5]">
+                            <img 
+                              src={phoneMapImage} 
+                              alt="Pilot App Interface showing live load tracking" 
+                              className="absolute inset-0 w-full h-full object-cover object-center"
+                              data-testid="img-phone-mockup"
+                            />
+                            
+                            {/* Load info card overlay */}
+                            <div className="absolute bottom-6 left-4 right-4 bg-[#1a1a1a]/95 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
+                              <div className="flex items-center gap-3 mb-3">
+                                <div className="w-10 h-10 rounded-full bg-[#155DFC] flex items-center justify-center">
+                                  <Truck className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                  <p className="text-white font-semibold text-sm">Load #4829</p>
+                                  <p className="text-[#99A1AF] text-xs">Approaching Drop-off</p>
+                                </div>
+                              </div>
+                              <div className="h-1 bg-white/10 rounded-full mb-3">
+                                <div className="h-full w-3/4 bg-[#155DFC] rounded-full" />
+                              </div>
+                              <div className="flex justify-between text-xs text-[#99A1AF]">
+                                <span>Houston, TX</span>
+                                <span>12 min ETA</span>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Home indicator */}
+                          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1 bg-white/30 rounded-full" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
