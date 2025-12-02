@@ -195,15 +195,15 @@ export default function RideSharePage() {
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-10">
                 <Button 
                   onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
-                  variant="outline"
-                  className="bg-transparent border border-white/30 hover:bg-white/10 text-white rounded-full px-8 py-6 text-base"
+                  className="bg-white hover:bg-white/90 text-black font-medium rounded-full px-10 py-6 text-base border-0"
                   data-testid="button-post-load"
                 >
                   Post a Load
                 </Button>
                 <Button 
                   onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
-                  className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-6 text-base"
+                  variant="outline"
+                  className="bg-transparent border border-white/40 hover:bg-white/10 text-white font-medium rounded-full px-10 py-6 text-base"
                   data-testid="button-become-driver"
                 >
                   Become a Driver
@@ -271,6 +271,22 @@ export default function RideSharePage() {
                               className="absolute inset-0 w-full h-full object-cover object-center"
                               data-testid="img-phone-mockup"
                             />
+                            
+                            {/* Navigation Cursor */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-4">
+                              <div className="relative">
+                                {/* Cursor glow */}
+                                <div className="absolute inset-0 bg-[#155DFC] blur-lg opacity-60" />
+                                {/* Cursor arrow */}
+                                <svg 
+                                  viewBox="0 0 24 24" 
+                                  className="w-10 h-10 text-[#4DA3FF] drop-shadow-[0_0_10px_rgba(77,163,255,0.8)]"
+                                  fill="currentColor"
+                                >
+                                  <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z" />
+                                </svg>
+                              </div>
+                            </div>
                             
                             {/* Load info card overlay */}
                             <div className="absolute bottom-6 left-4 right-4 bg-[#1a1a1a]/95 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
