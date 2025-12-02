@@ -367,3 +367,28 @@
     inset: -1px;
   }
 }
+
+/* Pilot branding theme */
+.pilot-theme {
+  --pilot-bg: #080808;
+  --pilot-text: #ffffff;
+  --pilot-text-secondary: #99A1AF;
+  --pilot-accent: #155DFC;
+  --pilot-font-heading: 'Space Grotesk', sans-serif;
+  --pilot-font-body: 'Inter', sans-serif;
+}
+
+body.pilot-theme {
+  background-color: #080808 !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.pilot-theme h1,
+.pilot-theme h2,
+.pilot-theme h3,
+.pilot-theme h4,
+.pilot-theme h5,
+.pilot-theme h6 {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
