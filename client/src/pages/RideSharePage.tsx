@@ -272,22 +272,6 @@ export default function RideSharePage() {
                               data-testid="img-phone-mockup"
                             />
                             
-                            {/* Navigation Cursor */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-4">
-                              <div className="relative">
-                                {/* Cursor glow */}
-                                <div className="absolute inset-0 bg-[#155DFC] blur-lg opacity-60" />
-                                {/* Cursor arrow */}
-                                <svg 
-                                  viewBox="0 0 24 24" 
-                                  className="w-10 h-10 text-[#4DA3FF] drop-shadow-[0_0_10px_rgba(77,163,255,0.8)]"
-                                  fill="currentColor"
-                                >
-                                  <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z" />
-                                </svg>
-                              </div>
-                            </div>
-                            
                             {/* Load info card overlay */}
                             <div className="absolute bottom-6 left-4 right-4 bg-[#1a1a1a]/95 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
                               <div className="flex items-center gap-3 mb-3">
