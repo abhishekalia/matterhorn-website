@@ -1,0 +1,106 @@
+{
+  "colorScheme": "dark",
+  "fonts": [
+    {
+      "family": "Inter",
+      "role": "body"
+    },
+    {
+      "family": "Space Grotesk",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#99A1AF",
+    "accent": "#155DFC",
+    "background": "#080808",
+    "textPrimary": "#080808",
+    "link": "#155DFC"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Inter",
+      "heading": "Inter"
+    },
+    "fontStacks": {
+      "heading": [
+        "Space Grotesk",
+        "sans-serif"
+      ],
+      "body": [
+        "Inter",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Inter",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "72px",
+      "h2": "48px",
+      "body": "20px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 8,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "input": {
+      "borderColor": "#CCCCCC",
+      "borderRadius": "0px"
+    },
+    "buttonPrimary": {
+      "background": "#155DFC",
+      "textColor": "#FFFFFF",
+      "borderRadius": "33554400px",
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#FFFFFF",
+      "textColor": "#000000",
+      "borderColor": "#333333",
+      "borderRadius": "8px",
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "https://pilot-car-booker--pokethebear123.replit.app/favicon.png",
+    "ogImage": "/attached_assets/map-preview.png"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Logo #0 visually represents the brand name 'Pilot' and is located in the header, making it the most suitable choice for the brand logo.",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 3,
+      "text": "Start Driving",
+      "reasoning": "Button #3 has a vibrant blue background (#155DFC), which is a strong indicator for a primary CTA. It also has action-oriented text 'Start Driving', making it the most prominent call-to-action."
+    },
+    "secondary": {
+      "index": 6,
+      "text": "Download on theApp Store",
+      "reasoning": "Button #6 has a white background (#FFFFFF) and is less prominent compared to the primary button. It is a suitable secondary action as it has a different background color than the primary button."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "drivers and logistics professionals"
+  },
+  "designSystem": {
+    "framework": "tailwind",
+    "componentLibrary": null
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  }
+}
