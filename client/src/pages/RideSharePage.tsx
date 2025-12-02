@@ -17,10 +17,9 @@ import {
   Users,
   Truck,
   FileCheck,
-  Navigation,
 } from "lucide-react";
 import { SiAppstore, SiGoogleplay } from "react-icons/si";
-import phoneMapImage from "@assets/stock_images/smartphone_mobile_ph_6db720b5.jpg";
+import phoneMapImage from "@assets/Screenshot_2025-12-02_at_1.06.45_PM_1764698808222.png";
 
 export default function RideSharePage() {
   useEffect(() => {
@@ -220,39 +219,36 @@ export default function RideSharePage() {
               </motion.div>
             </motion.div>
 
-            {/* Phone Mockup */}
+            {/* Phone Mockup with Interactive Hover */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative hidden lg:block"
             >
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#155DFC]/20 to-transparent blur-3xl" />
-                <div className="relative bg-[#111] rounded-[2.5rem] p-3 border border-white/10 shadow-2xl transform rotate-[-5deg]">
-                  <div className="bg-[#0a0a0a] rounded-[2rem] overflow-hidden">
-                    <img 
-                      src={phoneMapImage} 
-                      alt="App Interface" 
-                      className="w-full h-auto"
-                    />
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-[#111]/90 backdrop-blur-sm rounded-xl p-4 border border-white/10 min-w-[200px]">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-[#155DFC] flex items-center justify-center">
-                          <Navigation className="w-4 h-4 text-white" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium">Load #4829</p>
-                          <p className="text-xs text-[#155DFC]">Approaching Drop-off</p>
-                        </div>
-                      </div>
-                      <div className="flex justify-between text-xs text-[#99A1AF]">
-                        <span>Houston, TX</span>
-                        <span>12 min ETA</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="relative group cursor-pointer" style={{ perspective: '1000px' }}>
+                {/* Glow effect on hover */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-[#155DFC]/30 via-[#155DFC]/20 to-transparent blur-3xl opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-12 bg-[#155DFC]/10 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                {/* Phone with tilt effect */}
+                <motion.div 
+                  className="relative transition-all duration-500 ease-out"
+                  whileHover={{ 
+                    rotateY: 8, 
+                    rotateX: -5, 
+                    scale: 1.05,
+                    transition: { duration: 0.4 }
+                  }}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  <img 
+                    src={phoneMapImage} 
+                    alt="Pilot App Interface showing live load tracking" 
+                    className="w-full max-w-[340px] h-auto rounded-[2rem] shadow-2xl transition-shadow duration-500 group-hover:shadow-[0_30px_100px_-25px_rgba(21,93,252,0.6)]"
+                    data-testid="img-phone-mockup"
+                  />
+                </motion.div>
               </div>
             </motion.div>
           </div>
