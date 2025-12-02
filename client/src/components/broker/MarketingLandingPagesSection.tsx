@@ -46,7 +46,8 @@ const landingPages: LandingPage[] = [
       "Comprehensive protection for youth sports organizations and events",
     sector: "Sports",
     gradient: "from-orange-600/20 via-amber-600/20 to-yellow-800/20",
-    url: "/landing/youth-sports",
+    url: "/youth-sports",
+    isInternal: true,
   },
   {
     name: "Travel Program",

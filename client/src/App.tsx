@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import BrokerPage from "@/pages/BrokerPage";
 import PickleballPage from "@/pages/PickleballPage";
+import YouthSportsPage from "@/pages/YouthSportsPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/brokers" component={BrokerPage} />
       <Route path="/pickleball" component={PickleballPage} />
+      <Route path="/youth-sports" component={YouthSportsPage} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
       <Route component={NotFound} />
