@@ -99,9 +99,11 @@ Preferred communication style: Simple, everyday language.
 **Landing Pages**
 - `/pickleball` - Pickleball Program landing page with coverage options, franchise programs, broker application
 - `/youth-sports` - NAYS Youth Sports Program landing page with partnership details, coverage suite, quote form
-- Both landing pages feature custom navigation, hero sections, and contact forms
+- `/travel` - Travel Program landing page with CFAR coverage, instant pricing, enterprise solutions, platform integration
+- `/rideshare` - Ride Share Economy Program landing page with driver coverage, fleet management, rating system, onboarding flow
+- All landing pages feature custom navigation with smooth scroll, hero sections, dark/light theme toggle, and contact forms
 - Contact info: support@matterhornprotects.com, 1-844-600-0611
-- "Access Now" CTAs in MarketingLandingPagesSection link to internal routes for Pickleball and Youth Sports
+- "Access Now" CTAs in MarketingLandingPagesSection link to internal routes for Pickleball, Youth Sports, Travel, and Ride Share
 
 **Development Tools**
 - **Replit-specific plugins**:
