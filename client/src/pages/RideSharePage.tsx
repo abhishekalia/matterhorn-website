@@ -305,7 +305,7 @@ export default function RideSharePage() {
                     {/* Submit Button */}
                     <Button 
                       type="submit"
-                      className="w-full bg-white hover:bg-white/90 text-black font-medium py-6"
+                      className="w-full bg-white hover:bg-white/90 text-black font-medium py-3"
                       data-testid="button-create-account"
                     >
                       Create Account
@@ -707,7 +707,7 @@ export default function RideSharePage() {
               <motion.div variants={fadeInUp}>
                 <Button 
                   onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
-                  className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-6 text-base"
+                  className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-3 text-base"
                   data-testid="button-post-first-load"
                 >
                   Post Your First Load
@@ -907,7 +907,7 @@ export default function RideSharePage() {
               <motion.div variants={fadeInUp}>
                 <Button 
                   onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
-                  className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-6 text-base"
+                  className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-3 text-base"
                   data-testid="button-start-driving"
                 >
                   Start Driving
@@ -1015,7 +1015,7 @@ export default function RideSharePage() {
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button 
                 onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
-                className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-6 text-base"
+                className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-3 text-base"
                 data-testid="button-contact-sales"
               >
                 <Phone className="mr-2 w-5 h-5" />
@@ -1023,7 +1023,7 @@ export default function RideSharePage() {
               </Button>
               <Button 
                 variant="outline"
-                className="bg-transparent border border-white/20 hover:bg-white/10 text-white rounded-full px-8 py-6 text-base"
+                className="bg-transparent border border-white/20 hover:bg-white/10 text-white rounded-full px-8 py-3 text-base"
                 data-testid="button-chat-support"
               >
                 <MessageCircle className="mr-2 w-5 h-5" />
