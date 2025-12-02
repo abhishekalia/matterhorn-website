@@ -91,13 +91,13 @@ export default function Navigation() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <button
-              onClick={() => scrollToSection("brokers")}
+            <Link
+              href="/brokers"
               className="text-sm font-medium text-foreground hover-elevate px-3 py-2 rounded-md transition-colors"
               data-testid="button-brokers"
             >
               Brokers
-            </button>
+            </Link>
 
             <button
               onClick={() => scrollToSection("case-studies")}
@@ -162,13 +162,14 @@ export default function Navigation() {
             >
               Travel
             </button>
-            <button
-              onClick={() => scrollToSection("brokers")}
+            <Link
+              href="/brokers"
               className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
               data-testid="mobile-menu-brokers"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               Brokers
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection("case-studies")}
               className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
