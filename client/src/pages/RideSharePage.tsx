@@ -19,7 +19,7 @@ import {
   FileCheck,
 } from "lucide-react";
 import { SiAppstore, SiGoogleplay } from "react-icons/si";
-import phoneMapImage from "@assets/Screenshot_2025-12-02_at_1.06.45_PM_1764698808222.png";
+import phoneMapImage from "@assets/dark_mode_map_interface_preview_1764699767282.png";
 
 export default function RideSharePage() {
   useEffect(() => {
@@ -231,7 +231,7 @@ export default function RideSharePage() {
                 <div className="absolute -inset-8 bg-gradient-to-r from-[#155DFC]/30 via-[#155DFC]/20 to-transparent blur-3xl opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute -inset-12 bg-[#155DFC]/10 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
-                {/* Phone with tilt effect */}
+                {/* Phone frame with tilt effect */}
                 <motion.div 
                   className="relative transition-all duration-500 ease-out"
                   whileHover={{ 
@@ -242,12 +242,35 @@ export default function RideSharePage() {
                   }}
                   style={{ transformStyle: 'preserve-3d' }}
                 >
-                  <img 
-                    src={phoneMapImage} 
-                    alt="Pilot App Interface showing live load tracking" 
-                    className="w-full max-w-[340px] h-auto transition-shadow duration-500 group-hover:shadow-[0_30px_100px_-25px_rgba(21,93,252,0.6)] mix-blend-lighten"
-                    data-testid="img-phone-mockup"
-                  />
+                  {/* Phone frame */}
+                  <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#0d0d0d] rounded-[3rem] p-3 border border-white/10 shadow-2xl transition-shadow duration-500 group-hover:shadow-[0_30px_100px_-25px_rgba(21,93,252,0.6)]">
+                    {/* Notch */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-10" />
+                    
+                    {/* Screen bezel */}
+                    <div className="relative bg-black rounded-[2.5rem] overflow-hidden">
+                      {/* Status bar */}
+                      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-black/80 to-transparent z-10 flex items-center justify-between px-8 pt-1">
+                        <span className="text-white/80 text-xs font-medium">9:41</span>
+                        <div className="flex items-center gap-1">
+                          <div className="w-4 h-2 border border-white/60 rounded-sm">
+                            <div className="w-3/4 h-full bg-white/60 rounded-sm" />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* App screen with image */}
+                      <img 
+                        src={phoneMapImage} 
+                        alt="Pilot App Interface showing live load tracking" 
+                        className="w-full max-w-[320px] h-auto"
+                        data-testid="img-phone-mockup"
+                      />
+                      
+                      {/* Bottom home indicator */}
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/30 rounded-full" />
+                    </div>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
