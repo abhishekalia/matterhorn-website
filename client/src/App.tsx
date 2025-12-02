@@ -9,6 +9,7 @@ import BrokerPage from "@/pages/BrokerPage";
 import PickleballPage from "@/pages/PickleballPage";
 import YouthSportsPage from "@/pages/YouthSportsPage";
 import TravelPage from "@/pages/TravelPage";
+import RideSharePage from "@/pages/RideSharePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/pickleball" component={PickleballPage} />
       <Route path="/youth-sports" component={YouthSportsPage} />
       <Route path="/travel" component={TravelPage} />
+      <Route path="/rideshare" component={RideSharePage} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
       <Route component={NotFound} />

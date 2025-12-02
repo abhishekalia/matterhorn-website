@@ -30,7 +30,8 @@ const landingPages: LandingPage[] = [
       "Specialized insurance solutions for rideshare drivers and platforms",
     sector: "Transportation",
     gradient: "from-purple-600/20 via-pink-600/20 to-purple-800/20",
-    url: "/landing/rideshare",
+    url: "/rideshare",
+    isInternal: true,
   },
   {
     name: "Pickleball Program",
