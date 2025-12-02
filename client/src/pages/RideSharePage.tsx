@@ -195,7 +195,7 @@ export default function RideSharePage() {
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-10">
                 <Button 
                   onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
-                  className="bg-white hover:bg-white/90 text-black font-medium rounded-full px-10 py-6 text-base border-0"
+                  className="bg-white hover:bg-white/90 text-black font-medium rounded-full px-8 py-3 text-base border-0"
                   data-testid="button-post-load"
                 >
                   Post a Load
@@ -203,7 +203,7 @@ export default function RideSharePage() {
                 <Button 
                   onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
                   variant="outline"
-                  className="bg-transparent border border-white/40 hover:bg-white/10 text-white font-medium rounded-full px-10 py-6 text-base"
+                  className="bg-transparent border border-white/40 hover:bg-white/10 text-white font-medium rounded-full px-8 py-3 text-base"
                   data-testid="button-become-driver"
                 >
                   Become a Driver
