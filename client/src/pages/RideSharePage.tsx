@@ -33,6 +33,7 @@ import {
 import { SiAppstore, SiGoogleplay } from "react-icons/si";
 import phoneMapImage from "@assets/dark_mode_map_interface_preview_1764699767282.png";
 import fleetMapImage from "@assets/dark_mode_map_interface_preview_1764701162560.png";
+import pilotCarImage from "@assets/professional_pilot_car_vehicle_1764701392430.png";
 
 export default function RideSharePage() {
   const [showSignup, setShowSignup] = useState(false);
@@ -835,31 +836,44 @@ export default function RideSharePage() {
               transition={{ duration: 0.6 }}
               className="order-2 lg:order-1"
             >
-              <div className="bg-[#111] p-6 rounded-2xl border border-white/10 max-w-sm">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#155DFC] to-[#155DFC]/70 flex items-center justify-center">
-                    <User className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-medium">Michael R.</p>
-                    <p className="text-sm text-[#99A1AF]">Certified Pole Car Operator</p>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                    <span className="font-bold">4.9</span>
-                  </div>
+              <div className="bg-[#111] rounded-2xl border border-white/10 overflow-hidden max-w-md">
+                {/* Pilot Car Image */}
+                <div className="relative">
+                  <img 
+                    src={pilotCarImage} 
+                    alt="Professional pilot car with oversize load sign" 
+                    className="w-full h-auto"
+                    data-testid="img-pilot-car"
+                  />
                 </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#0a0a0a] rounded-lg p-4 text-center">
-                    <Zap className="w-5 h-5 text-[#155DFC] mx-auto mb-2" />
-                    <p className="text-sm font-medium">Instant Booking</p>
-                    <p className="text-xs text-[#99A1AF]">No more phone tag.</p>
+                
+                {/* Driver Profile Info */}
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#155DFC] to-[#155DFC]/70 flex items-center justify-center">
+                      <User className="w-7 h-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-medium">Michael R.</p>
+                      <p className="text-sm text-[#99A1AF]">Certified Pole Car Operator</p>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                      <span className="font-bold">4.9</span>
+                    </div>
                   </div>
-                  <div className="bg-[#0a0a0a] rounded-lg p-4 text-center">
-                    <CheckCircle className="w-5 h-5 text-green-400 mx-auto mb-2" />
-                    <p className="text-sm font-medium">Verified Status</p>
-                    <p className="text-xs text-[#99A1AF]">Showcase your certs.</p>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-[#0a0a0a] rounded-lg p-4 text-center">
+                      <Zap className="w-5 h-5 text-[#155DFC] mx-auto mb-2" />
+                      <p className="text-sm font-medium">Instant Booking</p>
+                      <p className="text-xs text-[#99A1AF]">No more phone tag.</p>
+                    </div>
+                    <div className="bg-[#0a0a0a] rounded-lg p-4 text-center">
+                      <CheckCircle className="w-5 h-5 text-green-400 mx-auto mb-2" />
+                      <p className="text-sm font-medium">Verified Status</p>
+                      <p className="text-xs text-[#99A1AF]">Showcase your certs.</p>
+                    </div>
                   </div>
                 </div>
               </div>
