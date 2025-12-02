@@ -383,6 +383,37 @@ export default function TravelPage() {
               </div>
             </Link>
 
+            <nav className="hidden md:flex items-center gap-8">
+              <button 
+                onClick={() => scrollToSection("quote")}
+                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
+                data-testid="nav-get-quote"
+              >
+                Get Quote
+              </button>
+              <button 
+                onClick={() => scrollToSection("coverage")}
+                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
+                data-testid="nav-coverages"
+              >
+                Coverages
+              </button>
+              <button 
+                onClick={() => scrollToSection("enterprise")}
+                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
+                data-testid="nav-groups"
+              >
+                Groups
+              </button>
+              <button 
+                onClick={() => scrollToSection("integration")}
+                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
+                data-testid="nav-platforms"
+              >
+                Platforms
+              </button>
+            </nav>
+
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
@@ -391,6 +422,13 @@ export default function TravelPage() {
               >
                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
+              <Button 
+                onClick={() => scrollToSection("broker")}
+                className="hidden md:flex bg-primary hover:bg-primary/90"
+                data-testid="nav-start-now"
+              >
+                Start Now
+              </Button>
             </div>
           </div>
         </div>
@@ -796,7 +834,7 @@ export default function TravelPage() {
       </section>
 
       {/* Platform Integration Section */}
-      <section className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
+      <section id="integration" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Badge className="bg-primary/20 text-primary border-primary/30">
