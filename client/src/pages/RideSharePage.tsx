@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { SiAppstore, SiGoogleplay } from "react-icons/si";
 import phoneMapImage from "@assets/dark_mode_map_interface_preview_1764699767282.png";
+import fleetMapImage from "@assets/dark_mode_map_interface_preview_1764701162560.png";
 
 export default function RideSharePage() {
   const [showSignup, setShowSignup] = useState(false);
@@ -720,8 +721,9 @@ export default function RideSharePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="bg-[#111] rounded-2xl p-6 border border-white/10">
-                <div className="flex items-center justify-between mb-6">
+              <div className="bg-[#111] rounded-2xl overflow-hidden border border-white/10">
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-white/10">
                   <h4 className="font-medium">Live Fleet View</h4>
                   <span className="flex items-center gap-2 text-xs text-green-400">
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -729,24 +731,33 @@ export default function RideSharePage() {
                   </span>
                 </div>
 
-                <div className="bg-[#0a0a0a] rounded-xl p-4 mb-4">
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-[#155DFC]">24</p>
-                      <p className="text-xs text-[#99A1AF]">Active Loads</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-green-400">98%</p>
-                      <p className="text-xs text-[#99A1AF]">On-Time</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold">$0</p>
-                      <p className="text-xs text-[#99A1AF]">Pending</p>
+                {/* Map Image */}
+                <div className="relative">
+                  <img 
+                    src={fleetMapImage} 
+                    alt="Live fleet tracking map showing active routes" 
+                    className="w-full h-auto"
+                    data-testid="img-fleet-map"
+                  />
+                  
+                  {/* Stats Overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-[#0a0a0a]/90 backdrop-blur-sm rounded-xl p-4">
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="text-center">
+                        <p className="text-2xl font-bold text-[#155DFC]">24</p>
+                        <p className="text-xs text-[#99A1AF]">Active Loads</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-2xl font-bold text-green-400">98%</p>
+                        <p className="text-xs text-[#99A1AF]">On-Time</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-2xl font-bold">$0</p>
+                        <p className="text-xs text-[#99A1AF]">Pending</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <p className="text-sm text-[#99A1AF]">Track every load in real-time.</p>
               </div>
             </motion.div>
           </div>
