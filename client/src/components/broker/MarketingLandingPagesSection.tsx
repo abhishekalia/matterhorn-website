@@ -55,7 +55,8 @@ const landingPages: LandingPage[] = [
       "Complete travel insurance solutions for groups and individuals",
     sector: "Travel",
     gradient: "from-sky-600/20 via-blue-600/20 to-indigo-800/20",
-    url: "/landing/travel",
+    url: "/travel",
+    isInternal: true,
   },
   {
     name: "Influencer Entertainment Program",
