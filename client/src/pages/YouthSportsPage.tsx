@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -57,6 +57,11 @@ import youthCoachingImg from "@assets/stock_images/youth_basketball_gam_dd1940dd
 export default function YouthSportsPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [zipCode, setZipCode] = useState("");
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
