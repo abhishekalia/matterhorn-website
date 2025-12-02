@@ -380,7 +380,6 @@ export default function TravelPage() {
               <div className="flex items-center gap-2 cursor-pointer">
                 <Mountain className="w-6 h-6 text-primary" />
                 <span className="text-xl font-bold">MATTERHORN</span>
-                <span className={`text-xs ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>INSURANCE GROUP</span>
               </div>
             </Link>
 
