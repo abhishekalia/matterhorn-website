@@ -51,8 +51,8 @@ import {
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import heroBg from "@assets/stock_images/youth_soccer_team_ce_56a4b64e.jpg";
-import youthLeagueImg from "@assets/stock_images/youth_soccer_practic_aad311a1.jpg";
-import youthCoachingImg from "@assets/stock_images/youth_basketball_gam_f13bb25e.jpg";
+import youthLeagueImg from "@assets/stock_images/youth_soccer_practic_7460c554.jpg";
+import youthCoachingImg from "@assets/stock_images/youth_basketball_gam_dd1940dd.jpg";
 
 export default function YouthSportsPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -883,6 +883,138 @@ export default function YouthSportsPage() {
           </Card>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className={`py-16 ${isDarkMode ? 'bg-[#050D1A] border-t border-white/10' : 'bg-gray-100 border-t border-gray-200'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <Link href="/" className="flex items-center gap-2 mb-4">
+                <Mountain className="h-8 w-8 text-primary" />
+                <div>
+                  <span className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>MATTERHORN</span>
+                  <span className={`text-xs block ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>INSURANCE GROUP</span>
+                </div>
+              </Link>
+              <p className={`text-sm mb-4 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                AI-led specialty insurance program design shop serving brokers exclusively across Sports, Transportation, and Travel markets.
+              </p>
+              <div className="flex items-center gap-2">
+                <Badge className="bg-primary/20 text-primary border-primary/30">
+                  Official NAYS Partner
+                </Badge>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Quick Links</h4>
+              <ul className="space-y-2">
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('hero')} 
+                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
+                  >
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('coverage')} 
+                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
+                  >
+                    Programs
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('brokers')} 
+                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
+                  >
+                    For Brokers
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('contact')} 
+                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
+                  >
+                    Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Coverage */}
+            <div>
+              <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Coverage Options</h4>
+              <ul className="space-y-2">
+                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>General Liability</li>
+                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Accident Medical</li>
+                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Travel Insurance</li>
+                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Property & Gear</li>
+                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Contingency</li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Contact Us</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a 
+                    href="tel:18446000611" 
+                    className={`flex items-center gap-2 text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
+                  >
+                    <Phone className="h-4 w-4" />
+                    1-844-600-0611
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="mailto:support@matterhornprotects.com" 
+                    className={`flex items-center gap-2 text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
+                  >
+                    <Mail className="h-4 w-4" />
+                    support@matterhornprotects.com
+                  </a>
+                </li>
+              </ul>
+              <div className="mt-6">
+                <Button 
+                  size="sm"
+                  className="bg-primary hover:bg-primary/90"
+                  onClick={() => scrollToSection('quote')}
+                  data-testid="button-footer-quote"
+                >
+                  Get a Quote
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className={`pt-8 border-t ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className={`text-sm ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
+                © {new Date().getFullYear()} Matterhorn Insurance Group. All rights reserved.
+              </p>
+              <div className="flex items-center gap-6">
+                <a href="#" className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
+                  Privacy Policy
+                </a>
+                <a href="#" className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
+                  Terms of Service
+                </a>
+                <a href="#" className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
+                  Licensing
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
