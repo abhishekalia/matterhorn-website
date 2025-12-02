@@ -1,7 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Shield,
   User,
@@ -18,11 +28,17 @@ import {
   Truck,
   FileCheck,
   Navigation,
+  X,
 } from "lucide-react";
 import { SiAppstore, SiGoogleplay } from "react-icons/si";
 import phoneMapImage from "@assets/dark_mode_map_interface_preview_1764699767282.png";
 
 export default function RideSharePage() {
+  const [showSignup, setShowSignup] = useState(false);
+  const [accountType, setAccountType] = useState<"driver" | "carrier">("driver");
+  const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [experienceConfirmed, setExperienceConfirmed] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.classList.add("pilot-theme");
@@ -102,6 +118,212 @@ export default function RideSharePage() {
 
   return (
     <div className="pilot-theme min-h-screen bg-[#080808] text-white">
+      {/* Sign Up Page Overlay */}
+      <AnimatePresence>
+        {showSignup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-[#080808] overflow-y-auto"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowSignup(false)}
+              className="absolute top-6 right-6 p-2 text-[#99A1AF] hover:text-white transition-colors z-10"
+              data-testid="button-close-signup"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="min-h-screen grid lg:grid-cols-2">
+              {/* Left Side - Branding */}
+              <div className="flex flex-col justify-center px-8 lg:px-16 py-16 lg:py-0">
+                <div className="max-w-md">
+                  {/* Logo */}
+                  <div className="flex items-center gap-2 mb-12">
+                    <div className="w-8 h-8 rounded bg-white flex items-center justify-center">
+                      <Shield className="w-5 h-5 text-black fill-black" />
+                    </div>
+                    <span className="text-xl font-semibold tracking-tight">PILOT</span>
+                  </div>
+
+                  {/* Headline */}
+                  <h1 className="text-4xl lg:text-5xl font-medium leading-tight mb-10">
+                    Drive More. Earn More. Get Paid Faster.
+                  </h1>
+
+                  {/* Feature List */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-[#155DFC]" />
+                      <span className="text-[#99A1AF]">Instant load matching</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-[#155DFC]" />
+                      <span className="text-[#99A1AF]">Guaranteed payments</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-[#155DFC]" />
+                      <span className="text-[#99A1AF]">Digital invoicing</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side - Form */}
+              <div className="flex flex-col justify-center px-8 lg:px-16 py-16 lg:py-0 lg:border-l border-white/10">
+                <div className="max-w-md w-full mx-auto">
+                  <h2 className="text-2xl font-medium mb-2">Create an account</h2>
+                  <p className="text-[#99A1AF] mb-8">Get started with Pilot today</p>
+
+                  {/* Account Type Tabs */}
+                  <div className="flex gap-2 mb-8">
+                    <button
+                      onClick={() => setAccountType("driver")}
+                      className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg border transition-all ${
+                        accountType === "driver"
+                          ? "bg-white text-black border-white"
+                          : "bg-transparent text-[#99A1AF] border-white/20 hover:border-white/40"
+                      }`}
+                      data-testid="tab-pilot-driver"
+                    >
+                      <User className="w-4 h-4" />
+                      <span className="text-sm font-medium">Pilot Driver</span>
+                    </button>
+                    <button
+                      onClick={() => setAccountType("carrier")}
+                      className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg border transition-all ${
+                        accountType === "carrier"
+                          ? "bg-white text-black border-white"
+                          : "bg-transparent text-[#99A1AF] border-white/20 hover:border-white/40"
+                      }`}
+                      data-testid="tab-motor-carrier"
+                    >
+                      <Truck className="w-4 h-4" />
+                      <span className="text-sm font-medium">Motor Carrier</span>
+                    </button>
+                  </div>
+
+                  {/* Form */}
+                  <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); window.open("https://form.jotform.com/250985130794060", "_blank"); }}>
+                    {/* Name Fields */}
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label className="text-sm text-white">First Name</Label>
+                        <Input 
+                          placeholder="" 
+                          className="bg-transparent border-white/20 text-white placeholder:text-[#99A1AF] focus:border-white"
+                          data-testid="input-first-name"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label className="text-sm text-white">Last Name</Label>
+                        <Input 
+                          placeholder="" 
+                          className="bg-transparent border-white/20 text-white placeholder:text-[#99A1AF] focus:border-white"
+                          data-testid="input-last-name"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <Label className="text-sm text-white">Email</Label>
+                      <Input 
+                        type="email" 
+                        placeholder="name@example.com" 
+                        className="bg-transparent border-white/20 text-white placeholder:text-[#555] focus:border-white"
+                        data-testid="input-email"
+                      />
+                    </div>
+
+                    {/* Password */}
+                    <div className="space-y-2">
+                      <Label className="text-sm text-white">Password</Label>
+                      <Input 
+                        type="password" 
+                        placeholder="" 
+                        className="bg-transparent border-white/20 text-white placeholder:text-[#99A1AF] focus:border-white"
+                        data-testid="input-password"
+                      />
+                    </div>
+
+                    {/* Driver Qualifications - Only show for drivers */}
+                    {accountType === "driver" && (
+                      <div className="space-y-4">
+                        <p className="text-xs uppercase tracking-widest text-[#99A1AF]">Driver Qualifications</p>
+                        
+                        {/* Vehicle Type */}
+                        <div className="space-y-2">
+                          <Label className="text-sm text-white">Primary Vehicle Type</Label>
+                          <Select>
+                            <SelectTrigger className="bg-transparent border-white/20 text-white focus:border-white">
+                              <SelectValue placeholder="Select vehicle type" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-[#1a1a1a] border-white/20">
+                              <SelectItem value="pole-car">Pole Car</SelectItem>
+                              <SelectItem value="bucket-truck">Bucket Truck</SelectItem>
+                              <SelectItem value="height-pole">Height Pole Vehicle</SelectItem>
+                              <SelectItem value="escort-vehicle">Standard Escort Vehicle</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+
+                        {/* Checkboxes */}
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3">
+                            <Checkbox 
+                              id="age-confirm"
+                              checked={ageConfirmed}
+                              onCheckedChange={(checked) => setAgeConfirmed(checked as boolean)}
+                              className="border-white/30 data-[state=checked]:bg-white data-[state=checked]:text-black"
+                              data-testid="checkbox-age"
+                            />
+                            <label htmlFor="age-confirm" className="text-sm text-[#99A1AF]">
+                              I confirm I am 23 years or older
+                            </label>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Checkbox 
+                              id="experience-confirm"
+                              checked={experienceConfirmed}
+                              onCheckedChange={(checked) => setExperienceConfirmed(checked as boolean)}
+                              className="border-white/30 data-[state=checked]:bg-white data-[state=checked]:text-black"
+                              data-testid="checkbox-experience"
+                            />
+                            <label htmlFor="experience-confirm" className="text-sm text-[#99A1AF]">
+                              I have 2+ years of pilot car experience
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Submit Button */}
+                    <Button 
+                      type="submit"
+                      className="w-full bg-white hover:bg-white/90 text-black font-medium py-6"
+                      data-testid="button-create-account"
+                    >
+                      Create Account
+                    </Button>
+
+                    {/* Login Link */}
+                    <p className="text-center text-sm text-[#99A1AF]">
+                      Already have an account?{" "}
+                      <button type="button" className="text-white font-medium hover:underline">
+                        Log in
+                      </button>
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#080808]/95 backdrop-blur-sm border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -147,8 +369,8 @@ export default function RideSharePage() {
                 Log in
               </button>
               <Button 
-                onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
-                className="bg-transparent border border-white/20 hover:bg-white/10 text-white rounded-lg px-5"
+                onClick={() => setShowSignup(true)}
+                className="bg-white hover:bg-white/90 text-black rounded-lg px-5"
                 data-testid="button-signup"
               >
                 Sign up
