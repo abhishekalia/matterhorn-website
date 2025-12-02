@@ -836,13 +836,15 @@ export default function RideSharePage() {
               transition={{ duration: 0.6 }}
               className="order-2 lg:order-1"
             >
-              <div className="bg-[#111] rounded-2xl border border-white/10 overflow-hidden max-w-md">
+              <div className="bg-[#111] rounded-2xl border border-white/10 overflow-hidden max-w-md group cursor-pointer transition-all duration-500 hover:shadow-[0_0_60px_rgba(255,165,0,0.3)] hover:border-orange-500/30">
                 {/* Pilot Car Image */}
-                <div className="relative">
+                <div className="relative overflow-hidden">
+                  {/* Glow overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-orange-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                   <img 
                     src={pilotCarImage} 
                     alt="Professional pilot car with oversize load sign" 
-                    className="w-full h-auto"
+                    className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     data-testid="img-pilot-car"
                   />
                 </div>
