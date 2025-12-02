@@ -242,12 +242,15 @@ export default function RideSharePage() {
                   }}
                   style={{ transformStyle: 'preserve-3d' }}
                 >
-                  <img 
-                    src={phoneMapImage} 
-                    alt="Pilot App Interface showing live load tracking" 
-                    className="w-full max-w-[340px] h-auto rounded-[2rem] shadow-2xl transition-shadow duration-500 group-hover:shadow-[0_30px_100px_-25px_rgba(21,93,252,0.6)]"
-                    data-testid="img-phone-mockup"
-                  />
+                  <div className="bg-[#080808] rounded-[2rem] p-1">
+                    <img 
+                      src={phoneMapImage} 
+                      alt="Pilot App Interface showing live load tracking" 
+                      className="w-full max-w-[340px] h-auto rounded-[2rem] shadow-2xl transition-shadow duration-500 group-hover:shadow-[0_30px_100px_-25px_rgba(21,93,252,0.6)]"
+                      data-testid="img-phone-mockup"
+                      style={{ backgroundColor: '#080808' }}
+                    />
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
