@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -27,6 +27,10 @@ const formSchema = z.object({
   phone: z.string().min(1, "Phone number is required"),
   email: z.string().email("Please enter a valid email address"),
   message: z.string().min(1, "Message is required"),
+  // Honeypot field - invisible to users, bots will fill it
+  website: z.string().optional(),
+  // Timestamp when form loaded
+  formLoadedAt: z.number().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -34,6 +38,7 @@ type FormData = z.infer<typeof formSchema>;
 export function AppointmentForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [formLoadedAt] = useState(() => Date.now());
   const { toast } = useToast();
 
   const form = useForm<FormData>({
@@ -45,8 +50,15 @@ export function AppointmentForm() {
       phone: "",
       email: "",
       message: "",
+      website: "",
+      formLoadedAt: undefined,
     },
   });
+
+  // Set form loaded timestamp when component mounts
+  useEffect(() => {
+    form.setValue("formLoadedAt", formLoadedAt);
+  }, [formLoadedAt, form]);
 
   async function onSubmit(data: FormData) {
     setIsSubmitting(true);
@@ -189,6 +201,28 @@ export function AppointmentForm() {
             </FormItem>
           )}
         />
+
+        {/* Honeypot field - hidden from users */}
+        <div className="absolute opacity-0 pointer-events-none" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
+          <FormField
+            control={form.control}
+            name="website"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Website</FormLabel>
+                <FormControl>
+                  <Input 
+                    placeholder="Your website" 
+                    tabIndex={-1}
+                    autoComplete="off"
+                    {...field} 
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </div>
 
         <Button
           type="submit"

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -34,6 +35,10 @@ const contactFormSchema = z.object({
   phone: z.string().min(1, "Phone number is required"),
   email: z.string().email("Please enter a valid email address"),
   message: z.string().min(1, "Message is required"),
+  // Honeypot field - invisible to users, bots will fill it
+  website: z.string().optional(),
+  // Timestamp when form loaded
+  formLoadedAt: z.number().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -45,6 +50,7 @@ interface ContactFormModalProps {
 
 export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) {
   const { toast } = useToast();
+  const [formLoadedAt] = useState(() => Date.now());
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -55,8 +61,15 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
       phone: "",
       email: "",
       message: "",
+      website: "",
+      formLoadedAt: undefined,
     },
   });
+
+  // Set form loaded timestamp when component mounts
+  useEffect(() => {
+    form.setValue("formLoadedAt", formLoadedAt);
+  }, [formLoadedAt, form]);
 
   const submitMutation = useMutation({
     mutationFn: async (data: ContactFormValues) => {
@@ -221,6 +234,27 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
                 </FormItem>
               )}
             />
+
+            {/* Honeypot field - hidden from users */}
+            <div className="absolute opacity-0 pointer-events-none" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
+              <FormField
+                control={form.control}
+                name="website"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Website</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your website" 
+                        tabIndex={-1}
+                        autoComplete="off"
+                        {...field} 
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
 
             <Button 
               type="submit" 

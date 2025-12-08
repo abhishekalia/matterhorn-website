@@ -16,6 +16,10 @@ const contactFormSchema = z.object({
   phone: z.string().min(1, "Phone number is required").max(30),
   email: z.string().email("Please enter a valid email address").max(255),
   message: z.string().min(1, "Message is required").max(5000),
+  // Honeypot field - should always be empty for real users
+  website: z.string().max(0, "").optional(),
+  // Timestamp when form was loaded - must be at least 3 seconds ago
+  formLoadedAt: z.number().optional(),
 });
 
 function escapeHtml(text: string): string {
@@ -51,7 +55,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: errors });
       }
 
-      const { firstName, lastName, isBroker, phone, email, message } = parseResult.data;
+      const { firstName, lastName, isBroker, phone, email, message, website, formLoadedAt } = parseResult.data;
+
+      // Bot detection: honeypot field should be empty
+      if (website && website.length > 0) {
+        console.log("Bot detected: honeypot field filled");
+        // Return success to not alert bots, but don't actually send
+        return res.status(200).json({ success: true, messageId: "blocked" });
+      }
+
+      // Bot detection: form should take at least 3 seconds to fill
+      if (formLoadedAt) {
+        const timeTaken = Date.now() - formLoadedAt;
+        if (timeTaken < 3000) {
+          console.log("Bot detected: form submitted too quickly", timeTaken, "ms");
+          return res.status(200).json({ success: true, messageId: "blocked" });
+        }
+      }
 
       const safeFirstName = escapeHtml(firstName);
       const safeLastName = escapeHtml(lastName);
