@@ -1,4 +1,5 @@
 import { Switch, Route } from "wouter";
+import { useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,11 +14,18 @@ import RideSharePage from "@/pages/RideSharePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 
+function MarshMMARedirect() {
+  useEffect(() => {
+    window.location.href = "https://marsh-mma-landing.replit.app/";
+  }, []);
+  return <div>Redirecting to Marsh MMA...</div>;
+}
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/marshmma" element={<MarshMMARedirect />} />
       <Route path="/brokers" component={BrokerPage} />
       <Route path="/pickleball" component={PickleballPage} />
       <Route path="/youth-sports" component={YouthSportsPage} />
