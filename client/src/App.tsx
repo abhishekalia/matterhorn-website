@@ -14,22 +14,12 @@ import RideSharePage from "@/pages/RideSharePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 
-function MarshMMARedirect() {
-  useEffect(() => {
-    window.location.href = "https://marsh-mma-landing.replit.app/";
-  }, []);
-  return <div>Redirecting to Marsh MMA...</div>;
-}
-
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/brokers" component={BrokerPage} />
       <Route path="/pickleball" component={PickleballPage} />
-      <Route path="/marshmma">
-        <MarshMMARedirect />
-      </Route>
       <Route path="/youth-sports" component={YouthSportsPage} />
       <Route path="/travel" component={TravelPage} />
       <Route path="/rideshare" component={RideSharePage} />

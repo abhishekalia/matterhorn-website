@@ -7,5 +7,12 @@
       "memory": 1024,
       "maxDuration": 10
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/marshmma",
+      "destination": "https://marsh-mma-landing.replit.app/",
+      "permanent": false
+    }
+  ]
 }
