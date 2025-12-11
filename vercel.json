@@ -8,14 +8,13 @@
       "maxDuration": 10
     }
   },
-  "rewrites": [
-    {
-      "source": "/marshmma",
-      "destination": "https://marsh-mma-landing.replit.app"
-    },
-    {
-      "source": "/marshmma/:path*",
-      "destination": "https://marsh-mma-landing.replit.app/:path*"
-    }
-  ]
-}
+"rewrites": [
+  {
+    "source": "/marshmma",
+    "destination": "https://marsh-mma-landing.replit.app/"
+  },
+  {
+    "source": "/marshmma/:path*",
+    "destination": "https://marsh-mma-landing.replit.app/:path*"
+  }
+]
