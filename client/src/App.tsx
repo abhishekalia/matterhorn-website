@@ -25,9 +25,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/marshmma" element={<MarshMMARedirect />} />
       <Route path="/brokers" component={BrokerPage} />
       <Route path="/pickleball" component={PickleballPage} />
+      <Route path="/marshmma">
+        <MarshMMARedirect />
+      </Route>
       <Route path="/youth-sports" component={YouthSportsPage} />
       <Route path="/travel" component={TravelPage} />
       <Route path="/rideshare" component={RideSharePage} />
@@ -37,7 +39,7 @@ function Router() {
     </Switch>
   );
 }
-
+``;
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
