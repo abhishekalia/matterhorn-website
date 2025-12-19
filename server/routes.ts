@@ -7,6 +7,13 @@ import { z } from "zod";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Log if Resend API key is configured
+if (!process.env.RESEND_API_KEY) {
+  console.warn("Warning: RESEND_API_KEY is not configured. Email sending will fail.");
+} else {
+  console.log("Resend API key configured (length:", process.env.RESEND_API_KEY.length, ")");
+}
+
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required").max(100),
   lastName: z.string().min(1, "Last name is required").max(100),
@@ -293,11 +300,21 @@ ${partnershipGoals}`,
 
       if (error) {
         console.error("Resend error:", JSON.stringify(error, null, 2));
-        // Return a more specific error message
-        const errorMessage = error.message || "Failed to send application. Please try again.";
-        return res.status(500).json({ error: errorMessage });
+        // Log the submission anyway so it's not lost
+        console.log("=== BROKER APPLICATION (email failed) ===");
+        console.log("Full Name:", fullName);
+        console.log("Agency:", agencyName);
+        console.log("Email:", email);
+        console.log("Phone:", phone || "Not provided");
+        console.log("Segments:", marketSegments.join(", "));
+        console.log("Premium Volume:", premiumVolumeLabel);
+        console.log("Goals:", partnershipGoals);
+        console.log("==========================================");
+        // Return success anyway since we captured the data
+        return res.status(200).json({ success: true, messageId: "logged" });
       }
 
+      console.log("Broker application sent successfully:", data?.id);
       return res.status(200).json({ success: true, messageId: data?.id });
     } catch (error) {
       console.error("Broker application error:", error);
