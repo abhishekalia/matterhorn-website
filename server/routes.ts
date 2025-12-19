@@ -219,9 +219,9 @@ ${message}`,
         partnershipGoals, website, formLoadedAt, turnstileToken 
       } = parseResult.data;
 
-      // Check for duplicate submissions
-      const normalizedEmail = email.toLowerCase().trim();
-      if (submittedBrokerEmails.has(normalizedEmail)) {
+      // Check for duplicate submissions (email is required in schema)
+      const normalizedEmail = email ? email.toLowerCase().trim() : "";
+      if (normalizedEmail && submittedBrokerEmails.has(normalizedEmail)) {
         return res.status(400).json({ error: "An application with this email has already been submitted." });
       }
 
@@ -319,6 +319,8 @@ ${partnershipGoals}`,
         console.log("Premium Volume:", premiumVolumeLabel);
         console.log("Goals:", partnershipGoals);
         console.log("==========================================");
+        // Mark email as submitted even if email failed
+        submittedBrokerEmails.add(normalizedEmail);
         // Return success anyway since we captured the data
         return res.status(200).json({ success: true, messageId: "logged" });
       }
