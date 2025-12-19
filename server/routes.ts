@@ -292,8 +292,10 @@ ${partnershipGoals}`,
       });
 
       if (error) {
-        console.error("Resend error:", error);
-        return res.status(500).json({ error: "Failed to send application. Please try again." });
+        console.error("Resend error:", JSON.stringify(error, null, 2));
+        // Return a more specific error message
+        const errorMessage = error.message || "Failed to send application. Please try again.";
+        return res.status(500).json({ error: errorMessage });
       }
 
       return res.status(200).json({ success: true, messageId: data?.id });
