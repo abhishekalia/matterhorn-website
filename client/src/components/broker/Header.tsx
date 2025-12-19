@@ -3,9 +3,11 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Mountain } from "lucide-react";
 
-const JOTFORM_URL = "https://form.jotform.com/250985130794060";
+interface HeaderProps {
+  onGetAppointedClick?: () => void;
+}
 
-export function Header() {
+export function Header({ onGetAppointedClick }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,6 +25,11 @@ export function Header() {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
+  };
+
+  const handleGetAppointed = () => {
+    setIsMobileMenuOpen(false);
+    onGetAppointedClick?.();
   };
 
   const navItems = [
@@ -68,13 +75,11 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <Button
-            asChild
+            onClick={handleGetAppointed}
             className="hidden lg:flex bg-primary hover:bg-primary/90"
             data-testid="button-get-appointed-header"
           >
-            <a href={JOTFORM_URL} target="_blank" rel="noopener noreferrer">
-              Get Appointed
-            </a>
+            Get Appointed
           </Button>
 
           <button
@@ -108,13 +113,11 @@ export function Header() {
               </button>
             ))}
             <Button
-              asChild
+              onClick={handleGetAppointed}
               className="mt-2 bg-primary hover:bg-primary/90"
               data-testid="button-get-appointed-mobile"
             >
-              <a href={JOTFORM_URL} target="_blank" rel="noopener noreferrer">
-                Get Appointed
-              </a>
+              Get Appointed
             </Button>
           </nav>
         </div>

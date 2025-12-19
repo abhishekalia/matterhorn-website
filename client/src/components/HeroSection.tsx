@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import { ContactFormModal } from "./ContactFormModal";
+import { BrokerApplicationModal } from "./BrokerApplicationModal";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 
 export default function HeroSection() {
-  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -56,7 +56,7 @@ export default function HeroSection() {
           <Button
             size="lg"
             className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
-            onClick={() => setContactModalOpen(true)}
+            onClick={() => setApplicationModalOpen(true)}
             data-testid="button-connect"
           >
             Connect with Our Team
@@ -81,9 +81,9 @@ export default function HeroSection() {
         </button>
       </div>
 
-      <ContactFormModal 
-        open={contactModalOpen} 
-        onOpenChange={setContactModalOpen} 
+      <BrokerApplicationModal 
+        open={applicationModalOpen} 
+        onOpenChange={setApplicationModalOpen} 
       />
     </section>
   );

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Building2, Cpu, Zap, Shield, Mountain, ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ContactFormModal } from "./ContactFormModal";
+import { BrokerApplicationModal } from "./BrokerApplicationModal";
 
 const features = [
   {
@@ -31,7 +31,7 @@ const features = [
 
 export default function AboutMatterhorn() {
   const { isVisible, elementRef } = useScrollAnimation();
-  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
 
   return (
     <section 
@@ -104,7 +104,7 @@ export default function AboutMatterhorn() {
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90"
-                onClick={() => setContactModalOpen(true)}
+                onClick={() => setApplicationModalOpen(true)}
                 data-testid="button-learn-more-about"
               >
                 Learn More About Our Approach
@@ -115,9 +115,9 @@ export default function AboutMatterhorn() {
         </div>
       </div>
 
-      <ContactFormModal 
-        open={contactModalOpen} 
-        onOpenChange={setContactModalOpen} 
+      <BrokerApplicationModal 
+        open={applicationModalOpen} 
+        onOpenChange={setApplicationModalOpen} 
       />
     </section>
   );

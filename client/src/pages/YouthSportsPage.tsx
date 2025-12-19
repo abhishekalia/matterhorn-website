@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import {
   Select,
   SelectContent,
@@ -57,6 +58,7 @@ import youthCoachingImg from "@assets/stock_images/youth_basketball_gam_dd1940dd
 export default function YouthSportsPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [zipCode, setZipCode] = useState("");
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
 
   // Scroll to top when page loads
   useEffect(() => {
@@ -642,12 +644,10 @@ export default function YouthSportsPage() {
             <Button 
               size="lg"
               className="bg-primary hover:bg-primary/90"
-              asChild
+              onClick={() => setApplicationModalOpen(true)}
               data-testid="button-become-broker"
             >
-              <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
-                Become a Broker Partner
-              </a>
+              Become a Broker Partner
             </Button>
           </div>
         </div>
@@ -1019,6 +1019,11 @@ export default function YouthSportsPage() {
           </div>
         </div>
       </footer>
+
+      <BrokerApplicationModal 
+        open={applicationModalOpen} 
+        onOpenChange={setApplicationModalOpen} 
+      />
     </div>
   );
 }

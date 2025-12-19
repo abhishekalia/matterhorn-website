@@ -4,14 +4,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 
-const JOTFORM_URL = "https://form.jotform.com/250985130794060";
-
 interface HeroSectionProps {
   onExploreProgramsClick: () => void;
+  onGetAppointedClick?: () => void;
 }
 
 export function HeroSection({
   onExploreProgramsClick,
+  onGetAppointedClick,
 }: HeroSectionProps) {
   const [scrollY, setScrollY] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -26,16 +26,11 @@ export function HeroSection({
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.75; // Slow, cinematic motion
+      videoRef.current.playbackRate = 0.75;
     }
   }, []);
 
-  // TODO: Replace with actual Matterhorn video URL from Pexels or Videvo
-  // Download a stunning 4K Matterhorn video from:
-  // - https://www.pexels.com/search/videos/matterhorn%20mountain/
-  // - https://www.videvo.net/stock-video-footage/matterhorn/
-  // Save it to client/public/videos/matterhorn.mp4 and uncomment the video section below
-  const videoUrl = null; // Replace with: '/videos/matterhorn.mp4' once video is added
+  const videoUrl = null;
 
   return (
     <section
@@ -137,15 +132,13 @@ export function HeroSection({
             }}
           >
             <Button
-              asChild
               size="lg"
               className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
+              onClick={onGetAppointedClick}
               data-testid="button-get-appointed-hero"
             >
-              <a href={JOTFORM_URL} target="_blank" rel="noopener noreferrer">
-                Get Appointed
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
+              Get Appointed
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button
               size="lg"

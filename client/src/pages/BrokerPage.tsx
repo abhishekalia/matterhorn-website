@@ -1,6 +1,6 @@
 // client/src/pages/BrokerPage.tsx
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "@/components/broker/Header";
 import { HeroSection } from "@/components/broker/HeroSection";
 import { CredoSection } from "@/components/broker/CredoSection";
@@ -19,8 +19,11 @@ import { DisclaimerSection } from "@/components/broker/DisclaimerSection";
 import { Footer } from "@/components/broker/Footer";
 import { FloatingCTA } from "@/components/broker/FloatingCTA";
 import { CustomCursor } from "@/components/broker/CustomCursor";
+import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 
 export default function BrokerPage() {
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -32,12 +35,19 @@ export default function BrokerPage() {
     }
   };
 
+  const handleGetAppointedClick = () => {
+    setApplicationModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen dark">
       <CustomCursor />
-      <Header />
+      <Header onGetAppointedClick={handleGetAppointedClick} />
       <main>
-        <HeroSection onExploreProgramsClick={scrollToPrograms} />
+        <HeroSection 
+          onExploreProgramsClick={scrollToPrograms} 
+          onGetAppointedClick={handleGetAppointedClick}
+        />
         <CredoSection />
         <ValueSection />
         <TechnologySection />
@@ -53,7 +63,11 @@ export default function BrokerPage() {
         <DisclaimerSection />
       </main>
       <Footer />
-      <FloatingCTA />
+      <FloatingCTA onGetAppointedClick={handleGetAppointedClick} />
+      <BrokerApplicationModal 
+        open={applicationModalOpen} 
+        onOpenChange={setApplicationModalOpen} 
+      />
     </div>
   );
 }

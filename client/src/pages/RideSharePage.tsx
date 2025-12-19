@@ -208,7 +208,7 @@ export default function RideSharePage() {
                   </div>
 
                   {/* Form */}
-                  <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); window.open("https://form.jotform.com/250985130794060", "_blank"); }}>
+                  <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); setShowSignup(false); }}>
                     {/* Name Fields */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -418,14 +418,14 @@ export default function RideSharePage() {
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-10">
                 <Button 
-                  onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
+                  onClick={() => { setAccountType("carrier"); setShowSignup(true); }}
                   className="bg-white hover:bg-white/90 text-black font-medium rounded-full px-8 py-3 text-base border-0"
                   data-testid="button-post-load"
                 >
                   Post a Load
                 </Button>
                 <Button 
-                  onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
+                  onClick={() => { setAccountType("driver"); setShowSignup(true); }}
                   variant="outline"
                   className="bg-transparent border border-white/40 hover:bg-white/10 text-white font-medium rounded-full px-8 py-3 text-base"
                   data-testid="button-become-driver"
@@ -706,7 +706,7 @@ export default function RideSharePage() {
 
               <motion.div variants={fadeInUp}>
                 <Button 
-                  onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
+                  onClick={() => { setAccountType("carrier"); setShowSignup(true); }}
                   className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-3 text-base"
                   data-testid="button-post-first-load"
                 >
@@ -906,7 +906,7 @@ export default function RideSharePage() {
 
               <motion.div variants={fadeInUp}>
                 <Button 
-                  onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
+                  onClick={() => { setAccountType("driver"); setShowSignup(true); }}
                   className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-3 text-base"
                   data-testid="button-start-driving"
                 >
@@ -1014,7 +1014,7 @@ export default function RideSharePage() {
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button 
-                onClick={() => window.open("https://form.jotform.com/250985130794060", "_blank")}
+                onClick={() => setShowSignup(true)}
                 className="bg-[#155DFC] hover:bg-[#155DFC]/90 text-white rounded-full px-8 py-3 text-base"
                 data-testid="button-contact-sales"
               >

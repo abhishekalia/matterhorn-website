@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle, Mountain, Info } from "lucide-react";
 import { Link } from "wouter";
+import { BrokerApplicationModal } from "./BrokerApplicationModal";
 import brokerBg from "@assets/stock_images/professional_busines_8bc823eb.jpg";
 
 export default function BrokerCTA() {
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
+
   return (
     <section className="py-32 relative overflow-hidden" id="brokers" data-testid="section-broker-cta">
       {/* Background Image with Dark Overlay */}
@@ -66,13 +70,11 @@ export default function BrokerCTA() {
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30 w-full sm:w-auto"
-              asChild
+              onClick={() => setApplicationModalOpen(true)}
               data-testid="button-apply-now"
             >
-              <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
-                Apply Now
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
+              Apply Now
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               size="lg" 
@@ -93,6 +95,11 @@ export default function BrokerCTA() {
           Questions? Email us at <a href="mailto:support@matterhornprotects.com" className="text-primary hover:underline">support@matterhornprotects.com</a>
         </p>
       </div>
+
+      <BrokerApplicationModal 
+        open={applicationModalOpen} 
+        onOpenChange={setApplicationModalOpen} 
+      />
     </section>
   );
 }
