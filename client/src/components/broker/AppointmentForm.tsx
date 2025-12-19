@@ -39,7 +39,7 @@ const formSchema = z.object({
   // Broker Information
   fullName: z.string().min(1, "Full name is required"),
   agencyName: z.string().min(1, "Agency name is required"),
-  email: z.string().email("Please enter a valid email").optional().or(z.literal("")),
+  email: z.string().min(1, "Email is required").email("Please enter a valid email"),
   phone: z.string().optional().or(z.literal("")),
   
   // Market Focus
@@ -201,7 +201,7 @@ export function AppointmentForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Email (optional)</FormLabel>
+                  <FormLabel className="text-white">Email</FormLabel>
                   <FormControl>
                     <Input 
                       type="email" 
@@ -221,7 +221,7 @@ export function AppointmentForm() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Phone (optional)</FormLabel>
+                  <FormLabel className="text-white">Phone</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="(555) 123-4567" 
