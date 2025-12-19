@@ -47,7 +47,7 @@ const brokerApplicationSchema = z.object({
   // Anti-bot fields
   website: z.string().max(0, "").optional(),
   formLoadedAt: z.number().optional(),
-  turnstileToken: z.string().min(1, "Please complete the captcha verification"),
+  turnstileToken: z.string().optional(),
 });
 
 function escapeHtml(text: string): string {
@@ -224,10 +224,12 @@ ${message}`,
         }
       }
 
-      // Verify Turnstile captcha
-      const isCaptchaValid = await verifyTurnstileToken(turnstileToken);
-      if (!isCaptchaValid) {
-        return res.status(400).json({ error: "Captcha verification failed. Please try again." });
+      // Verify Turnstile captcha if provided
+      if (turnstileToken) {
+        const isCaptchaValid = await verifyTurnstileToken(turnstileToken);
+        if (!isCaptchaValid) {
+          return res.status(400).json({ error: "Captcha verification failed. Please try again." });
+        }
       }
 
       const safeFullName = escapeHtml(fullName);

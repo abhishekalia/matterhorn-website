@@ -57,7 +57,7 @@ const formSchema = z.object({
   // Anti-bot fields
   website: z.string().optional(),
   formLoadedAt: z.number().optional(),
-  turnstileToken: z.string().min(1, "Please complete the captcha verification"),
+  turnstileToken: z.string().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
