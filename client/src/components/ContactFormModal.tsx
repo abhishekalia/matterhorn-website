@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
+import { Turnstile } from "@marsidev/react-turnstile";
 import {
   Dialog,
   DialogContent,
@@ -23,7 +24,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 
 const contactFormSchema = z.object({
@@ -35,10 +36,9 @@ const contactFormSchema = z.object({
   phone: z.string().min(1, "Phone number is required"),
   email: z.string().email("Please enter a valid email address"),
   message: z.string().min(1, "Message is required"),
-  // Honeypot field - invisible to users, bots will fill it
   website: z.string().optional(),
-  // Timestamp when form loaded
   formLoadedAt: z.number().optional(),
+  turnstileToken: z.string().min(1, "Please complete the captcha verification"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -51,6 +51,8 @@ interface ContactFormModalProps {
 export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) {
   const { toast } = useToast();
   const [formLoadedAt] = useState(() => Date.now());
+  
+  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -63,10 +65,10 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
       message: "",
       website: "",
       formLoadedAt: undefined,
+      turnstileToken: "",
     },
   });
 
-  // Set form loaded timestamp when component mounts
   useEffect(() => {
     form.setValue("formLoadedAt", formLoadedAt);
   }, [formLoadedAt, form]);
@@ -234,6 +236,35 @@ export function ContactFormModal({ open, onOpenChange }: ContactFormModalProps) 
                 </FormItem>
               )}
             />
+
+            {/* Turnstile Captcha */}
+            <div className="flex justify-center">
+              <FormField
+                control={form.control}
+                name="turnstileToken"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Turnstile
+                        siteKey={turnstileSiteKey}
+                        onSuccess={(token: string) => field.onChange(token)}
+                        onError={() => {
+                          field.onChange("");
+                          toast({
+                            title: "Captcha error",
+                            description: "Please try again.",
+                            variant: "destructive",
+                          });
+                        }}
+                        onExpire={() => field.onChange("")}
+                        options={{ theme: "auto" }}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
 
             {/* Honeypot field - hidden from users */}
             <div className="absolute opacity-0 pointer-events-none" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>

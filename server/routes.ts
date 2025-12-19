@@ -20,6 +20,34 @@ const contactFormSchema = z.object({
   website: z.string().max(0, "").optional(),
   // Timestamp when form was loaded - must be at least 3 seconds ago
   formLoadedAt: z.number().optional(),
+  // Turnstile captcha token
+  turnstileToken: z.string().optional(),
+});
+
+// New broker application form schema
+const brokerApplicationSchema = z.object({
+  // Broker Information
+  fullName: z.string().min(1, "Full name is required").max(100),
+  agencyName: z.string().min(1, "Agency name is required").max(200),
+  email: z.string().email("Please enter a valid email address").max(255).optional().or(z.literal("")),
+  phone: z.string().max(30).optional().or(z.literal("")),
+  
+  // Market Focus
+  marketSegments: z.array(z.string()).min(1, "Please select at least one market segment"),
+  otherSegment: z.string().max(200).optional(),
+  
+  // Business Potential
+  premiumVolume: z.enum(["under-500k", "500k-2m", "2m-5m", "5m-10m", "over-10m"], {
+    required_error: "Please select your estimated premium volume",
+  }),
+  
+  // Partnership Goals
+  partnershipGoals: z.string().min(1, "Please tell us your partnership goals").max(5000),
+  
+  // Anti-bot fields
+  website: z.string().max(0, "").optional(),
+  formLoadedAt: z.number().optional(),
+  turnstileToken: z.string().min(1, "Please complete the captcha verification"),
 });
 
 function escapeHtml(text: string): string {
@@ -32,6 +60,43 @@ function escapeHtml(text: string): string {
   };
   return text.replace(/[&<>"']/g, (char) => htmlEntities[char] || char);
 }
+
+// Verify Cloudflare Turnstile token
+async function verifyTurnstileToken(token: string): Promise<boolean> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  if (!secretKey) {
+    console.error("TURNSTILE_SECRET_KEY is not configured");
+    return false;
+  }
+
+  try {
+    const response = await fetch(
+      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          secret: secretKey,
+          response: token,
+        }),
+      }
+    );
+    
+    const data = await response.json() as { success: boolean };
+    return data.success;
+  } catch (error) {
+    console.error("Turnstile verification error:", error);
+    return false;
+  }
+}
+
+const PREMIUM_VOLUME_LABELS: Record<string, string> = {
+  "under-500k": "Under $500K",
+  "500k-2m": "$500K - $2M",
+  "2m-5m": "$2M - $5M",
+  "5m-10m": "$5M - $10M",
+  "over-10m": "Over $10M",
+};
 
 export async function registerRoutes(app: Express): Promise<Server> {
   const contactLimiter = rateLimit({
@@ -55,7 +120,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: errors });
       }
 
-      const { firstName, lastName, isBroker, phone, email, message, website, formLoadedAt } = parseResult.data;
+      const { firstName, lastName, isBroker, phone, email, message, website, formLoadedAt, turnstileToken } = parseResult.data;
 
       // Bot detection: honeypot field should be empty
       if (website && website.length > 0) {
@@ -70,6 +135,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         if (timeTaken < 3000) {
           console.log("Bot detected: form submitted too quickly", timeTaken, "ms");
           return res.status(200).json({ success: true, messageId: "blocked" });
+        }
+      }
+
+      // Verify Turnstile captcha if provided
+      if (turnstileToken) {
+        const isCaptchaValid = await verifyTurnstileToken(turnstileToken);
+        if (!isCaptchaValid) {
+          return res.status(400).json({ error: "Captcha verification failed. Please try again." });
         }
       }
 
@@ -112,6 +185,118 @@ ${message}`,
       return res.status(200).json({ success: true, messageId: data?.id });
     } catch (error) {
       console.error("Contact form error:", error);
+      return res.status(500).json({ error: "An unexpected error occurred. Please try again." });
+    }
+  });
+
+  // Broker Application Form endpoint
+  app.post("/api/broker-application", contactLimiter, async (req, res) => {
+    try {
+      if (!process.env.RESEND_API_KEY) {
+        console.error("RESEND_API_KEY is not configured");
+        return res.status(503).json({ error: "Email service is not configured" });
+      }
+
+      const parseResult = brokerApplicationSchema.safeParse(req.body);
+      if (!parseResult.success) {
+        const errors = parseResult.error.errors.map(e => e.message).join(", ");
+        return res.status(400).json({ error: errors });
+      }
+
+      const { 
+        fullName, agencyName, email, phone, 
+        marketSegments, otherSegment, premiumVolume, 
+        partnershipGoals, website, formLoadedAt, turnstileToken 
+      } = parseResult.data;
+
+      // Bot detection: honeypot field should be empty
+      if (website && website.length > 0) {
+        console.log("Bot detected: honeypot field filled");
+        return res.status(200).json({ success: true, messageId: "blocked" });
+      }
+
+      // Bot detection: form should take at least 3 seconds to fill
+      if (formLoadedAt) {
+        const timeTaken = Date.now() - formLoadedAt;
+        if (timeTaken < 3000) {
+          console.log("Bot detected: form submitted too quickly", timeTaken, "ms");
+          return res.status(200).json({ success: true, messageId: "blocked" });
+        }
+      }
+
+      // Verify Turnstile captcha
+      const isCaptchaValid = await verifyTurnstileToken(turnstileToken);
+      if (!isCaptchaValid) {
+        return res.status(400).json({ error: "Captcha verification failed. Please try again." });
+      }
+
+      const safeFullName = escapeHtml(fullName);
+      const safeAgencyName = escapeHtml(agencyName);
+      const safeEmail = email ? escapeHtml(email) : "Not provided";
+      const safePhone = phone ? escapeHtml(phone) : "Not provided";
+      const safeOtherSegment = otherSegment ? escapeHtml(otherSegment) : "";
+      const safePartnershipGoals = escapeHtml(partnershipGoals);
+      const premiumVolumeLabel = PREMIUM_VOLUME_LABELS[premiumVolume] || premiumVolume;
+
+      const segmentsList = marketSegments.map(s => `• ${escapeHtml(s)}`).join("<br>");
+
+      const { data, error } = await resend.emails.send({
+        from: "Matterhorn Broker Application <onboarding@resend.dev>",
+        to: ["ak@myspark.cc"],
+        subject: `Broker Application: ${safeFullName} from ${safeAgencyName}`,
+        html: `
+          <h2>New Broker Application</h2>
+          
+          <h3>Broker Information</h3>
+          <p><strong>Full Name:</strong> ${safeFullName}</p>
+          <p><strong>Agency/Brokerage:</strong> ${safeAgencyName}</p>
+          <p><strong>Email:</strong> ${safeEmail}</p>
+          <p><strong>Phone:</strong> ${safePhone}</p>
+          
+          <h3>Market Focus</h3>
+          <p><strong>Segments Served:</strong></p>
+          <p>${segmentsList}</p>
+          ${safeOtherSegment ? `<p><strong>Other:</strong> ${safeOtherSegment}</p>` : ""}
+          
+          <h3>Business Potential</h3>
+          <p><strong>Estimated Annual Premium Volume:</strong> ${premiumVolumeLabel}</p>
+          
+          <h3>Partnership Goals</h3>
+          <p>${safePartnershipGoals.replace(/\n/g, "<br>")}</p>
+        `,
+        text: `New Broker Application
+
+Broker Information
+------------------
+Full Name: ${fullName}
+Agency/Brokerage: ${agencyName}
+Email: ${email || "Not provided"}
+Phone: ${phone || "Not provided"}
+
+Market Focus
+------------
+Segments Served:
+${marketSegments.map(s => `- ${s}`).join("\n")}
+${otherSegment ? `Other: ${otherSegment}` : ""}
+
+Business Potential
+------------------
+Estimated Annual Premium Volume: ${premiumVolumeLabel}
+
+Partnership Goals
+-----------------
+${partnershipGoals}`,
+        replyTo: email || undefined,
+      });
+
+      if (error) {
+        console.error("Resend error:", error);
+        return res.status(500).json({ error: "Failed to send application. Please try again." });
+      }
+
+      return res.status(200).json({ success: true, messageId: data?.id });
+    } catch (error) {
+      console.error("Broker application error:", error);
       return res.status(500).json({ error: "An unexpected error occurred. Please try again." });
     }
   });
