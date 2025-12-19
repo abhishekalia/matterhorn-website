@@ -138,12 +138,9 @@ export function AppointmentForm() {
       <div className="text-center py-12">
         <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
         <h3 className="text-2xl font-bold text-white mb-2">Thank You!</h3>
-        <p className="text-white/70 mb-6">
+        <p className="text-white/70">
           Your application has been submitted. We'll review it and be in touch soon.
         </p>
-        <Button onClick={() => setIsSuccess(false)} variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-          Submit Another Application
-        </Button>
       </div>
     );
   }

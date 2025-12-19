@@ -54,13 +54,13 @@ function escapeHtml(text: string): string {
 async function verifyTurnstileToken(token: string): Promise<boolean> {
   const secretKey = process.env.TURNSTILE_SECRET_KEY;
   if (!secretKey) {
-    console.log("TURNSTILE_SECRET_KEY not configured - skipping captcha verification");
-    return true;
+    console.error("TURNSTILE_SECRET_KEY not configured");
+    return false;
   }
 
   if (!token || token.length === 0) {
-    console.log("No turnstile token provided - skipping captcha verification");
-    return true;
+    console.error("No turnstile token provided");
+    return false;
   }
 
   try {
@@ -78,13 +78,13 @@ async function verifyTurnstileToken(token: string): Promise<boolean> {
     
     const data = await response.json() as { success: boolean; 'error-codes'?: string[] };
     if (!data.success) {
-      console.log("Turnstile verification failed:", data['error-codes'] || "unknown error");
-      return true;
+      console.error("Turnstile verification failed:", data['error-codes'] || "unknown error");
+      return false;
     }
     return true;
   } catch (error) {
     console.error("Turnstile verification error:", error);
-    return true;
+    return false;
   }
 }
 
