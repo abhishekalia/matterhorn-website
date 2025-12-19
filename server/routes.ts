@@ -7,6 +7,9 @@ import { z } from "zod";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Track submitted email addresses to prevent duplicates
+const submittedBrokerEmails = new Set<string>();
+
 // Log if Resend API key is configured
 if (!process.env.RESEND_API_KEY) {
   console.warn("Warning: RESEND_API_KEY is not configured. Email sending will fail.");
@@ -216,6 +219,12 @@ ${message}`,
         partnershipGoals, website, formLoadedAt, turnstileToken 
       } = parseResult.data;
 
+      // Check for duplicate submissions
+      const normalizedEmail = email.toLowerCase().trim();
+      if (submittedBrokerEmails.has(normalizedEmail)) {
+        return res.status(400).json({ error: "An application with this email has already been submitted." });
+      }
+
       // Bot detection: honeypot field should be empty
       if (website && website.length > 0) {
         console.log("Bot detected: honeypot field filled");
@@ -314,6 +323,8 @@ ${partnershipGoals}`,
         return res.status(200).json({ success: true, messageId: "logged" });
       }
 
+      // Mark email as submitted
+      submittedBrokerEmails.add(normalizedEmail);
       console.log("Broker application sent successfully:", data?.id);
       return res.status(200).json({ success: true, messageId: data?.id });
     } catch (error) {
