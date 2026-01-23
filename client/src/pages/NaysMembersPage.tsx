@@ -1,7 +1,21 @@
-import { Phone, ExternalLink, Play } from "lucide-react";
+import { Phone, ExternalLink, Play, Mountain } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import matterhornLogo from "@assets/logo.png";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
+
+function MatterhornLogo({ className = "", dark = false }: { className?: string; dark?: boolean }) {
+  const textColor = dark ? "text-white" : "text-gray-800";
+  const subtextColor = dark ? "text-white/70" : "text-gray-600";
+  return (
+    <div className={`flex items-center gap-3 ${className}`}>
+      <Mountain className={`w-12 h-12 ${textColor}`} />
+      <div>
+        <div className={`text-xl font-bold tracking-wide ${textColor}`}>MATTERHORN</div>
+        <div className={`text-xs tracking-widest ${subtextColor}`}>INSURANCE GROUP</div>
+        <div className={`text-[8px] tracking-wider ${subtextColor}`}>OUR VIEW OF THE MARKET IS FROM THE TOP</div>
+      </div>
+    </div>
+  );
+}
 
 function NaysLogo({ className = "" }: { className?: string }) {
   return (
@@ -51,12 +65,7 @@ export default function NaysMembersPage() {
         <div className="container mx-auto px-6 py-16">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="flex flex-col items-start gap-6">
-              <img 
-                src={matterhornLogo} 
-                alt="Matterhorn Insurance Group" 
-                className="h-24 object-contain"
-                data-testid="img-matterhorn-logo"
-              />
+              <MatterhornLogo data-testid="img-matterhorn-logo" />
               <a 
                 href="tel:1-844-600-0611" 
                 className="inline-flex items-center gap-2 px-6 py-3 border border-gray-600 rounded-full text-gray-700 hover:bg-white/10 transition-colors"
@@ -569,11 +578,7 @@ export default function NaysMembersPage() {
               </p>
             </div>
             <div className="flex flex-col items-center gap-6">
-              <img 
-                src={matterhornLogo} 
-                alt="Matterhorn Insurance Group" 
-                className="h-32 object-contain"
-              />
+              <MatterhornLogo dark={true} className="scale-125" />
               <a 
                 href="tel:1-844-600-0611" 
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 rounded-full text-white hover:bg-white/10 transition-colors"
