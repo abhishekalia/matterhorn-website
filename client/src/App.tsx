@@ -1,5 +1,4 @@
 import { Switch, Route } from "wouter";
-import { useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,6 +12,7 @@ import TravelPage from "@/pages/TravelPage";
 import RideSharePage from "@/pages/RideSharePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import NaysMembersPage from "@/pages/NaysMembersPage";
 
 function Router() {
   return (
@@ -25,6 +25,7 @@ function Router() {
       <Route path="/rideshare" component={RideSharePage} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
+      <Route path="/naysmembers" component={NaysMembersPage} />
       <Route component={NotFound} />
     </Switch>
   );
