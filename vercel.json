@@ -17,11 +17,6 @@
       "source": "/marshmma",
       "destination": "https://marsh-mma-landing.replit.app/",
       "permanent": false
-    },
-    {
-      "source": "/naysmembers",
-      "destination": "https://matterhornprotects.wixsite.com/matterhornprotects/naysmembers",
-      "permanent": false
     }
   ]
 }
