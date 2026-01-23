@@ -47,36 +47,45 @@ export default function NaysMembersPage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section with Mountain Background */}
       <section 
-        className="relative min-h-[70vh] flex items-center"
+        className="relative min-h-[80vh] flex items-center overflow-hidden"
         style={{
           backgroundImage: `url(${matterhornHero})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 40%',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
-        <div className="container mx-auto px-6 py-16 relative z-10">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div className="flex flex-col items-start gap-6">
-              <MatterhornLogo data-testid="img-matterhorn-logo" />
+        {/* Dark gradient overlay for professional look */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/70 to-transparent" />
+        
+        <div className="container mx-auto px-6 py-20 relative z-10">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12">
+            {/* Left side - Logo and phone */}
+            <div className="flex flex-col items-start gap-8">
+              <MatterhornLogo dark={true} data-testid="img-matterhorn-logo" />
               <a 
                 href="tel:1-844-600-0611" 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-sm border border-gray-300 rounded-full text-gray-900 font-medium hover:bg-white transition-colors shadow-sm"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-slate-800/80 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium hover:bg-slate-700/80 transition-all shadow-lg"
                 data-testid="link-phone"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
                 1-844-600-0611
               </a>
             </div>
-            <div className="text-right">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 drop-shadow-sm">
+            
+            {/* Right side - Main title */}
+            <div className="text-left lg:text-right max-w-xl">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-white tracking-tight leading-tight">
                 NAYS Sports
                 <br />
-                Protection Program
+                <span className="font-light">Protection Program</span>
               </h1>
+              <div className="mt-6 h-1 w-24 bg-gradient-to-r from-cyan-400 to-blue-500 lg:ml-auto" />
             </div>
           </div>
         </div>
+        
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       {/* Partnership Section - NAYS + MTRHRN */}
