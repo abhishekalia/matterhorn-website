@@ -40,8 +40,8 @@ export default function NaysMembersPage() {
   const youtubeVideoId = "IBqpHEtemjI";
   const requestCertificateLink = "https://wkf.ms/3LYcy8w";
   const supportTeamLink = "https://forms.monday.com/forms/a8cd341fc4c812d102e2436af4678965?r=use1";
-  const applyNowLink = "https://matterhornprotects.com/youth-sports";
-  const submissionFormLink = "https://forms.monday.com/forms/a8cd341fc4c812d102e2436af4678965?r=use1";
+  const quickQuoteLink = "https://forms.monday.com/forms/5b2ccbcf2ba683b39e74fbb15d649258?r=use1";
+  const memberBenefitsLink = "/NAYS_Membership_Benefits_2025.pdf";
 
   return (
     <div className="min-h-screen bg-background">
@@ -108,7 +108,7 @@ export default function NaysMembersPage() {
               <Button 
                 variant="outline" 
                 className="rounded-full px-8 py-3 border-gray-900 text-gray-900 hover:bg-gray-100"
-                onClick={() => window.open(applyNowLink, '_blank')}
+                onClick={() => window.open(quickQuoteLink, '_blank')}
                 data-testid="button-sports-quick-quote"
               >
                 Sports Quick Quote
@@ -211,9 +211,10 @@ export default function NaysMembersPage() {
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
-                <a href="#" className="block" data-testid="link-member-benefits">
+                <a href={memberBenefitsLink} target="_blank" rel="noopener noreferrer" className="block" data-testid="link-member-benefits">
                   <Button variant="outline" className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0">
                     Access Member Benefits Document
+                    <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                 </a>
                 <a href={supportTeamLink} target="_blank" rel="noopener noreferrer" className="block" data-testid="link-support-team">
@@ -352,7 +353,7 @@ export default function NaysMembersPage() {
                 <Button 
                   variant="outline" 
                   className="w-full max-w-md rounded-full py-3 bg-white/10 border-white/30 text-white hover:bg-white/20"
-                  onClick={() => window.open(applyNowLink, '_blank')}
+                  onClick={() => window.open(quickQuoteLink, '_blank')}
                   data-testid="button-quick-quote-coverage"
                 >
                   Quick Quote
@@ -428,7 +429,7 @@ export default function NaysMembersPage() {
                 <Button 
                   variant="outline" 
                   className="w-full rounded-full py-3 border-gray-900 text-gray-900 hover:bg-gray-100"
-                  onClick={() => window.open(applyNowLink, '_blank')}
+                  onClick={() => window.open(quickQuoteLink, '_blank')}
                   data-testid="button-apply-now-directors"
                 >
                   Apply Now
@@ -507,7 +508,7 @@ export default function NaysMembersPage() {
                 <Button 
                   variant="outline" 
                   className="w-full rounded-full py-3 border-gray-900 text-gray-900 hover:bg-gray-100"
-                  onClick={() => window.open(applyNowLink, '_blank')}
+                  onClick={() => window.open(quickQuoteLink, '_blank')}
                   data-testid="button-apply-now-coaches"
                 >
                   Apply Now
@@ -584,7 +585,7 @@ export default function NaysMembersPage() {
                 <Button 
                   variant="outline" 
                   className="w-full rounded-full py-3 border-gray-900 text-gray-900 hover:bg-gray-100"
-                  onClick={() => window.open(applyNowLink, '_blank')}
+                  onClick={() => window.open(quickQuoteLink, '_blank')}
                   data-testid="button-apply-now-events"
                 >
                   Apply Now
@@ -658,7 +659,7 @@ export default function NaysMembersPage() {
                 <Button 
                   variant="outline" 
                   className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0"
-                  onClick={() => window.open(submissionFormLink, '_blank')}
+                  onClick={() => window.open(quickQuoteLink, '_blank')}
                   data-testid="button-submission-form"
                 >
                   Submission Form
