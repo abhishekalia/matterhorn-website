@@ -679,37 +679,50 @@ export default function NaysMembersPage() {
 
       {/* We Are Here to Help Section */}
       <section 
-        className="py-16"
+        className="relative py-24 overflow-hidden"
         style={{
           backgroundImage: `url(${matterhornHero})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 60%',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-900/50" />
-        <div className="container mx-auto px-6 relative">
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
-            <div className="flex-1">
-              <div className="text-sm text-white/70 mb-4">
-                Sports Program<br />
-                MTRHRN Partner<br />
-                Wayne Gutridge<br />
-                <a href="mailto:wgutridge@matterhornprotects.com" className="text-cyan-300 hover:underline">wgutridge@matterhornprotects.com</a>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">We are here to help!</h2>
-              <p className="text-white/90 text-lg">
-                Whether you're running a league, coaching a team, or organizing events, navigating insurance shouldn't be complicated. Our team is here to make it simple. From selecting the right coverage to issuing COIs or answering questions about your policy, we're just a call or click away. With 24/7 access to our Member Services Line and a team that understands youth sports inside and out, you'll always have the support you need—whenever you need it.
+        {/* Dark gradient overlay for professional look */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+            {/* Left side - Content */}
+            <div className="flex-1 max-w-2xl">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8">
+                We are here to help!
+              </h2>
+              <p className="text-white/80 text-lg leading-relaxed mb-8">
+                Whether you're running a league, coaching a team, or organizing events, navigating insurance shouldn't be complicated. Our team is here to make it simple. From selecting the right coverage to issuing COIs or answering questions about your policy, we're just a call or click away.
               </p>
+              <p className="text-white/80 text-lg leading-relaxed">
+                With 24/7 access to our Member Services Line and a team that understands youth sports inside and out, you'll always have the support you need—whenever you need it.
+              </p>
+              <div className="mt-6 h-1 w-24 bg-gradient-to-r from-cyan-400 to-blue-500" />
             </div>
-            <div className="flex flex-col items-center gap-6 bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+            
+            {/* Right side - Contact card */}
+            <div className="flex flex-col items-center gap-6 bg-slate-800/60 backdrop-blur-md p-10 rounded-2xl border border-white/10">
               <MatterhornLogo dark={true} className="scale-110" />
               <a 
                 href="tel:1-844-600-0611" 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/40 rounded-full text-white font-medium hover:bg-white/30 transition-colors"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-slate-700/80 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium hover:bg-slate-600/80 transition-all shadow-lg"
+                data-testid="link-phone-help"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5" />
                 1-844-600-0611
               </a>
+              <div className="text-center text-white/60 text-sm mt-2">
+                <p>Sports Program Partner</p>
+                <p className="font-medium text-white/80">Wayne Gutridge</p>
+                <a href="mailto:wgutridge@matterhornprotects.com" className="text-cyan-400 hover:underline">
+                  wgutridge@matterhornprotects.com
+                </a>
+              </div>
             </div>
           </div>
         </div>
