@@ -1,10 +1,11 @@
-import { Phone, ExternalLink, Play, Mountain } from "lucide-react";
+import { Phone, ExternalLink, Mountain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
+import naysLogoImage from "@assets/images_1769203361692.png";
 
 function MatterhornLogo({ className = "", dark = false }: { className?: string; dark?: boolean }) {
-  const textColor = dark ? "text-white" : "text-gray-800";
-  const subtextColor = dark ? "text-white/70" : "text-gray-600";
+  const textColor = dark ? "text-white" : "text-gray-900";
+  const subtextColor = dark ? "text-white/80" : "text-gray-600";
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <Mountain className={`w-12 h-12 ${textColor}`} />
@@ -19,21 +20,11 @@ function MatterhornLogo({ className = "", dark = false }: { className?: string; 
 
 function NaysLogo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex flex-col items-center ${className}`}>
-      <div className="flex items-baseline">
-        <span className="text-5xl font-black tracking-tight">
-          <span className="text-red-600">N</span>
-          <span className="text-blue-800">A</span>
-          <span className="text-red-600">Y</span>
-          <span className="text-blue-800">S</span>
-        </span>
-      </div>
-      <div className="text-xs font-bold text-blue-900 tracking-wide mt-1 text-center">
-        National Alliance
-        <br />
-        for Youth Sports
-      </div>
-    </div>
+    <img 
+      src={naysLogoImage} 
+      alt="NAYS - National Alliance for Youth Sports" 
+      className={`object-contain ${className}`}
+    />
   );
 }
 
@@ -50,6 +41,7 @@ export default function NaysMembersPage() {
   const requestCertificateLink = "https://wkf.ms/3LYcy8w";
   const supportTeamLink = "https://forms.monday.com/forms/a8cd341fc4c812d102e2436af4678965?r=use1";
   const applyNowLink = "https://matterhornprotects.com/youth-sports";
+  const submissionFormLink = "https://forms.monday.com/forms/a8cd341fc4c812d102e2436af4678965?r=use1";
 
   return (
     <div className="min-h-screen bg-background">
@@ -57,18 +49,19 @@ export default function NaysMembersPage() {
       <section 
         className="relative min-h-[70vh] flex items-center"
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,0.1)), url(${matterhornHero})`,
+          backgroundImage: `url(${matterhornHero})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="container mx-auto px-6 py-16">
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
+        <div className="container mx-auto px-6 py-16 relative z-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="flex flex-col items-start gap-6">
               <MatterhornLogo data-testid="img-matterhorn-logo" />
               <a 
                 href="tel:1-844-600-0611" 
-                className="inline-flex items-center gap-2 px-6 py-3 border border-gray-600 rounded-full text-gray-700 hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-sm border border-gray-300 rounded-full text-gray-900 font-medium hover:bg-white transition-colors shadow-sm"
                 data-testid="link-phone"
               >
                 <Phone className="w-4 h-4" />
@@ -76,7 +69,7 @@ export default function NaysMembersPage() {
               </a>
             </div>
             <div className="text-right">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-600">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 drop-shadow-sm">
                 NAYS Sports
                 <br />
                 Protection Program
@@ -86,7 +79,7 @@ export default function NaysMembersPage() {
         </div>
       </section>
 
-      {/* Partnership Section */}
+      {/* Partnership Section - NAYS + MTRHRN */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-start gap-12">
@@ -113,7 +106,7 @@ export default function NaysMembersPage() {
               </Button>
             </div>
             <div className="flex-shrink-0 bg-white p-6 rounded-lg shadow-sm border">
-              <NaysLogo className="w-64" />
+              <NaysLogo className="w-48 h-auto" />
             </div>
           </div>
         </div>
@@ -174,6 +167,53 @@ export default function NaysMembersPage() {
               <p className="text-white/70 text-sm italic">
                 "We are excited to partner with Matterhorn Insurance Group to bring our members an exclusive opportunity for enhanced protection. Through our educational programs, members and their organizations can now benefit even more from the hard work and extra steps they've taken to ensure their programs are as safe as possible".
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Here for You Section */}
+      <section className="py-16 bg-black text-white">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Here for you</h2>
+              <p className="text-white/70 mb-8">
+                As a NAYS member, you receive exclusive access to a suite of insurance benefits designed to support and protect your organization. This includes excess liability coverage, instant Certificates of Insurance (COIs) for facilities and partners, and 24/7 access to our Member Services Line for any coverage or insurance-related questions. You'll also gain full access to the NAYS Sports Protection Program, offering tailored coverage for leagues, coaches, events, and participants—all backed by trusted A-rated carriers and supported by our expert team.
+              </p>
+              <h3 className="text-xl font-bold mb-4">Membership Benefits</h3>
+              <ul className="space-y-2 text-white/80">
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Instant COIs</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />24/7 Member Services Line</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Access to Exclusive National Insurance Program</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Excess Liability Coverage</li>
+                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Risk Management Resource</li>
+              </ul>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-6">
+              <div className="bg-white p-4 rounded-lg mb-4">
+                <NaysLogo className="w-48 h-auto" />
+              </div>
+              <h3 className="text-xl font-bold">Resources</h3>
+              <div className="w-full max-w-md space-y-3">
+                <a href={requestCertificateLink} target="_blank" rel="noopener noreferrer" className="block" data-testid="link-request-coi">
+                  <Button variant="outline" className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0">
+                    Request COI Certificate
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+                <a href="#" className="block" data-testid="link-member-benefits">
+                  <Button variant="outline" className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0">
+                    Access Member Benefits Document
+                  </Button>
+                </a>
+                <a href={supportTeamLink} target="_blank" rel="noopener noreferrer" className="block" data-testid="link-support-team">
+                  <Button variant="outline" className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0">
+                    Connect with MTRHRN Support Team
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -554,110 +594,113 @@ export default function NaysMembersPage() {
         </div>
       </section>
 
-      {/* We Are Here to Help Section */}
+      {/* Enterprise Accounts Section */}
       <section 
-        className="py-16 text-white"
+        className="py-16"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${matterhornHero})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=1920')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 text-white">
+          <div className="text-sm text-white/70 mb-4">
+            MTRHRN Partner<br />
+            Wayne Gutridge<br />
+            <a href="mailto:wgutridge@matterhornprotects.com" className="text-primary hover:underline">wgutridge@matterhornprotects.com</a>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-light text-center mb-8">
+            Enterprise<br />Accounts
+          </h2>
+          <p className="text-center text-white/90 max-w-4xl mx-auto mb-12">
+            At Matterhorn Insurance Group, we specialize in working with enterprise-level clients who need more than just access to insurance markets — they need a strategic partner. Our team collaborates closely with brokers, risk managers, and organizational leadership to design, underwrite, and deploy custom insurance programs that address unique, high-stakes exposures.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-bold mb-2">Discovery & Risk Mapping</h3>
+                <p className="text-white/70 text-sm">
+                  We start with a hands-on discovery process to understand your organization's structure, exposures, and operational goals — then map those risks into a framework for strategic coverage.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Custom Program Design & Carrier Alignment</h3>
+                <p className="text-white/70 text-sm">
+                  Our underwriting team designs bespoke programs aligned with your unique needs, leveraging our deep carrier relationships to secure the best terms and placements.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Technology Integration & Automation</h3>
+                <p className="text-white/70 text-sm">
+                  We integrate our solutions with your existing platforms and systems to streamline operations and lift administrative burdens off your team.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-2">Ongoing Program Management & Growth</h3>
+                <p className="text-white/70 text-sm">
+                  At our core, we are a service organization. Our team stays engaged with ongoing support, data insights, and strategic guidance to ensure your program evolves as you do.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-6">Application</h3>
+              <div className="space-y-4">
+                <Button 
+                  variant="outline" 
+                  className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0"
+                  onClick={() => window.open(submissionFormLink, '_blank')}
+                  data-testid="button-submission-form"
+                >
+                  Submission Form
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0"
+                  onClick={() => window.open(supportTeamLink, '_blank')}
+                  data-testid="button-connect-enterprise"
+                >
+                  Connect with Matterhorn
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* We Are Here to Help Section */}
+      <section 
+        className="py-16"
+        style={{
+          backgroundImage: `url(${matterhornHero})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-900/50" />
+        <div className="container mx-auto px-6 relative">
           <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
             <div className="flex-1">
               <div className="text-sm text-white/70 mb-4">
                 Sports Program<br />
                 MTRHRN Partner<br />
                 Wayne Gutridge<br />
-                <a href="mailto:wgutridge@matterhornprotects.com" className="text-primary hover:underline">wgutridge@matterhornprotects.com</a>
+                <a href="mailto:wgutridge@matterhornprotects.com" className="text-cyan-300 hover:underline">wgutridge@matterhornprotects.com</a>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">We are here to help!</h2>
-              <p className="text-white/80 text-lg">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">We are here to help!</h2>
+              <p className="text-white/90 text-lg">
                 Whether you're running a league, coaching a team, or organizing events, navigating insurance shouldn't be complicated. Our team is here to make it simple. From selecting the right coverage to issuing COIs or answering questions about your policy, we're just a call or click away. With 24/7 access to our Member Services Line and a team that understands youth sports inside and out, you'll always have the support you need—whenever you need it.
               </p>
             </div>
-            <div className="flex flex-col items-center gap-6">
-              <MatterhornLogo dark={true} className="scale-125" />
+            <div className="flex flex-col items-center gap-6 bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+              <MatterhornLogo dark={true} className="scale-110" />
               <a 
                 href="tel:1-844-600-0611" 
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 rounded-full text-white hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/40 rounded-full text-white font-medium hover:bg-white/30 transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 1-844-600-0611
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Here for You Section */}
-      <section className="py-16 bg-black text-white">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Here for you</h2>
-              <p className="text-white/70 mb-8">
-                As a NAYS member, you receive exclusive access to a suite of insurance benefits designed to support and protect your organization. This includes excess liability coverage, instant Certificates of Insurance (COIs) for facilities and partners, and 24/7 access to our Member Services Line for any coverage or insurance-related questions. You'll also gain full access to the NAYS Sports Protection Program, offering tailored coverage for leagues, coaches, events, and participants—all backed by trusted A-rated carriers and supported by our expert team.
-              </p>
-              <h3 className="text-xl font-bold mb-4">Membership Benefits</h3>
-              <ul className="space-y-2 text-white/80">
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Instant COIs</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />24/7 Member Services Line</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Access to Exclusive National Insurance Program</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Excess Liability Coverage</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-white rounded-full" />Risk Management Resource</li>
-              </ul>
-            </div>
-            <div className="flex flex-col items-center justify-center gap-6">
-              <div className="bg-white p-4 rounded-lg mb-4">
-                <NaysLogo className="w-48" />
-              </div>
-              <h3 className="text-xl font-bold">Resources</h3>
-              <div className="w-full max-w-md space-y-3">
-                <a 
-                  href={requestCertificateLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                  data-testid="link-request-coi"
-                >
-                  <Button 
-                    variant="outline" 
-                    className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0"
-                  >
-                    Request COI Certificate
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
-                </a>
-                <a 
-                  href="#"
-                  className="block"
-                  data-testid="link-member-benefits"
-                >
-                  <Button 
-                    variant="outline" 
-                    className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0"
-                  >
-                    Access Member Benefits Document
-                  </Button>
-                </a>
-                <a 
-                  href={supportTeamLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                  data-testid="link-support-team"
-                >
-                  <Button 
-                    variant="outline" 
-                    className="w-full rounded-full py-3 bg-white text-gray-900 hover:bg-gray-100 border-0"
-                  >
-                    Connect with MTRHRN Support Team
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
-                </a>
-              </div>
             </div>
           </div>
         </div>
