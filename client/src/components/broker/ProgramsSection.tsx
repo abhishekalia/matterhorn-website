@@ -9,10 +9,10 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { FileText, ChevronDown, MapPin, Laptop, Send } from "lucide-react";
-import transportationImg from "@assets/generated_images/Edgy_transportation_visual_3a94fd09.png";
-import sportsImg from "@assets/generated_images/Edgy_modern_sports_visual_1cd3bb51.png";
-import entertainmentImg from "@assets/generated_images/Edgy_entertainment_industry_visual_37f091ea.png";
-import travelImg from "@assets/generated_images/Edgy_travel_visual_cd89b49b.png";
+import transportationImg from "@assets/generated_images/transportation_realistic.jpg";
+import sportsImg from "@assets/generated_images/sports_realistic.jpg";
+import entertainmentImg from "@assets/generated_images/entertainment_realistic.jpg";
+import travelImg from "@assets/generated_images/travel_realistic.jpg";
 
 interface Program {
   name: string;
