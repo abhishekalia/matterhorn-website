@@ -35,17 +35,18 @@ export default function HeroSection() {
           className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           data-testid="hero-heading"
         >
-          Digitally Led{" "}
+          Your{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary animate-gradient">
-            Program Design Shop
-          </span>
+            Hybrid MGU + MGA
+          </span>{" "}
+          Partner
         </h1>
 
         <p
           className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-medium"
           data-testid="hero-subheading"
         >
-          Where AI Meets Specialty Insurance Expertise
+          One Platform. Full Authority. Broker-First Always.
         </p>
 
         <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="hero-description">
@@ -65,10 +66,10 @@ export default function HeroSection() {
             size="lg"
             variant="outline"
             className="text-base px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
-            onClick={() => scrollToSection("markets")}
-            data-testid="button-view-markets"
+            onClick={() => setApplicationModalOpen(true)}
+            data-testid="button-request-appointment"
           >
-            View Our Markets
+            Request Appointment
           </Button>
         </div>
 

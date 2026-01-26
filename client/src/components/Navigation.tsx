@@ -61,9 +61,12 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between gap-8">
             <Link href="/" data-testid="link-home">
-              <div className="flex items-center gap-2 cursor-pointer group">
-                <Mountain className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                <div className="text-2xl font-bold text-primary">MATTERHORN</div>
+              <div className="flex items-center gap-3 cursor-pointer group">
+                <Mountain className="w-7 h-7 text-primary group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col">
+                  <div className="text-xl font-bold text-primary leading-tight">MATTERHORN</div>
+                  <div className="text-[10px] font-medium text-primary/70 tracking-widest uppercase">Insurance Group</div>
+                </div>
               </div>
             </Link>
 
