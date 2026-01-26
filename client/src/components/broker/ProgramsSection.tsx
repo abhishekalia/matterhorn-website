@@ -8,13 +8,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown, MapPin, Laptop, Users, Layers } from "lucide-react";
+import { ChevronDown, MapPin, Laptop, Users } from "lucide-react";
 import transportationImg from "@assets/generated_images/transportation_realistic.jpg";
 import sportsImg from "@assets/generated_images/sports_realistic.jpg";
 import entertainmentImg from "@assets/generated_images/Videographer_at_race_track_0269301f.png";
@@ -579,51 +573,18 @@ export function ProgramsSection() {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
-            <TabsList className="grid w-full max-w-2xl grid-cols-2 md:grid-cols-4 bg-white/5 border border-white/10">
-              {Object.entries(sectors).map(([key, sector]) => (
-                <TabsTrigger
-                  key={key}
-                  value={key}
-                  data-testid={`tab-${key}`}
-                  className="text-sm md:text-base text-white/70 data-[state=active]:bg-primary data-[state=active]:text-white"
-                >
-                  {sector.title}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="bg-white/5 border-white/10 text-white hover:bg-white/10 hover:text-primary"
-                  data-testid="dropdown-market-segments"
-                >
-                  <Layers className="w-4 h-4 mr-2" />
-                  Market Segments
-                  <ChevronDown className="w-4 h-4 ml-2" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-[#1B2A41] border-white/10">
-                {Object.entries(sectors).map(([key, sector]) => (
-                  <DropdownMenuItem
-                    key={key}
-                    onClick={() => {
-                      const element = document.getElementById(key);
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                    className="text-white/80 hover:text-primary hover:bg-white/10 cursor-pointer"
-                    data-testid={`dropdown-item-${key}`}
-                  >
-                    {sector.title} Market
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 md:grid-cols-4 mb-12 bg-white/5 border border-white/10">
+            {Object.entries(sectors).map(([key, sector]) => (
+              <TabsTrigger
+                key={key}
+                value={key}
+                data-testid={`tab-${key}`}
+                className="text-sm md:text-base text-white/70 data-[state=active]:bg-primary data-[state=active]:text-white"
+              >
+                {sector.title}
+              </TabsTrigger>
+            ))}
+          </TabsList>
 
           {Object.entries(sectors).map(([key, sector]) => (
             <TabsContent key={key} value={key}>

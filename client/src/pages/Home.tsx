@@ -7,7 +7,6 @@ import AboutMatterhorn from "@/components/AboutMatterhorn";
 import TechnologyShowcase from "@/components/TechnologyShowcase";
 import ProcessSection from "@/components/ProcessSection";
 import MarketSegments from "@/components/MarketSegments";
-import DetailedMarkets from "@/components/DetailedMarkets";
 import CaseStudies from "@/components/CaseStudies";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import TeamSection from "@/components/TeamSection";
@@ -26,7 +25,6 @@ export default function Home() {
       <TechnologyShowcase />
       <ProcessSection />
       <MarketSegments />
-      <DetailedMarkets />
       <CaseStudies />
       <TestimonialsSection />
       <TeamSection />
