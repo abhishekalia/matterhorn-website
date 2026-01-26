@@ -10,7 +10,6 @@ import MarketSegments from "@/components/MarketSegments";
 import DetailedMarkets from "@/components/DetailedMarkets";
 import CaseStudies from "@/components/CaseStudies";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import PartnershipsSection from "@/components/PartnershipsSection";
 import TeamSection from "@/components/TeamSection";
 import BrokerCTA from "@/components/BrokerCTA";
 import Footer from "@/components/Footer";
@@ -30,7 +29,6 @@ export default function Home() {
       <DetailedMarkets />
       <CaseStudies />
       <TestimonialsSection />
-      <PartnershipsSection />
       <TeamSection />
       <BrokerCTA />
       <Footer />
