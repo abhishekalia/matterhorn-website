@@ -8,7 +8,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { FileText, ChevronDown, MapPin, Laptop, Send } from "lucide-react";
+import { ChevronDown, MapPin, Laptop, Users } from "lucide-react";
 import transportationImg from "@assets/generated_images/transportation_realistic.jpg";
 import sportsImg from "@assets/generated_images/sports_realistic.jpg";
 import entertainmentImg from "@assets/generated_images/entertainment_realistic.jpg";
@@ -17,6 +17,7 @@ import travelImg from "@assets/generated_images/travel_realistic.jpg";
 interface Program {
   name: string;
   coverages: string[];
+  targetClients: string[];
 }
 
 interface ProgramCardProps {
@@ -26,11 +27,12 @@ interface ProgramCardProps {
 }
 
 function ProgramCard({ program, sectorKey, index }: ProgramCardProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isCoveragesOpen, setIsCoveragesOpen] = useState(false);
+  const [isTargetClientsOpen, setIsTargetClientsOpen] = useState(false);
 
   return (
     <Card
-      className="p-4 transition-all duration-300 cursor-pointer group bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:border-primary/40"
+      className="p-4 transition-all duration-300 group bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:border-primary/40"
       data-testid={`card-program-${sectorKey}-${index}`}
     >
       <div className="flex items-start justify-between mb-3">
@@ -43,54 +45,63 @@ function ProgramCard({ program, sectorKey, index }: ProgramCardProps) {
         <div className="w-2 h-2 rounded-full bg-primary/30 group-hover:bg-primary group-hover:scale-150 transition-all duration-300" />
       </div>
 
-      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-        <CollapsibleTrigger asChild>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="w-full justify-between mb-2 text-xs text-white/70 hover:bg-white/10 hover:text-primary transition-colors"
-            data-testid={`button-toggle-coverages-${sectorKey}-${index}`}
-          >
-            <span>Available Coverages ({program.coverages.length})</span>
-            <ChevronDown
-              className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-            />
-          </Button>
-        </CollapsibleTrigger>
-        <CollapsibleContent className="space-y-1 mb-3">
-          {program.coverages.map((coverage, idx) => (
-            <div
-              key={idx}
-              className="text-xs text-white/60 pl-2 py-1 border-l-2 border-primary/20 hover:border-primary hover:text-white hover:bg-white/5 transition-all cursor-default rounded-r"
-              data-testid={`text-coverage-${sectorKey}-${index}-${idx}`}
+      <div className="space-y-1">
+        <Collapsible open={isCoveragesOpen} onOpenChange={setIsCoveragesOpen}>
+          <CollapsibleTrigger asChild>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-between text-xs text-white/70 hover:bg-white/10 hover:text-primary transition-colors"
+              data-testid={`button-toggle-coverages-${sectorKey}-${index}`}
             >
-              • {coverage}
-            </div>
-          ))}
-        </CollapsibleContent>
-      </Collapsible>
+              <span>Available Coverages ({program.coverages.length})</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ${isCoveragesOpen ? "rotate-180" : ""}`}
+              />
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="space-y-1 mt-2 mb-1">
+            {program.coverages.map((coverage, idx) => (
+              <div
+                key={idx}
+                className="text-xs text-white/60 pl-2 py-1 border-l-2 border-primary/20 hover:border-primary hover:text-white hover:bg-white/5 transition-all cursor-default rounded-r"
+                data-testid={`text-coverage-${sectorKey}-${index}-${idx}`}
+              >
+                • {coverage}
+              </div>
+            ))}
+          </CollapsibleContent>
+        </Collapsible>
 
-      <div className="flex flex-col gap-2">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="text-xs justify-start px-2 h-auto py-1.5 text-white/70 hover:bg-white/10 hover:text-primary transition-all"
-          onClick={() => console.log(`Request sheet for ${program.name}`)}
-          data-testid={`button-request-sheet-${sectorKey}-${index}`}
-        >
-          <FileText className="w-3 h-3 mr-1.5" />
-          Request Program Sheet
-        </Button>
-        <Button
-          variant="default"
-          size="sm"
-          className="text-xs w-full bg-primary hover:bg-primary/90"
-          onClick={() => console.log(`Request application for ${program.name}`)}
-          data-testid={`button-request-application-${sectorKey}-${index}`}
-        >
-          <Send className="w-3 h-3 mr-1.5" />
-          Request Application
-        </Button>
+        <Collapsible open={isTargetClientsOpen} onOpenChange={setIsTargetClientsOpen}>
+          <CollapsibleTrigger asChild>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-between text-xs text-white/70 hover:bg-white/10 hover:text-primary transition-colors"
+              data-testid={`button-toggle-clients-${sectorKey}-${index}`}
+            >
+              <span className="flex items-center gap-1.5">
+                <Users className="w-3 h-3" />
+                Target Clients ({program.targetClients.length})
+              </span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ${isTargetClientsOpen ? "rotate-180" : ""}`}
+              />
+            </Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="space-y-1 mt-2">
+            {program.targetClients.map((client, idx) => (
+              <div
+                key={idx}
+                className="text-xs text-white/60 pl-2 py-1 border-l-2 border-cyan-500/20 hover:border-cyan-500 hover:text-white hover:bg-white/5 transition-all cursor-default rounded-r"
+                data-testid={`text-client-${sectorKey}-${index}-${idx}`}
+              >
+                • {client}
+              </div>
+            ))}
+          </CollapsibleContent>
+        </Collapsible>
       </div>
     </Card>
   );
@@ -110,6 +121,12 @@ const sectors = {
           "Non-Trucking Liability",
           "Workers Compensation",
         ],
+        targetClients: [
+          "Owner-operators",
+          "Independent truckers",
+          "Last-mile delivery drivers",
+          "Courier services",
+        ],
       },
       {
         name: "Freight Brokers",
@@ -121,6 +138,12 @@ const sectors = {
           "Cyber",
           "General Liability",
         ],
+        targetClients: [
+          "Licensed freight brokers",
+          "Third-party logistics (3PL)",
+          "Freight forwarders",
+          "Transportation intermediaries",
+        ],
       },
       {
         name: "Rideshare",
@@ -129,6 +152,12 @@ const sectors = {
           "Physical Damage",
           "Uninsured/Underinsured Motorist",
           "Accident Medical",
+        ],
+        targetClients: [
+          "Rideshare drivers",
+          "Delivery app drivers",
+          "Gig economy workers",
+          "Transportation network companies",
         ],
       },
       {
@@ -139,6 +168,12 @@ const sectors = {
           "Battery Coverage",
           "Charging Equipment",
           "Business Interruption",
+        ],
+        targetClients: [
+          "Electric vehicle fleet operators",
+          "EV delivery services",
+          "Green transportation companies",
+          "Municipal EV programs",
         ],
       },
     ],
@@ -157,6 +192,12 @@ const sectors = {
           "Directors & Officers",
           "Tournament Registration Refund",
         ],
+        targetClients: [
+          "Youth sports leagues",
+          "Recreational programs",
+          "School athletic programs",
+          "Community sports organizations",
+        ],
       },
       {
         name: "Pickleball",
@@ -168,6 +209,12 @@ const sectors = {
           "Tournament Liability",
           "Accident Medical",
         ],
+        targetClients: [
+          "Pickleball clubs",
+          "Tournament organizers",
+          "Facility operators",
+          "Coaching professionals",
+        ],
       },
       {
         name: "Water Sports",
@@ -177,6 +224,12 @@ const sectors = {
           "Equipment Coverage",
           "Boat Liability",
           "Accident Medical",
+        ],
+        targetClients: [
+          "Marinas & boat rentals",
+          "Surf & paddle schools",
+          "Scuba diving operators",
+          "Water sport instructors",
         ],
       },
       {
@@ -188,6 +241,12 @@ const sectors = {
           "Professional Liability",
           "Sexual Abuse & Molestation",
         ],
+        targetClients: [
+          "Ski schools",
+          "Snowboard instructors",
+          "Winter recreation programs",
+          "Youth ski clubs",
+        ],
       },
       {
         name: "Adventure Sports",
@@ -197,6 +256,12 @@ const sectors = {
           "Accident Medical",
           "Equipment Coverage",
           "Travel Accident",
+        ],
+        targetClients: [
+          "Adventure tour operators",
+          "Climbing gyms & guides",
+          "Zip line operators",
+          "Outdoor recreation companies",
         ],
       },
       {
@@ -208,6 +273,12 @@ const sectors = {
           "Cyber Liability",
           "Directors & Officers",
         ],
+        targetClients: [
+          "Professional teams",
+          "Sports venues",
+          "Athletic associations",
+          "Sports management agencies",
+        ],
       },
       {
         name: "Fitness Centers",
@@ -217,6 +288,12 @@ const sectors = {
           "Property",
           "Equipment Coverage",
           "Cyber Liability",
+        ],
+        targetClients: [
+          "Gyms & fitness studios",
+          "Personal trainers",
+          "Yoga & pilates studios",
+          "CrossFit affiliates",
         ],
       },
       {
@@ -228,6 +305,12 @@ const sectors = {
           "Accident Medical",
           "Property",
         ],
+        targetClients: [
+          "Summer camps",
+          "Day camps",
+          "Sports camps",
+          "Specialty training camps",
+        ],
       },
       {
         name: "Associations",
@@ -238,6 +321,12 @@ const sectors = {
           "Cyber Liability",
           "Event Liability",
         ],
+        targetClients: [
+          "Sports governing bodies",
+          "Athletic associations",
+          "Referee organizations",
+          "Coaching associations",
+        ],
       },
       {
         name: "Event Platforms",
@@ -247,6 +336,12 @@ const sectors = {
           "Cyber Liability",
           "Media Liability",
           "Errors & Omissions",
+        ],
+        targetClients: [
+          "Event registration platforms",
+          "Sports tech companies",
+          "Ticketing providers",
+          "Tournament software providers",
         ],
       },
     ],
@@ -266,6 +361,12 @@ const sectors = {
           "Workers Compensation",
           "Accident Medical",
         ],
+        targetClients: [
+          "Production studios",
+          "Recording studios",
+          "Podcast studios",
+          "Photography studios",
+        ],
       },
       {
         name: "Adventure Film",
@@ -276,6 +377,12 @@ const sectors = {
           "Errors & Omissions",
           "Weather & Cancellation",
           "Accident Medical",
+        ],
+        targetClients: [
+          "Documentary filmmakers",
+          "Adventure production crews",
+          "Extreme sports videographers",
+          "Nature film producers",
         ],
       },
       {
@@ -288,6 +395,12 @@ const sectors = {
           "Media Liability",
           "Accident Medical",
         ],
+        targetClients: [
+          "Freelance videographers",
+          "Independent photographers",
+          "Audio engineers",
+          "Production assistants",
+        ],
       },
       {
         name: "Influencers",
@@ -298,6 +411,12 @@ const sectors = {
           "Media Liability",
           "Equipment Coverage",
           "Accident Medical",
+        ],
+        targetClients: [
+          "Social media influencers",
+          "Content creators",
+          "Brand ambassadors",
+          "Digital media personalities",
         ],
       },
     ],
@@ -315,6 +434,12 @@ const sectors = {
           "Travel Delay",
           "Accidental Death & Dismemberment",
         ],
+        targetClients: [
+          "Tour operators",
+          "Travel agencies",
+          "Group organizers",
+          "Educational travel programs",
+        ],
       },
       {
         name: "Adventure Travel",
@@ -324,6 +449,12 @@ const sectors = {
           "Trip Cancellation",
           "Equipment Coverage",
           "Hazardous Activities",
+        ],
+        targetClients: [
+          "Adventure tour companies",
+          "Expedition organizers",
+          "Trekking operators",
+          "Safari outfitters",
         ],
       },
       {
@@ -335,6 +466,12 @@ const sectors = {
           "Tournament Cancellation",
           "Accident Medical",
         ],
+        targetClients: [
+          "Sports tour operators",
+          "Athletic teams traveling",
+          "Tournament participants",
+          "Sports event organizers",
+        ],
       },
       {
         name: "Leisure & Luxury Travel",
@@ -344,6 +481,12 @@ const sectors = {
           "Concierge Services",
           "Baggage & Personal Effects",
           "Travel Delay",
+        ],
+        targetClients: [
+          "Luxury travel agencies",
+          "High-net-worth travelers",
+          "Cruise travelers",
+          "Resort vacationers",
         ],
       },
       {
@@ -356,6 +499,12 @@ const sectors = {
           "Medical & Evacuation",
           "Accidental Death & Dismemberment",
         ],
+        targetClients: [
+          "Journalists & media personnel",
+          "Aid workers",
+          "Corporate travelers to high-risk areas",
+          "Government contractors",
+        ],
       },
       {
         name: "Corporate Travel",
@@ -365,6 +514,12 @@ const sectors = {
           "Medical & Evacuation",
           "Business Equipment",
           "Rental Car Coverage",
+        ],
+        targetClients: [
+          "Corporate travel departments",
+          "Business executives",
+          "Sales teams",
+          "Consultants & contractors",
         ],
       },
     ],
