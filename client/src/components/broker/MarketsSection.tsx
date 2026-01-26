@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   Collapsible,
@@ -36,7 +35,7 @@ const marketFeatures = [
   }
 ];
 
-const markets = [
+const marketDetails = [
   {
     id: "sports",
     name: "Sports Market",
@@ -91,75 +90,72 @@ const markets = [
   },
 ];
 
-interface MarketCardProps {
-  market: typeof markets[0];
-  index: number;
+interface MarketDetailCardProps {
+  market: typeof marketDetails[0];
 }
 
-function MarketCard({ market, index }: MarketCardProps) {
+function MarketDetailCard({ market }: MarketDetailCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Card
-      className="overflow-hidden bg-white/5 backdrop-blur-md border-white/10 hover:border-primary/40 transition-all duration-300"
-      data-testid={`market-card-${market.id}`}
-    >
-      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-        <CollapsibleTrigger asChild>
-          <div className="cursor-pointer">
-            <div className="relative h-48 overflow-hidden">
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <CollapsibleTrigger asChild>
+        <Card
+          className="p-4 cursor-pointer bg-white/5 backdrop-blur-md border-white/10 hover:bg-white/10 hover:border-primary/40 transition-all duration-300"
+          data-testid={`market-detail-${market.id}`}
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
               <img
                 src={market.image}
                 alt={market.name}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/60 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-white">{market.name}</h3>
-                  <ChevronDown
-                    className={`w-5 h-5 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                  />
-                </div>
-              </div>
+            </div>
+            <div className="flex-1">
+              <h4 className="text-lg font-semibold text-white">{market.name}</h4>
+              <p className="text-sm text-white/60 line-clamp-1">{market.description}</p>
+            </div>
+            <ChevronDown
+              className={`w-5 h-5 text-primary transition-transform duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
+            />
+          </div>
+        </Card>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <div className="mt-2 p-5 rounded-xl bg-white/5 border border-white/10 space-y-4">
+          <p className="text-white/70 text-sm leading-relaxed">
+            {market.description}
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            {market.stats.map((stat, idx) => (
+              <Badge
+                key={idx}
+                variant="outline"
+                className="justify-start p-2 text-xs border-primary/20 bg-primary/5 text-white/80"
+                data-testid={`market-stat-${market.id}-${idx}`}
+              >
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
+                {stat}
+              </Badge>
+            ))}
+          </div>
+          <div className="pt-2 border-t border-white/10">
+            <div className="flex items-center gap-2 text-sm">
+              <Mail className="w-4 h-4 text-primary" />
+              <span className="text-white/60">Contact:</span>
+              <a
+                href={`mailto:${market.contact.email}`}
+                className="text-primary hover:underline"
+                data-testid={`market-contact-${market.id}`}
+              >
+                {market.contact.name}
+              </a>
             </div>
           </div>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
-          <div className="p-5 space-y-4 border-t border-white/10">
-            <p className="text-white/70 text-sm leading-relaxed">
-              {market.description}
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              {market.stats.map((stat, idx) => (
-                <Badge
-                  key={idx}
-                  variant="outline"
-                  className="justify-start p-2 text-xs border-primary/20 bg-primary/5 text-white/80"
-                  data-testid={`market-stat-${market.id}-${idx}`}
-                >
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
-                  {stat}
-                </Badge>
-              ))}
-            </div>
-            <div className="pt-2 border-t border-white/10">
-              <div className="flex items-center gap-2 text-sm">
-                <Mail className="w-4 h-4 text-primary" />
-                <span className="text-white/60">Contact:</span>
-                <a
-                  href={`mailto:${market.contact.email}`}
-                  className="text-primary hover:underline"
-                  data-testid={`market-contact-${market.id}`}
-                >
-                  {market.contact.name}
-                </a>
-              </div>
-            </div>
-          </div>
-        </CollapsibleContent>
-      </Collapsible>
-    </Card>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
   );
 }
 
@@ -191,17 +187,11 @@ export function MarketsSection() {
             className="text-lg text-white/80 max-w-3xl mx-auto mb-8"
             data-testid="text-markets-description"
           >
-            One application connects you to curated specialty markets for Sports, Transportation, Travel, and Entertainment with technology that delivers coverage with ease.
+            Matterhorn maintains deep relationships with A-rated specialty carriers, giving brokers access to innovative underwriting for hard-to-place and specialty risks across our focus verticals.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {markets.map((market, index) => (
-            <MarketCard key={market.id} market={market} index={index} />
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
           {marketFeatures.map((feature, index) => (
             <div
               key={index}
@@ -213,6 +203,15 @@ export function MarketsSection() {
               <p className="text-sm text-white/70">{feature.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-white mb-6 text-center">Market Details</h3>
+          <div className="space-y-3">
+            {marketDetails.map((market) => (
+              <MarketDetailCard key={market.id} market={market} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
