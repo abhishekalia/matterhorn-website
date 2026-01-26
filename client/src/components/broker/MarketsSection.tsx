@@ -1,5 +1,17 @@
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Award, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { Shield, Award, TrendingUp, CheckCircle2, ChevronDown, Mail } from "lucide-react";
+import sportsImage from "@assets/generated_images/Professional_stadium_aerial_view_1d2bbe4c.png";
+import transportationImage from "@assets/generated_images/Interstate_with_transport_trucks_cfc5f42f.png";
+import travelImage from "@assets/generated_images/Airplane_over_mountains_d31d9a17.png";
+import entertainmentImage from "@assets/generated_images/Videographer_at_race_track_0269301f.png";
 
 const marketFeatures = [
   {
@@ -23,6 +35,133 @@ const marketFeatures = [
     description: "Streamlined submissions with responses in 24-48 hours"
   }
 ];
+
+const markets = [
+  {
+    id: "sports",
+    name: "Sports Market",
+    description: "Comprehensive coverage across all sports with 10+ A-Rated markets and fast digital submissions.",
+    image: sportsImage,
+    stats: [
+      "10+ A-Rated Markets",
+      "Participant Management System",
+      "Automated Invoicing",
+      "Consolidated Digital Application"
+    ],
+    contact: { name: "Wayne Gutridge", email: "wgutridge@matterhornprotects.com" }
+  },
+  {
+    id: "transportation",
+    name: "Transportation Market",
+    description: "Programs built for independent contractors, motor carriers, and freight brokers with comprehensive coverage.",
+    image: transportationImage,
+    stats: [
+      "17+ A-Rated Markets",
+      "Driver Management System",
+      "Automated Invoicing",
+      "Marketing Scrapes"
+    ],
+    contact: { name: "Stephen Mueller", email: "smueller@matterhornprotects.com" }
+  },
+  {
+    id: "travel",
+    name: "Travel Market",
+    description: "Global capacity with comprehensive suite of products and automated platform integrations.",
+    image: travelImage,
+    stats: [
+      "8+ A-Rated Markets",
+      "Embedded Platform",
+      "API Integrations",
+      "White Label Package"
+    ],
+    contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
+  },
+  {
+    id: "entertainment",
+    name: "Entertainment Market",
+    description: "Specialized coverage for live events, concerts, film production, and talent management with comprehensive protection.",
+    image: entertainmentImage,
+    stats: [
+      "12+ A-Rated Markets",
+      "Event Coverage to $50M+",
+      "Production Insurance",
+      "Talent & Venue Protection"
+    ],
+    contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
+  },
+];
+
+interface MarketCardProps {
+  market: typeof markets[0];
+  index: number;
+}
+
+function MarketCard({ market, index }: MarketCardProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Card
+      className="overflow-hidden bg-white/5 backdrop-blur-md border-white/10 hover:border-primary/40 transition-all duration-300"
+      data-testid={`market-card-${market.id}`}
+    >
+      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+        <CollapsibleTrigger asChild>
+          <div className="cursor-pointer">
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src={market.image}
+                alt={market.name}
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-bold text-white">{market.name}</h3>
+                  <ChevronDown
+                    className={`w-5 h-5 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className="p-5 space-y-4 border-t border-white/10">
+            <p className="text-white/70 text-sm leading-relaxed">
+              {market.description}
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              {market.stats.map((stat, idx) => (
+                <Badge
+                  key={idx}
+                  variant="outline"
+                  className="justify-start p-2 text-xs border-primary/20 bg-primary/5 text-white/80"
+                  data-testid={`market-stat-${market.id}-${idx}`}
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
+                  {stat}
+                </Badge>
+              ))}
+            </div>
+            <div className="pt-2 border-t border-white/10">
+              <div className="flex items-center gap-2 text-sm">
+                <Mail className="w-4 h-4 text-primary" />
+                <span className="text-white/60">Contact:</span>
+                <a
+                  href={`mailto:${market.contact.email}`}
+                  className="text-primary hover:underline"
+                  data-testid={`market-contact-${market.id}`}
+                >
+                  {market.contact.name}
+                </a>
+              </div>
+            </div>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+    </Card>
+  );
+}
 
 export function MarketsSection() {
   return (
@@ -52,8 +191,14 @@ export function MarketsSection() {
             className="text-lg text-white/80 max-w-3xl mx-auto mb-8"
             data-testid="text-markets-description"
           >
-            Matterhorn maintains deep relationships with A-rated specialty carriers, giving brokers access to innovative underwriting for hard-to-place and specialty risks across our focus verticals.
+            One application connects you to curated specialty markets for Sports, Transportation, Travel, and Entertainment with technology that delivers coverage with ease.
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {markets.map((market, index) => (
+            <MarketCard key={market.id} market={market} index={index} />
+          ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -68,16 +213,6 @@ export function MarketsSection() {
               <p className="text-sm text-white/70">{feature.description}</p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Badge
-            variant="secondary"
-            className="px-6 py-3 text-base bg-primary/20 text-primary border border-primary/30"
-            data-testid="badge-markets-cta"
-          >
-            Contact us to learn about our market access for your specific risk
-          </Badge>
         </div>
       </div>
     </section>
