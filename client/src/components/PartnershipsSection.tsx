@@ -48,43 +48,6 @@ const partnerships = [
     ]
   },
   {
-    name: "TIE",
-    fullName: "Truckers Integral to our Economy",
-    logo: "TIE",
-    category: "Transportation",
-    reach: "50K+ Trucking Professionals",
-    description: "Providing deep advocacy for independent contractors and fleets, helping address compliance, protection, and growth needs in the transportation sector.",
-    partnershipDetails: [
-      "Collaborative program development with TIE's advocacy leadership",
-      "Dedicated to Independent Contractor driver coverage and fleet solutions",
-      "Integration with TIE's driver education and compliance resources",
-      "Joint marketing initiatives at industry events and conferences",
-      "Regular program updates based on evolving DOT regulations"
-    ],
-    brokerBenefits: [
-      "Access to TIE's network of 50K+ trucking professionals and fleets",
-      "Simplified underwriting process for IC drivers reduces turnaround to hours",
-      "Real-time driver management dashboard eliminates manual tracking",
-      "Automated COI generation saves 15+ hours per week",
-      "Built-in compliance monitoring ensures DOT requirements are met",
-      "Scalable program grows with your book—add carriers without operational overhead",
-      "Premium financing options available for driver affordability"
-    ],
-    programFeatures: [
-      "Non-Trucking Liability (NTL) for Independent Contractors",
-      "Physical Damage coverage for trucks and trailers",
-      "Occupational Accident coverage for driver protection",
-      "Real-time driver onboarding and management portal",
-      "Automated monthly billing synced to driver additions/removals",
-      "API integration for fleet management system connectivity"
-    ],
-    stats: [
-      { label: "Active Drivers", value: "50K+" },
-      { label: "Fleet Partners", value: "1,200+" },
-      { label: "Avg. Setup Time", value: "24 hrs" }
-    ]
-  },
-  {
     name: "PLACT",
     fullName: "Play Like a Champion Today",
     logo: "PLACT",

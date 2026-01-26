@@ -96,6 +96,12 @@ export default function Navigation() {
                   >
                     Travel
                   </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => scrollToSection("entertainment")}
+                    data-testid="menu-item-entertainment"
+                  >
+                    Entertainment
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -167,6 +173,13 @@ export default function Navigation() {
                 data-testid="mobile-menu-travel"
               >
                 Travel
+              </button>
+              <button
+                onClick={() => scrollToSection("entertainment")}
+                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
+                data-testid="mobile-menu-entertainment"
+              >
+                Entertainment
               </button>
               <Link
                 href="/brokers"

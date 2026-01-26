@@ -10,8 +10,8 @@ const testimonials = [
   },
   {
     quote: "The driver management system is a game-changer. We onboarded 200 drivers in a week with zero manual data entry. Our clients love the instant COI issuance.",
-    author: "Marcus Rodriguez",
-    role: "VP Operations, TransCover Solutions",
+    author: "Marcus Rodriquez",
+    role: "VP Operations, Rodriquez Insurance Partners",
     company: "Texas",
   },
   {

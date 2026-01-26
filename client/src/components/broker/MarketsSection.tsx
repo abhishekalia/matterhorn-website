@@ -1,38 +1,27 @@
 import { Badge } from "@/components/ui/badge";
+import { Shield, Award, TrendingUp, CheckCircle2 } from "lucide-react";
 
-const markets = [
-  "Ascot",
-  "Argo",
-  "Berkley",
-  "Chubb",
-  "Coalition",
-  "Corvus",
-  "CRC",
-  "Everest",
-  "Great American",
-  "Hiscox",
-  "Liberty Mutual",
-  "Markel",
-  "Munich Re",
-  "Nationwide",
-  "OneBeacon",
-  "QBE",
-  "RLI",
-  "Sompo",
-  "Starr",
-  "Swiss Re",
-  "Tokio Marine",
-  "Travelers",
-  "W.R. Berkley",
-  "Zurich",
-  "AmTrust",
-  "AXA XL",
-  "Beazley",
-  "CNA",
-  "Fairfax",
-  "Hanover",
-  "Hartford",
-  "Progressive Commercial",
+const marketFeatures = [
+  {
+    icon: Shield,
+    title: "A-Rated Carriers",
+    description: "All programs backed by carriers rated A- or better by A.M. Best"
+  },
+  {
+    icon: Award,
+    title: "Specialty Expertise",
+    description: "Deep underwriting knowledge in transportation, sports, entertainment, and travel"
+  },
+  {
+    icon: TrendingUp,
+    title: "Competitive Terms",
+    description: "Leverage our volume and relationships to secure the best pricing"
+  },
+  {
+    icon: CheckCircle2,
+    title: "Quick Turnaround",
+    description: "Streamlined submissions with responses in 24-48 hours"
+  }
 ];
 
 export function MarketsSection() {
@@ -54,32 +43,41 @@ export function MarketsSection() {
             className="text-4xl md:text-5xl font-bold text-white mb-4"
             data-testid="text-markets-title"
           >
-            Access to 30+{" "}
+            Specialty{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
               Curated Markets
             </span>
           </h2>
           <p
-            className="text-lg text-white/80 max-w-2xl mx-auto"
+            className="text-lg text-white/80 max-w-3xl mx-auto mb-8"
             data-testid="text-markets-description"
           >
-            Innovative underwriting for specialty and hard‑to‑place risk.
+            Matterhorn maintains deep relationships with A-rated specialty carriers, giving brokers access to innovative underwriting for hard-to-place and specialty risks across our focus verticals.
           </p>
         </div>
 
-        <div className="relative">
-          <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
-            {markets.map((market, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="px-4 py-2 text-sm bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-all duration-300"
-                data-testid={`badge-market-${index}`}
-              >
-                {market}
-              </Badge>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {marketFeatures.map((feature, index) => (
+            <div
+              key={index}
+              className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/40 transition-all duration-300"
+              data-testid={`market-feature-${index}`}
+            >
+              <feature.icon className="w-10 h-10 text-primary mb-4" />
+              <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+              <p className="text-sm text-white/70">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Badge
+            variant="secondary"
+            className="px-6 py-3 text-base bg-primary/20 text-primary border border-primary/30"
+            data-testid="badge-markets-cta"
+          >
+            Contact us to learn about our market access for your specific risk
+          </Badge>
         </div>
       </div>
     </section>

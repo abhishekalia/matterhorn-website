@@ -104,43 +104,22 @@ const sectors = {
       {
         name: "Independent Contractors",
         coverages: [
-          "Auto Liability",
-          "Physical Damage",
-          "General Liability",
-          "Cargo",
-          "Motor Truck Cargo",
           "Occupational Accident",
-        ],
-      },
-      {
-        name: "Motor Carriers",
-        coverages: [
-          "Auto Liability",
+          "Contingent Liability",
           "Physical Damage",
-          "General Liability",
-          "Cargo",
+          "Non-Trucking Liability",
           "Workers Compensation",
-          "Trailer Interchange",
         ],
       },
       {
         name: "Freight Brokers",
         coverages: [
-          "Contingent Cargo",
+          "Truck Broker Liability",
           "Contingent Auto Liability",
+          "Contingent Cargo Liability",
+          "Errors & Omissions",
+          "Cyber",
           "General Liability",
-          "Professional Liability",
-          "Cyber Liability",
-        ],
-      },
-      {
-        name: "Logistics Companies",
-        coverages: [
-          "General Liability",
-          "Professional Liability",
-          "Cyber Liability",
-          "Warehouse Legal Liability",
-          "Cargo",
         ],
       },
       {
@@ -149,7 +128,7 @@ const sectors = {
           "Commercial Auto Liability",
           "Physical Damage",
           "Uninsured/Underinsured Motorist",
-          "Medical Payments",
+          "Accident Medical",
         ],
       },
       {
@@ -160,25 +139,6 @@ const sectors = {
           "Battery Coverage",
           "Charging Equipment",
           "Business Interruption",
-        ],
-      },
-      {
-        name: "Pilot Cars",
-        coverages: [
-          "Auto Liability",
-          "Physical Damage",
-          "General Liability",
-          "Professional Liability",
-        ],
-      },
-      {
-        name: "Oversize Haulers",
-        coverages: [
-          "Auto Liability",
-          "Physical Damage",
-          "Motor Truck Cargo",
-          "General Liability",
-          "Riggers Liability",
         ],
       },
     ],
@@ -193,8 +153,9 @@ const sectors = {
           "General Liability",
           "Professional Liability",
           "Sexual Abuse & Molestation",
-          "Accident Medical",
+          "Accident Medical & AD&D",
           "Directors & Officers",
+          "Tournament Registration Refund",
         ],
       },
       {
@@ -205,6 +166,7 @@ const sectors = {
           "Property",
           "Equipment Coverage",
           "Tournament Liability",
+          "Accident Medical",
         ],
       },
       {
@@ -218,7 +180,7 @@ const sectors = {
         ],
       },
       {
-        name: "Contact Sports",
+        name: "Winter Sports",
         coverages: [
           "General Liability",
           "Accident Medical",
@@ -302,6 +264,7 @@ const sectors = {
           "Professional Liability",
           "Cyber Liability",
           "Workers Compensation",
+          "Accident Medical",
         ],
       },
       {
@@ -312,6 +275,7 @@ const sectors = {
           "Cast Insurance",
           "Errors & Omissions",
           "Weather & Cancellation",
+          "Accident Medical",
         ],
       },
       {
@@ -322,6 +286,7 @@ const sectors = {
           "Equipment Coverage",
           "Cyber Liability",
           "Media Liability",
+          "Accident Medical",
         ],
       },
       {
@@ -332,6 +297,7 @@ const sectors = {
           "Cyber Liability",
           "Media Liability",
           "Equipment Coverage",
+          "Accident Medical",
         ],
       },
     ],
@@ -388,6 +354,7 @@ const sectors = {
           "Political Evacuation",
           "Crisis Management",
           "Medical & Evacuation",
+          "Accidental Death & Dismemberment",
         ],
       },
       {
