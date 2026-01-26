@@ -72,15 +72,15 @@ export default function HeroSection() {
             Request Appointment
           </Button>
         </div>
-
-        <button
-          onClick={() => scrollToSection("why-matterhorn")}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 hover:text-white/90 transition-colors animate-bounce"
-          data-testid="button-scroll-down"
-        >
-          <ChevronDown className="w-8 h-8" />
-        </button>
       </div>
+
+      <button
+        onClick={() => scrollToSection("why-matterhorn")}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-white/60 hover:text-white/90 transition-colors animate-bounce"
+        data-testid="button-scroll-down"
+      >
+        <ChevronDown className="w-8 h-8" />
+      </button>
 
       <BrokerApplicationModal 
         open={applicationModalOpen} 
