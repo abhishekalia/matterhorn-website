@@ -11,7 +11,7 @@ import {
 import { ChevronDown, MapPin, Laptop, Users } from "lucide-react";
 import transportationImg from "@assets/generated_images/transportation_realistic.jpg";
 import sportsImg from "@assets/generated_images/sports_realistic.jpg";
-import entertainmentImg from "@assets/generated_images/entertainment_realistic.jpg";
+import entertainmentImg from "@assets/generated_images/Videographer_at_race_track_0269301f.png";
 import travelImg from "@assets/generated_images/travel_realistic.jpg";
 
 interface Program {
