@@ -75,7 +75,7 @@ export default function HeroSection() {
 
         <button
           onClick={() => scrollToSection("why-matterhorn")}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-white/60 hover:text-white/90 transition-colors animate-bounce"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 hover:text-white/90 transition-colors animate-bounce"
           data-testid="button-scroll-down"
         >
           <ChevronDown className="w-8 h-8" />
