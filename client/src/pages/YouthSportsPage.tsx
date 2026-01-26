@@ -163,7 +163,7 @@ export default function YouthSportsPage() {
 
   const youthLeagueFeatures = [
     "NAYS General Liability",
-    "Accident Medical & ADD",
+    "Accident Medical & AD&D",
     "Equipment & Gear Coverage",
     "Tournament Travel Protection",
   ];

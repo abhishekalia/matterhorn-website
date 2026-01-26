@@ -29,7 +29,7 @@ const marketDetails = [
     ],
     coverages: [
       "General Liability",
-      "Accident Medical + ADD",
+      "Accident Medical + AD&D",
       "Travel",
       "Property + Gear",
       "Contingency",
@@ -48,7 +48,7 @@ const marketDetails = [
     name: "Transportation",
     markets: "17+ A-Rated Markets",
     segments: [
-      "Independent Contractors - Occupational Accident, NTL, Physical Damage, EO/DO",
+      "Independent Contractors - Occupational Accident, Non-trucking-liability, Physical Damage, EO/DO",
       "Motor Carriers - General Liability, Commercial Auto, Non-Trucking Liability, Motor Truck Cargo",
       "Freight Brokers - General Liability, Truck Broker Liability, Contingent Auto, Cargo Liability"
     ],
