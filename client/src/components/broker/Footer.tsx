@@ -46,10 +46,11 @@ export function Footer() {
               className="flex items-center gap-3 mb-6"
               data-testid="logo-footer"
             >
-              <Mountain className="w-9 h-9 text-primary" />
-              <span className="text-2xl font-semibold tracking-tight text-primary">
-                MATTERHORN
-              </span>
+              <Mountain className="w-8 h-8 text-primary" />
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-primary leading-tight">MATTERHORN</span>
+                <span className="text-[10px] font-medium text-primary/70 tracking-widest uppercase">Insurance Group</span>
+              </div>
             </div>
             <p className="text-base text-white/70 mb-8 leading-relaxed max-w-md">
               Specialty insurance program design and management with AI-driven

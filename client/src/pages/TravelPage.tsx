@@ -377,9 +377,12 @@ export default function TravelPage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" data-testid="link-home-travel">
-              <div className="flex items-center gap-2 cursor-pointer">
-                <Mountain className="w-6 h-6 text-primary" />
-                <span className="text-xl font-bold">MATTERHORN</span>
+              <div className="flex items-center gap-3 cursor-pointer">
+                <Mountain className="w-7 h-7 text-primary" />
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold leading-tight">MATTERHORN</span>
+                  <span className={`text-[10px] font-medium tracking-widest uppercase ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>Insurance Group</span>
+                </div>
               </div>
             </Link>
 

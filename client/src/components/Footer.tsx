@@ -27,9 +27,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-2 mb-6">
-              <Mountain className="w-6 h-6 text-primary" />
-              <h3 className="text-3xl font-bold text-white" data-testid="footer-brand">MATTERHORN</h3>
+            <div className="flex items-center gap-3 mb-6">
+              <Mountain className="w-7 h-7 text-primary" />
+              <div className="flex flex-col">
+                <h3 className="text-2xl font-bold text-white leading-tight" data-testid="footer-brand">MATTERHORN</h3>
+                <span className="text-[10px] font-medium text-white/60 tracking-widest uppercase">Insurance Group</span>
+              </div>
             </div>
             <Badge className="bg-primary/20 text-white border-primary/30 backdrop-blur-sm mb-4">
               Digital MGA

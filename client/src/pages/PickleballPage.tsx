@@ -182,9 +182,12 @@ export default function PickleballPage() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/">
-            <div className="flex items-center gap-2 cursor-pointer group">
-              <Mountain className="w-6 h-6 text-emerald-500 group-hover:scale-110 transition-transform" />
-              <span className="text-xl font-bold text-white">MATTERHORN</span>
+            <div className="flex items-center gap-3 cursor-pointer group">
+              <Mountain className="w-7 h-7 text-emerald-500 group-hover:scale-110 transition-transform" />
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-white leading-tight">MATTERHORN</span>
+                <span className="text-[10px] font-medium text-white/60 tracking-widest uppercase">Insurance Group</span>
+              </div>
             </div>
           </Link>
           
@@ -931,9 +934,12 @@ export default function PickleballPage() {
       <footer className="py-8 border-t border-slate-800">
         <div className="container mx-auto px-6 text-center">
           <Link href="/">
-            <div className="flex items-center justify-center gap-2 cursor-pointer group mb-4">
-              <Mountain className="w-5 h-5 text-emerald-500 group-hover:scale-110 transition-transform" />
-              <span className="text-lg font-bold text-white">MATTERHORN</span>
+            <div className="flex items-center justify-center gap-3 cursor-pointer group mb-4">
+              <Mountain className="w-6 h-6 text-emerald-500 group-hover:scale-110 transition-transform" />
+              <div className="flex flex-col items-center">
+                <span className="text-lg font-bold text-white leading-tight">MATTERHORN</span>
+                <span className="text-[9px] font-medium text-white/60 tracking-widest uppercase">Insurance Group</span>
+              </div>
             </div>
           </Link>
           <p className="text-slate-400 text-sm">
