@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Check } from "lucide-react";
-import techImage from "@assets/generated_images/Edgy_modern_sports_visual_1cd3bb51.png";
+import techImage from "@assets/generated_images/technology_realistic.jpg";
 
 const features = [
   'We deploy only what each client needs—no forced "platform."',
