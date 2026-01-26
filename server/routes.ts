@@ -5,7 +5,8 @@ import { Resend } from "resend";
 import rateLimit from "express-rate-limit";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend only if API key is available
+let resend: Resend | null = null;
 
 // Track submitted email addresses to prevent duplicates
 const submittedBrokerEmails = new Set<string>();
@@ -14,6 +15,7 @@ const submittedBrokerEmails = new Set<string>();
 if (!process.env.RESEND_API_KEY) {
   console.warn("Warning: RESEND_API_KEY is not configured. Email sending will fail.");
 } else {
+  resend = new Resend(process.env.RESEND_API_KEY);
   console.log("Resend API key configured (length:", process.env.RESEND_API_KEY.length, ")");
 }
 
@@ -162,6 +164,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const safeEmail = escapeHtml(email);
       const safeMessage = escapeHtml(message);
 
+      if (!resend) {
+        return res.status(500).json({ error: "Email service is not configured. Please try again later." });
+      }
+
       const { data, error } = await resend.emails.send({
         from: "Matterhorn Contact Form <onboarding@resend.dev>",
         to: ["ak@myspark.cc"],
@@ -257,6 +263,10 @@ ${message}`,
       const premiumVolumeLabel = PREMIUM_VOLUME_LABELS[premiumVolume] || premiumVolume;
 
       const segmentsList = marketSegments.map(s => `• ${escapeHtml(s)}`).join("<br>");
+
+      if (!resend) {
+        return res.status(500).json({ error: "Email service is not configured. Please try again later." });
+      }
 
       const { data, error } = await resend.emails.send({
         from: "Matterhorn Broker Application <onboarding@resend.dev>",
