@@ -39,6 +39,9 @@ import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
+import wayneGutridgePhoto from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
+import isaacAllenPhoto from "@assets/generated_images/Isaac_Allen_professional_headshot_640e0cbc.png";
+import mikeAsselinPhoto from "@assets/generated_images/Mike_Asselin_professional_headshot.png";
 
 function useScrollAnimation() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -326,6 +329,7 @@ export default function SportsPage() {
       territory: "National",
       initials: "WG",
       color: "from-primary to-cyan-500",
+      photo: wayneGutridgePhoto,
     },
     {
       name: "Isaac Allen",
@@ -334,6 +338,7 @@ export default function SportsPage() {
       territory: "National",
       initials: "IA",
       color: "from-cyan-500 to-blue-500",
+      photo: isaacAllenPhoto,
     },
     {
       name: "Mike Asselin",
@@ -342,6 +347,7 @@ export default function SportsPage() {
       territory: "National",
       initials: "MA",
       color: "from-blue-500 to-purple-500",
+      photo: mikeAsselinPhoto,
     },
   ];
 
@@ -687,8 +693,12 @@ export default function SportsPage() {
               >
                 <div className="relative w-28 h-28 mx-auto mb-6">
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-cyan-500/20 animate-pulse" />
-                  <div className={`relative w-28 h-28 rounded-full bg-gradient-to-br ${leader.color} flex items-center justify-center border-2 border-primary/30 group-hover:border-primary/60 group-hover:scale-105 transition-all duration-500`}>
-                    <span className="text-2xl font-bold text-white">{leader.initials}</span>
+                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary/60 group-hover:scale-105 transition-all duration-500">
+                    <img 
+                      src={leader.photo} 
+                      alt={leader.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-1 text-white group-hover:text-primary transition-colors">{leader.name}</h3>
