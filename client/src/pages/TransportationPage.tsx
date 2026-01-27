@@ -13,7 +13,6 @@ import {
   Mountain,
   Truck,
   Users,
-  Shield,
   Zap,
   BarChart3,
   FileCheck,
@@ -21,9 +20,6 @@ import {
   ArrowRight,
   Phone,
   Mail,
-  Building,
-  Settings,
-  Globe,
   Award,
   TrendingUp,
   ChevronDown,
@@ -36,13 +32,12 @@ import {
   Workflow,
   Car,
   Package,
-  Handshake,
   Star,
   MapPin,
   TrendingDown,
   Clock,
   DollarSign,
-  Layers,
+  Settings,
 } from "lucide-react";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
@@ -140,13 +135,6 @@ export default function TransportationPage() {
       coverage: "Contingent Cargo, Errors & Omissions, General Liability",
       icon: Package,
       highlight: "Comprehensive protection for brokerage operations",
-    },
-    {
-      title: "Pilot Cars & Escort Vehicles",
-      description: "Niche class expertise, right coverage fit, fewer underwriting surprises.",
-      coverage: "Specialized Liability, Equipment Coverage",
-      icon: Target,
-      highlight: "Expert underwriting for specialized vehicle classes",
     },
     {
       title: "Unique & Hard-to-Place",
@@ -266,25 +254,6 @@ export default function TransportationPage() {
       ],
       results: { limits: "$5M", commodity: "Electronics", placement: "45 days" },
     },
-    {
-      category: "Specialized Transport",
-      title: "Niche Pilot Car Fleet Solution",
-      challenge: "A pilot car service was being rated as standard trucking, leading to unsustainable premiums. The unique liability exposures weren't understood by generalist markets.",
-      solution: "Developed a custom program with markets that specialize in escort vehicle operations and understand the niche class.",
-      brokerBenefits: [
-        "Became the go-to broker for pilot car fleets",
-        "Referral network from satisfied client",
-        "Premium pricing with niche expertise",
-        "Fewer NTUs on similar submissions",
-      ],
-      clientBenefits: [
-        "40% premium reduction with proper classification",
-        "Coverage designed for escort vehicle exposures",
-        "Stable market relationship for renewals",
-        "Understood by carrier claims teams",
-      ],
-      results: { savings: "40%", units: "25", market: "Specialty" },
-    },
   ];
 
   const whyMatterhorn = [
@@ -295,7 +264,7 @@ export default function TransportationPage() {
     },
     {
       title: "Niche Problem Solvers",
-      description: "Our forte is complex programs like Pilot Cars and Bulk Loads that others turn down. Clearer appetite and fewer NTUs.",
+      description: "Our forte is complex programs and unique exposures that others turn down. Clearer appetite and fewer NTUs.",
       icon: Target,
     },
     {
@@ -321,13 +290,24 @@ export default function TransportationPage() {
   const leadership = [
     {
       name: "Stephen Mueller",
-      title: "Transportation Executive",
-      description: "A veteran of the transportation insurance industry, Stephen brings deep expertise in program design and carrier relations. His background spans executive roles at major MGUs and carriers, where he has consistently delivered innovative solutions for complex fleets.",
+      title: "Managing Partner",
+      description: "A veteran of the transportation insurance industry, Stephen brings deep expertise in program design and carrier relations. His background spans executive roles at major MGUs and carriers.",
+      territory: "National",
+      image: "/assets/stephen_mueller_avatar.png",
     },
     {
       name: "John Warren",
-      title: "Transportation Executive",
-      description: "With a career dedicated to specialty risk, John combines underwriting discipline with strategic vision. His leadership has been instrumental in developing high-performance teams and sustainable insurance programs across the transportation sector.",
+      title: "Managing Partner",
+      description: "With a career dedicated to specialty risk, John combines underwriting discipline with strategic vision. His leadership has been instrumental in developing high-performance teams.",
+      territory: "National",
+      image: "/assets/john_warren_avatar.png",
+    },
+    {
+      name: "Ryan Wilson",
+      title: "VP of Broker Engagement",
+      description: "Ryan specializes in building strong broker relationships and ensuring seamless onboarding. His focus is on making every broker interaction efficient and valuable.",
+      territory: "National",
+      image: "/assets/ryan_wilson_avatar.png",
     },
   ];
 
@@ -501,19 +481,28 @@ export default function TransportationPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {leadership.map((leader, index) => (
               <Card 
                 key={index} 
-                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 group ${getAnimationClass("leadership")}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 group text-center ${getAnimationClass("leadership")}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                  <Users className="w-8 h-8 text-primary" />
+                <div className="relative w-28 h-28 mx-auto mb-6">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-cyan-500/20 animate-pulse" />
+                  <img 
+                    src={leader.image} 
+                    alt={leader.name}
+                    className="relative w-28 h-28 rounded-full object-cover border-2 border-primary/30 group-hover:border-primary/60 group-hover:scale-105 transition-all duration-500"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-1 text-white">{leader.name}</h3>
-                <p className="text-primary font-medium mb-4">{leader.title}</p>
-                <p className="text-white/60 leading-relaxed">{leader.description}</p>
+                <h3 className="text-xl font-bold mb-1 text-white group-hover:text-primary transition-colors">{leader.name}</h3>
+                <p className="text-primary font-medium mb-2">{leader.title}</p>
+                <Badge className="bg-white/10 text-white/70 border-white/20 text-xs mb-4">
+                  <MapPin className="w-3 h-3 mr-1" />
+                  {leader.territory}
+                </Badge>
+                <p className="text-white/60 text-sm leading-relaxed">{leader.description}</p>
               </Card>
             ))}
           </div>
@@ -569,9 +558,13 @@ export default function TransportationPage() {
       <section 
         id="markets" 
         data-animate
-        className="py-24 bg-[#0D1B2A]"
+        className="py-24 bg-[#0D1B2A] relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-500/8 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className={`text-center mb-16 ${getAnimationClass("markets")}`}>
             <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
               Markets & Coverage
@@ -593,8 +586,11 @@ export default function TransportationPage() {
                 style={{ transitionDelay: `${index * 75}ms` }}
                 data-testid={`card-market-${index}`}
               >
-                <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                  <segment.icon className="w-6 h-6 text-primary" />
+                <div className="relative w-12 h-12 mb-4">
+                  <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
+                  <div className="relative w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                    <segment.icon className="w-6 h-6 text-primary group-hover:rotate-3 transition-transform duration-300" />
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-primary transition-colors">{segment.title}</h3>
                 <p className="text-white/60 text-sm leading-relaxed mb-3">
@@ -622,9 +618,13 @@ export default function TransportationPage() {
       <section 
         id="why-us" 
         data-animate
-        className="py-24 bg-[#0A1628]"
+        className="py-24 bg-[#0A1628] relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/8 rounded-full blur-[80px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className={`text-center mb-16 ${getAnimationClass("why-us")}`}>
             <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
               The Matterhorn Difference
@@ -645,8 +645,11 @@ export default function TransportationPage() {
                 className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 text-center group ${getAnimationClass("why-us")}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                  <item.icon className="w-7 h-7 text-primary" />
+                <div className="relative w-14 h-14 mx-auto mb-4">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-cyan-500/20 group-hover:from-primary/60 group-hover:to-cyan-500/40 blur-sm transition-all duration-500" />
+                  <div className="relative w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                    <item.icon className="w-7 h-7 text-primary group-hover:rotate-6 transition-transform duration-300" />
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-primary transition-colors">{item.title}</h3>
                 <p className="text-white/60 text-sm leading-relaxed">
@@ -715,7 +718,12 @@ export default function TransportationPage() {
                   style={{ transitionDelay: `${index * 50}ms` }}
                   data-testid={`card-tech-${index}`}
                 >
-                  <feature.icon className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                  <div className="relative w-10 h-10 mb-3">
+                    <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
+                    <div className="relative w-10 h-10 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300">
+                      <feature.icon className="w-5 h-5 text-primary group-hover:rotate-6 transition-transform" />
+                    </div>
+                  </div>
                   <h4 className="font-semibold text-sm mb-1 text-white group-hover:text-primary transition-colors">{feature.title}</h4>
                   <p className="text-xs text-white/50">
                     {feature.description}
@@ -835,77 +843,16 @@ export default function TransportationPage() {
         </div>
       </section>
 
-      {/* TIE Partnership Section */}
-      <section 
-        data-animate
-        id="tie-partnership"
-        className="py-24 bg-[#0D1B2A]"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className={getAnimationClass("tie-partnership")}>
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-                Strategic Partnership
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                Advocating for the Independent Contractor
-              </h2>
-              <p className="text-lg text-white/60 mb-6 leading-relaxed">
-                We've partnered with Truckers Integral to Our Economy (TIE) to provide deep advocacy 
-                for the independent contractor business model. This partnership protects the flexibility 
-                that brokers and drivers rely on.
-              </p>
-
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                {[
-                  { icon: Shield, title: "Stability", desc: "Long-term IC market support" },
-                  { icon: Handshake, title: "Support", desc: "Resources for owner-operators" },
-                  { icon: Globe, title: "Advocacy", desc: "Regulatory representation" },
-                ].map((item, idx) => (
-                  <div 
-                    key={idx} 
-                    className="text-center p-4 bg-[#1B2A41]/50 rounded-md border border-white/10 hover:border-primary/30 hover:bg-[#1B2A41]/70 transition-all duration-300 group"
-                  >
-                    <item.icon className="w-6 h-6 text-primary mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                    <p className="text-sm font-medium text-white">{item.title}</p>
-                    <p className="text-xs text-white/50">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <Card className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm ${getAnimationClass("tie-partnership")}`}>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-md bg-primary/20 flex items-center justify-center">
-                  <Truck className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">TIE</h3>
-                  <p className="text-sm text-white/60">Truckers Integral to Our Economy</p>
-                </div>
-              </div>
-              <p className="text-white/60 mb-4">
-                501(c)(4) National Trade Association
-              </p>
-              <p className="italic text-white mb-4">
-                "Preserving the independent contractor business model in the trucking industry."
-              </p>
-              <div className="flex items-center gap-2 text-sm text-white/50">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span>Territory: National (50 States)</span>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Appointment Flow Section */}
       <section 
         data-animate
         id="appointment-flow"
-        className="py-24 bg-[#0A1628]"
+        className="py-24 bg-[#0A1628] relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-primary/10 to-transparent rounded-full blur-[100px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className={`text-center mb-16 ${getAnimationClass("appointment-flow")}`}>
             <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
               Get Started
@@ -918,12 +865,15 @@ export default function TransportationPage() {
           <div className={`flex flex-wrap justify-center gap-4 mb-16 ${getAnimationClass("appointment-flow")}`}>
             {appointmentFlow.map((item, index) => (
               <div key={index} className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
-                  {item.step}
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-cyan-500 blur-sm group-hover:blur-md transition-all duration-300 opacity-50 group-hover:opacity-75" />
+                  <div className="relative w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold group-hover:scale-110 transition-all duration-300">
+                    {item.step}
+                  </div>
                 </div>
                 <span className="font-medium text-white group-hover:text-primary transition-colors">{item.title}</span>
                 {index < appointmentFlow.length - 1 && (
-                  <ArrowRight className="w-5 h-5 text-white/30 hidden md:block" />
+                  <ArrowRight className="w-5 h-5 text-white/30 hidden md:block group-hover:text-primary/50 group-hover:translate-x-1 transition-all duration-300" />
                 )}
               </div>
             ))}
