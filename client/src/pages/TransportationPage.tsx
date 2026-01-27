@@ -1063,6 +1063,90 @@ export default function TransportationPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section 
+        data-animate
+        id="faq" 
+        className="py-24 relative overflow-hidden"
+        style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
+      >
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className={`text-center mb-12 ${getAnimationClass("faq")}`}>
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+              Common Questions
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Frequently Asked{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+                Questions
+              </span>
+            </h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {[
+                {
+                  question: "What types of transportation risks do you cover?",
+                  answer: "We specialize in IC & owner-operator fleets, motor carriers, ride share & delivery, logistics & freight brokers, and unique hard-to-place transportation risks. Our programs are built specifically for the modern transportation industry."
+                },
+                {
+                  question: "How quickly can I get a quote for my client?",
+                  answer: "Our streamlined process delivers quotes within 24-48 hours for most risks. For standard IC and small fleet accounts, we often provide same-day indicative pricing through our technology platform."
+                },
+                {
+                  question: "What makes Matterhorn different from other transportation markets?",
+                  answer: "We combine boutique, personalized service with institutional-grade capacity. Our hybrid MGU + MGA model gives you direct access to curated A-rated markets while our technology platform streamlines the entire submission-to-bind process."
+                },
+                {
+                  question: "Do you require minimum fleet sizes?",
+                  answer: "No. We work with single-unit owner-operators all the way up to large fleets. Our programs are designed to be flexible and accommodate the full spectrum of transportation operations."
+                },
+                {
+                  question: "How do I get appointed with Matterhorn?",
+                  answer: "Complete our online appointment application. We verify credentials quickly, and qualified agencies typically receive same-day approval. Once appointed, you'll have immediate access to our broker portal and can start submitting risks right away."
+                },
+                {
+                  question: "What technology tools do you provide to brokers?",
+                  answer: "We provide a comprehensive broker portal for submissions, real-time quote tracking, document management, and policy servicing. Our platform integrates with your existing systems via API when needed."
+                },
+                {
+                  question: "Which states do you write transportation business in?",
+                  answer: "We have nationwide coverage with programs available in all 50 states. Specific coverage availability may vary by program type and risk characteristics."
+                },
+                {
+                  question: "What is your claims process like?",
+                  answer: "We work with experienced transportation claims teams who understand the industry. Our goal is fast, fair claim resolution with direct communication throughout the process."
+                },
+              ].map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="border border-white/10 rounded-md px-6 bg-white/5 backdrop-blur-md hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
+                  data-testid={`accordion-faq-${index}`}
+                >
+                  <AccordionTrigger
+                    className="text-left hover:no-underline text-white"
+                  >
+                    <span className="font-bold">
+                      {faq.question}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-white/70">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       {/* Closing Section */}
       <section className="relative h-[50vh] min-h-[350px] overflow-hidden bg-[#0A1628]">
         <div

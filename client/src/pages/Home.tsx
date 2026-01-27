@@ -11,6 +11,7 @@ import CaseStudies from "@/components/CaseStudies";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import TeamSection from "@/components/TeamSection";
 import BrokerCTA from "@/components/BrokerCTA";
+import { FAQSection } from "@/components/broker/FAQSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
       <CaseStudies />
       <TestimonialsSection />
       <TeamSection />
+      <FAQSection />
       <BrokerCTA />
       <Footer />
     </div>
