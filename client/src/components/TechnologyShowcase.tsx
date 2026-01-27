@@ -2,44 +2,44 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Cpu, Database, Lock, Sparkles, BarChart3, Workflow, Mountain, ArrowRight } from "lucide-react";
+import { Truck, Code2, Puzzle, Sparkles, LayoutDashboard, Cog, Mountain, ArrowRight } from "lucide-react";
 import { ContactFormModal } from "./ContactFormModal";
 
-const technologies = [
+const capabilities = [
+  {
+    icon: Cog,
+    title: "Custom Technology Solutions",
+    description: "We're not a pre-set platform. We work with brokers and clients to design, build, or select the best technology stack for each product's unique requirements.",
+    badge: "Adaptable",
+  },
   {
     icon: Sparkles,
-    title: "AI-Powered Risk Matching",
-    description: "Our proprietary AI engine analyzes submissions and automatically routes to optimal markets based on historical performance data.",
-    badge: "AI/ML",
+    title: "AI-Enhanced Development",
+    description: "We use AI to enhance our system developments—automating workflows, improving risk matching, and continuously learning from data to deliver smarter solutions.",
+    badge: "AI-Powered",
   },
   {
-    icon: Workflow,
-    title: "Automated Workflows",
-    description: "End-to-end automation from submission to policy issuance. COI generation, billing, and compliance—all handled automatically.",
-    badge: "Automation",
+    icon: Truck,
+    title: "Driver Management Systems",
+    description: "Industry-leading driver management for the transportation sector. Massive efficiency gains and full customization to automate process steps that used to be entirely manual.",
+    badge: "Transportation",
   },
   {
-    icon: Database,
-    title: "Real-Time Data Sync",
-    description: "Driver boards, participant rosters, and policy data update in real-time across all systems. Always current, always accurate.",
+    icon: Puzzle,
+    title: "Embedded Product Integration",
+    description: "We help brokers embed insurance products directly into client offerings—seamless integration that makes coverage part of the customer experience, not an afterthought.",
     badge: "Integration",
   },
   {
-    icon: BarChart3,
-    title: "Advanced Analytics",
-    description: "Deep insights into your book performance, market hit ratios, and revenue trends. Make data-driven decisions instantly.",
-    badge: "Analytics",
+    icon: LayoutDashboard,
+    title: "Custom POS Dashboards",
+    description: "Tailored point-of-sale dashboards designed for your specific products. Give your team and clients the exact tools they need to quote, bind, and manage policies efficiently.",
+    badge: "Customization",
   },
   {
-    icon: Lock,
-    title: "Enterprise Security",
-    description: "Bank-level encryption, SOC 2 compliance, and granular access controls. Your data is protected at every level.",
-    badge: "Security",
-  },
-  {
-    icon: Cpu,
-    title: "API-First Platform",
-    description: "Seamlessly integrate with your existing systems. Our open API connects to AMS, CRM, and accounting platforms.",
+    icon: Code2,
+    title: "API & Platform Flexibility",
+    description: "Open APIs, white-label options, and platform integrations that connect to your existing systems. We build technology that fits your workflow, not the other way around.",
     badge: "Developer",
   },
 ];
@@ -60,20 +60,20 @@ export default function TechnologyShowcase() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <Mountain className="w-5 h-5 text-primary" />
             <Badge className="bg-primary/20 text-white border-primary/30">
-              Cutting-Edge Technology
+              Technology That Adapts
             </Badge>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white" data-testid="heading-technology">
-            Built for the Future of Insurance
+            Built Around Your Needs
           </h2>
           <p className="text-xl text-white/90 max-w-3xl mx-auto" data-testid="description-technology">
-            Enterprise-grade technology stack powering the next generation of specialty insurance distribution
+            We use technology to deliver and manage complex client cases. No cookie-cutter platforms—we design, build, and customize solutions that fit how you actually work.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {technologies.map((tech, index) => {
-            const Icon = tech.icon;
+          {capabilities.map((cap, index) => {
+            const Icon = cap.icon;
             return (
               <Card
                 key={index}
@@ -85,31 +85,42 @@ export default function TechnologyShowcase() {
                     <Icon className="w-6 h-6 text-white" />
                   </div>
                   <Badge className="bg-primary/20 text-white border-primary/30 text-xs">
-                    {tech.badge}
+                    {cap.badge}
                   </Badge>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-3" data-testid={`tech-title-${index}`}>
-                  {tech.title}
+                  {cap.title}
                 </h3>
                 <p className="text-sm text-white/80 leading-relaxed" data-testid={`tech-description-${index}`}>
-                  {tech.description}
+                  {cap.description}
                 </p>
               </Card>
             );
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
-            onClick={() => setIsContactOpen(true)}
-            data-testid="button-request-demo"
-          >
-            Request a Demo
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+        <div className="mt-16">
+          <Card className="p-8 md:p-10 bg-white/5 backdrop-blur-sm border-white/10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl font-bold text-white mb-4">Technology That Works For You</h3>
+              <p className="text-white/80 leading-relaxed mb-4">
+                Every broker and client is different. That's why we don't force you into a one-size-fits-all system. Whether you need a full driver management platform, an embedded quoting widget, or a custom dashboard for a specific product line—we build it.
+              </p>
+              <p className="text-white/80 leading-relaxed mb-6">
+                Our team combines deep insurance expertise with modern development practices. We automate the manual work that slows you down and create tools that make complex cases manageable.
+              </p>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+                onClick={() => setIsContactOpen(true)}
+                data-testid="button-request-demo"
+              >
+                Let's Talk Technology
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+          </Card>
         </div>
       </div>
       
