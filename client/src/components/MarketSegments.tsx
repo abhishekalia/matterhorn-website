@@ -17,11 +17,48 @@ import entertainmentImage from "@assets/generated_images/Videographer_at_race_tr
 
 const markets = [
   {
+    id: "transportation",
+    name: "Transportation Market",
+    description: "Programs built for independent contractors, motor carriers, and freight brokers with comprehensive coverage.",
+    image: transportationImage,
+    route: "/transportation",
+    featured: true,
+    stats: [
+      "17+ A-Rated Markets",
+      "Driver Management System",
+      "Automated Invoicing",
+      "Marketing Scrapes"
+    ],
+    segments: [
+      "Independent Contractors - Occupational Accident, Non-trucking-liability, Physical Damage, EO/DO",
+      "Motor Carriers - General Liability, Commercial Auto, Non-Trucking Liability, Motor Truck Cargo",
+      "Freight Brokers - General Liability, Truck Broker Liability, Contingent Auto, Cargo Liability"
+    ],
+    clients: [],
+    coverages: [
+      "Occupational Accident",
+      "Commercial Auto Liability",
+      "Motor Truck Cargo",
+      "Physical Damage",
+      "Workers Compensation",
+      "Errors & Omissions",
+      "Cyber"
+    ],
+    tools: [
+      "Driver Management System",
+      "Automated Invoicing",
+      "Marketing Scrapes",
+      "Consolidated Digital Application"
+    ],
+    contact: { name: "Stephen Mueller", email: "smueller@matterhornprotects.com" }
+  },
+  {
     id: "sports",
     name: "Sports Market",
     description: "Comprehensive coverage across all sports with 10+ A-Rated markets and fast digital submissions.",
     image: sportsImage,
     route: "/sports",
+    featured: false,
     stats: [
       "10+ A-Rated Markets",
       "Participant Management System",
@@ -59,46 +96,12 @@ const markets = [
     contact: { name: "Wayne Gutridge", email: "wgutridge@matterhornprotects.com" }
   },
   {
-    id: "transportation",
-    name: "Transportation Market",
-    description: "Programs built for independent contractors, motor carriers, and freight brokers with comprehensive coverage.",
-    image: transportationImage,
-    route: "/transportation",
-    stats: [
-      "17+ A-Rated Markets",
-      "Driver Management System",
-      "Automated Invoicing",
-      "Marketing Scrapes"
-    ],
-    segments: [
-      "Independent Contractors - Occupational Accident, Non-trucking-liability, Physical Damage, EO/DO",
-      "Motor Carriers - General Liability, Commercial Auto, Non-Trucking Liability, Motor Truck Cargo",
-      "Freight Brokers - General Liability, Truck Broker Liability, Contingent Auto, Cargo Liability"
-    ],
-    clients: [],
-    coverages: [
-      "Occupational Accident",
-      "Commercial Auto Liability",
-      "Motor Truck Cargo",
-      "Physical Damage",
-      "Workers Compensation",
-      "Errors & Omissions",
-      "Cyber"
-    ],
-    tools: [
-      "Driver Management System",
-      "Automated Invoicing",
-      "Marketing Scrapes",
-      "Consolidated Digital Application"
-    ],
-    contact: { name: "Stephen Mueller", email: "smueller@matterhornprotects.com" }
-  },
-  {
     id: "travel",
     name: "Travel Market",
     description: "Global capacity with comprehensive suite of products and automated platform integrations.",
     image: travelImage,
     route: "/travel",
+    featured: false,
     stats: [
       "8+ A-Rated Markets",
       "Embedded Platform",
@@ -134,6 +137,7 @@ const markets = [
     description: "Specialized coverage for live events, concerts, film production, and talent management with comprehensive protection.",
     image: entertainmentImage,
     route: "/entertainment",
+    featured: false,
     stats: [
       "12+ A-Rated Markets",
       "Event Coverage to $50M+",
@@ -183,16 +187,25 @@ function MarketCard({ market, index, isVisible }: MarketCardProps) {
   const [isSegmentsOpen, setIsSegmentsOpen] = useState(false);
   const [isCoveragesOpen, setIsCoveragesOpen] = useState(false);
   const [isToolsOpen, setIsToolsOpen] = useState(false);
+  const isFeatured = market.featured;
 
   return (
     <Card
-      className={`overflow-hidden transition-all duration-700 group border-2 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 relative ${
-        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-      }`}
+      className={`overflow-hidden transition-all duration-700 group relative ${
+        isFeatured 
+          ? "border-2 border-primary/50 shadow-2xl shadow-primary/20 hover:shadow-primary/30 hover:border-primary/70 ring-1 ring-primary/20" 
+          : "border-2 border-white/10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
+      } ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
       style={{ transitionDelay: `${index * 200}ms` }}
       data-testid={`market-card-${market.id}`}
     >
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      {/* Enhanced glow for featured market */}
+      <div className={`absolute inset-0 pointer-events-none transition-opacity duration-700 ${
+        isFeatured ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+      }`}>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary/15 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-3xl" />
+      </div>
       
       <div className="grid md:grid-cols-2 gap-0 relative">
         <div
@@ -200,11 +213,24 @@ function MarketCard({ market, index, isVisible }: MarketCardProps) {
           style={{ backgroundImage: `url(${market.image})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/70 to-transparent" />
-          <div className="absolute top-4 left-4">
+          <div className="absolute top-4 left-4 flex items-center gap-2">
+            {isFeatured && (
+              <Badge className="bg-gradient-to-r from-primary to-cyan-500 text-white border-none animate-pulse">
+                Featured
+              </Badge>
+            )}
             <Badge className="bg-primary/90 text-white border-primary">
               Premium Market
             </Badge>
           </div>
+          {isFeatured && (
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="flex items-center gap-2 text-white/80 text-sm bg-[#0A1628]/60 backdrop-blur-sm rounded-md p-3 border border-white/10">
+                <Mountain className="w-4 h-4 text-primary" />
+                <span>Our flagship market with 17+ A-rated partners</span>
+              </div>
+            </div>
+          )}
         </div>
         <div className="p-8 md:p-10 flex flex-col justify-center relative">
           <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-primary transition-colors" data-testid={`market-name-${market.id}`}>
@@ -340,21 +366,58 @@ export default function MarketSegments() {
   const { isVisible, elementRef } = useScrollAnimation();
 
   return (
-    <section className="py-24 bg-background" id="markets" ref={elementRef} data-testid="section-markets">
-      <div className="max-w-7xl mx-auto px-6">
+    <section 
+      className="py-24 relative overflow-hidden" 
+      id="markets" 
+      ref={elementRef} 
+      data-testid="section-markets"
+      style={{ background: 'linear-gradient(to bottom, #0A1628, #0D1B2A, #0A1628)' }}
+    >
+      {/* Animated Background Orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-500/6 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Mountain className="w-5 h-5 text-primary" />
-            <Badge className="bg-primary/10 text-primary border-primary/20">
+            <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-primary" />
+            <Badge className="bg-primary/20 text-primary border-primary/30">
               Our Markets
             </Badge>
+            <div className="w-8 h-[1px] bg-gradient-to-r from-primary to-transparent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-markets">
-            Curated Markets. Built-in Tech. Bigger Wins.
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6" data-testid="heading-markets">
+            Curated Markets.{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+              Built-in Tech.
+            </span>
+            <br className="hidden md:block" />
+            Bigger Wins.
           </h2>
-          <p className="text-lg text-foreground/70 max-w-3xl mx-auto" data-testid="description-markets">
-            One application connects you to curated specialty markets for Sports, Transportation, Travel, and Entertainment with technology that delivers coverage with ease.
+          <p className="text-lg text-white/60 max-w-3xl mx-auto" data-testid="description-markets">
+            One application connects you to curated specialty markets for Transportation, Sports, Travel, and Entertainment with technology that delivers coverage with ease.
           </p>
+          
+          {/* Market Count Stats */}
+          <div className="flex items-center justify-center gap-8 mt-8">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-primary">4</p>
+              <p className="text-[10px] uppercase tracking-wider text-white/40">Markets</p>
+            </div>
+            <div className="w-[1px] h-10 bg-white/10" />
+            <div className="text-center">
+              <p className="text-3xl font-bold text-white">47+</p>
+              <p className="text-[10px] uppercase tracking-wider text-white/40">A-Rated Partners</p>
+            </div>
+            <div className="w-[1px] h-10 bg-white/10" />
+            <div className="text-center">
+              <p className="text-3xl font-bold text-cyan-400">50</p>
+              <p className="text-[10px] uppercase tracking-wider text-white/40">States</p>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-8">
