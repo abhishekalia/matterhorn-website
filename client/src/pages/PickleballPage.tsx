@@ -616,27 +616,48 @@ export default function PickleballPage() {
             <Card className="bg-slate-800/50 border-slate-700 p-6 flex flex-col" data-testid="card-material-overview">
               <h3 className="text-xl font-bold text-white mb-2 text-center">Coverage Overview</h3>
               <p className="text-slate-400 mb-4 text-center flex-1">Comprehensive one-page guide explaining all nine coverage types and what they protect against.</p>
-              <Button variant="outline" className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20">
-                <Download className="w-4 h-4 mr-2" />
-                Download Overview
+              <Button 
+                variant="outline" 
+                className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20"
+                asChild
+                data-testid="button-download-overview"
+              >
+                <a href="/downloads/pickleball-coverage-overview.html" download="Matterhorn-Pickleball-Coverage-Overview.html">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Overview
+                </a>
               </Button>
             </Card>
 
             <Card className="bg-slate-800/50 border-slate-700 p-6 flex flex-col" data-testid="card-material-comparison">
               <h3 className="text-xl font-bold text-white mb-2 text-center">Cost Comparison</h3>
               <p className="text-slate-400 mb-4 text-center flex-1">Detailed breakdown showing market rates vs. Matterhorn rates with $16,000 annual savings example.</p>
-              <Button variant="outline" className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20">
-                <Download className="w-4 h-4 mr-2" />
-                Download Comparison
+              <Button 
+                variant="outline" 
+                className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20"
+                asChild
+                data-testid="button-download-comparison"
+              >
+                <a href="/downloads/pickleball-cost-comparison.html" download="Matterhorn-Pickleball-Cost-Comparison.html">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Comparison
+                </a>
               </Button>
             </Card>
 
             <Card className="bg-slate-800/50 border-slate-700 p-6 flex flex-col" data-testid="card-material-benefits">
               <h3 className="text-xl font-bold text-white mb-2 text-center">Benefits Guide</h3>
               <p className="text-slate-400 mb-4 text-center flex-1">Complete benefits guide highlighting why organizations choose Matterhorn and what's included.</p>
-              <Button variant="outline" className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20">
-                <Download className="w-4 h-4 mr-2" />
-                Download Guide
+              <Button 
+                variant="outline" 
+                className="w-full border-emerald-600 text-emerald-400 hover:bg-emerald-600/20"
+                asChild
+                data-testid="button-download-guide"
+              >
+                <a href="/downloads/pickleball-benefits-guide.html" download="Matterhorn-Pickleball-Benefits-Guide.html">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Guide
+                </a>
               </Button>
             </Card>
           </div>

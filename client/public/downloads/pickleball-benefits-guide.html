@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matterhorn Pickleball Insurance - Benefits Guide</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      color: #f1f5f9;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      box-shadow: 0 0 60px rgba(16, 185, 129, 0.15), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { transform: translateX(-30%) translateY(-30%); }
+      50% { transform: translateX(30%) translateY(30%); }
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .logo svg {
+      width: 48px;
+      height: 48px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+    
+    .logo-text {
+      text-align: left;
+    }
+    
+    .logo-text h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .logo-text span {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .header h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+      color: rgba(255,255,255,0.9);
+      font-size: 16px;
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .intro h3 {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 12px;
+    }
+    
+    .intro p {
+      color: #94a3b8;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+    
+    .benefit-card {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid rgba(71, 85, 105, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #14b8a6, #06b6d4);
+    }
+    
+    .benefit-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.1));
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .benefit-icon svg {
+      width: 28px;
+      height: 28px;
+      color: #10b981;
+    }
+    
+    .benefit-card h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+    }
+    
+    .benefit-card p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+    
+    .highlight-section {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(20, 184, 166, 0.1));
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+    
+    .highlight-section h3 {
+      font-size: 20px;
+      color: #10b981;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      .checklist { grid-template-columns: 1fr; }
+    }
+    
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #f1f5f9;
+      font-size: 14px;
+    }
+    
+    .checklist-item svg {
+      width: 20px;
+      height: 20px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, #10b981, #14b8a6);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+    
+    .cta-section h3 {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-section p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button.primary {
+      background: white;
+      color: #10b981;
+    }
+    
+    .cta-button.secondary {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .footer {
+      background: rgba(15, 23, 42, 0.8);
+      padding: 32px 40px;
+      border-top: 1px solid rgba(71, 85, 105, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .footer-contact {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-contact a {
+      color: #10b981;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .footer-badge {
+      background: linear-gradient(135deg, #10b981, #14b8a6);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    @media print {
+      body { background: white; padding: 0; }
+      .container { box-shadow: none; border: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3l4 8 5-5 5 15H2L8 3z" fill="white" stroke="white"/>
+        </svg>
+        <div class="logo-text">
+          <h1>MATTERHORN</h1>
+          <span>Insurance Group</span>
+        </div>
+      </div>
+      <h2>Pickleball Insurance Benefits Guide</h2>
+      <p>Why Organizations Choose Matterhorn</p>
+    </div>
+    
+    <div class="content">
+      <div class="intro">
+        <h3>Your Partner in Pickleball Protection</h3>
+        <p>Matterhorn specializes in pickleball insurance, offering comprehensive coverage designed specifically for the unique needs of pickleball organizations, facilities, and events.</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h4>Significant Cost Savings</h4>
+          <p>Save up to 20% compared to market rates. Our specialized program and carrier relationships allow us to offer competitive premiums without sacrificing coverage quality.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>Fast Turnaround</h4>
+          <p>Get quotes within 24-48 hours and same-day coverage activation. Our streamlined process eliminates unnecessary delays so you can get protected quickly.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Specialized Coverage</h4>
+          <p>Nine coverage types specifically designed for pickleball organizations. From general liability to abuse coverage, we understand the unique risks your organization faces.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Dedicated Support</h4>
+          <p>Work with insurance professionals who understand pickleball. Our team provides personalized guidance throughout the application, claims, and renewal processes.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h4>National Coverage</h4>
+          <p>Coverage available in all 50 states with rates adjustable by location. No matter where your organization operates, we can provide the protection you need.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </div>
+          <h4>Simple Application</h4>
+          <p>Complete our streamlined application in just 5-10 minutes. We've eliminated unnecessary paperwork and complexity to make getting covered as easy as possible.</p>
+        </div>
+      </div>
+      
+      <div class="highlight-section">
+        <h3>What's Included in Every Policy</h3>
+        <div class="checklist">
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Certificate of Insurance</span>
+          </div>
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Additional Insured Endorsements</span>
+          </div>
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>24/7 Claims Reporting</span>
+          </div>
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Dedicated Account Manager</span>
+          </div>
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Risk Management Resources</span>
+          </div>
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Annual Policy Review</span>
+          </div>
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Flexible Payment Options</span>
+          </div>
+          <div class="checklist-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            <span>Marketing Materials Support</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cta-section">
+        <h3>Ready to Get Started?</h3>
+        <p>Contact us today for a personalized quote and see how much you can save.</p>
+        <div class="cta-buttons">
+          <a href="tel:1-844-600-0611" class="cta-button primary">Call 1-844-600-0611</a>
+          <a href="mailto:support@matterhornprotects.com" class="cta-button secondary">Email Us</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <div class="footer-contact">
+        <a href="mailto:support@matterhornprotects.com">support@matterhornprotects.com</a>
+        <a href="tel:1-844-600-0611">1-844-600-0611</a>
+      </div>
+      <div class="footer-badge">Save 20% vs Market Rates</div>
+    </div>
+  </div>
+</body>
+</html>
