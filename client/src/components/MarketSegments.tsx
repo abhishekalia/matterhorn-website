@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +21,7 @@ const markets = [
     name: "Sports Market",
     description: "Comprehensive coverage across all sports with 10+ A-Rated markets and fast digital submissions.",
     image: sportsImage,
+    route: "/sports",
     stats: [
       "10+ A-Rated Markets",
       "Participant Management System",
@@ -61,6 +63,7 @@ const markets = [
     name: "Transportation Market",
     description: "Programs built for independent contractors, motor carriers, and freight brokers with comprehensive coverage.",
     image: transportationImage,
+    route: "/transportation",
     stats: [
       "17+ A-Rated Markets",
       "Driver Management System",
@@ -95,6 +98,7 @@ const markets = [
     name: "Travel Market",
     description: "Global capacity with comprehensive suite of products and automated platform integrations.",
     image: travelImage,
+    route: "/travel",
     stats: [
       "8+ A-Rated Markets",
       "Embedded Platform",
@@ -129,6 +133,7 @@ const markets = [
     name: "Entertainment Market",
     description: "Specialized coverage for live events, concerts, film production, and talent management with comprehensive protection.",
     image: entertainmentImage,
+    route: "/entertainment",
     stats: [
       "12+ A-Rated Markets",
       "Event Coverage to $50M+",
@@ -306,9 +311,12 @@ function MarketCard({ market, index, isVisible }: MarketCardProps) {
             <Button 
               className="group-hover:scale-105 transition-transform"
               data-testid={`button-explore-${market.id}`}
+              asChild
             >
-              Explore Market
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <Link href={market.route}>
+                Explore Market
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
             </Button>
             <div className="text-sm">
               <div className="text-muted-foreground">Contact</div>
