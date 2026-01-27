@@ -2,30 +2,25 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Building2, Cpu, Zap, Shield, Mountain, ArrowRight } from "lucide-react";
+import { Lightbulb, Users, Rocket, Quote, Mountain, ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BrokerApplicationModal } from "./BrokerApplicationModal";
 
-const features = [
+const storyPoints = [
   {
-    icon: Building2,
-    title: "MGU + MGA Structure",
-    description: "We operate as both a Managing General Underwriter and Managing General Agent, giving us unique flexibility to design and deliver specialty programs.",
+    icon: Lightbulb,
+    title: "The Opportunity",
+    description: "We saw brokers struggling to place unique risks for complex clients. They had the relationships but lacked access to innovative carrier markets and couldn't speak the language carriers needed to hear.",
   },
   {
-    icon: Cpu,
-    title: "AI-Driven Technology",
-    description: "Our proprietary platform uses machine learning to optimize risk selection, automate workflows, and deliver real-time insights across all programs.",
+    icon: Users,
+    title: "The Gap",
+    description: "Traditional MGAs weren't built for the modern broker. Administrative headaches, slow turnarounds, and one-size-fits-all programs left specialty markets underserved and brokers frustrated.",
   },
   {
-    icon: Zap,
-    title: "Design Shop Approach",
-    description: "We don't just distribute insurance—we architect custom programs from the ground up, tailored to specific market needs and broker requirements.",
-  },
-  {
-    icon: Shield,
-    title: "End-to-End Control",
-    description: "From underwriting authority to technology infrastructure, we control every aspect of program delivery for consistent, high-quality results.",
+    icon: Rocket,
+    title: "The Solution",
+    description: "We combined decades of underwriting expertise with cutting-edge technology to create something new—a design shop that speaks both broker and carrier, built to move fast and solve real problems.",
   },
 ];
 
@@ -51,20 +46,20 @@ export default function AboutMatterhorn() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <Mountain className="w-5 h-5 text-primary" />
             <Badge className="bg-primary/10 text-primary border-primary/20">
-              About Matterhorn
+              Our Story
             </Badge>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="heading-about">
-            An AI-Led Insurance Design Shop
+            How Matterhorn Was Built
           </h2>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed" data-testid="description-about">
-            We're not a traditional MGA. As an MGU + MGA hybrid, we combine underwriting authority with cutting-edge AI technology to design, deliver, and manage specialty insurance programs that actually work for brokers.
+            Matterhorn started with a simple observation: brokers needed more than just markets—they needed a partner who could innovate alongside them.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {storyPoints.map((point, index) => {
+            const Icon = point.icon;
             return (
               <Card
                 key={index}
@@ -80,10 +75,10 @@ export default function AboutMatterhorn() {
                     <Icon className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-3" data-testid={`about-title-${index}`}>
-                    {feature.title}
+                    {point.title}
                   </h3>
                   <p className="text-foreground/70 leading-relaxed" data-testid={`about-description-${index}`}>
-                    {feature.description}
+                    {point.description}
                   </p>
                 </div>
               </Card>
@@ -91,27 +86,47 @@ export default function AboutMatterhorn() {
           })}
         </div>
 
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '600ms' }}>
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '500ms' }}>
           <Card className="p-10 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Built Different. Built Better.</h3>
-              <p className="text-foreground/70 leading-relaxed mb-2">
-                Every program we design is backed by our proprietary AI engine that continuously learns from submission data, claims history, and market performance. This means better risk selection, faster turnaround, and programs that evolve with your business.
-              </p>
-              <p className="text-foreground/70 leading-relaxed mb-6">
-                Unlike traditional MGAs that simply place business, we architect solutions—combining underwriting expertise, technology infrastructure, and operational excellence into turnkey programs that scale.
-              </p>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90"
-                onClick={() => setApplicationModalOpen(true)}
-                data-testid="button-learn-more-about"
-              >
-                Learn More About Our Approach
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col lg:flex-row gap-8 items-start">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary/30">
+                    <Quote className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                <div>
+                  <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">
+                    "We founded Matterhorn because we believed the MGA space was ready for a new kind of partner. Brokers were telling us they couldn't find carriers who understood their unique clients, and carriers were telling us brokers weren't presenting risks in ways they could price. We built the bridge.
+                  </blockquote>
+                  <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">
+                    Our team has decades of experience in specialty insurance, but we're not stuck in the old ways. We combined that expertise with technology that actually makes brokers' lives easier—from automated submissions to real-time quoting. Some people said old dogs can't learn new tricks. We say the old dogs are the ones building the most innovative business in the industry."
+                  </blockquote>
+                  <div className="flex items-center gap-4">
+                    <div>
+                      <div className="font-bold text-foreground text-lg">Steve Mueller</div>
+                      <div className="text-primary">CEO & Co-Founder, Matterhorn Insurance Group</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </Card>
+        </div>
+
+        <div className={`text-center mt-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '700ms' }}>
+          <p className="text-foreground/70 mb-6 max-w-2xl mx-auto">
+            Today, Matterhorn serves brokers across Sports, Transportation, Travel, and Entertainment—bringing world-class coverage to unique market segments through innovation, technology, and deep expertise in market placing and rating.
+          </p>
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90"
+            onClick={() => setApplicationModalOpen(true)}
+            data-testid="button-learn-more-about"
+          >
+            Partner With Us
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </div>
 
