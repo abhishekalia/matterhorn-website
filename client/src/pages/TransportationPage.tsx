@@ -41,6 +41,7 @@ import {
 } from "lucide-react";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
+import Footer from "@/components/Footer";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 import stephenAvatar from "@assets/stephen_mueller_avatar.png";
 import johnAvatar from "@assets/john_warren_avatar.png";
@@ -72,6 +73,87 @@ function useScrollAnimation() {
   }, []);
 
   return visibleSections;
+}
+
+function ClosingSection() {
+  const [hoveredLetter, setHoveredLetter] = useState<number | null>(null);
+  const letters = "MATTERHORN".split("");
+
+  return (
+    <section className="relative h-[60vh] min-h-[400px] overflow-hidden" data-testid="section-closing">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${matterhornHero})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/85 via-[#1B2A41]/80 to-[#0A1628]/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+      </div>
+      
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+      </div>
+
+      <div className="relative z-10 h-full flex items-center justify-center">
+        <div className="text-center px-6 group">
+          {/* Logo Icon */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-cyan-500 blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500 rounded-full scale-150" />
+              <Mountain className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-primary group-hover:scale-110 transition-transform duration-500" />
+            </div>
+          </div>
+
+          {/* Interactive Letter Hover Effect */}
+          <h2 
+            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight flex justify-center"
+            data-testid="text-closing-title"
+          >
+            {letters.map((letter, index) => (
+              <span
+                key={index}
+                className="cursor-default transition-all duration-300 ease-out"
+                style={{
+                  color: hoveredLetter === index 
+                    ? '#22d3ee' // cyan-400
+                    : hoveredLetter !== null && Math.abs(hoveredLetter - index) === 1
+                    ? '#06b6d4' // cyan-500
+                    : hoveredLetter !== null && Math.abs(hoveredLetter - index) === 2
+                    ? '#0891b2' // cyan-600
+                    : '#00a8c7', // primary
+                  textShadow: hoveredLetter === index 
+                    ? '0 0 30px rgba(34, 211, 238, 0.8), 0 0 60px rgba(34, 211, 238, 0.4)' 
+                    : hoveredLetter !== null && Math.abs(hoveredLetter - index) <= 2
+                    ? '0 0 20px rgba(34, 211, 238, 0.3)'
+                    : 'none',
+                  transform: hoveredLetter === index 
+                    ? 'translateY(-8px) scale(1.1)' 
+                    : hoveredLetter !== null && Math.abs(hoveredLetter - index) === 1
+                    ? 'translateY(-4px) scale(1.05)'
+                    : 'translateY(0) scale(1)',
+                  display: 'inline-block',
+                }}
+                onMouseEnter={() => setHoveredLetter(index)}
+                onMouseLeave={() => setHoveredLetter(null)}
+              >
+                {letter}
+              </span>
+            ))}
+          </h2>
+          
+          <p 
+            className="text-lg md:text-xl lg:text-2xl uppercase tracking-[0.3em] mt-4 font-semibold text-primary drop-shadow-md"
+            data-testid="text-closing-subtitle"
+          >
+            Transportation
+          </p>
+          <p className="text-white/70 mt-4 text-sm md:text-base max-w-xl mx-auto">
+            Specialty insurance programs built for the modern transportation industry
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function TransportationPage() {
@@ -1240,70 +1322,11 @@ export default function TransportationPage() {
         </div>
       </section>
 
-      {/* Closing Section */}
-      <section className="relative h-[50vh] min-h-[350px] overflow-hidden bg-[#0A1628]">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${matterhornHero})` }}
-        >
-          <div className="absolute inset-0 bg-[#0A1628]/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/60 to-transparent" />
-        </div>
-        
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-          <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-cyan-500/15 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
-        </div>
-
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center px-6">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg">
-              <span className="text-white">
-                MATTERHORN
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl lg:text-2xl uppercase tracking-[0.3em] mt-4 font-semibold text-primary drop-shadow-md">
-              Transportation
-            </p>
-            <p className="text-white/70 mt-4 text-sm md:text-base max-w-xl mx-auto">
-              Specialty insurance programs built for the modern transportation industry
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Closing Section - Interactive Letter Hover */}
+      <ClosingSection />
 
       {/* Footer */}
-      <footer className="py-12 bg-[#0A1628] border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <Link href="/">
-              <div className="flex items-center gap-3 cursor-pointer group">
-                <Mountain className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                <div className="flex flex-col">
-                  <div className="text-lg font-bold text-primary leading-tight">MATTERHORN</div>
-                  <div className="text-[9px] font-medium text-primary/70 tracking-widest uppercase">Insurance Group</div>
-                </div>
-              </div>
-            </Link>
-
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-white/50">
-              <Link href="/privacy" className="hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-              <a href="mailto:jwarren@matterhornprotects.com" className="hover:text-white transition-colors">
-                Contact
-              </a>
-            </div>
-
-            <p className="text-sm text-white/50">
-              © {new Date().getFullYear()} Matterhorn Insurance Group
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       <BrokerApplicationModal 
         open={applicationModalOpen} 
