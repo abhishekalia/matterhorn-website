@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Mountain } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Menu, X, Mountain } from "lucide-react";
 import { BrokerApplicationModal } from "./BrokerApplicationModal";
+
+const sectors = [
+  { name: "Transportation", id: "transportation" },
+  { name: "Sports", id: "sports" },
+  { name: "Entertainment", id: "entertainment" },
+  { name: "Travel", id: "travel" },
+];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,10 +28,8 @@ export default function Navigation() {
   const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
     
-    // If not on home page, navigate to home page first with hash
     if (location !== "/") {
       setLocation(`/#${id}`);
-      // After navigation, wait for page load then scroll
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -45,7 +44,7 @@ export default function Navigation() {
     }
   };
 
-  const handleGetAppointed = () => {
+  const handleRequestAppointment = () => {
     setIsMobileMenuOpen(false);
     setApplicationModalOpen(true);
   };
@@ -70,78 +69,25 @@ export default function Navigation() {
               </div>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-8">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button
-                    className="flex items-center gap-1 text-sm font-medium text-foreground hover-elevate px-3 py-2 rounded-md transition-colors"
-                    data-testid="button-solutions-menu"
-                  >
-                    Solutions <ChevronDown className="w-4 h-4" />
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-48">
-                  <DropdownMenuItem
-                    onClick={() => scrollToSection("sports")}
-                    data-testid="menu-item-sports"
-                  >
-                    Sports
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => scrollToSection("transportation")}
-                    data-testid="menu-item-transportation"
-                  >
-                    Transportation
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => scrollToSection("travel")}
-                    data-testid="menu-item-travel"
-                  >
-                    Travel
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => scrollToSection("entertainment")}
-                    data-testid="menu-item-entertainment"
-                  >
-                    Entertainment
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            <div className="hidden lg:flex items-center gap-3">
+              {sectors.map((sector) => (
+                <button
+                  key={sector.id}
+                  onClick={() => scrollToSection(sector.id)}
+                  className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                  data-testid={`nav-${sector.id}`}
+                >
+                  {sector.name}
+                </button>
+              ))}
 
-              <Link
-                href="/brokers"
-                className="text-sm font-medium text-foreground hover-elevate px-3 py-2 rounded-md transition-colors"
-                data-testid="button-brokers"
+              <Button 
+                onClick={handleRequestAppointment} 
+                size="sm"
+                className="ml-4 text-[10px] uppercase tracking-widest"
+                data-testid="button-request-appointment"
               >
-                Brokers
-              </Link>
-
-              <button
-                onClick={() => scrollToSection("case-studies")}
-                className="text-sm font-medium text-foreground hover-elevate px-3 py-2 rounded-md transition-colors"
-                data-testid="button-case-studies"
-              >
-                Case Studies
-              </button>
-
-              <button
-                onClick={() => scrollToSection("team")}
-                className="text-sm font-medium text-foreground hover-elevate px-3 py-2 rounded-md transition-colors"
-                data-testid="button-team"
-              >
-                Team
-              </button>
-
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-sm font-medium text-foreground hover-elevate px-3 py-2 rounded-md transition-colors"
-                data-testid="button-contact"
-              >
-                Contact
-              </button>
-
-              <Button onClick={handleGetAppointed} data-testid="button-get-appointed">
-                Get Appointed
+                Request Appointment
               </Button>
             </div>
 
@@ -155,66 +101,25 @@ export default function Navigation() {
           </div>
 
           {isMobileMenuOpen && (
-            <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 space-y-2">
-              <button
-                onClick={() => scrollToSection("sports")}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-sports"
+            <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {sectors.map((sector) => (
+                  <button
+                    key={sector.id}
+                    onClick={() => scrollToSection(sector.id)}
+                    className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    data-testid={`mobile-nav-${sector.id}`}
+                  >
+                    {sector.name}
+                  </button>
+                ))}
+              </div>
+              <Button 
+                onClick={handleRequestAppointment} 
+                className="w-full text-[10px] uppercase tracking-widest" 
+                data-testid="mobile-button-request-appointment"
               >
-                Sports
-              </button>
-              <button
-                onClick={() => scrollToSection("transportation")}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-transportation"
-              >
-                Transportation
-              </button>
-              <button
-                onClick={() => scrollToSection("travel")}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-travel"
-              >
-                Travel
-              </button>
-              <button
-                onClick={() => scrollToSection("entertainment")}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-entertainment"
-              >
-                Entertainment
-              </button>
-              <Link
-                href="/brokers"
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-brokers"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Brokers
-              </Link>
-              <button
-                onClick={() => scrollToSection("case-studies")}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-case-studies"
-              >
-                Case Studies
-              </button>
-              <button
-                onClick={() => scrollToSection("team")}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-team"
-              >
-                Team
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover-elevate rounded-md"
-                data-testid="mobile-menu-contact"
-              >
-                Contact
-              </button>
-              <Button onClick={handleGetAppointed} className="w-full mt-4" data-testid="mobile-button-get-appointed">
-                Get Appointed
+                Request Appointment
               </Button>
             </div>
           )}
