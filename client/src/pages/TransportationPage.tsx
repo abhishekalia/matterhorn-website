@@ -970,85 +970,96 @@ export default function TransportationPage() {
       <section 
         data-animate
         id="cta"
-        className="py-24 bg-[#0D1B2A]"
+        className="py-24 bg-[#0A1628] relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <Card className={`p-12 bg-gradient-to-br from-primary/20 via-cyan-500/10 to-purple-500/10 border-primary/30 ${getAnimationClass("cta")}`}>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                  Get Appointed Directly and Start Selling
-                </h2>
-                <p className="text-lg text-white/60 mb-6 leading-relaxed">
-                  Join our network of elite transportation brokers. Complete our streamlined appointment 
-                  application to access our exclusive A-rated markets and integrated technology platform.
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-500/8 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className={`text-center mb-16 ${getAnimationClass("cta")}`}>
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+              Get Started
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Get Appointed Directly and Start Selling
+            </h2>
+            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+              Join our network of elite transportation brokers. Complete our streamlined appointment 
+              application to access our exclusive A-rated markets and integrated technology platform.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Benefits Card */}
+            <Card className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 transition-all duration-500 ${getAnimationClass("cta")}`}>
+              <h3 className="text-xl font-bold mb-6 text-white">Why Partner With Us?</h3>
+              <ul className="space-y-4">
+                {[
+                  "Direct access to Matterhorn's specialty programs",
+                  "Competitive commission structures",
+                  "Same-day appointment approvals for qualified agencies",
+                  "Instant access to our broker portal",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                    <CheckCircle className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            {/* Contact Card */}
+            <Card className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 transition-all duration-500 ${getAnimationClass("cta")}`}>
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold mb-2 text-white">Ready to Place Transportation Risk?</h3>
+                <p className="text-white/60 text-sm">
+                  Contact John Warren directly for a quick response.
                 </p>
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Direct access to Matterhorn's specialty programs",
-                    "Competitive commission structures",
-                    "Same-day appointment approvals for qualified agencies",
-                    "Instant access to our broker portal",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
-                      <CheckCircle className="w-5 h-5 text-primary" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
-              <Card className="p-8 bg-[#1B2A41]/70 border-white/10">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2 text-white">Ready to Place Transportation Risk?</h3>
-                  <p className="text-white/60">
-                    Contact John Warren directly for a quick response.
-                  </p>
-                </div>
-
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center gap-4 p-4 bg-[#0A1628]/50 rounded-md hover:bg-[#0A1628]/70 transition-colors group">
-                    <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                    <div>
-                      <p className="text-sm text-white/50">Call Us</p>
-                      <p className="font-medium text-white">1-844-600-0611</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 p-4 bg-[#0A1628]/50 rounded-md hover:bg-[#0A1628]/70 transition-colors group">
-                    <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                    <div>
-                      <p className="text-sm text-white/50">Email</p>
-                      <a href="mailto:jwarren@matterhornprotects.com" className="font-medium text-white hover:text-primary transition-colors">
-                        jwarren@matterhornprotects.com
-                      </a>
-                    </div>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center gap-4 p-4 bg-[#0A1628]/50 rounded-md hover:bg-primary/20 hover:border-primary/30 border border-transparent transition-all duration-300 group">
+                  <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                  <div>
+                    <p className="text-xs text-white/50">Call Us</p>
+                    <p className="font-medium text-white">1-844-600-0611</p>
                   </div>
                 </div>
-
-                <div className="flex flex-col gap-3">
-                  <Button 
-                    className="w-full group" 
-                    size="lg"
-                    onClick={() => setApplicationModalOpen(true)}
-                    data-testid="button-request-appointment-card"
-                  >
-                    Request Appointment
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    className="w-full" 
-                    asChild
-                  >
-                    <a href="mailto:jwarren@matterhornprotects.com">
-                      Book a Call
-                      <Phone className="ml-2 w-4 h-4" />
+                <div className="flex items-center gap-4 p-4 bg-[#0A1628]/50 rounded-md hover:bg-primary/20 hover:border-primary/30 border border-transparent transition-all duration-300 group">
+                  <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                  <div>
+                    <p className="text-xs text-white/50">Email</p>
+                    <a href="mailto:jwarren@matterhornprotects.com" className="font-medium text-white hover:text-primary transition-colors text-sm">
+                      jwarren@matterhornprotects.com
                     </a>
-                  </Button>
+                  </div>
                 </div>
-              </Card>
-            </div>
-          </Card>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <Button 
+                  className="w-full group" 
+                  size="lg"
+                  onClick={() => setApplicationModalOpen(true)}
+                  data-testid="button-request-appointment-card"
+                >
+                  Request Appointment
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button 
+                  variant="outline"
+                  className="w-full" 
+                  asChild
+                >
+                  <a href="mailto:jwarren@matterhornprotects.com">
+                    Book a Call
+                    <Phone className="ml-2 w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
