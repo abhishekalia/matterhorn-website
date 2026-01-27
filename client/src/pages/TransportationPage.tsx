@@ -77,6 +77,7 @@ function useScrollAnimation() {
 export default function TransportationPage() {
   const [applicationModalOpen, setApplicationModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const visibleSections = useScrollAnimation();
 
   useEffect(() => {
@@ -1071,78 +1072,170 @@ export default function TransportationPage() {
         style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
       >
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-primary/8 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-cyan-500/6 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/6 w-64 h-64 bg-purple-500/5 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-12 ${getAnimationClass("faq")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              Common Questions
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Frequently Asked{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
-                Questions
-              </span>
-            </h2>
-          </div>
+          <div className={`grid lg:grid-cols-12 gap-12 lg:gap-16 ${getAnimationClass("faq")}`}>
+            {/* Left Column - Header */}
+            <div className="lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
+              <div className="space-y-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-[1px] bg-gradient-to-r from-primary to-transparent" />
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-primary/80">
+                    Transportation
+                  </span>
+                </div>
+                
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                  Frequently
+                  <br />
+                  Asked{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+                    Questions
+                  </span>
+                </h2>
+                
+                <p className="text-white/50 text-sm leading-relaxed max-w-sm">
+                  Everything you need to know about our transportation programs.
+                  Ready to get started? Contact John Warren directly.
+                </p>
 
-          <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {[
-                {
-                  question: "What types of transportation risks do you cover?",
-                  answer: "We specialize in IC & owner-operator fleets, motor carriers, ride share & delivery, logistics & freight brokers, and unique hard-to-place transportation risks. Our programs are built specifically for the modern transportation industry."
-                },
-                {
-                  question: "How quickly can I get a quote for my client?",
-                  answer: "Our streamlined process delivers quotes within 24-48 hours for most risks. For standard IC and small fleet accounts, we often provide same-day indicative pricing through our technology platform."
-                },
-                {
-                  question: "What makes Matterhorn different from other transportation markets?",
-                  answer: "We combine boutique, personalized service with institutional-grade capacity. Our hybrid MGU + MGA model gives you direct access to curated A-rated markets while our technology platform streamlines the entire submission-to-bind process."
-                },
-                {
-                  question: "Do you require minimum fleet sizes?",
-                  answer: "No. We work with single-unit owner-operators all the way up to large fleets. Our programs are designed to be flexible and accommodate the full spectrum of transportation operations."
-                },
-                {
-                  question: "How do I get appointed with Matterhorn?",
-                  answer: "Complete our online appointment application. We verify credentials quickly, and qualified agencies typically receive same-day approval. Once appointed, you'll have immediate access to our broker portal and can start submitting risks right away."
-                },
-                {
-                  question: "What technology tools do you provide to brokers?",
-                  answer: "We provide a comprehensive broker portal for submissions, real-time quote tracking, document management, and policy servicing. Our platform integrates with your existing systems via API when needed."
-                },
-                {
-                  question: "Which states do you write transportation business in?",
-                  answer: "We have nationwide coverage with programs available in all 50 states. Specific coverage availability may vary by program type and risk characteristics."
-                },
-                {
-                  question: "What is your claims process like?",
-                  answer: "We work with experienced transportation claims teams who understand the industry. Our goal is fast, fair claim resolution with direct communication throughout the process."
-                },
-              ].map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="border border-white/10 rounded-md px-6 bg-white/5 backdrop-blur-md hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
-                  data-testid={`accordion-faq-${index}`}
-                >
-                  <AccordionTrigger
-                    className="text-left hover:no-underline text-white"
+                <div className="pt-4 hidden lg:block">
+                  <div 
+                    className="flex items-center gap-3 p-4 rounded-md bg-white/5 border border-white/10 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 group cursor-pointer"
+                    onClick={() => setApplicationModalOpen(true)}
                   >
-                    <span className="font-bold">
-                      {faq.question}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-white/70">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Ready to place risk?</p>
+                      <p className="text-sm font-medium text-white group-hover:text-primary transition-colors">Request Appointment</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-6 pt-2 hidden lg:flex">
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-white">8</p>
+                    <p className="text-[9px] uppercase tracking-wider text-white/40">Questions</p>
+                  </div>
+                  <div className="w-[1px] h-10 bg-white/10" />
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-primary">50</p>
+                    <p className="text-[9px] uppercase tracking-wider text-white/40">States</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - FAQ Items */}
+            <div className="lg:col-span-8">
+              <div className="space-y-3">
+                {[
+                  { category: "Coverage", question: "What types of transportation risks do you cover?", answer: "We specialize in IC & owner-operator fleets, motor carriers, ride share & delivery, logistics & freight brokers, and unique hard-to-place transportation risks. Our programs are built specifically for the modern transportation industry." },
+                  { category: "Timeline", question: "How quickly can I get a quote for my client?", answer: "Our streamlined process delivers quotes within 24-48 hours for most risks. For standard IC and small fleet accounts, we often provide same-day indicative pricing through our technology platform." },
+                  { category: "Platform", question: "What makes Matterhorn different from other transportation markets?", answer: "We combine boutique, personalized service with institutional-grade capacity. Our hybrid MGU + MGA model gives you direct access to curated A-rated markets while our technology platform streamlines the entire submission-to-bind process." },
+                  { category: "Eligibility", question: "Do you require minimum fleet sizes?", answer: "No. We work with single-unit owner-operators all the way up to large fleets. Our programs are designed to be flexible and accommodate the full spectrum of transportation operations." },
+                  { category: "Getting Started", question: "How do I get appointed with Matterhorn?", answer: "Complete our online appointment application. We verify credentials quickly, and qualified agencies typically receive same-day approval. Once appointed, you'll have immediate access to our broker portal and can start submitting risks right away." },
+                  { category: "Technology", question: "What technology tools do you provide to brokers?", answer: "We provide a comprehensive broker portal for submissions, real-time quote tracking, document management, and policy servicing. Our platform integrates with your existing systems via API when needed." },
+                  { category: "Territory", question: "Which states do you write transportation business in?", answer: "We have nationwide coverage with programs available in all 50 states. Specific coverage availability may vary by program type and risk characteristics." },
+                  { category: "Claims", question: "What is your claims process like?", answer: "We work with experienced transportation claims teams who understand the industry. Our goal is fast, fair claim resolution with direct communication throughout the process." },
+                ].map((faq, index) => (
+                  <div
+                    key={index}
+                    className={`group relative rounded-lg border transition-all duration-500 overflow-hidden ${
+                      openFaqIndex === index 
+                        ? "bg-primary/15 border-primary/40 shadow-lg shadow-primary/10" 
+                        : "bg-white/[0.03] border-white/10 hover:bg-white/[0.06] hover:border-white/20"
+                    }`}
+                    data-testid={`accordion-faq-${index}`}
+                  >
+                    <button
+                      onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                      className="w-full text-left p-5 flex items-start gap-4"
+                      data-testid={`accordion-trigger-${index}`}
+                    >
+                      <div className={`flex-shrink-0 w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold transition-all duration-300 ${
+                        openFaqIndex === index 
+                          ? "bg-primary text-white" 
+                          : "bg-white/10 text-white/50 group-hover:bg-primary/30 group-hover:text-primary"
+                      }`}>
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Badge 
+                            variant="outline" 
+                            className={`text-[9px] uppercase tracking-wider px-2 py-0 h-4 border-none transition-colors ${
+                              openFaqIndex === index 
+                                ? "bg-primary/30 text-primary" 
+                                : "bg-white/10 text-white/40"
+                            }`}
+                          >
+                            {faq.category}
+                          </Badge>
+                        </div>
+                        <h3 className={`font-semibold text-base transition-colors ${
+                          openFaqIndex === index ? "text-white" : "text-white/80 group-hover:text-white"
+                        }`}>
+                          {faq.question}
+                        </h3>
+                      </div>
+
+                      <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        openFaqIndex === index 
+                          ? "bg-primary/30 rotate-180" 
+                          : "bg-white/10 group-hover:bg-white/20"
+                      }`}>
+                        <ChevronDown className={`w-4 h-4 transition-colors ${
+                          openFaqIndex === index ? "text-primary" : "text-white/50"
+                        }`} />
+                      </div>
+                    </button>
+
+                    {openFaqIndex === index && (
+                      <div 
+                        className="overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300"
+                        data-testid={`accordion-content-${index}`}
+                      >
+                        <div className="px-5 pb-5 pl-[4.5rem]">
+                          <p className="text-sm text-white/60 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${
+                      openFaqIndex === index ? "opacity-100" : "opacity-0"
+                    }`}>
+                      <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Mobile Contact Card */}
+              <div className="mt-8 lg:hidden">
+                <div 
+                  className="flex items-center gap-3 p-4 rounded-md bg-white/5 border border-white/10 cursor-pointer"
+                  onClick={() => setApplicationModalOpen(true)}
+                >
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-wider text-white/40 font-medium">Ready to place risk?</p>
+                    <p className="text-sm font-medium text-white">Request Appointment</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
