@@ -520,12 +520,142 @@ export default function SportsPage() {
         </div>
 
         <button
-          onClick={() => scrollToSection("leadership")}
+          onClick={() => scrollToSection("featured-program")}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-white/60 hover:text-primary transition-all duration-300 animate-bounce hover:animate-none hover:scale-110"
           data-testid="button-scroll-down"
         >
           <ChevronDown className="w-8 h-8" />
         </button>
+      </section>
+
+      {/* Featured Pickleball Program Section */}
+      <section 
+        id="featured-program" 
+        data-animate 
+        className="py-20 bg-gradient-to-b from-[#0A1628] to-[#0D1B2A] relative overflow-hidden"
+      >
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-cyan-500/6 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className={`text-center mb-12 ${getAnimationClass("featured-program")}`}>
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+              <Star className="w-3 h-3 mr-1" />
+              Featured Program
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              America's Fastest Growing Sport,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
+                Fully Protected
+              </span>
+            </h2>
+            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+              Our comprehensive Pickleball Program provides specialized coverage for facilities, clubs, 
+              tournaments, and professionals in the nation's most dynamic racquet sport.
+            </p>
+          </div>
+
+          <div className={`${getAnimationClass("featured-program")}`}>
+            <Card className="relative overflow-hidden border-primary/30 bg-gradient-to-br from-[#1B2A41]/80 to-[#0D1B2A]/90 backdrop-blur-xl group hover:border-primary/60 transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-cyan-500/5 group-hover:from-primary/10 group-hover:to-cyan-500/10 transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+              
+              <div className="relative p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-10 items-center">
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-cyan-500 flex items-center justify-center shadow-lg shadow-primary/30">
+                        <Zap className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white">Pickleball Program</h3>
+                        <p className="text-primary font-medium">Comprehensive Coverage Solution</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-white/70 text-lg mb-6 leading-relaxed">
+                      Purpose-built insurance for the pickleball industry. From community recreation centers 
+                      to professional tournament circuits, we protect every aspect of pickleball operations 
+                      with tailored coverages and competitive rates.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-4 mb-8">
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">General Liability</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Participant Accident</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Property Coverage</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Franchise Programs</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">Alcohol Liability</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">D&O / E&O Coverage</span>
+                      </div>
+                    </div>
+
+                    <Link href="/pickleball">
+                      <Button 
+                        size="lg" 
+                        className="group/btn"
+                        data-testid="button-explore-pickleball"
+                      >
+                        Explore Pickleball Program
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  <div className="hidden md:flex flex-col gap-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-primary/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">50+</div>
+                        <div className="text-white/60 text-sm mt-1">States Covered</div>
+                      </div>
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-primary/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">24hr</div>
+                        <div className="text-white/60 text-sm mt-1">Quote Turnaround</div>
+                      </div>
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-primary/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">A+</div>
+                        <div className="text-white/60 text-sm mt-1">Rated Carriers</div>
+                      </div>
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-primary/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">All</div>
+                        <div className="text-white/60 text-sm mt-1">Facility Types</div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-primary/10 to-cyan-500/10 rounded-xl p-6 border border-primary/20">
+                      <div className="flex items-center gap-3 mb-3">
+                        <TrendingUp className="w-6 h-6 text-primary" />
+                        <span className="text-white font-semibold">Growing Fast</span>
+                      </div>
+                      <p className="text-white/60 text-sm leading-relaxed">
+                        Pickleball is America's fastest-growing sport with 36 million players. 
+                        Our program scales from single-court facilities to national tournament circuits.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
       </section>
 
       {/* Leadership Section */}
