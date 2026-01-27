@@ -7,26 +7,27 @@ export default function BrokerCTA() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${matterhornHero})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/85 via-[#1B2A41]/80 to-[#0A1628]/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>
       
       <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="text-center px-6">
           <h2 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
             data-testid="text-closing-title"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white/90 via-white/70 to-white/40">
-              Matterhorn
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+              MATTERHORN
             </span>
           </h2>
           <p 
-            className="text-lg md:text-xl lg:text-2xl uppercase tracking-[0.3em] mt-3 text-transparent bg-clip-text bg-gradient-to-r from-white/70 via-white/50 to-white/30 font-medium"
+            className="text-sm md:text-base lg:text-lg uppercase tracking-[0.3em] mt-2 font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary/80 via-cyan-400/70 to-primary/80"
             data-testid="text-closing-subtitle"
           >
             Insurance Group
