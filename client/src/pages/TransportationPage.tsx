@@ -40,7 +40,11 @@ import {
   Settings,
 } from "lucide-react";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
+import CustomCursor from "@/components/CustomCursor";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
+import stephenAvatar from "@assets/stephen_mueller_avatar.png";
+import johnAvatar from "@assets/john_warren_avatar.png";
+import ryanAvatar from "@assets/ryan_wilson_avatar.png";
 
 function useScrollAnimation() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -293,26 +297,27 @@ export default function TransportationPage() {
       title: "Managing Partner",
       description: "A veteran of the transportation insurance industry, Stephen brings deep expertise in program design and carrier relations. His background spans executive roles at major MGUs and carriers.",
       territory: "National",
-      image: "/assets/stephen_mueller_avatar.png",
+      image: stephenAvatar,
     },
     {
       name: "John Warren",
       title: "Managing Partner",
       description: "With a career dedicated to specialty risk, John combines underwriting discipline with strategic vision. His leadership has been instrumental in developing high-performance teams.",
       territory: "National",
-      image: "/assets/john_warren_avatar.png",
+      image: johnAvatar,
     },
     {
       name: "Ryan Wilson",
       title: "VP of Broker Engagement",
       description: "Ryan specializes in building strong broker relationships and ensuring seamless onboarding. His focus is on making every broker interaction efficient and valuable.",
       territory: "National",
-      image: "/assets/ryan_wilson_avatar.png",
+      image: ryanAvatar,
     },
   ];
 
   return (
     <div className="min-h-screen bg-[#0A1628] text-white">
+      <CustomCursor />
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -485,7 +490,7 @@ export default function TransportationPage() {
             {leadership.map((leader, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 group text-center ${getAnimationClass("leadership")}`}
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group text-center ${getAnimationClass("leadership")}`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="relative w-28 h-28 mx-auto mb-6">
@@ -533,7 +538,7 @@ export default function TransportationPage() {
             {marketCuration.map((section, index) => (
               <Card 
                 key={index} 
-                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 group ${getAnimationClass("market-curation")}`}
+                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group ${getAnimationClass("market-curation")}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
@@ -582,7 +587,7 @@ export default function TransportationPage() {
             {marketSegments.map((segment, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 group cursor-pointer ${getAnimationClass("markets")}`}
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group cursor-pointer ${getAnimationClass("markets")}`}
                 style={{ transitionDelay: `${index * 75}ms` }}
                 data-testid={`card-market-${index}`}
               >
@@ -642,7 +647,7 @@ export default function TransportationPage() {
             {whyMatterhorn.map((item, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 text-center group ${getAnimationClass("why-us")}`}
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 text-center group ${getAnimationClass("why-us")}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="relative w-14 h-14 mx-auto mb-4">
@@ -714,7 +719,7 @@ export default function TransportationPage() {
               {techFeatures.map((feature, index) => (
                 <Card 
                   key={index} 
-                  className="p-4 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 group"
+                  className="p-4 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group"
                   style={{ transitionDelay: `${index * 50}ms` }}
                   data-testid={`card-tech-${index}`}
                 >
@@ -901,7 +906,7 @@ export default function TransportationPage() {
             ].map((path, index) => (
               <Card 
                 key={index}
-                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-[#1B2A41]/70 hover:border-primary/30 hover:scale-[1.02] transition-all duration-500 ${getAnimationClass("appointment-flow")}`}
+                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 ${getAnimationClass("appointment-flow")}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-6">
@@ -1017,29 +1022,32 @@ export default function TransportationPage() {
       </section>
 
       {/* Closing Section */}
-      <section className="relative h-[50vh] min-h-[350px] overflow-hidden">
+      <section className="relative h-[50vh] min-h-[350px] overflow-hidden bg-[#0A1628]">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${matterhornHero})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/90 via-[#1B2A41]/85 to-[#0A1628]/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[#0A1628]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/60 to-transparent" />
         </div>
         
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[100px] animate-pulse" />
-          <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-cyan-500/15 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
 
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="text-center px-6">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary animate-gradient bg-[length:200%_auto]">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-lg">
+              <span className="text-white">
                 MATTERHORN
               </span>
             </h2>
-            <p className="text-sm md:text-base lg:text-lg uppercase tracking-[0.3em] mt-2 font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary/80 via-cyan-400/70 to-primary/80">
+            <p className="text-lg md:text-xl lg:text-2xl uppercase tracking-[0.3em] mt-4 font-semibold text-primary drop-shadow-md">
               Transportation
+            </p>
+            <p className="text-white/70 mt-4 text-sm md:text-base max-w-xl mx-auto">
+              Specialty insurance programs built for the modern transportation industry
             </p>
           </div>
         </div>
