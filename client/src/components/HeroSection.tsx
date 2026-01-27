@@ -53,23 +53,14 @@ export default function HeroSection() {
           Custom programs designed for brokers. Instant quotes. Curated markets. Technology that makes coverage effortless.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex justify-center items-center">
           <Button
             size="lg"
-            className="text-base px-8 py-6 bg-primary hover:bg-primary/90"
+            className="text-base px-10 py-6 bg-primary hover:bg-primary/90"
             onClick={() => setApplicationModalOpen(true)}
             data-testid="button-connect"
           >
             Connect with Our Team
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-base px-8 py-6 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
-            onClick={() => setApplicationModalOpen(true)}
-            data-testid="button-request-appointment"
-          >
-            Request Appointment
           </Button>
         </div>
       </div>
