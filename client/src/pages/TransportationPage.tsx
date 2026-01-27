@@ -933,7 +933,7 @@ export default function TransportationPage() {
                 desc: "Request custom apps built for specific clients or programs.",
                 items: ["Define class + data needs", "We design a short, broker-friendly app", "Launch for client intake", "Iterate with real feedback"],
                 buttonText: "Request a Custom App",
-                variant: "outline" as const,
+                variant: "secondary" as const,
               },
             ].map((path, index) => (
               <Card 
