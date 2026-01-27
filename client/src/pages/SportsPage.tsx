@@ -48,10 +48,6 @@ import athleteAction from "@assets/stock_images/athlete_action_sports.jpg";
 import stadiumLights from "@assets/stock_images/stadium_lights_night.jpg";
 import hockeyAction from "@assets/stock_images/hockey_action.jpg";
 import youthSoccer from "@assets/stock_images/youth_soccer_team_ce_56a4b64e.jpg";
-import backcountrySkiing from "@/assets/images/backcountry-skiing.jpg";
-import seaKayaking from "@/assets/images/sea-kayaking.jpg";
-import flagFootball from "@/assets/images/flag-football.jpg";
-import pickleballAction from "@/assets/images/pickleball.jpg";
 
 function useScrollAnimation() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -165,16 +161,7 @@ export default function SportsPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [activeCaseStudy, setActiveCaseStudy] = useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
   const visibleSections = useScrollAnimation();
-
-  // Auto-advance slideshow
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 4);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -546,57 +533,6 @@ export default function SportsPage() {
             ))}
           </div>
 
-          {/* Sports Image Slideshow */}
-          <div className="relative w-full max-w-4xl mx-auto h-64 md:h-80 rounded-xl overflow-hidden border border-white/20 shadow-2xl">
-            {[
-              { src: backcountrySkiing, alt: "Backcountry Skiing", color: "#00ff88" },
-              { src: seaKayaking, alt: "Sea Kayaking", color: "#00d4ff" },
-              { src: flagFootball, alt: "Flag Football", color: "#ff00ff" },
-              { src: pickleballAction, alt: "Pickleball", color: "#ffff00" },
-            ].map((image, index) => (
-              <div
-                key={index}
-                className="absolute inset-0 transition-opacity duration-1000"
-                style={{
-                  opacity: currentSlide === index ? 1 : 0,
-                  zIndex: currentSlide === index ? 10 : 0,
-                }}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div 
-                  className="absolute bottom-4 left-4 px-4 py-2 rounded-full text-sm font-medium text-white backdrop-blur-sm"
-                  style={{ 
-                    backgroundColor: `${image.color}30`,
-                    borderColor: `${image.color}50`,
-                    border: '1px solid'
-                  }}
-                >
-                  {image.alt}
-                </div>
-              </div>
-            ))}
-            
-            {/* Slideshow indicators */}
-            <div className="absolute bottom-4 right-4 flex gap-2 z-20">
-              {[0, 1, 2, 3].map((index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentSlide === index 
-                      ? "w-6 bg-[#00ff88]" 
-                      : "bg-white/40 hover:bg-white/60"
-                  }`}
-                  data-testid={`slideshow-dot-${index}`}
-                />
-              ))}
-            </div>
-          </div>
         </div>
 
         <button
