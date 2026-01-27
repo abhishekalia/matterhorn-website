@@ -409,7 +409,7 @@ export default function MarketSegments() {
             </div>
             <div className="w-[1px] h-10 bg-white/10" />
             <div className="text-center">
-              <p className="text-3xl font-bold text-white">47+</p>
+              <p className="text-3xl font-bold text-white">17+</p>
               <p className="text-[10px] uppercase tracking-wider text-white/40">A-Rated Partners</p>
             </div>
             <div className="w-[1px] h-10 bg-white/10" />
