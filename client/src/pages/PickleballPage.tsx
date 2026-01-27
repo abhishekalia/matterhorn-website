@@ -39,6 +39,7 @@ import {
   Phone,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
+import pickleballHeroImage from "@/assets/images/pickleball-hero.png";
 
 const US_STATES = [
   "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
@@ -216,31 +217,42 @@ export default function PickleballPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden" data-testid="section-hero">
+      <section className="pt-32 pb-20 relative overflow-hidden min-h-[90vh] flex items-center" data-testid="section-hero">
+        {/* Hero Background Image */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+          <img 
+            src={pickleballHeroImage} 
+            alt="Dynamic pickleball action" 
+            className="w-full h-full object-cover"
+          />
+          {/* Dark gradient wash for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50" />
+          {/* Neon accent glows */}
+          <div className="absolute top-20 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl" />
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-emerald-500/20 text-emerald-400 border-emerald-500/30" data-testid="badge-savings">
+            <Badge className="mb-6 bg-emerald-500/20 text-emerald-400 border-emerald-500/30 backdrop-blur-sm" data-testid="badge-savings">
+              <Sparkles className="w-3 h-3 mr-1" />
               Save 20% vs Market Rates
             </Badge>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight drop-shadow-2xl" data-testid="text-hero-title">
               Comprehensive Pickleball
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
                 {" "}Insurance Coverage
               </span>
             </h1>
-            <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto" data-testid="text-hero-description">
+            <p className="text-xl text-slate-200 mb-8 max-w-2xl mx-auto drop-shadow-lg" data-testid="text-hero-description">
               Protect your pickleball organization with our specialized insurance program. National coverage, state-adjustable rates, and one simple application.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 onClick={() => scrollToSection("broker-application")}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 text-lg"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30"
                 data-testid="button-get-started"
               >
                 Get Started Today
@@ -250,7 +262,7 @@ export default function PickleballPage() {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("coverage")}
-                className="border-slate-600 text-white hover:bg-slate-800 px-8 py-6 text-lg"
+                className="border-white/30 text-white backdrop-blur-sm bg-white/10"
                 data-testid="button-learn-more"
               >
                 Learn More
@@ -260,20 +272,20 @@ export default function PickleballPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
-            <Card className="bg-slate-800/50 border-slate-700 p-6 text-center" data-testid="stat-same-day">
+            <Card className="bg-slate-900/70 backdrop-blur-md border-emerald-500/30 p-6 text-center shadow-lg shadow-emerald-500/10" data-testid="stat-same-day">
               <Clock className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
               <p className="text-2xl font-bold text-white">Same Day</p>
-              <p className="text-slate-400">Broker Appointments</p>
+              <p className="text-slate-300">Broker Appointments</p>
             </Card>
-            <Card className="bg-slate-800/50 border-slate-700 p-6 text-center" data-testid="stat-national">
+            <Card className="bg-slate-900/70 backdrop-blur-md border-emerald-500/30 p-6 text-center shadow-lg shadow-emerald-500/10" data-testid="stat-national">
               <MapPin className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
               <p className="text-2xl font-bold text-white">National</p>
-              <p className="text-slate-400">Coverage Available</p>
+              <p className="text-slate-300">Coverage Available</p>
             </Card>
-            <Card className="bg-slate-800/50 border-slate-700 p-6 text-center" data-testid="stat-quick">
+            <Card className="bg-slate-900/70 backdrop-blur-md border-emerald-500/30 p-6 text-center shadow-lg shadow-emerald-500/10" data-testid="stat-quick">
               <Zap className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
               <p className="text-2xl font-bold text-white">Quick</p>
-              <p className="text-slate-400">Quote Turnaround</p>
+              <p className="text-slate-300">Quote Turnaround</p>
             </Card>
           </div>
         </div>
