@@ -22,9 +22,9 @@ export default function Home() {
       <AboutMatterhorn />
       <StatsSection />
       <WhyMatterhorn />
+      <MarketSegments />
       <TechnologyShowcase />
       <ProcessSection />
-      <MarketSegments />
       <CaseStudies />
       <TestimonialsSection />
       <TeamSection />

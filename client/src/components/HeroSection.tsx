@@ -49,9 +49,25 @@ export default function HeroSection() {
           One Platform. Full Authority. Broker-First Always.
         </p>
 
-        <p className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed" data-testid="hero-description">
+        <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed" data-testid="hero-description">
           Custom programs designed for brokers. Instant quotes. Curated markets. Technology that makes coverage effortless.
         </p>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {["Sports", "Transportation", "Travel", "Entertainment"].map((segment) => (
+            <button
+              key={segment}
+              onClick={() => {
+                const element = document.getElementById("markets");
+                if (element) element.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-white/70 border border-white/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+              data-testid={`tab-segment-${segment.toLowerCase()}`}
+            >
+              {segment}
+            </button>
+          ))}
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
