@@ -54,6 +54,14 @@ import {
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 
+// Neon color palette for Travel
+const NEON_COLORS = {
+  skyBlue: '#00d4ff',
+  sunset: '#ff8c00',
+  magenta: '#ff00ff',
+  gold: '#ffd700',
+};
+
 export default function TravelPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [tripCost, setTripCost] = useState("");
@@ -372,49 +380,37 @@ export default function TravelPage() {
     <div className={`min-h-screen ${isDarkMode ? 'bg-[#0A1628] text-white' : 'bg-white text-gray-900'}`}>
       <CustomCursor />
 
-      {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 ${isDarkMode ? 'bg-[#0A1628]/90' : 'bg-white/90'} backdrop-blur-md border-b ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+      {/* Header with Neon Branding */}
+      <header className={`fixed top-0 left-0 right-0 z-50 ${isDarkMode ? 'bg-[#0A1628]/95' : 'bg-white/90'} backdrop-blur-md border-b ${isDarkMode ? 'border-[#00d4ff]/20' : 'border-gray-200'} ${isDarkMode ? 'shadow-lg shadow-[#00d4ff]/5' : ''}`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" data-testid="link-home-travel">
-              <div className="flex items-center gap-3 cursor-pointer">
-                <Mountain className="w-7 h-7 text-primary" />
+              <div className="flex items-center gap-3 cursor-pointer group">
+                <Plane className="w-7 h-7 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(0,212,255,0.6)] transition-all duration-300" style={{ color: NEON_COLORS.skyBlue }} />
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold leading-tight">MATTERHORN</span>
-                  <span className={`text-[10px] font-medium tracking-widest uppercase ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>Insurance Group</span>
+                  <span className="text-xl font-bold leading-tight" style={{ color: NEON_COLORS.skyBlue, textShadow: '0 0 10px rgba(0,212,255,0.3)' }}>MATTERHORN</span>
+                  <span className={`text-[10px] font-medium tracking-widest uppercase ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`} style={{ color: `${NEON_COLORS.skyBlue}99` }}>Travel</span>
                 </div>
               </div>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-8">
-              <button 
-                onClick={() => scrollToSection("quote")}
-                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
-                data-testid="nav-get-quote"
-              >
-                Get Quote
-              </button>
-              <button 
-                onClick={() => scrollToSection("coverage")}
-                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
-                data-testid="nav-coverages"
-              >
-                Coverages
-              </button>
-              <button 
-                onClick={() => scrollToSection("enterprise")}
-                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
-                data-testid="nav-groups"
-              >
-                Groups
-              </button>
-              <button 
-                onClick={() => scrollToSection("integration")}
-                className={`text-sm font-medium ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}
-                data-testid="nav-platforms"
-              >
-                Platforms
-              </button>
+            <nav className="hidden md:flex items-center gap-3">
+              {["Get Quote", "Coverages", "Groups", "Platforms"].map((item) => (
+                <Button 
+                  key={item}
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
+                  className={`px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium rounded-full border transition-all duration-300 ${
+                    isDarkMode 
+                      ? 'text-white/70 border-white/20 hover:text-[#00d4ff] hover:border-[#00d4ff]/50 hover:bg-[#00d4ff]/10' 
+                      : 'text-gray-600 border-gray-300 hover:border-primary hover:bg-primary/10'
+                  }`}
+                  data-testid={`nav-${item.toLowerCase().replace(" ", "-")}`}
+                >
+                  {item}
+                </Button>
+              ))}
             </nav>
 
             <div className="flex items-center gap-4">
@@ -427,7 +423,12 @@ export default function TravelPage() {
               </button>
               <Button 
                 onClick={() => scrollToSection("broker")}
-                className="hidden md:flex bg-primary hover:bg-primary/90"
+                className="hidden md:flex text-[10px] uppercase tracking-widest font-bold"
+                style={{ 
+                  backgroundColor: NEON_COLORS.skyBlue, 
+                  color: '#000',
+                  boxShadow: '0 0 20px rgba(0,212,255,0.4)'
+                }}
                 data-testid="nav-start-now"
               >
                 Start Now
@@ -437,17 +438,32 @@ export default function TravelPage() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with Neon Accents */}
       <section id="hero" className={`relative min-h-screen flex items-center justify-center pt-20 ${isDarkMode ? 'bg-gradient-to-b from-[#0A1628] via-[#0F1D32] to-[#0A1628]' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
-        <div className="absolute inset-0 overflow-hidden">
-          <div className={`absolute top-1/4 left-1/4 w-96 h-96 rounded-full ${isDarkMode ? 'bg-primary/10' : 'bg-primary/5'} blur-3xl`} />
-          <div className={`absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full ${isDarkMode ? 'bg-purple-500/10' : 'bg-purple-500/5'} blur-3xl`} />
+        {/* Neon glow effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.skyBlue}15` }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.sunset}10`, animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px]" style={{ backgroundColor: `${NEON_COLORS.magenta}08` }} />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+          {/* Travel Badge */}
+          <Badge className="mb-6 px-4 py-1.5" style={{ 
+            backgroundColor: `${NEON_COLORS.skyBlue}20`, 
+            color: NEON_COLORS.skyBlue, 
+            borderColor: `${NEON_COLORS.skyBlue}40`,
+            boxShadow: `0 0 15px ${NEON_COLORS.skyBlue}30`
+          }}>
+            <Plane className="w-3 h-3 mr-1" />
+            Travel Insurance Reimagined
+          </Badge>
+
           <h1 className={`text-5xl md:text-7xl font-bold mb-6 leading-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-hero">
             TRAVEL PROTECTED.<br />
-            <span className="text-primary">TRAVEL CONFIDENT.</span>
+            <span className="text-transparent bg-clip-text" style={{ 
+              backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.sunset}, ${NEON_COLORS.magenta})`
+            }}>TRAVEL CONFIDENT.</span>
           </h1>
 
           <p className={`text-xl mb-10 max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`} data-testid="description-hero">
@@ -458,81 +474,125 @@ export default function TravelPage() {
             <Button 
               size="lg"
               onClick={() => scrollToSection("quote")}
-              className="bg-primary hover:bg-primary/90 px-8"
+              className="px-8 font-bold group"
+              style={{ 
+                backgroundColor: NEON_COLORS.skyBlue, 
+                color: '#000',
+                boxShadow: `0 0 25px ${NEON_COLORS.skyBlue}50`
+              }}
               data-testid="button-get-instant-quote"
             >
               Get Instant Quote
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("how-it-works")}
-              className={`px-8 ${isDarkMode ? 'border-white/30 text-white hover:bg-white/10' : ''}`}
+              className={`px-8 ${isDarkMode ? 'border-white/30 text-white hover:bg-white/10 hover:border-[#00d4ff]/50' : ''}`}
               data-testid="button-how-it-works"
             >
               How It Works
             </Button>
           </div>
 
-          {/* Feature Badges */}
+          {/* Feature Badges with Neon Colors */}
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
-            <div className="flex items-center gap-2">
-              <Award className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-2 hover:scale-105 transition-transform">
+              <Award className="w-5 h-5" style={{ color: NEON_COLORS.skyBlue }} />
               <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>A-Rated Carriers</span>
             </div>
             <span className={`hidden md:block ${isDarkMode ? 'text-white/30' : 'text-gray-300'}`}>|</span>
-            <div className="flex items-center gap-2">
-              <HeadphonesIcon className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-2 hover:scale-105 transition-transform">
+              <HeadphonesIcon className="w-5 h-5" style={{ color: NEON_COLORS.sunset }} />
               <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>24/7 Support</span>
             </div>
             <span className={`hidden md:block ${isDarkMode ? 'text-white/30' : 'text-gray-300'}`}>|</span>
-            <div className="flex items-center gap-2">
-              <Zap className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-2 hover:scale-105 transition-transform">
+              <Zap className="w-5 h-5" style={{ color: NEON_COLORS.magenta }} />
               <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>60-Second Quotes</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
+      {/* Why Choose Us Section with Neon */}
+      <section className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
+        {/* Neon glows */}
+        {isDarkMode && (
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full blur-[120px]" style={{ backgroundColor: `${NEON_COLORS.skyBlue}10` }} />
+            <div className="absolute bottom-1/4 left-1/4 w-72 h-72 rounded-full blur-[100px]" style={{ backgroundColor: `${NEON_COLORS.sunset}08` }} />
+          </div>
+        )}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Badge className="px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.skyBlue}20`, 
+              color: NEON_COLORS.skyBlue, 
+              borderColor: `${NEON_COLORS.skyBlue}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.skyBlue}30`
+            }}>
               WHY CHOOSE US
             </Badge>
           </div>
 
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-why-choose">
+          <div className="text-center mb-20">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-why-choose">
               TRAVEL INSURANCE THAT<br />
-              <span className="text-primary">ACTUALLY MAKES SENSE</span>
+              <span className="text-transparent bg-clip-text" style={{ 
+                backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.sunset}, ${NEON_COLORS.magenta})`
+              }}>ACTUALLY MAKES SENSE</span>
             </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
               No fine print surprises. No hidden fees. Just smart protection when you need it most.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUs.map((feature, index) => (
-              <Card 
-                key={index}
-                className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} hover-elevate`}
-                data-testid={`card-feature-${index}`}
-              >
-                <Badge className="mb-4 bg-primary/20 text-primary border-primary/30">
-                  {feature.badge}
-                </Badge>
-                <feature.icon className="w-10 h-10 text-primary mb-4" />
-                <h3 className={`text-xl font-semibold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {feature.title}
-                </h3>
-                <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  {feature.description}
-                </p>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            {whyChooseUs.map((feature, index) => {
+              const neonColors = [NEON_COLORS.skyBlue, NEON_COLORS.sunset, NEON_COLORS.magenta, NEON_COLORS.gold];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+                <Card 
+                  key={index}
+                  className={`p-8 relative overflow-visible group transition-all duration-500 hover-elevate ${isDarkMode ? 'bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm' : 'bg-white border-gray-200'}`}
+                  data-testid={`card-feature-${index}`}
+                >
+                  {/* Hover glow effect */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ background: `radial-gradient(circle at 30% 30%, ${neonColor}15 0%, transparent 60%)` }}
+                  />
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
+                  />
+                  
+                  <div className="relative z-10">
+                    <Badge className="mb-4 px-3 py-1" style={{ 
+                      backgroundColor: `${neonColor}20`, 
+                      color: neonColor, 
+                      borderColor: `${neonColor}40`
+                    }}>
+                      {feature.badge}
+                    </Badge>
+                    <div 
+                      className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
+                      style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
+                    >
+                      <feature.icon className="w-7 h-7" style={{ color: neonColor }} />
+                    </div>
+                    <h3 className={`text-xl font-semibold mb-3 ${isDarkMode ? 'text-white group-hover:text-[#00d4ff]' : 'text-gray-900'} transition-colors`}>
+                      {feature.title}
+                    </h3>
+                    <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
+                      {feature.description}
+                    </p>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

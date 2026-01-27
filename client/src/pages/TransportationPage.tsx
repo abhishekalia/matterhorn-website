@@ -39,6 +39,14 @@ import {
   DollarSign,
   Settings,
 } from "lucide-react";
+
+// Neon color palette for Transportation
+const NEON_COLORS = {
+  amber: '#ffaa00',
+  cyan: '#00d4ff',
+  safetyGreen: '#00ff88',
+  electric: '#ff6600',
+};
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
@@ -402,43 +410,54 @@ export default function TransportationPage() {
   return (
     <div className="min-h-screen bg-[#0A1628] text-white">
       <CustomCursor />
-      {/* Navigation */}
+      {/* Navigation with Neon Branding */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? "bg-[#0A1628]/95 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20" 
+            ? "bg-[#0A1628]/95 backdrop-blur-md border-b shadow-lg" 
             : "bg-transparent"
         }`}
+        style={{ 
+          borderColor: isScrolled ? `${NEON_COLORS.amber}20` : 'transparent',
+          boxShadow: isScrolled ? `0 4px 20px ${NEON_COLORS.amber}10` : 'none'
+        }}
         data-testid="nav-transportation"
       >
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between gap-8">
             <Link href="/" data-testid="link-home">
               <div className="flex items-center gap-3 cursor-pointer group">
-                <Mountain className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-300" />
+                <Truck className="w-7 h-7 group-hover:scale-110 transition-all duration-300" style={{ color: NEON_COLORS.amber, filter: `drop-shadow(0 0 8px ${NEON_COLORS.amber}60)` }} />
                 <div className="flex flex-col">
-                  <div className="text-xl font-bold text-primary leading-tight">MATTERHORN</div>
-                  <div className="text-[10px] font-medium text-primary/70 tracking-widest uppercase">Transportation</div>
+                  <div className="text-xl font-bold leading-tight" style={{ color: NEON_COLORS.amber, textShadow: `0 0 10px ${NEON_COLORS.amber}30` }}>MATTERHORN</div>
+                  <div className="text-[10px] font-medium tracking-widest uppercase" style={{ color: `${NEON_COLORS.amber}99` }}>Transportation</div>
                 </div>
               </div>
             </Link>
 
             <div className="hidden lg:flex items-center gap-3">
               {["Markets", "Technology", "Case Studies", "Why Us"].map((item) => (
-                <button
+                <Button
                   key={item}
+                  variant="ghost"
+                  size="sm"
                   onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
-                  className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-white/70 border border-white/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300"
+                  className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-white/70 border border-white/20 rounded-full hover:text-[#ffaa00] hover:border-[#ffaa00]/50 hover:bg-[#ffaa00]/10"
                   data-testid={`nav-${item.toLowerCase().replace(" ", "-")}`}
                 >
                   {item}
-                </button>
+                </Button>
               ))}
 
               <Button 
                 onClick={() => setApplicationModalOpen(true)} 
                 size="sm"
-                className="ml-4 text-[10px] uppercase tracking-widest"
+                className="ml-4 text-[10px] uppercase tracking-widest font-bold"
+                style={{ 
+                  backgroundColor: NEON_COLORS.amber,
+                  color: '#000',
+                  boxShadow: `0 0 20px ${NEON_COLORS.amber}40`
+                }}
                 data-testid="button-request-appointment"
               >
                 Request Appointment
@@ -448,7 +467,7 @@ export default function TransportationPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section with Neon Accents */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -457,14 +476,20 @@ export default function TransportationPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/95 via-[#1B2A41]/90 to-[#0A1628]/95" />
         </div>
         
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/15 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: "2s" }} />
+        {/* Neon glow effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.amber}15` }} />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.cyan}12`, animationDelay: "1s" }} />
+          <div className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.safetyGreen}08`, animationDelay: "2s" }} />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-20">
-          <Badge className="bg-primary/20 text-white border-primary/30 backdrop-blur-sm mb-6">
+          <Badge className="backdrop-blur-sm mb-6 px-4 py-1.5" style={{ 
+            backgroundColor: `${NEON_COLORS.amber}20`, 
+            color: NEON_COLORS.amber, 
+            borderColor: `${NEON_COLORS.amber}40`,
+            boxShadow: `0 0 15px ${NEON_COLORS.amber}30`
+          }}>
             <Truck className="w-3 h-3 mr-2" />
             Specialty Transportation Programs
           </Badge>
@@ -474,7 +499,9 @@ export default function TransportationPage() {
             data-testid="heading-hero-transportation"
           >
             The Boutique Advantage for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary animate-gradient bg-[length:200%_auto]">
+            <span className="text-transparent bg-clip-text" style={{ 
+              backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.amber}, ${NEON_COLORS.cyan}, ${NEON_COLORS.safetyGreen})`
+            }}>
               IC & Owner-Operator Fleets
             </span>
           </h1>
@@ -493,7 +520,12 @@ export default function TransportationPage() {
               size="lg"
               onClick={() => setApplicationModalOpen(true)}
               data-testid="button-get-started"
-              className="group"
+              className="group font-bold"
+              style={{ 
+                backgroundColor: NEON_COLORS.amber,
+                color: '#000',
+                boxShadow: `0 0 25px ${NEON_COLORS.amber}50`
+              }}
             >
               Request Appointment
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -502,6 +534,7 @@ export default function TransportationPage() {
               size="lg"
               variant="outline"
               className="bg-white/5 backdrop-blur-sm border-white/30 text-white group"
+              style={{ borderColor: `${NEON_COLORS.amber}40` }}
               onClick={() => scrollToSection("markets")}
               data-testid="button-explore-programs"
             >
@@ -511,28 +544,30 @@ export default function TransportationPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60 mb-12">
-            <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <Target className="w-4 h-4 text-primary" />
-              <span>OA, CL, PD, & NTL Focus</span>
+            <div className="flex items-center gap-2 transition-colors duration-300" style={{ '--hover-color': NEON_COLORS.amber } as React.CSSProperties}>
+              <Target className="w-4 h-4" style={{ color: NEON_COLORS.amber }} />
+              <span className="hover:text-[#ffaa00]">OA, CL, PD, & NTL Focus</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <Zap className="w-4 h-4 text-primary" />
-              <span>Niche Program Design</span>
+            <div className="flex items-center gap-2 transition-colors duration-300">
+              <Zap className="w-4 h-4" style={{ color: NEON_COLORS.cyan }} />
+              <span className="hover:text-[#00d4ff]">Niche Program Design</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <BarChart3 className="w-4 h-4 text-primary" />
-              <span>Digital Driver Reporting</span>
+            <div className="flex items-center gap-2 transition-colors duration-300">
+              <BarChart3 className="w-4 h-4" style={{ color: NEON_COLORS.safetyGreen }} />
+              <span className="hover:text-[#00ff88]">Digital Driver Reporting</span>
             </div>
           </div>
 
-          {/* Stats Row */}
+          {/* Stats Row with Neon Styling */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
                 className="text-center group hover:scale-105 transition-transform duration-300"
               >
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400 group-hover:from-cyan-400 group-hover:to-primary transition-all duration-500">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text" style={{ 
+                  backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.amber}, ${NEON_COLORS.cyan}, ${NEON_COLORS.safetyGreen})`
+                }}>
                   {stat.value}
                 </div>
                 <div className="text-sm text-white/60 mt-1 group-hover:text-white/80 transition-colors">{stat.label}</div>
@@ -574,7 +609,7 @@ export default function TransportationPage() {
             {leadership.map((leader, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group text-center ${getAnimationClass("leadership")}`}
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 group text-center ${getAnimationClass("leadership")}`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="relative w-28 h-28 mx-auto mb-6">
@@ -622,7 +657,7 @@ export default function TransportationPage() {
             {marketCuration.map((section, index) => (
               <Card 
                 key={index} 
-                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group ${getAnimationClass("market-curation")}`}
+                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 group ${getAnimationClass("market-curation")}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
@@ -643,88 +678,130 @@ export default function TransportationPage() {
         </div>
       </section>
 
-      {/* Markets & Coverage Section (Consolidated) */}
+      {/* Markets & Coverage Section with Neon Styling */}
       <section 
         id="markets" 
         data-animate
         className="py-24 bg-[#0D1B2A] relative overflow-hidden"
       >
+        {/* Neon glow effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-500/8 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.amber}12` }} />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.cyan}10`, animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.safetyGreen}08`, animationDelay: "1s" }} />
         </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-16 ${getAnimationClass("markets")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className={`text-center mb-20 ${getAnimationClass("markets")}`}>
+            <Badge className="mb-6 px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.amber}20`, 
+              color: NEON_COLORS.amber, 
+              borderColor: `${NEON_COLORS.amber}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.amber}30`
+            }}>
               Markets & Coverage
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" data-testid="heading-markets">
-              Built for Modern Transportation Risk
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="heading-markets">
+              Built for{" "}
+              <span className="text-transparent bg-clip-text" style={{ 
+                backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.amber}, ${NEON_COLORS.cyan}, ${NEON_COLORS.safetyGreen})`
+              }}>Modern Transportation Risk</span>
             </h2>
-            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
               We partner with brokers serving transportation operators of all shapes and sizes—from high-volume 
               placements to unique exposures that need thoughtful underwriting and structure.
             </p>
           </div>
 
           {/* First row - 3 cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {marketSegments.slice(0, 3).map((segment, index) => (
-              <Card 
-                key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group cursor-pointer ${getAnimationClass("markets")}`}
-                style={{ transitionDelay: `${index * 75}ms` }}
-                data-testid={`card-market-${index}`}
-              >
-                <div className="relative w-12 h-12 mb-4">
-                  <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
-                  <div className="relative w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                    <segment.icon className="w-6 h-6 text-primary group-hover:rotate-3 transition-transform duration-300" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-8">
+            {marketSegments.slice(0, 3).map((segment, index) => {
+              const neonColors = [NEON_COLORS.amber, NEON_COLORS.cyan, NEON_COLORS.safetyGreen];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+                <Card 
+                  key={index} 
+                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover-elevate transition-all duration-500 group cursor-pointer relative overflow-visible ${getAnimationClass("markets")}`}
+                  style={{ transitionDelay: `${index * 75}ms` }}
+                  data-testid={`card-market-${index}`}
+                >
+                  {/* Hover glow effect */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ background: `radial-gradient(circle at 30% 30%, ${neonColor}15 0%, transparent 60%)` }}
+                  />
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
+                  />
+                  
+                  <div className="relative z-10">
+                    <div 
+                      className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
+                      style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
+                    >
+                      <segment.icon className="w-7 h-7" style={{ color: neonColor }} />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#ffaa00] transition-colors">{segment.title}</h3>
+                    <p className="text-white/60 text-sm leading-relaxed mb-4">
+                      {segment.description}
+                    </p>
+                    <div className="pt-4 border-t border-white/10">
+                      <p className="text-xs font-medium mb-1" style={{ color: neonColor }}>Coverage:</p>
+                      <p className="text-xs text-white/50">{segment.coverage}</p>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-primary transition-colors">{segment.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-3">
-                  {segment.description}
-                </p>
-                <div className="pt-3 border-t border-white/10">
-                  <p className="text-xs text-primary font-medium mb-1">Coverage:</p>
-                  <p className="text-xs text-white/50">{segment.coverage}</p>
-                </div>
-                <div className="mt-3 pt-3 border-t border-white/10">
-                  <p className="text-sm text-cyan-400 font-medium">{segment.highlight}</p>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              );
+            })}
           </div>
           
           {/* Second row - 2 cards centered */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {marketSegments.slice(3).map((segment, index) => (
-              <Card 
-                key={index + 3} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group cursor-pointer ${getAnimationClass("markets")}`}
-                style={{ transitionDelay: `${(index + 3) * 75}ms` }}
-                data-testid={`card-market-${index + 3}`}
-              >
-                <div className="relative w-12 h-12 mb-4">
-                  <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
-                  <div className="relative w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                    <segment.icon className="w-6 h-6 text-primary group-hover:rotate-3 transition-transform duration-300" />
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-3xl mx-auto">
+            {marketSegments.slice(3).map((segment, index) => {
+              const neonColors = [NEON_COLORS.electric, NEON_COLORS.amber];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+                <Card 
+                  key={index + 3} 
+                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover-elevate transition-all duration-500 group cursor-pointer relative overflow-visible ${getAnimationClass("markets")}`}
+                  style={{ transitionDelay: `${(index + 3) * 75}ms` }}
+                  data-testid={`card-market-${index + 3}`}
+                >
+                  {/* Hover glow effect */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ background: `radial-gradient(circle at 30% 30%, ${neonColor}15 0%, transparent 60%)` }}
+                  />
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
+                  />
+                  
+                  <div className="relative z-10">
+                    <div 
+                      className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
+                      style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
+                    >
+                      <segment.icon className="w-7 h-7" style={{ color: neonColor }} />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#ffaa00] transition-colors">{segment.title}</h3>
+                    <p className="text-white/60 text-sm leading-relaxed mb-4">
+                      {segment.description}
+                    </p>
+                    <div className="pt-4 border-t border-white/10">
+                      <p className="text-xs font-medium mb-1" style={{ color: neonColor }}>Coverage:</p>
+                      <p className="text-xs text-white/50">{segment.coverage}</p>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-primary transition-colors">{segment.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-3">
-                  {segment.description}
-                </p>
-                <div className="pt-3 border-t border-white/10">
-                  <p className="text-xs text-primary font-medium mb-1">Coverage:</p>
-                  <p className="text-xs text-white/50">{segment.coverage}</p>
-                </div>
-                <div className="mt-3 pt-3 border-t border-white/10">
-                  <p className="text-sm text-cyan-400 font-medium">{segment.highlight}</p>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              );
+            })}
           </div>
 
           <p className={`text-center text-sm text-white/50 mt-8 ${getAnimationClass("markets")}`}>
@@ -762,7 +839,7 @@ export default function TransportationPage() {
             {whyMatterhorn.map((item, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 text-center group ${getAnimationClass("why-us")}`}
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 text-center group ${getAnimationClass("why-us")}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="relative w-14 h-14 mx-auto mb-4">
@@ -834,7 +911,7 @@ export default function TransportationPage() {
               {techFeatures.map((feature, index) => (
                 <Card 
                   key={index} 
-                  className="p-4 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group"
+                  className="p-4 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 group"
                   style={{ transitionDelay: `${index * 50}ms` }}
                   data-testid={`card-tech-${index}`}
                 >
@@ -1158,7 +1235,7 @@ export default function TransportationPage() {
             ].map((path, index) => (
               <Card 
                 key={index}
-                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 ${getAnimationClass("appointment-flow")}`}
+                className={`p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 ${getAnimationClass("appointment-flow")}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-6">
