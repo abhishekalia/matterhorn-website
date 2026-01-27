@@ -8,7 +8,7 @@ const sectors = [
   { name: "Transportation", id: "transportation", route: "/transportation" },
   { name: "Sports", id: "sports", route: "/sports" },
   { name: "Entertainment", id: "entertainment", route: null },
-  { name: "Travel", id: "travel", route: null },
+  { name: "Travel", id: "travel", route: "/travel" },
 ];
 
 export default function Navigation() {
