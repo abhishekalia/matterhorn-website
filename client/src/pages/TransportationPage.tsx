@@ -40,12 +40,12 @@ import {
   Settings,
 } from "lucide-react";
 
-// Neon color palette for Transportation
+// Dark, inspiring color palette for Transportation
 const NEON_COLORS = {
-  amber: '#ffaa00',
-  cyan: '#00d4ff',
-  safetyGreen: '#00ff88',
-  electric: '#ff6600',
+  amber: '#8b5cf6',      // Royal purple - primary
+  cyan: '#06b6d4',       // Deep teal - secondary
+  safetyGreen: '#c084fc', // Soft violet - accent
+  electric: '#f59e0b',   // Warm gold - highlight
 };
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
