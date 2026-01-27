@@ -132,12 +132,6 @@ const marketRates = [
 ];
 
 export default function PickleballPage() {
-  const [searchLocation, setSearchLocation] = useState("");
-  const [territoryCity, setTerritoryCity] = useState("");
-  const [territoryState, setTerritoryState] = useState("");
-  const [territoryName, setTerritoryName] = useState("");
-  const [territoryEmail, setTerritoryEmail] = useState("");
-  
   const [formData, setFormData] = useState({
     fullName: "",
     agencyName: "",
@@ -515,7 +509,7 @@ export default function PickleballPage() {
         </div>
       </section>
 
-      {/* Broker Territory Management Section */}
+      {/* Broker Territory Section */}
       <section className="py-20 bg-slate-900/50" data-testid="section-broker-tools">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
@@ -523,90 +517,84 @@ export default function PickleballPage() {
               For Insurance Brokers
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" data-testid="text-broker-tools-title">
-              Broker Territory Management
+              Request Your Territory
             </h2>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-              Search for pickleball facilities in your territory, generate contact lists, and manage your market.
+              Secure exclusive access to pickleball facilities in your market. Book a call with our team to claim your territory and start writing business.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Search for Leads */}
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-search-leads">
-              <h3 className="text-xl font-bold text-white mb-2">Search for Leads</h3>
-              <p className="text-slate-400 mb-4">Generate contact lists for pickleball facilities in any location</p>
-              <div className="space-y-4">
-                <div>
-                  <Label className="text-slate-300">Location</Label>
-                  <div className="flex gap-2 mt-1">
-                    <Input
-                      placeholder="Search"
-                      value={searchLocation}
-                      onChange={(e) => setSearchLocation(e.target.value)}
-                      className="bg-slate-700 border-slate-600 text-white"
-                    />
-                    <Button size="icon" className="bg-emerald-600 hover:bg-emerald-700">
-                      <Search className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </div>
+            {/* Why Claim Territory */}
+            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-territory-benefits">
+              <div className="w-12 h-12 bg-emerald-600/20 rounded-lg flex items-center justify-center mb-4">
+                <MapPin className="w-6 h-6 text-emerald-400" />
               </div>
+              <h3 className="text-xl font-bold text-white mb-2">Exclusive Access</h3>
+              <p className="text-slate-400 mb-4">Get exclusive rights to pickleball facilities in your designated territory with no competition from other Matterhorn brokers.</p>
+              <ul className="space-y-2 text-slate-300 text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  Protected market area
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  Pre-qualified lead lists
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  Marketing support
+                </li>
+              </ul>
             </Card>
 
-            {/* Claim Territory */}
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-claim-territory">
-              <h3 className="text-xl font-bold text-white mb-2">Claim Territory</h3>
-              <p className="text-slate-400 mb-4">Register your territory to manage pickleball contacts in your area</p>
-              <div className="space-y-3">
-                <div>
-                  <Label className="text-slate-300">City</Label>
-                  <Input
-                    placeholder="City"
-                    value={territoryCity}
-                    onChange={(e) => setTerritoryCity(e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white mt-1"
-                  />
+            {/* Book a Call CTA */}
+            <Card className="bg-gradient-to-br from-emerald-900/50 to-teal-900/50 border-emerald-500/30 p-6 relative overflow-hidden" data-testid="card-book-call">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                  <Phone className="w-6 h-6 text-white" />
                 </div>
-                <div>
-                  <Label className="text-slate-300">State</Label>
-                  <Input
-                    placeholder="State"
-                    value={territoryState}
-                    onChange={(e) => setTerritoryState(e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white mt-1"
-                  />
-                </div>
-                <div>
-                  <Label className="text-slate-300">Your Name</Label>
-                  <Input
-                    placeholder="Your Name"
-                    value={territoryName}
-                    onChange={(e) => setTerritoryName(e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white mt-1"
-                  />
-                </div>
-                <div>
-                  <Label className="text-slate-300">Your Email</Label>
-                  <Input
-                    placeholder="Your Email"
-                    value={territoryEmail}
-                    onChange={(e) => setTerritoryEmail(e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white mt-1"
-                  />
-                </div>
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700" data-testid="button-claim-territory">
-                  Claim Territory
+                <h3 className="text-xl font-bold text-white mb-2">Book a Territory Call</h3>
+                <p className="text-slate-300 mb-6">Schedule a 15-minute call with our team to discuss available territories and get started.</p>
+                <Button 
+                  size="lg"
+                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30"
+                  asChild
+                  data-testid="button-book-call"
+                >
+                  <a href="https://calendly.com/matterhornprotects/territory" target="_blank" rel="noopener noreferrer">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Book Your Call Now
+                  </a>
                 </Button>
+                <p className="text-center text-emerald-400/80 text-sm mt-4">
+                  Available Mon-Fri, 9am-5pm EST
+                </p>
               </div>
             </Card>
 
-            {/* Territory Status */}
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-territory-status">
-              <h3 className="text-xl font-bold text-white mb-2">Territory Status</h3>
-              <p className="text-slate-400 mb-4">View claimed and open markets across the United States</p>
-              <div className="bg-slate-700/50 rounded-lg p-8 text-center">
-                <p className="text-slate-400">No territories claimed yet. Be the first to claim your market!</p>
+            {/* What to Expect */}
+            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-what-to-expect">
+              <div className="w-12 h-12 bg-emerald-600/20 rounded-lg flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-emerald-400" />
               </div>
+              <h3 className="text-xl font-bold text-white mb-2">What to Expect</h3>
+              <p className="text-slate-400 mb-4">On our call, we'll discuss your experience and help you select the right territory for your business.</p>
+              <ol className="space-y-3 text-slate-300 text-sm">
+                <li className="flex items-start gap-3">
+                  <span className="bg-emerald-600 text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-xs">1</span>
+                  <span>Review available territories</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-emerald-600 text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-xs">2</span>
+                  <span>Discuss your experience</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="bg-emerald-600 text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-xs">3</span>
+                  <span>Claim your market</span>
+                </li>
+              </ol>
             </Card>
           </div>
         </div>
