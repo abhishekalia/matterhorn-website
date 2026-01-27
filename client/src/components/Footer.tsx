@@ -1,16 +1,18 @@
 import { Phone, Mail, Mountain, MapPin, ArrowRight } from "lucide-react";
+import { SiLinkedin } from "react-icons/si";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
 export default function Footer() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const marketTabs = [
+    { name: "Home", route: "/" },
+    { name: "Transportation", route: "/transportation" },
+    { name: "Sports", route: "/sports" },
+    { name: "Travel", route: "/travel" },
+    { name: "Entertainment", route: "/entertainment" },
+  ];
 
   return (
     <footer className="relative overflow-hidden" id="contact" data-testid="footer">
@@ -40,75 +42,45 @@ export default function Footer() {
             <p className="text-white/80 text-base mb-6 leading-relaxed" data-testid="footer-tagline">
               AI-led specialty insurance program design shop working exclusively with brokers in Sports, Transportation, and Travel markets.
             </p>
-            <Button 
-              size="lg"
-              className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30"
-              asChild
-              data-testid="footer-cta-broker"
-            >
-              <Link href="/brokers">
-                Become a Broker
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/30"
+                asChild
+                data-testid="footer-cta-broker"
+              >
+                <Link href="/brokers">
+                  Become a Broker
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+              <a 
+                href="https://linkedin.com/company/matterhorn-insurance" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-md bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-colors group"
+                data-testid="footer-linkedin"
+              >
+                <SiLinkedin className="w-5 h-5 text-white/70 group-hover:text-primary transition-colors" />
+              </a>
+            </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Markets Navigation - Micro Font Tabs */}
           <div className="lg:col-span-3">
-            <h4 className="font-bold text-white mb-6 text-lg" data-testid="footer-quick-links-heading">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <button
-                  onClick={() => scrollToSection("why-matterhorn")}
-                  className="text-white/70 hover:text-primary transition-colors text-sm flex items-center gap-2 group"
-                  data-testid="footer-link-why-matterhorn"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Why Matterhorn
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("markets")}
-                  className="text-white/70 hover:text-primary transition-colors text-sm flex items-center gap-2 group"
-                  data-testid="footer-link-markets"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Our Markets
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("case-studies")}
-                  className="text-white/70 hover:text-primary transition-colors text-sm flex items-center gap-2 group"
-                  data-testid="footer-link-case-studies"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Case Studies
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("team")}
-                  className="text-white/70 hover:text-primary transition-colors text-sm flex items-center gap-2 group"
-                  data-testid="footer-link-team"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Our Team
-                </button>
-              </li>
-              <li>
-                <Link href="/brokers">
+            <h4 className="font-bold text-white mb-6 text-lg" data-testid="footer-markets-heading">Markets</h4>
+            <div className="flex flex-wrap gap-2">
+              {marketTabs.map((tab) => (
+                <Link key={tab.name} href={tab.route}>
                   <button 
-                    className="text-white/70 hover:text-primary transition-colors text-sm flex items-center gap-2 group"
-                    data-testid="footer-link-broker-partnership"
+                    className="text-[9px] font-semibold uppercase tracking-[0.15em] px-3 py-1.5 rounded-sm bg-white/5 border border-white/10 text-white/70 hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-all"
+                    data-testid={`footer-tab-${tab.name.toLowerCase()}`}
                   >
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    Broker Partnership
+                    {tab.name}
                   </button>
                 </Link>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
 
           {/* Contact */}
