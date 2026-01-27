@@ -583,13 +583,44 @@ export default function TransportationPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {marketSegments.map((segment, index) => (
+          {/* First row - 3 cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {marketSegments.slice(0, 3).map((segment, index) => (
               <Card 
                 key={index} 
                 className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group cursor-pointer ${getAnimationClass("markets")}`}
                 style={{ transitionDelay: `${index * 75}ms` }}
                 data-testid={`card-market-${index}`}
+              >
+                <div className="relative w-12 h-12 mb-4">
+                  <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
+                  <div className="relative w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                    <segment.icon className="w-6 h-6 text-primary group-hover:rotate-3 transition-transform duration-300" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-primary transition-colors">{segment.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-3">
+                  {segment.description}
+                </p>
+                <div className="pt-3 border-t border-white/10">
+                  <p className="text-xs text-primary font-medium mb-1">Coverage:</p>
+                  <p className="text-xs text-white/50">{segment.coverage}</p>
+                </div>
+                <div className="mt-3 pt-3 border-t border-white/10">
+                  <p className="text-sm text-cyan-400 font-medium">{segment.highlight}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+          
+          {/* Second row - 2 cards centered */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {marketSegments.slice(3).map((segment, index) => (
+              <Card 
+                key={index + 3} 
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group cursor-pointer ${getAnimationClass("markets")}`}
+                style={{ transitionDelay: `${(index + 3) * 75}ms` }}
+                data-testid={`card-market-${index + 3}`}
               >
                 <div className="relative w-12 h-12 mb-4">
                   <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
