@@ -762,60 +762,94 @@ export default function SportsPage() {
           <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-[#00d4ff]/8 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-16 ${getAnimationClass("markets")}`}>
-            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/40 mb-4 shadow-[0_0_15px_rgba(0,255,136,0.3)]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <div className={`text-center mb-20 ${getAnimationClass("markets")}`}>
+            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/40 mb-6 shadow-[0_0_15px_rgba(0,255,136,0.3)] px-4 py-1.5">
               Market Segments
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
               Coverage Across{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff]">
                 Every Level of Sport
               </span>
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
               From youth leagues to professional teams, we have specialized programs for every segment of the sports industry.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {marketSegments.map((segment, index) => {
               const neonColors = ['#00ff88', '#00d4ff', '#ff00ff', '#ffff00', '#00ff88'];
               const neonColor = neonColors[index % neonColors.length];
               return (
                 <Card 
                   key={index}
-                  className={`p-6 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover:border-[${neonColor}]/50 hover:scale-[1.02] transition-all duration-500 group ${getAnimationClass("markets")}`}
+                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden ${getAnimationClass("markets")}`}
                   style={{ 
                     transitionDelay: `${index * 100}ms`,
+                    borderColor: 'rgba(255,255,255,0.1)'
                   }}
                   data-testid={`card-segment-${index}`}
                 >
+                  {/* Subtle glow effect on hover */}
                   <div 
-                    className="w-12 h-12 rounded-md flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300"
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{ 
-                      backgroundColor: `${neonColor}20`,
-                      boxShadow: `0 0 20px ${neonColor}30`
+                      background: `radial-gradient(circle at 30% 30%, ${neonColor}15 0%, transparent 60%)`
                     }}
-                  >
-                    <segment.icon className="w-6 h-6" style={{ color: neonColor }} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[#00ff88] transition-colors">{segment.title}</h3>
-                  <p className="text-white/60 text-sm mb-4 leading-relaxed">{segment.description}</p>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Badge 
-                      variant="outline" 
-                      className="text-xs"
+                  />
+                  
+                  {/* Top accent line */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
+                  />
+                  
+                  <div className="relative z-10">
+                    {/* Icon */}
+                    <div 
+                      className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
                       style={{ 
-                        borderColor: `${neonColor}50`,
-                        color: neonColor,
-                        backgroundColor: `${neonColor}15`
+                        backgroundColor: `${neonColor}20`,
+                        boxShadow: `0 0 25px ${neonColor}25`
                       }}
                     >
-                      {segment.coverage}
-                    </Badge>
+                      <segment.icon className="w-7 h-7" style={{ color: neonColor }} />
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#00ff88] transition-colors leading-tight">
+                      {segment.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-white/60 text-sm mb-6 leading-relaxed min-h-[60px]">
+                      {segment.description}
+                    </p>
+                    
+                    {/* Coverage Badge */}
+                    <div className="flex items-center gap-2 mb-4">
+                      <Badge 
+                        variant="outline" 
+                        className="text-xs px-3 py-1"
+                        style={{ 
+                          borderColor: `${neonColor}50`,
+                          color: neonColor,
+                          backgroundColor: `${neonColor}15`
+                        }}
+                      >
+                        {segment.coverage}
+                      </Badge>
+                    </div>
+                    
+                    {/* Highlight */}
+                    <p className="text-xs font-medium leading-relaxed" style={{ color: `${neonColor}cc` }}>
+                      {segment.highlight}
+                    </p>
                   </div>
-                  <p className="text-xs font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
                 </Card>
               );
             })}
