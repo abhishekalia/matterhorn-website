@@ -50,7 +50,7 @@ export default function HeroSection() {
         </p>
 
         <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed" data-testid="hero-description">
-          Useful Tech. Curated Markets. Real Expertise.
+          Custom programs designed for brokers. Instant quotes. Curated markets. Technology that makes coverage effortless.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
