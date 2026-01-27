@@ -11,6 +11,7 @@ import YouthSportsPage from "@/pages/YouthSportsPage";
 import TravelPage from "@/pages/TravelPage";
 import RideSharePage from "@/pages/RideSharePage";
 import TransportationPage from "@/pages/TransportationPage";
+import SportsPage from "@/pages/SportsPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NaysMembersPage from "@/pages/NaysMembersPage";
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/travel" component={TravelPage} />
       <Route path="/rideshare" component={RideSharePage} />
       <Route path="/transportation" component={TransportationPage} />
+      <Route path="/sports" component={SportsPage} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
       <Route path="/naysmembers" component={NaysMembersPage} />
