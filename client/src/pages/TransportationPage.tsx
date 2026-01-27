@@ -160,6 +160,7 @@ export default function TransportationPage() {
   const [applicationModalOpen, setApplicationModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [activeCaseStudy, setActiveCaseStudy] = useState(0);
   const visibleSections = useScrollAnimation();
 
   useEffect(() => {
@@ -854,111 +855,248 @@ export default function TransportationPage() {
         </div>
       </section>
 
-      {/* Case Studies Section with Accordion */}
+      {/* Case Studies Section - Interactive Design */}
       <section 
         id="case-studies" 
         data-animate
-        className="py-24 bg-[#0A1628]"
+        className="py-24 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #0A1628 0%, #1B2A41 50%, #0A1628 100%)' }}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-[180px]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Header with animated line */}
           <div className={`text-center mb-16 ${getAnimationClass("case-studies")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              Case Studies
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              What Brokers Accomplish With Matterhorn
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-primary" />
+              <Badge className="bg-primary/20 text-primary border-primary/30 text-[10px] uppercase tracking-widest px-4">
+                Success Stories
+              </Badge>
+              <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-primary" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+              Real Results,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+                Real Brokers
+              </span>
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Real outcomes from our partner network. Click to explore how we solve complex transportation challenges.
+            <p className="text-base text-white/50 max-w-2xl mx-auto">
+              Discover how our partners solve complex transportation challenges
             </p>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {caseStudies.map((study, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`case-${index}`}
-                className={`bg-[#1B2A41]/50 border border-white/10 rounded-lg overflow-hidden hover:border-primary/30 transition-all duration-300 ${getAnimationClass("case-studies")}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-                data-testid={`accordion-case-${index}`}
-              >
-                <AccordionTrigger className="px-6 py-4 hover:no-underline group">
-                  <div className="flex items-center gap-4 text-left">
-                    <Badge variant="outline" className="text-xs border-primary/50 text-primary bg-primary/10">
-                      {study.category}
-                    </Badge>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white group-hover:text-primary transition-colors">{study.title}</h3>
-                      <p className="text-sm text-white/50 mt-1 line-clamp-1">{study.challenge.substring(0, 80)}...</p>
+          {/* Interactive Case Study Selector */}
+          <div className="grid lg:grid-cols-12 gap-8">
+            {/* Left Column - Case Study Cards */}
+            <div className="lg:col-span-4 space-y-3">
+              {caseStudies.map((study, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveCaseStudy(index)}
+                  className={`w-full text-left p-5 rounded-lg border transition-all duration-500 group relative overflow-hidden ${
+                    activeCaseStudy === index
+                      ? "bg-gradient-to-r from-primary/20 to-cyan-500/10 border-primary/50 shadow-lg shadow-primary/20"
+                      : "bg-white/[0.03] border-white/10 hover:bg-white/[0.06] hover:border-white/20"
+                  }`}
+                  data-testid={`case-study-tab-${index}`}
+                >
+                  {/* Glow effect for active */}
+                  {activeCaseStudy === index && (
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/30 rounded-full blur-3xl" />
+                  )}
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold transition-all ${
+                        activeCaseStudy === index
+                          ? "bg-primary text-white"
+                          : "bg-white/10 text-white/50 group-hover:bg-primary/30 group-hover:text-primary"
+                      }`}>
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+                      <Badge 
+                        variant="outline" 
+                        className={`text-[9px] uppercase tracking-wider border-none ${
+                          activeCaseStudy === index
+                            ? "bg-primary/30 text-white"
+                            : "bg-white/10 text-white/50"
+                        }`}
+                      >
+                        {study.category}
+                      </Badge>
+                    </div>
+                    <h3 className={`font-semibold transition-colors ${
+                      activeCaseStudy === index ? "text-white" : "text-white/70 group-hover:text-white"
+                    }`}>
+                      {study.title}
+                    </h3>
+                    
+                    {/* Progress indicator */}
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className="flex-1 h-1 rounded-full bg-white/10 overflow-hidden">
+                        <div 
+                          className={`h-full rounded-full transition-all duration-700 ${
+                            activeCaseStudy === index
+                              ? "w-full bg-gradient-to-r from-primary to-cyan-400"
+                              : "w-0"
+                          }`}
+                        />
+                      </div>
+                      <ArrowRight className={`w-4 h-4 transition-all ${
+                        activeCaseStudy === index
+                          ? "text-primary translate-x-1"
+                          : "text-white/30"
+                      }`} />
                     </div>
                   </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
-                  <div className="grid lg:grid-cols-2 gap-8 pt-4 border-t border-white/10">
-                    {/* Left Column - Challenge & Solution */}
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="text-sm font-semibold text-red-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                          <TrendingDown className="w-4 h-4" />
-                          The Challenge
-                        </h4>
-                        <p className="text-white/70 leading-relaxed">{study.challenge}</p>
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-green-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                          <TrendingUp className="w-4 h-4" />
-                          The Solution
-                        </h4>
-                        <p className="text-white/70 leading-relaxed">{study.solution}</p>
-                      </div>
-                      
-                      {/* Results */}
-                      <div className="flex flex-wrap gap-4 pt-4 border-t border-white/10">
-                        {Object.entries(study.results).map(([key, value]) => (
-                          <div key={key} className="bg-primary/10 px-4 py-2 rounded-md">
-                            <p className="text-primary font-bold text-lg">{value}</p>
-                            <p className="text-xs text-white/50 uppercase">{key}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                </button>
+              ))}
+            </div>
 
-                    {/* Right Column - Benefits */}
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                          <Briefcase className="w-4 h-4" />
+            {/* Right Column - Active Case Study Detail */}
+            <div className="lg:col-span-8">
+              <Card className="bg-[#1B2A41]/40 border-white/10 backdrop-blur-xl overflow-hidden relative">
+                {/* Decorative top gradient */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-cyan-400 to-purple-500" />
+                
+                <div className="p-8">
+                  {/* Results Cards - Top */}
+                  <div className="grid grid-cols-3 gap-4 mb-8">
+                    {Object.entries(caseStudies[activeCaseStudy].results).map(([key, value], idx) => (
+                      <div 
+                        key={key}
+                        className="relative group p-4 rounded-lg bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 hover:border-primary/30 transition-all duration-300 text-center overflow-hidden"
+                        style={{ animationDelay: `${idx * 100}ms` }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <p className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400 relative z-10">
+                          {value}
+                        </p>
+                        <p className="text-[10px] uppercase tracking-widest text-white/40 mt-1 font-medium relative z-10">
+                          {key}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Challenge & Solution */}
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-md bg-red-500/20 flex items-center justify-center">
+                          <TrendingDown className="w-4 h-4 text-red-400" />
+                        </div>
+                        <h4 className="text-sm font-semibold text-red-400 uppercase tracking-wider">
+                          Challenge
+                        </h4>
+                      </div>
+                      <p className="text-white/60 text-sm leading-relaxed pl-10">
+                        {caseStudies[activeCaseStudy].challenge}
+                      </p>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-md bg-green-500/20 flex items-center justify-center">
+                          <TrendingUp className="w-4 h-4 text-green-400" />
+                        </div>
+                        <h4 className="text-sm font-semibold text-green-400 uppercase tracking-wider">
+                          Solution
+                        </h4>
+                      </div>
+                      <p className="text-white/60 text-sm leading-relaxed pl-10">
+                        {caseStudies[activeCaseStudy].solution}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Benefits Grid */}
+                  <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-white/10">
+                    {/* Broker Benefits */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-md bg-cyan-500/20 flex items-center justify-center">
+                          <Briefcase className="w-3 h-3 text-cyan-400" />
+                        </div>
+                        <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">
                           Broker Benefits
                         </h4>
-                        <ul className="space-y-2">
-                          {study.brokerBenefits.map((benefit, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-white/70 text-sm">
-                              <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
-                              <span>{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
                       </div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-purple-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                          <Users className="w-4 h-4" />
+                      <ul className="space-y-2">
+                        {caseStudies[activeCaseStudy].brokerBenefits.map((benefit, idx) => (
+                          <li 
+                            key={idx} 
+                            className="flex items-start gap-2 text-white/60 text-sm group hover:text-white/80 transition-colors"
+                          >
+                            <CheckCircle className="w-4 h-4 text-cyan-400/70 flex-shrink-0 mt-0.5 group-hover:text-cyan-400 transition-colors" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {/* Client Benefits */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-md bg-purple-500/20 flex items-center justify-center">
+                          <Users className="w-3 h-3 text-purple-400" />
+                        </div>
+                        <h4 className="text-xs font-semibold text-purple-400 uppercase tracking-wider">
                           Client Benefits
                         </h4>
-                        <ul className="space-y-2">
-                          {study.clientBenefits.map((benefit, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-white/70 text-sm">
-                              <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
-                              <span>{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
                       </div>
+                      <ul className="space-y-2">
+                        {caseStudies[activeCaseStudy].clientBenefits.map((benefit, idx) => (
+                          <li 
+                            key={idx} 
+                            className="flex items-start gap-2 text-white/60 text-sm group hover:text-white/80 transition-colors"
+                          >
+                            <CheckCircle className="w-4 h-4 text-purple-400/70 flex-shrink-0 mt-0.5 group-hover:text-purple-400 transition-colors" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+
+                  {/* CTA */}
+                  <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="text-white/40 text-sm">
+                      Want similar results for your clients?
+                    </p>
+                    <Button 
+                      onClick={() => setApplicationModalOpen(true)}
+                      className="group"
+                      data-testid="button-case-study-cta"
+                    >
+                      Start Your Success Story
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Navigation dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {caseStudies.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveCaseStudy(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      activeCaseStudy === index
+                        ? "w-8 bg-gradient-to-r from-primary to-cyan-400"
+                        : "bg-white/20 hover:bg-white/40"
+                    }`}
+                    data-testid={`case-study-dot-${index}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
