@@ -10,6 +10,7 @@ import PickleballPage from "@/pages/PickleballPage";
 import YouthSportsPage from "@/pages/YouthSportsPage";
 import TravelPage from "@/pages/TravelPage";
 import RideSharePage from "@/pages/RideSharePage";
+import TransportationPage from "@/pages/TransportationPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NaysMembersPage from "@/pages/NaysMembersPage";
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/youth-sports" component={YouthSportsPage} />
       <Route path="/travel" component={TravelPage} />
       <Route path="/rideshare" component={RideSharePage} />
+      <Route path="/transportation" component={TransportationPage} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
       <Route path="/naysmembers" component={NaysMembersPage} />
@@ -30,7 +32,7 @@ function Router() {
     </Switch>
   );
 }
-``;
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

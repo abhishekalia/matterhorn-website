@@ -5,10 +5,10 @@ import { Menu, X, Mountain } from "lucide-react";
 import { BrokerApplicationModal } from "./BrokerApplicationModal";
 
 const sectors = [
-  { name: "Transportation", id: "transportation" },
-  { name: "Sports", id: "sports" },
-  { name: "Entertainment", id: "entertainment" },
-  { name: "Travel", id: "travel" },
+  { name: "Transportation", id: "transportation", route: "/transportation" },
+  { name: "Sports", id: "sports", route: null },
+  { name: "Entertainment", id: "entertainment", route: null },
+  { name: "Travel", id: "travel", route: null },
 ];
 
 export default function Navigation() {
@@ -71,14 +71,25 @@ export default function Navigation() {
 
             <div className="hidden lg:flex items-center gap-3">
               {sectors.map((sector) => (
-                <button
-                  key={sector.id}
-                  onClick={() => scrollToSection(sector.id)}
-                  className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-                  data-testid={`nav-${sector.id}`}
-                >
-                  {sector.name}
-                </button>
+                sector.route ? (
+                  <Link
+                    key={sector.id}
+                    href={sector.route}
+                    className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    data-testid={`nav-${sector.id}`}
+                  >
+                    {sector.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={sector.id}
+                    onClick={() => scrollToSection(sector.id)}
+                    className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    data-testid={`nav-${sector.id}`}
+                  >
+                    {sector.name}
+                  </button>
+                )
               ))}
 
               <Button 
@@ -104,14 +115,26 @@ export default function Navigation() {
             <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4">
               <div className="flex flex-wrap gap-2 mb-4">
                 {sectors.map((sector) => (
-                  <button
-                    key={sector.id}
-                    onClick={() => scrollToSection(sector.id)}
-                    className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-                    data-testid={`mobile-nav-${sector.id}`}
-                  >
-                    {sector.name}
-                  </button>
+                  sector.route ? (
+                    <Link
+                      key={sector.id}
+                      href={sector.route}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                      data-testid={`mobile-nav-${sector.id}`}
+                    >
+                      {sector.name}
+                    </Link>
+                  ) : (
+                    <button
+                      key={sector.id}
+                      onClick={() => scrollToSection(sector.id)}
+                      className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-foreground/70 border border-foreground/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                      data-testid={`mobile-nav-${sector.id}`}
+                    >
+                      {sector.name}
+                    </button>
+                  )
                 ))}
               </div>
               <Button 
