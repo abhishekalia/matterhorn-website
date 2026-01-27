@@ -42,6 +42,12 @@ import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_b
 import wayneGutridgePhoto from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
 import isaacAllenPhoto from "@assets/generated_images/Isaac_Allen_professional_headshot_640e0cbc.png";
 import mikeAsselinPhoto from "@assets/generated_images/Mike_Asselin_professional_headshot.png";
+import stadiumHero from "@assets/generated_images/Professional_stadium_aerial_view_1d2bbe4c.png";
+import sportsFieldImage from "@assets/generated_images/Sports_field_aerial_view_3eb581a1.png";
+import athleteAction from "@assets/stock_images/athlete_action_sports.jpg";
+import stadiumLights from "@assets/stock_images/stadium_lights_night.jpg";
+import hockeyAction from "@assets/stock_images/hockey_action.jpg";
+import youthSoccer from "@assets/stock_images/youth_soccer_team_ce_56a4b64e.jpg";
 
 function useScrollAnimation() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -390,7 +396,7 @@ export default function SportsPage() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? "bg-[#0A1628]/95 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20" 
+            ? "bg-[#0A1628]/95 backdrop-blur-md border-b border-[#00ff88]/20 shadow-lg shadow-[#00ff88]/5" 
             : "bg-transparent"
         }`}
         data-testid="nav-sports"
@@ -399,10 +405,10 @@ export default function SportsPage() {
           <div className="flex items-center justify-between gap-8">
             <Link href="/" data-testid="link-home">
               <div className="flex items-center gap-3 cursor-pointer group">
-                <Mountain className="w-7 h-7 text-primary group-hover:scale-110 transition-transform duration-300" />
+                <Trophy className="w-7 h-7 text-[#00ff88] group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(0,255,136,0.6)] transition-all duration-300" />
                 <div className="flex flex-col">
-                  <div className="text-xl font-bold text-primary leading-tight">MATTERHORN</div>
-                  <div className="text-[10px] font-medium text-primary/70 tracking-widest uppercase">Sports</div>
+                  <div className="text-xl font-bold text-[#00ff88] leading-tight drop-shadow-[0_0_10px_rgba(0,255,136,0.3)]">MATTERHORN</div>
+                  <div className="text-[10px] font-medium text-[#00ff88]/70 tracking-widest uppercase">Sports</div>
                 </div>
               </div>
             </Link>
@@ -412,7 +418,7 @@ export default function SportsPage() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase().replace(" ", "-"))}
-                  className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-white/70 border border-white/20 rounded-full hover:text-primary hover:border-primary/50 hover:bg-primary/10 hover:scale-105 transition-all duration-300"
+                  className="px-4 py-1.5 text-[10px] uppercase tracking-widest font-medium text-white/70 border border-white/20 rounded-full hover:text-[#00ff88] hover:border-[#00ff88]/50 hover:bg-[#00ff88]/10 hover:shadow-[0_0_15px_rgba(0,255,136,0.2)] hover:scale-105 transition-all duration-300"
                   data-testid={`nav-${item.toLowerCase().replace(" ", "-")}`}
                 >
                   {item}
@@ -422,7 +428,7 @@ export default function SportsPage() {
               <Button 
                 onClick={() => setApplicationModalOpen(true)} 
                 size="sm"
-                className="ml-4 text-[10px] uppercase tracking-widest"
+                className="ml-4 text-[10px] uppercase tracking-widest bg-[#00ff88] hover:bg-[#00ff88]/90 text-black font-bold shadow-[0_0_20px_rgba(0,255,136,0.4)] hover:shadow-[0_0_30px_rgba(0,255,136,0.6)]"
                 data-testid="button-request-appointment"
               >
                 Request Appointment
@@ -436,19 +442,22 @@ export default function SportsPage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${matterhornHero})` }}
+          style={{ backgroundImage: `url(${stadiumHero})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/95 via-[#1B2A41]/90 to-[#0A1628]/95" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/90 via-[#0A1628]/80 to-[#1B2A41]/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent" />
         </div>
         
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/15 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: "2s" }} />
+        {/* Neon accent glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00ff88]/15 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#ff00ff]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-[#00d4ff]/15 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "2s" }} />
+          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-[#ffff00]/8 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-20">
-          <Badge className="bg-primary/20 text-white border-primary/30 backdrop-blur-sm mb-6">
+          <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/40 backdrop-blur-sm mb-6 shadow-[0_0_20px_rgba(0,255,136,0.3)]">
             <Trophy className="w-3 h-3 mr-2" />
             Specialty Sports Programs
           </Badge>
@@ -458,7 +467,7 @@ export default function SportsPage() {
             data-testid="heading-hero-sports"
           >
             Comprehensive Coverage for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary animate-gradient bg-[length:200%_auto]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff] animate-gradient bg-[length:200%_auto]">
               Every Level of Play
             </span>
           </h1>
@@ -495,33 +504,53 @@ export default function SportsPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60 mb-12">
-            <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <Heart className="w-4 h-4 text-primary" />
+            <div className="flex items-center gap-2 hover:text-[#00ff88] transition-colors duration-300">
+              <Heart className="w-4 h-4 text-[#00ff88]" />
               <span>Youth to Pro Coverage</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <Shield className="w-4 h-4 text-primary" />
+            <div className="flex items-center gap-2 hover:text-[#00d4ff] transition-colors duration-300">
+              <Shield className="w-4 h-4 text-[#00d4ff]" />
               <span>Participant Accident Specialist</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <Trophy className="w-4 h-4 text-primary" />
+            <div className="flex items-center gap-2 hover:text-[#ff00ff] transition-colors duration-300">
+              <Trophy className="w-4 h-4 text-[#ff00ff]" />
               <span>Event & League Programs</span>
             </div>
           </div>
 
-          {/* Stats Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {/* Stats Row with Neon Styling */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
                 className="text-center group hover:scale-105 transition-transform duration-300"
               >
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400 group-hover:from-cyan-400 group-hover:to-primary transition-all duration-500">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff] group-hover:drop-shadow-[0_0_10px_rgba(0,255,136,0.5)] transition-all duration-500">
                   {stat.value}
                 </div>
                 <div className="text-sm text-white/60 mt-1 group-hover:text-white/80 transition-colors">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Sports Image Strip */}
+          <div className="flex justify-center gap-4 overflow-hidden">
+            <div className="relative w-32 h-20 md:w-48 md:h-28 rounded-lg overflow-hidden border border-white/10 hover:border-[#00ff88]/50 transition-all duration-300 group">
+              <img src={youthSoccer} alt="Youth Soccer" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
+            <div className="relative w-32 h-20 md:w-48 md:h-28 rounded-lg overflow-hidden border border-white/10 hover:border-[#00d4ff]/50 transition-all duration-300 group">
+              <img src={hockeyAction} alt="Hockey" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
+            <div className="relative w-32 h-20 md:w-48 md:h-28 rounded-lg overflow-hidden border border-white/10 hover:border-[#ff00ff]/50 transition-all duration-300 group hidden md:block">
+              <img src={athleteAction} alt="Athlete" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
+            <div className="relative w-32 h-20 md:w-48 md:h-28 rounded-lg overflow-hidden border border-white/10 hover:border-[#ffff00]/50 transition-all duration-300 group hidden lg:block">
+              <img src={stadiumLights} alt="Stadium" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
           </div>
         </div>
 
@@ -719,21 +748,28 @@ export default function SportsPage() {
         id="markets" 
         data-animate
         className="py-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
       >
+        {/* Sports field background */}
+        <div className="absolute inset-0">
+          <img src={sportsFieldImage} alt="" className="w-full h-full object-cover opacity-15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628] via-[#0A1628]/90 to-[#1B2A41]" />
+        </div>
+        
+        {/* Neon accent glows */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-primary/8 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-cyan-500/6 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-[#00ff88]/10 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-[#ff00ff]/8 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-[#00d4ff]/8 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "1s" }} />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className={`text-center mb-16 ${getAnimationClass("markets")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/40 mb-4 shadow-[0_0_15px_rgba(0,255,136,0.3)]">
               Market Segments
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               Coverage Across{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff]">
                 Every Level of Sport
               </span>
             </h2>
@@ -743,26 +779,46 @@ export default function SportsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {marketSegments.map((segment, index) => (
-              <Card 
-                key={index}
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group ${getAnimationClass("markets")}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-                data-testid={`card-segment-${index}`}
-              >
-                <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
-                  <segment.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">{segment.title}</h3>
-                <p className="text-white/60 text-sm mb-4 leading-relaxed">{segment.description}</p>
-                <div className="flex items-center gap-2 mb-3">
-                  <Badge variant="outline" className="text-xs border-primary/50 text-primary bg-primary/10">
-                    {segment.coverage}
-                  </Badge>
-                </div>
-                <p className="text-primary/80 text-xs font-medium">{segment.highlight}</p>
-              </Card>
-            ))}
+            {marketSegments.map((segment, index) => {
+              const neonColors = ['#00ff88', '#00d4ff', '#ff00ff', '#ffff00', '#00ff88'];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+                <Card 
+                  key={index}
+                  className={`p-6 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover:border-[${neonColor}]/50 hover:scale-[1.02] transition-all duration-500 group ${getAnimationClass("markets")}`}
+                  style={{ 
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                  data-testid={`card-segment-${index}`}
+                >
+                  <div 
+                    className="w-12 h-12 rounded-md flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300"
+                    style={{ 
+                      backgroundColor: `${neonColor}20`,
+                      boxShadow: `0 0 20px ${neonColor}30`
+                    }}
+                  >
+                    <segment.icon className="w-6 h-6" style={{ color: neonColor }} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[#00ff88] transition-colors">{segment.title}</h3>
+                  <p className="text-white/60 text-sm mb-4 leading-relaxed">{segment.description}</p>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Badge 
+                      variant="outline" 
+                      className="text-xs"
+                      style={{ 
+                        borderColor: `${neonColor}50`,
+                        color: neonColor,
+                        backgroundColor: `${neonColor}15`
+                      }}
+                    >
+                      {segment.coverage}
+                    </Badge>
+                  </div>
+                  <p className="text-xs font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
