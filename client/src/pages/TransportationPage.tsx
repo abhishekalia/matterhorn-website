@@ -449,19 +449,6 @@ export default function TransportationPage() {
                 </Button>
               ))}
 
-              <Button 
-                onClick={() => setApplicationModalOpen(true)} 
-                size="sm"
-                className="ml-4 text-[10px] uppercase tracking-widest font-bold"
-                style={{ 
-                  backgroundColor: NEON_COLORS.amber,
-                  color: '#000',
-                  boxShadow: `0 0 20px ${NEON_COLORS.amber}40`
-                }}
-                data-testid="button-request-appointment"
-              >
-                Request Appointment
-              </Button>
             </div>
           </div>
         </div>
@@ -515,31 +502,20 @@ export default function TransportationPage() {
             that automates driver management, fleet changes, and COI delivery.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex justify-center items-center mb-16">
             <Button
               size="lg"
-              onClick={() => setApplicationModalOpen(true)}
-              data-testid="button-get-started"
-              className="group font-bold"
+              className="group font-bold px-12 py-6 text-lg"
               style={{ 
                 backgroundColor: NEON_COLORS.amber,
-                color: '#000',
+                color: '#fff',
                 boxShadow: `0 0 25px ${NEON_COLORS.amber}50`
               }}
-            >
-              Request Appointment
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-white/5 backdrop-blur-sm border-white/30 text-white group"
-              style={{ borderColor: `${NEON_COLORS.amber}40` }}
               onClick={() => scrollToSection("markets")}
               data-testid="button-explore-programs"
             >
-              Start a Submission
-              <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Connect With Our Team
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 
