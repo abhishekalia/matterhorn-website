@@ -518,21 +518,6 @@ export default function SportsPage() {
             </div>
           </div>
 
-          {/* Stats Row with Neon Styling */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
-            {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="text-center group hover:scale-105 transition-transform duration-300"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff] group-hover:drop-shadow-[0_0_10px_rgba(0,255,136,0.5)] transition-all duration-500">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-white/60 mt-1 group-hover:text-white/80 transition-colors">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
           {/* Quick Quotes */}
           <div className="text-center">
             <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Quick Quotes</p>
