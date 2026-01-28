@@ -207,7 +207,7 @@ export default function TransportationPage() {
     {
       title: "Independent Contractors (IC)",
       description: "Scalable onboarding, compliance-ready documentation, simpler adds/deletes.",
-      coverage: "OA, NTL, PD, Cargo",
+      coverage: "OA, CL, WC, PD, NTL",
       icon: Briefcase,
       highlight: "Turnkey protection for 1099 fleets and gig workers",
     },
