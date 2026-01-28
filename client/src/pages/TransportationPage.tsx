@@ -717,9 +717,7 @@ export default function TransportationPage() {
             }}>
               Featured Programs
             </Badge>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
-              Specialized Coverage Solutions
-            </h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white">Specialized Program Solutions</h3>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
