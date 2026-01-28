@@ -491,7 +491,7 @@ export default function YouthSportsPage() {
           <div className="flex items-center justify-center gap-8 mb-10">
             <div className="text-center">
               <div className="text-[10px] tracking-[0.2em] uppercase text-white/30 mb-1">Markets</div>
-              <div className="text-sm font-semibold text-[#00ff88]">30+</div>
+              <div className="text-sm font-semibold text-[#00ff88]">10+</div>
             </div>
             <div className="w-[1px] h-8 bg-white/10" />
             <div className="text-center">
@@ -500,8 +500,8 @@ export default function YouthSportsPage() {
             </div>
             <div className="w-[1px] h-8 bg-white/10" />
             <div className="text-center">
-              <div className="text-[10px] tracking-[0.2em] uppercase text-white/30 mb-1">Coverage Options</div>
-              <div className="text-sm font-semibold text-[#ff00ff]">55+</div>
+              <div className="text-[10px] tracking-[0.2em] uppercase text-white/30 mb-1">Coverages</div>
+              <div className="text-sm font-semibold text-[#ff00ff]">15+</div>
             </div>
           </div>
 
