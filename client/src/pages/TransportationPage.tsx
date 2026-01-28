@@ -514,7 +514,7 @@ export default function TransportationPage() {
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60 mb-12">
             <div className="flex items-center gap-2 transition-colors duration-300" style={{ '--hover-color': NEON_COLORS.amber } as React.CSSProperties}>
               <Target className="w-4 h-4" style={{ color: NEON_COLORS.amber }} />
-              <span className="hover:text-[#ffaa00]">OA, CL, PD, & NTL Focus</span>
+              <span className="hover:text-[#ffaa00]">OA, CL WK, PD, & NTL Focus</span>
             </div>
             <div className="flex items-center gap-2 transition-colors duration-300">
               <Zap className="w-4 h-4" style={{ color: NEON_COLORS.cyan }} />
