@@ -627,6 +627,52 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
+      {/* Why Matterhorn Section */}
+      <section 
+        id="why-us" 
+        data-animate
+        className="py-24 bg-[#0A1628] relative overflow-hidden"
+      >
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/8 rounded-full blur-[80px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className={`text-center mb-16 ${getAnimationClass("why-us")}`}>
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+              The Matterhorn Difference
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" data-testid="heading-why-us">
+              Why Work With Matterhorn?
+            </h2>
+            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+              We offer what generalist wholesalers can't: specialized attention, niche program access, 
+              and digital tools built for the IC market.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyMatterhorn.map((item, index) => (
+              <Card 
+                key={index} 
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 text-center group ${getAnimationClass("why-us")}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="relative w-14 h-14 mx-auto mb-4">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-cyan-500/20 group-hover:from-primary/60 group-hover:to-cyan-500/40 blur-sm transition-all duration-500" />
+                  <div className="relative w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
+                    <item.icon className="w-7 h-7 text-primary group-hover:rotate-6 transition-transform duration-300" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Markets & Coverage Section with Neon Styling */}
       <section 
         id="markets" 
@@ -769,52 +815,6 @@ export default function TransportationPage() {
             <strong className="text-white/70">Broker Note:</strong> All programs are backed by A-VII or better rated carriers. 
             Admitted and Non-Admitted paper available depending on state and risk class.
           </p>
-        </div>
-      </section>
-      {/* Why Matterhorn Section */}
-      <section 
-        id="why-us" 
-        data-animate
-        className="py-24 bg-[#0A1628] relative overflow-hidden"
-      >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/8 rounded-full blur-[80px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-16 ${getAnimationClass("why-us")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              The Matterhorn Difference
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" data-testid="heading-why-us">
-              Why Work With Matterhorn?
-            </h2>
-            <p className="text-lg text-white/60 max-w-3xl mx-auto">
-              We offer what generalist wholesalers can't: specialized attention, niche program access, 
-              and digital tools built for the IC market.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyMatterhorn.map((item, index) => (
-              <Card 
-                key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 text-center group ${getAnimationClass("why-us")}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="relative w-14 h-14 mx-auto mb-4">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/40 to-cyan-500/20 group-hover:from-primary/60 group-hover:to-cyan-500/40 blur-sm transition-all duration-500" />
-                  <div className="relative w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                    <item.icon className="w-7 h-7 text-primary group-hover:rotate-6 transition-transform duration-300" />
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-primary transition-colors">{item.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
       {/* Technology Section */}
