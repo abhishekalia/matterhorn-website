@@ -1249,7 +1249,7 @@ export default function TransportationPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-white">{path.title}</h3>
                 <p className="text-white/60 mb-6 text-sm">{path.desc}</p>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3">
                   {path.items.map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm text-white/70">
                       <CheckCircle className="w-4 h-4 text-primary" />
@@ -1257,13 +1257,6 @@ export default function TransportationPage() {
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  className="w-full" 
-                  variant={path.variant}
-                  onClick={() => setApplicationModalOpen(true)}
-                >
-                  {path.buttonText}
-                </Button>
               </Card>
             ))}
           </div>
