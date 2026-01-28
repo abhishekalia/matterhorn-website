@@ -61,9 +61,9 @@ import CustomCursor from "@/components/CustomCursor";
 import heroBg from "@assets/stock_images/youth_sports_hero.jpg";
 import youthLeagueImg from "@assets/stock_images/youth_soccer_practic_7460c554.jpg";
 import youthCoachingImg from "@assets/stock_images/youth_basketball_gam_dd1940dd.jpg";
-import wayneGutridgePhoto from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
-import isaacAllenPhoto from "@assets/generated_images/Isaac_Allen_professional_headshot_640e0cbc.png";
-import mikeAsselinPhoto from "@assets/generated_images/Mike_Asselin_professional_headshot.png";
+import wayneGutridgePhoto from "@assets/avatars/wayne_gutridge_avatar.png";
+import isaacAllenPhoto from "@assets/avatars/isaac_allen_avatar.png";
+import mikeAsselinPhoto from "@assets/avatars/mike_asselin_avatar.png";
 
 export default function YouthSportsPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -75,14 +75,14 @@ export default function YouthSportsPage() {
   const leadership = [
     {
       name: "Wayne Gutridge",
-      title: "CEO & Founder",
+      title: "Managing Director",
       description: "A visionary leader in specialty insurance, Wayne founded Matterhorn with a mission to revolutionize program design for youth organizations.",
       territory: "National",
       photo: wayneGutridgePhoto,
     },
     {
       name: "Isaac Allen",
-      title: "President",
+      title: "Managing Director",
       description: "Isaac brings deep expertise in sports risk management and carrier relationships, ensuring our youth sports programs meet evolving needs.",
       territory: "National",
       photo: isaacAllenPhoto,
