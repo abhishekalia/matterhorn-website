@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Truck, Package, Zap, Users, Plane } from "lucide-react";
 import { BrokerApplicationModal } from "./BrokerApplicationModal";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 
@@ -53,7 +54,7 @@ export default function HeroSection() {
           Custom programs designed for brokers. Instant quotes. Curated markets. Technology that makes coverage effortless.
         </p>
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center mb-10">
           <Button
             size="lg"
             className="text-base px-10 py-6 bg-primary hover:bg-primary/90"
@@ -62,6 +63,40 @@ export default function HeroSection() {
           >
             Connect with Our Team
           </Button>
+        </div>
+
+        {/* Quick Links */}
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <Link href="/transportation/motor-carrier-application">
+            <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-amber-400 transition-colors cursor-pointer group" data-testid="link-motor-carrier">
+              <Truck className="w-3 h-3 group-hover:scale-110 transition-transform" />
+              Motor Carriers + IC
+            </span>
+          </Link>
+          <Link href="/transportation/logistics-application">
+            <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-cyan-400 transition-colors cursor-pointer group" data-testid="link-logistics">
+              <Package className="w-3 h-3 group-hover:scale-110 transition-transform" />
+              Logistics + Freight Brokers
+            </span>
+          </Link>
+          <Link href="/pickleball">
+            <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-emerald-400 transition-colors cursor-pointer group" data-testid="link-pickleball">
+              <Zap className="w-3 h-3 group-hover:scale-110 transition-transform" />
+              Pickleball
+            </span>
+          </Link>
+          <Link href="/youth-sports">
+            <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-green-400 transition-colors cursor-pointer group" data-testid="link-youth-sports">
+              <Users className="w-3 h-3 group-hover:scale-110 transition-transform" />
+              Youth Sports
+            </span>
+          </Link>
+          <Link href="/travel">
+            <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-sky-400 transition-colors cursor-pointer group" data-testid="link-travel">
+              <Plane className="w-3 h-3 group-hover:scale-110 transition-transform" />
+              Travel
+            </span>
+          </Link>
         </div>
       </div>
 
