@@ -891,14 +891,14 @@ export default function SportsPage() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {marketSegments.map((segment, index) => {
               const neonColors = ['#00ff88', '#00d4ff', '#ff00ff', '#ffff00', '#00ff88'];
               const neonColor = neonColors[index % neonColors.length];
               return (
                 <Card 
                   key={index}
-                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden ${getAnimationClass("markets")}`}
+                  className={`p-6 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden ${getAnimationClass("markets")}`}
                   style={{ 
                     transitionDelay: `${index * 100}ms`,
                     borderColor: 'rgba(255,255,255,0.1)'
@@ -922,30 +922,30 @@ export default function SportsPage() {
                   <div className="relative z-10">
                     {/* Icon */}
                     <div 
-                      className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
+                      className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300"
                       style={{ 
                         backgroundColor: `${neonColor}20`,
                         boxShadow: `0 0 25px ${neonColor}25`
                       }}
                     >
-                      <segment.icon className="w-7 h-7" style={{ color: neonColor }} />
+                      <segment.icon className="w-6 h-6" style={{ color: neonColor }} />
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#00ff88] transition-colors leading-tight">
+                    <h3 className="text-lg font-bold mb-2 text-white group-hover:text-[#00ff88] transition-colors leading-tight">
                       {segment.title}
                     </h3>
                     
                     {/* Description */}
-                    <p className="text-white/60 text-sm mb-6 leading-relaxed min-h-[60px]">
+                    <p className="text-white/60 text-sm mb-4 leading-relaxed min-h-[48px]">
                       {segment.description}
                     </p>
                     
                     {/* Coverage Badge */}
-                    <div className="flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-2 mb-3">
                       <Badge 
                         variant="outline" 
-                        className="text-xs px-3 py-1"
+                        className="text-xs px-2 py-0.5"
                         style={{ 
                           borderColor: `${neonColor}50`,
                           color: neonColor,
@@ -964,6 +964,24 @@ export default function SportsPage() {
                 </Card>
               );
             })}
+          </div>
+
+          {/* Contact CTA */}
+          <div className={`text-center mt-12 ${getAnimationClass("markets")}`}>
+            <p className="text-white/60 mb-6">
+              Have a unique sports risk? Let's design a custom solution together.
+            </p>
+            <Button 
+              size="lg"
+              className="group bg-[#00ff88] hover:bg-[#00ff88]/90 text-black"
+              asChild
+              data-testid="button-contact-sports-team"
+            >
+              <a href="mailto:sports@matterhornprotects.com?subject=Sports Program Inquiry - Custom Submission Design">
+                Contact Our Team
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
