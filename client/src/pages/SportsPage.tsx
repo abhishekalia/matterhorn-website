@@ -39,9 +39,9 @@ import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
-import wayneGutridgePhoto from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
-import isaacAllenPhoto from "@assets/generated_images/Isaac_Allen_professional_headshot_640e0cbc.png";
-import mikeAsselinPhoto from "@assets/generated_images/Mike_Asselin_professional_headshot.png";
+import wayneGutridgePhoto from "@assets/avatars/wayne_gutridge_avatar.png";
+import isaacAllenPhoto from "@assets/avatars/isaac_allen_avatar.png";
+import mikeAsselinPhoto from "@assets/avatars/mike_asselin_avatar.png";
 import stadiumHero from "@assets/generated_images/Professional_stadium_aerial_view_1d2bbe4c.png";
 import sportsFieldImage from "@assets/generated_images/Sports_field_aerial_view_3eb581a1.png";
 import athleteAction from "@assets/stock_images/athlete_action_sports.jpg";
@@ -330,7 +330,7 @@ export default function SportsPage() {
   const leadership = [
     {
       name: "Wayne Gutridge",
-      title: "CEO & Founder",
+      title: "Managing Director",
       description: "A visionary leader in specialty insurance, Wayne founded Matterhorn with a mission to revolutionize program design. His strategic vision drives our expansion into emerging sports markets.",
       territory: "National",
       initials: "WG",
@@ -339,7 +339,7 @@ export default function SportsPage() {
     },
     {
       name: "Isaac Allen",
-      title: "President",
+      title: "Managing Director",
       description: "Isaac brings deep expertise in sports risk management and carrier relationships. His leadership ensures our programs meet the evolving needs of the sports industry.",
       territory: "National",
       initials: "IA",
@@ -832,12 +832,12 @@ export default function SportsPage() {
             {leadership.map((leader, index) => (
               <Card 
                 key={index} 
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 group text-center ${getAnimationClass("leadership")}`}
+                className={`p-6 text-center group overflow-visible bg-[#1B2A41]/50 border-white/10 hover:border-[#00ff88]/50 hover-elevate ${getAnimationClass("leadership")}`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <div className="relative w-28 h-28 mx-auto mb-6">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-cyan-500/20 animate-pulse" />
-                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary/60 group-hover:scale-105 transition-all duration-500">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00ff88]/30 to-[#00d4ff]/20 animate-pulse" />
+                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-[#00ff88]/30 group-hover:border-[#00ff88]/60 transition-all duration-500">
                     <img 
                       src={leader.photo} 
                       alt={leader.name}
@@ -845,8 +845,8 @@ export default function SportsPage() {
                     />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-1 text-white group-hover:text-primary transition-colors">{leader.name}</h3>
-                <p className="text-primary font-medium mb-2">{leader.title}</p>
+                <h3 className="text-xl font-bold mb-1 text-white group-hover:text-[#00ff88] transition-colors">{leader.name}</h3>
+                <p className="text-[#00ff88] font-medium mb-2">{leader.title}</p>
                 <Badge className="bg-white/10 text-white/70 border-white/20 text-xs mb-4">
                   <MapPin className="w-3 h-3 mr-1" />
                   {leader.territory}
