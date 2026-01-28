@@ -674,6 +674,136 @@ export default function SportsPage() {
         </div>
       </section>
 
+      {/* Featured Youth Sports Program Section */}
+      <section 
+        id="youth-sports-program" 
+        data-animate 
+        className="py-20 bg-[#0D1B2A] relative overflow-hidden"
+      >
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#00ff88]/8 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-[#ff00ff]/6 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className={`text-center mb-12 ${getAnimationClass("youth-sports-program")}`}>
+            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 mb-4">
+              <Users className="w-3 h-3 mr-1" />
+              Featured Program
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Protecting America's{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">
+                Youth Athletes
+              </span>
+            </h2>
+            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+              Partner with the National Alliance for Youth Sports (NAYS) to provide comprehensive coverage 
+              for youth sports organizations, leagues, and recreational programs nationwide.
+            </p>
+          </div>
+
+          <div className={`${getAnimationClass("youth-sports-program")}`}>
+            <Card className="relative overflow-hidden border-[#00ff88]/30 bg-gradient-to-br from-[#1B2A41]/80 to-[#0D1B2A]/90 backdrop-blur-xl group hover:border-[#00ff88]/60 transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00ff88]/5 via-transparent to-[#00d4ff]/5 group-hover:from-[#00ff88]/10 group-hover:to-[#00d4ff]/10 transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#00ff88]/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+              
+              <div className="relative p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-10 items-center">
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00ff88] to-[#00d4ff] flex items-center justify-center shadow-lg shadow-[#00ff88]/30">
+                        <Users className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white">Youth Sports Program</h3>
+                        <p className="text-[#00ff88] font-medium">NAYS Partnership</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-white/70 text-lg mb-6 leading-relaxed">
+                      Comprehensive insurance solutions for youth sports organizations. From little leagues 
+                      to recreational programs, we protect young athletes and the organizations that serve them 
+                      with specialized coverages and competitive rates.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-4 mb-8">
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-[#00ff88] flex-shrink-0" />
+                        <span className="text-sm">General Liability</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-[#00ff88] flex-shrink-0" />
+                        <span className="text-sm">Participant Accident</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-[#00ff88] flex-shrink-0" />
+                        <span className="text-sm">Abuse & Molestation</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-[#00ff88] flex-shrink-0" />
+                        <span className="text-sm">D&O Coverage</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-[#00ff88] flex-shrink-0" />
+                        <span className="text-sm">Property Coverage</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/80">
+                        <CheckCircle className="w-5 h-5 text-[#00ff88] flex-shrink-0" />
+                        <span className="text-sm">Crime Coverage</span>
+                      </div>
+                    </div>
+
+                    <Link href="/youth-sports">
+                      <Button 
+                        size="lg" 
+                        className="group/btn bg-[#00ff88] hover:bg-[#00ff88]/90 text-black"
+                        data-testid="button-explore-youth-sports"
+                      >
+                        Explore Youth Sports Program
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
+                  </div>
+
+                  <div className="hidden md:flex flex-col gap-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-[#00ff88]/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">50</div>
+                        <div className="text-white/60 text-sm mt-1">States Covered</div>
+                      </div>
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-[#00ff88]/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">60+</div>
+                        <div className="text-white/60 text-sm mt-1">Years NAYS Experience</div>
+                      </div>
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-[#00ff88]/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">A+</div>
+                        <div className="text-white/60 text-sm mt-1">Rated Carriers</div>
+                      </div>
+                      <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-[#00ff88]/30 transition-colors">
+                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">All</div>
+                        <div className="text-white/60 text-sm mt-1">Sports Covered</div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-[#00ff88]/10 to-[#00d4ff]/10 rounded-xl p-6 border border-[#00ff88]/20">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Shield className="w-6 h-6 text-[#00ff88]" />
+                        <span className="text-white font-semibold">Trusted Partnership</span>
+                      </div>
+                      <p className="text-white/60 text-sm leading-relaxed">
+                        The National Alliance for Youth Sports has been protecting youth sports organizations 
+                        for over 60 years. Our partnership brings institutional expertise to every policy.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Leadership Section */}
       <section 
         id="leadership" 
