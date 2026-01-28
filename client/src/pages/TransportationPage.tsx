@@ -1226,7 +1226,7 @@ export default function TransportationPage() {
                 icon: Upload,
                 title: "Upload Any Application",
                 desc: "Already have an application or submission package? Upload it as-is. We'll extract the data and populate the carrier submissions for you.",
-                items: ["Any format: PDF, ACORD, custom apps", "We triage + confirm completeness", "Indication in 24-48 hours", "Same-day indications on clean risks"],
+                items: ["Application (any format: PDF, ACORD, custom)", "3-5 years of Loss Runs", "Driver List", "Equipment List", "Lease Agreement (if applicable)"],
                 buttonText: "Start a Submission",
                 variant: "default" as const,
               },
