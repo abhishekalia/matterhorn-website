@@ -548,43 +548,6 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
-      {/* Available Markets Section */}
-      <section id="markets" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <Badge className="bg-[#00d4ff]/20 text-[#00d4ff] border-[#00d4ff]/30 mb-4">
-              Available Markets
-            </Badge>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-markets">
-              Access to A-Rated Carriers
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-              One submission connects you to our curated selection of A-rated markets with specialized youth sports expertise.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto mb-12">
-            {availableMarkets.map((market, index) => (
-              <div 
-                key={index}
-                className={`px-6 py-4 rounded-lg border overflow-visible ${isDarkMode ? 'bg-white/5 border-white/10 hover:border-[#00d4ff]/50' : 'bg-white border-gray-200 hover:border-[#00d4ff]/50'} hover-elevate`}
-              >
-                <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{market.name}</span>
-                <Badge className="ml-2 bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 text-xs">
-                  {market.rating}
-                </Badge>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <p className={`text-sm mb-4 ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
-              Plus access to 20+ additional specialty markets for unique risks
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Applications Section */}
       <section id="applications" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-6">
