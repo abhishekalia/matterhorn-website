@@ -704,6 +704,79 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
+      {/* Technology Section */}
+      <section 
+        id="technology" 
+        data-animate
+        className="py-24 bg-[#0D1B2A]"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className={getAnimationClass("technology")}>
+              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+                Matterhorn Tech
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white" data-testid="heading-technology">
+                Digital Tools for the Modern Fleet
+              </h2>
+              <p className="text-lg text-white/60 mb-8 leading-relaxed">
+                We leverage digital technology specifically for OA, PD, and NTL products to eliminate 
+                administrative headaches. The platform that keeps transportation accounts "easy" after the bind.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                {[
+                  { title: "Automated COI delivery", desc: "for shippers, facilities, and contract requirements" },
+                  { title: "Driver management services", desc: "to onboard, validate, and maintain rosters" },
+                  { title: "Fleet changes without chaos:", desc: "adds/deletes and updates tracked in one place" },
+                  { title: "Less admin, faster delivery", desc: "so your team can quote and sell more" },
+                ].map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300"
+                  >
+                    <CheckCircle className="w-5 h-5 text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <p className="text-white/60">
+                      <strong className="text-white">{item.title}</strong> {item.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <Button 
+                onClick={() => setApplicationModalOpen(true)} 
+                data-testid="button-schedule-demo"
+                className="group"
+              >
+                Schedule a Demo
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+
+            <div className={`grid grid-cols-2 gap-4 ${getAnimationClass("technology")}`}>
+              {techFeatures.map((feature, index) => (
+                <Card 
+                  key={index} 
+                  className="p-4 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 group"
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                  data-testid={`card-tech-${index}`}
+                >
+                  <div className="relative w-10 h-10 mb-3">
+                    <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
+                    <div className="relative w-10 h-10 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300">
+                      <feature.icon className="w-5 h-5 text-primary group-hover:rotate-6 transition-transform" />
+                    </div>
+                  </div>
+                  <h4 className="font-semibold text-sm mb-1 text-white group-hover:text-primary transition-colors">{feature.title}</h4>
+                  <p className="text-xs text-white/50">
+                    {feature.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Markets & Coverage Section with Neon Styling */}
       <section 
         id="markets" 
@@ -875,79 +948,6 @@ export default function TransportationPage() {
             <strong className="text-white/70">Broker Note:</strong> All programs are backed by A-VII or better rated carriers. 
             Admitted and Non-Admitted paper available depending on state and risk class.
           </p>
-        </div>
-      </section>
-      {/* Technology Section */}
-      <section 
-        id="technology" 
-        data-animate
-        className="py-24 bg-[#0D1B2A]"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className={getAnimationClass("technology")}>
-              <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-                Matterhorn Tech
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white" data-testid="heading-technology">
-                Digital Tools for the Modern Fleet
-              </h2>
-              <p className="text-lg text-white/60 mb-8 leading-relaxed">
-                We leverage digital technology specifically for OA, PD, and NTL products to eliminate 
-                administrative headaches. The platform that keeps transportation accounts "easy" after the bind.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                {[
-                  { title: "Automated COI delivery", desc: "for shippers, facilities, and contract requirements" },
-                  { title: "Driver management services", desc: "to onboard, validate, and maintain rosters" },
-                  { title: "Fleet changes without chaos:", desc: "adds/deletes and updates tracked in one place" },
-                  { title: "Less admin, faster delivery", desc: "so your team can quote and sell more" },
-                ].map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300"
-                  >
-                    <CheckCircle className="w-5 h-5 text-primary mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                    <p className="text-white/60">
-                      <strong className="text-white">{item.title}</strong> {item.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <Button 
-                onClick={() => setApplicationModalOpen(true)} 
-                data-testid="button-schedule-demo"
-                className="group"
-              >
-                Schedule a Demo
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-
-            <div className={`grid grid-cols-2 gap-4 ${getAnimationClass("technology")}`}>
-              {techFeatures.map((feature, index) => (
-                <Card 
-                  key={index} 
-                  className="p-4 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-500 group"
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                  data-testid={`card-tech-${index}`}
-                >
-                  <div className="relative w-10 h-10 mb-3">
-                    <div className="absolute inset-0 rounded-md bg-gradient-to-br from-primary/30 to-cyan-500/15 group-hover:from-primary/50 group-hover:to-cyan-500/30 blur-sm transition-all duration-500" />
-                    <div className="relative w-10 h-10 rounded-md bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300">
-                      <feature.icon className="w-5 h-5 text-primary group-hover:rotate-6 transition-transform" />
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-sm mb-1 text-white group-hover:text-primary transition-colors">{feature.title}</h4>
-                  <p className="text-xs text-white/50">
-                    {feature.description}
-                  </p>
-                </Card>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
       {/* Case Studies Section - Interactive Design */}
