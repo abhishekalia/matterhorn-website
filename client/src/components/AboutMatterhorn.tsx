@@ -40,7 +40,6 @@ export default function AboutMatterhorn() {
         <div className="absolute top-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slower" />
       </div>
-
       <div className="relative max-w-7xl mx-auto px-6">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -99,9 +98,7 @@ export default function AboutMatterhorn() {
                   <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">
                     "We founded Matterhorn because we believed the MGA space was ready for a new kind of partner. Brokers were telling us they couldn't find carriers who understood their unique clients, and carriers were telling us brokers weren't presenting risks in ways they could price. We built the bridge.
                   </blockquote>
-                  <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">
-                    Our team has decades of experience in specialty insurance, but we're not stuck in the old ways. We combined that expertise with technology that actually makes brokers' lives easier—from automated submissions to real-time quoting. Some people said old dogs can't learn new tricks. We say the old dogs are the ones building the most innovative business in the industry."
-                  </blockquote>
+                  <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">Our team has decades of experience in specialty insurance, but we're not stuck in the old ways. We combined that expertise with technology that actually makes brokers' and clients lives easier—from automated submissions to real-time quoting. Some people said old dogs can't learn new tricks. We say the old dogs are the ones building the most innovative business in the industry."</blockquote>
                   <div className="flex items-center gap-4">
                     <div>
                       <div className="font-bold text-foreground text-lg">Steve Mueller</div>
@@ -129,7 +126,6 @@ export default function AboutMatterhorn() {
           </Button>
         </div>
       </div>
-
       <BrokerApplicationModal 
         open={applicationModalOpen} 
         onOpenChange={setApplicationModalOpen} 
