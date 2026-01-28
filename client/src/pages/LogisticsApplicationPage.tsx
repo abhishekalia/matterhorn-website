@@ -551,6 +551,74 @@ export default function LogisticsApplicationPage() {
         </div>
       </section>
 
+      {/* Discovery Call Section */}
+      <section className="py-20 bg-gradient-to-b from-[#0D1B2A] to-[#0A1628]">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 px-3 py-1" style={{ 
+              backgroundColor: `${NEON_COLORS.amber}20`, 
+              color: NEON_COLORS.amber, 
+              borderColor: `${NEON_COLORS.amber}40`,
+            }}>
+              Talk to Our Team
+            </Badge>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Need Help Getting Started?
+            </h2>
+            <p className="text-white/60 max-w-2xl mx-auto">
+              Schedule a discovery call with our underwriting team for personalized assistance—or request a demo of our carrier management platform.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <Card className="p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-300">
+              <div 
+                className="w-12 h-12 rounded-md flex items-center justify-center mb-6"
+                style={{ backgroundColor: `${NEON_COLORS.cyan}20` }}
+              >
+                <Phone className="w-6 h-6" style={{ color: NEON_COLORS.cyan }} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Discovery Call</h3>
+              <p className="text-white/60 text-sm mb-6">
+                Connect with our UW team for assistance submitting new business. We'll walk you through our programs, appetite, and help you find the right fit for your accounts.
+              </p>
+              <Button 
+                className="w-full group"
+                asChild
+              >
+                <a href="mailto:logistics@matterhornprotects.com?subject=Discovery Call Request - Logistics">
+                  Schedule a Call
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+            </Card>
+
+            <Card className="p-8 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover-elevate overflow-visible transition-all duration-300">
+              <div 
+                className="w-12 h-12 rounded-md flex items-center justify-center mb-6"
+                style={{ backgroundColor: `${NEON_COLORS.safetyGreen}20` }}
+              >
+                <Package className="w-6 h-6" style={{ color: NEON_COLORS.safetyGreen }} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Platform Demo</h3>
+              <p className="text-white/60 text-sm mb-6">
+                See our carrier management platform in action. Request a personalized demo to learn how we streamline operations and automate ongoing support.
+              </p>
+              <Button 
+                variant="secondary"
+                className="w-full group"
+                asChild
+              >
+                <a href="mailto:logistics@matterhornprotects.com?subject=Platform Demo Request - Carrier Management">
+                  Request Demo
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-16 bg-[#0A1628]">
         <div className="max-w-4xl mx-auto px-6 text-center">
