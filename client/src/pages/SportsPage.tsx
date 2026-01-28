@@ -519,7 +519,7 @@ export default function SportsPage() {
           </div>
 
           {/* Stats Row with Neon Styling */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
@@ -531,6 +531,25 @@ export default function SportsPage() {
                 <div className="text-sm text-white/60 mt-1 group-hover:text-white/80 transition-colors">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Quick Quotes */}
+          <div className="text-center">
+            <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Quick Quotes</p>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+              <Link href="/pickleball">
+                <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-[#00ff88] transition-colors cursor-pointer group" data-testid="link-pickleball-sports">
+                  <Zap className="w-3 h-3 group-hover:scale-110 transition-transform" />
+                  Pickleball
+                </span>
+              </Link>
+              <Link href="/youth-sports">
+                <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-[#00d4ff] transition-colors cursor-pointer group" data-testid="link-youth-sports-sports">
+                  <Users className="w-3 h-3 group-hover:scale-110 transition-transform" />
+                  Youth Sports
+                </span>
+              </Link>
+            </div>
           </div>
 
         </div>
