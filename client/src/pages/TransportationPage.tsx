@@ -38,6 +38,7 @@ import {
   Clock,
   DollarSign,
   Settings,
+  Upload,
 } from "lucide-react";
 
 // Dark, inspiring color palette for Transportation
@@ -1194,7 +1195,7 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-      {/* Appointment Flow Section */}
+      {/* Submission Options Section */}
       <section 
         data-animate
         id="appointment-flow"
@@ -1202,51 +1203,39 @@ export default function TransportationPage() {
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-primary/10 to-transparent rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[200px] bg-cyan-500/8 rounded-full blur-[80px]" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-16 ${getAnimationClass("appointment-flow")}`}>
+          <div className={`text-center mb-12 ${getAnimationClass("appointment-flow")}`}>
             <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              Get Started
+              Flexible Submissions
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              Get Appointed. Submit Faster. Service at Scale.
+              Submit Your Way. We Handle the Rest.
             </h2>
-          </div>
-
-          <div className={`flex flex-wrap justify-center gap-4 mb-16 ${getAnimationClass("appointment-flow")}`}>
-            {appointmentFlow.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 group">
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-cyan-500 blur-sm group-hover:blur-md transition-all duration-300 opacity-50 group-hover:opacity-75" />
-                  <div className="relative w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold group-hover:scale-110 transition-all duration-300">
-                    {item.step}
-                  </div>
-                </div>
-                <span className="font-medium text-white group-hover:text-primary transition-colors">{item.title}</span>
-                {index < appointmentFlow.length - 1 && (
-                  <ArrowRight className="w-5 h-5 text-white/30 hidden md:block group-hover:text-primary/50 group-hover:translate-x-1 transition-all duration-300" />
-                )}
-              </div>
-            ))}
+            <p className="text-lg text-white/60 max-w-3xl mx-auto">
+              We accept <strong className="text-white">any application or submission package</strong> you already use. 
+              Upload your existing docs and we'll populate the market submission for you—or use our streamlined digital application for faster processing.
+            </p>
           </div>
 
           {/* Two Submission Paths */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
             {[
               {
-                icon: FileText,
-                title: "Agnostic Applications",
-                desc: "Submit business through your existing application or intake method.",
-                items: ["Upload/submit your app", "We triage + confirm completeness", "Indication in 24-48 hours", "Same-day indications on clean risks"],
+                icon: Upload,
+                title: "Upload Any Application",
+                desc: "Already have an application or submission package? Upload it as-is. We'll extract the data and populate the carrier submissions for you.",
+                items: ["Any format: PDF, ACORD, custom apps", "We triage + confirm completeness", "Indication in 24-48 hours", "Same-day indications on clean risks"],
                 buttonText: "Start a Submission",
                 variant: "default" as const,
               },
               {
-                icon: Settings,
-                title: "Custom Applications",
-                desc: "Request custom apps built for specific clients or programs.",
-                items: ["Define class + data needs", "We design a short, broker-friendly app", "Launch for client intake", "Iterate with real feedback"],
-                buttonText: "Request a Custom App",
+                icon: FileText,
+                title: "Use Our Digital Application",
+                desc: "Prefer a streamlined experience? Our digital applications are designed for speed—complete online and submit instantly.",
+                items: ["Quick, broker-friendly forms", "Auto-save progress as you go", "Faster processing & turnaround", "Real-time status tracking"],
+                buttonText: "Apply Digitally",
                 variant: "secondary" as const,
               },
             ].map((path, index) => (
@@ -1259,7 +1248,7 @@ export default function TransportationPage() {
                   <path.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-white">{path.title}</h3>
-                <p className="text-white/60 mb-6">{path.desc}</p>
+                <p className="text-white/60 mb-6 text-sm">{path.desc}</p>
                 <ul className="space-y-3 mb-6">
                   {path.items.map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm text-white/70">
@@ -1277,6 +1266,48 @@ export default function TransportationPage() {
                 </Button>
               </Card>
             ))}
+          </div>
+
+          {/* Quick Access Links */}
+          <div className={`${getAnimationClass("appointment-flow")}`}>
+            <div className="text-center mb-6">
+              <p className="text-sm text-white/50 uppercase tracking-widest font-medium">Quick Access</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+              <Link href="/transportation/motor-carrier-application">
+                <Button 
+                  variant="outline" 
+                  className="group border-white/20 hover:border-primary/50 hover:bg-primary/10"
+                  data-testid="button-quick-motor-carrier"
+                >
+                  <Truck className="w-4 h-4 mr-2 text-primary" />
+                  Motor Carrier + IC Application
+                  <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </Button>
+              </Link>
+              <Link href="/transportation/logistics-application">
+                <Button 
+                  variant="outline" 
+                  className="group border-white/20 hover:border-cyan-500/50 hover:bg-cyan-500/10"
+                  data-testid="button-quick-logistics"
+                >
+                  <Package className="w-4 h-4 mr-2 text-cyan-400" />
+                  Logistics + Freight Brokers
+                  <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </Button>
+              </Link>
+              <a href="mailto:support@matterhornprotects.com?subject=Transportation Submission Inquiry">
+                <Button 
+                  variant="outline" 
+                  className="group border-white/20 hover:border-purple-500/50 hover:bg-purple-500/10"
+                  data-testid="button-quick-contact"
+                >
+                  <Mail className="w-4 h-4 mr-2 text-purple-400" />
+                  Contact Our Team
+                  <ArrowRight className="w-4 h-4 ml-2 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
