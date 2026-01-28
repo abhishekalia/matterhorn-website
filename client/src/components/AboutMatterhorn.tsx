@@ -95,9 +95,7 @@ export default function AboutMatterhorn() {
                   </div>
                 </div>
                 <div>
-                  <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">
-                    "We founded Matterhorn because we believed the MGA space was ready for a new kind of partner. Brokers were telling us they couldn't find carriers who understood their unique clients, and carriers were telling us brokers weren't presenting risks in ways they could price. We built the bridge.
-                  </blockquote>
+                  <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">"We founded Matterhorn because we believed the MGA space was ready for a new kind of partner. Brokers were telling us they couldn't find carriers who understood their unique clients. We built the bridge.</blockquote>
                   <blockquote className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-6 italic">Our team has decades of experience in specialty insurance, but we're not stuck in the old ways. We combined that expertise with technology that actually makes brokers' and clients lives easier—from automated submissions to real-time quoting. Some people said old dogs can't learn new tricks. We say the old dogs are the ones building the most innovative business in the industry."</blockquote>
                   <div className="flex items-center gap-4">
                     <div>
