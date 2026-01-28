@@ -717,49 +717,6 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
-      {/* Territory Search Section */}
-      <section className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-territory">
-            Find Organizations in Your Territory
-          </h2>
-          <p className={`text-lg mb-8 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-            Search by ZIP code to discover youth sports organizations in your region that need coverage.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-            <div className="relative w-full sm:w-96">
-              <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 ${isDarkMode ? 'text-white/40' : 'text-gray-400'}`} />
-              <Input
-                type="text"
-                placeholder="Enter ZIP code"
-                value={zipCode}
-                onChange={(e) => setZipCode(e.target.value)}
-                className={`pl-10 ${isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}`}
-                data-testid="input-zip-code"
-              />
-            </div>
-            <Button className="bg-primary hover:bg-primary/90 w-full sm:w-auto" data-testid="button-search">
-              Search
-            </Button>
-          </div>
-
-          <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
-            Territory search covers all 50 states with real-time organization data
-          </p>
-
-          <div className="mt-8">
-            <Button 
-              variant="outline"
-              className={`${isDarkMode ? 'border-white/20 text-white' : ''}`}
-              data-testid="button-contact-territory"
-            >
-              Contact Territory Support
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Case Studies Section */}
       <section id="case-studies" className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
         {isDarkMode && (
