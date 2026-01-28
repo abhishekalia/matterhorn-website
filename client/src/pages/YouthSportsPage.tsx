@@ -386,7 +386,7 @@ export default function YouthSportsPage() {
                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
               <Button 
-                onClick={() => scrollToSection("quote")}
+                onClick={() => scrollToSection("contact")}
                 className="bg-primary"
                 data-testid="button-get-quote-header"
               >
@@ -481,7 +481,7 @@ export default function YouthSportsPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               size="lg"
-              onClick={() => scrollToSection("quote")}
+              onClick={() => scrollToSection("contact")}
               className="bg-[#00ff88] text-black px-8 group"
               data-testid="button-get-started"
             >
@@ -641,7 +641,7 @@ export default function YouthSportsPage() {
             <Button 
               size="lg"
               className="bg-[#00ff88] text-black group"
-              onClick={() => scrollToSection("quote")}
+              onClick={() => scrollToSection("contact")}
               data-testid="button-start-application"
             >
               Start Your Application
@@ -713,7 +713,7 @@ export default function YouthSportsPage() {
           <div className="text-center">
             <Button 
               size="lg"
-              onClick={() => scrollToSection("quote")}
+              onClick={() => scrollToSection("contact")}
               className="bg-primary"
               data-testid="button-get-youth-coverage"
             >
@@ -952,7 +952,7 @@ export default function YouthSportsPage() {
                       Want similar results for your clients?
                     </p>
                     <Button 
-                      onClick={() => scrollToSection("quote")}
+                      onClick={() => scrollToSection("contact")}
                       className="group bg-[#00ff88] hover:bg-[#00ff88]/90 text-black"
                       data-testid="button-case-study-cta"
                     >
@@ -1090,119 +1090,6 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
-      {/* Quote Form Section */}
-      <section id="quote" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-quote">
-              Get Your Quote
-            </h2>
-            <p className={`text-lg ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Fill out the form below and we'll get back to you within 24 hours.
-            </p>
-          </div>
-
-          <Card className={`p-8 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'}`}>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Organization Type</Label>
-                  <Select>
-                    <SelectTrigger className={isDarkMode ? 'bg-white/5 border-white/20 text-white' : ''} data-testid="select-org-type">
-                      <SelectValue placeholder="Select type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="youth-league">Youth League</SelectItem>
-                      <SelectItem value="amateur-club">Amateur Club</SelectItem>
-                      <SelectItem value="collegiate">Collegiate</SelectItem>
-                      <SelectItem value="facility">Facility</SelectItem>
-                      <SelectItem value="event-organizer">Event Organizer</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Organization Name</Label>
-                  <Input 
-                    placeholder="Enter organization name"
-                    className={isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}
-                    data-testid="input-org-name"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Number of Participants</Label>
-                  <Input 
-                    type="number"
-                    placeholder="Enter number"
-                    className={isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}
-                    data-testid="input-participants"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Coverage Type</Label>
-                  <Select>
-                    <SelectTrigger className={isDarkMode ? 'bg-white/5 border-white/20 text-white' : ''} data-testid="select-coverage-type">
-                      <SelectValue placeholder="Select coverage" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="general-liability">General Liability</SelectItem>
-                      <SelectItem value="accident-medical">Accident Medical</SelectItem>
-                      <SelectItem value="travel-insurance">Travel Insurance</SelectItem>
-                      <SelectItem value="comprehensive">Comprehensive Package</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Email Address</Label>
-                  <Input 
-                    type="email"
-                    placeholder="Enter email"
-                    className={isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}
-                    data-testid="input-email"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Phone Number</Label>
-                  <Input 
-                    type="tel"
-                    placeholder="Enter phone number"
-                    className={isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}
-                    data-testid="input-phone"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label className={isDarkMode ? 'text-white' : ''}>Additional Information</Label>
-                <Textarea 
-                  placeholder="Tell us about your coverage needs..."
-                  rows={4}
-                  className={isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}
-                  data-testid="textarea-additional-info"
-                />
-              </div>
-
-              <Button 
-                type="submit"
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90"
-                data-testid="button-request-quote"
-              >
-                Request Quote
-              </Button>
-            </form>
-          </Card>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className={`py-16 ${isDarkMode ? 'bg-[#050D1A] border-t border-white/10' : 'bg-gray-100 border-t border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-6">
@@ -1304,10 +1191,10 @@ export default function YouthSportsPage() {
                 <Button 
                   size="sm"
                   className="bg-primary"
-                  onClick={() => scrollToSection('quote')}
-                  data-testid="button-footer-quote"
+                  onClick={() => scrollToSection('contact')}
+                  data-testid="button-footer-contact"
                 >
-                  Get a Quote
+                  Contact Us
                 </Button>
               </div>
             </div>
