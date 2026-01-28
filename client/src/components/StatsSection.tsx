@@ -10,7 +10,7 @@ const stats: Stat[] = [
   { value: "15", label: "A-Rated Markets" },
   { value: "50", label: "States Covered" },
   { value: "100+", label: "Years Combined Experience" },
-  { value: "55+", label: "Coverages" },
+  { value: "20+", label: "Coverages" },
 ];
 
 export default function StatsSection() {
