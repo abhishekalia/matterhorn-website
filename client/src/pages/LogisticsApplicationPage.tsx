@@ -147,6 +147,74 @@ export default function LogisticsApplicationPage() {
         </div>
       </section>
 
+      {/* Process Section */}
+      <section className="py-16 bg-[#0D1B2A]/50">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 px-3 py-1" style={{ 
+              backgroundColor: `${NEON_COLORS.safetyGreen}20`, 
+              color: NEON_COLORS.safetyGreen, 
+              borderColor: `${NEON_COLORS.safetyGreen}40`,
+            }}>
+              How It Works
+            </Badge>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              From Submission to Coverage
+            </h2>
+            <p className="text-white/60 max-w-2xl mx-auto">
+              Our streamlined process gets your logistics and freight broker accounts quoted quickly—with ongoing support for your operations.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              {
+                step: "1",
+                title: "Submit Application",
+                desc: "Upload your existing application package or complete our digital form. Include financials, carrier agreements, and operations details.",
+                color: NEON_COLORS.cyan,
+              },
+              {
+                step: "2",
+                title: "UW Review",
+                desc: "Our specialized logistics underwriting team reviews your submission and evaluates the risk profile.",
+                color: NEON_COLORS.amber,
+              },
+              {
+                step: "3",
+                title: "Quote or Clarification",
+                desc: "You'll receive an email with either a quote from markets interested in the risk—or a request for additional details needed.",
+                color: NEON_COLORS.safetyGreen,
+              },
+              {
+                step: "4",
+                title: "Client Management Setup",
+                desc: "Once bound, we set up client management to organize operations and provide ongoing carrier management support.",
+                color: NEON_COLORS.cyan,
+              },
+            ].map((item, index) => (
+              <div key={index} className="relative">
+                <Card className="p-6 bg-[#1B2A41]/40 border-white/10 backdrop-blur-sm h-full">
+                  <div 
+                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg mb-4"
+                    style={{ backgroundColor: `${item.color}20`, color: item.color }}
+                  >
+                    {item.step}
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-white/60 leading-relaxed">{item.desc}</p>
+                </Card>
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                    <ArrowRight className="w-5 h-5 text-white/20" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Application Section */}
       <section className="py-16 bg-[#0D1B2A]">
         <div className="max-w-4xl mx-auto px-6">
