@@ -205,7 +205,7 @@ export default function TransportationPage() {
 
   const marketSegments = [
     {
-      title: "Independent Contractors (IC)",
+      title: "Motor Carrier + Independent Contractors",
       description: "Scalable onboarding, compliance-ready documentation, simpler adds/deletes.",
       coverage: "OA, CL, WC, PD, NTL",
       icon: Briefcase,
