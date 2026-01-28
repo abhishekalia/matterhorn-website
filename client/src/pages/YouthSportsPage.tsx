@@ -328,33 +328,6 @@ export default function YouthSportsPage() {
     },
   ];
 
-  const resources = [
-    {
-      title: "Coverage Summary",
-      description: "Comprehensive overview of all youth sports coverage options, limits, and pricing.",
-      type: "PDF Guide",
-      size: "2.4 MB",
-    },
-    {
-      title: "Client Brochure",
-      description: "Professional client-facing materials explaining youth sports insurance benefits and features.",
-      type: "PDF Brochure",
-      size: "3.1 MB",
-    },
-    {
-      title: "Marketing Kit",
-      description: "Complete marketing package including presentations, one-pagers, and social media assets.",
-      type: "ZIP Package",
-      size: "8.7 MB",
-    },
-    {
-      title: "Program Benefits Guide",
-      description: "Detailed explanation of the program benefits and how to leverage group rates.",
-      type: "PDF Guide",
-      size: "1.8 MB",
-    },
-  ];
-
   return (
     <div className={`min-h-screen ${isDarkMode ? 'bg-[#0A1628] text-white' : 'bg-white text-gray-900'}`}>
       <CustomCursor />
@@ -1047,63 +1020,6 @@ export default function YouthSportsPage() {
               data-testid="button-become-broker"
             >
               Become a Broker Partner
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Resources Section */}
-      <section className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-resources">
-              Resources & Downloads
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Access client-facing coverage summaries, marketing brochures, and program materials.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {resources.map((resource, index) => (
-              <Card 
-                key={index}
-                className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} hover-elevate`}
-                data-testid={`card-resource-${index}`}
-              >
-                <FileText className="w-10 h-10 text-primary mb-4" />
-                <h3 className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {resource.title}
-                </h3>
-                <p className={`text-sm mb-4 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  {resource.description}
-                </p>
-                <div className={`text-xs mb-4 ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
-                  {resource.type} • {resource.size}
-                </div>
-                <Button 
-                  variant="outline"
-                  size="sm"
-                  className={`w-full ${isDarkMode ? 'border-white/20 text-white' : ''}`}
-                  data-testid={`button-download-${index}`}
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download
-                </Button>
-              </Card>
-            ))}
-          </div>
-
-          <div className={`text-center p-6 rounded-lg ${isDarkMode ? 'bg-white/5' : 'bg-gray-100'}`}>
-            <p className={`mb-4 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Need custom marketing materials or additional resources?
-            </p>
-            <Button 
-              variant="outline"
-              className={`${isDarkMode ? 'border-white/20 text-white' : ''}`}
-              data-testid="button-request-materials"
-            >
-              Request Custom Materials
             </Button>
           </div>
         </div>
