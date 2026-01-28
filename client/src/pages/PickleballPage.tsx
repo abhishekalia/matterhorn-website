@@ -37,6 +37,7 @@ import {
   Mountain,
   Mail,
   Phone,
+  Upload,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import pickleballHeroImage from "@/assets/images/pickleball-hero.png";
@@ -854,45 +855,124 @@ export default function PickleballPage() {
         </div>
       </section>
 
-      {/* 3-Step Process Section */}
-      <section className="py-20" data-testid="section-process">
+      {/* Submission Options Section */}
+      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-950" data-testid="section-submission-options">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" data-testid="text-process-title">
-              Get Started in 3 Simple Steps
+            <Badge className="bg-emerald-600/20 text-emerald-400 border-emerald-600/40 mb-4">
+              Submit Your Application
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" data-testid="text-submission-title">
+              Two Ways to Get Started
             </h2>
             <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-              Our streamlined process gets you protected quickly without the hassle of traditional insurance applications.
+              Submit your existing application materials or complete our comprehensive form—either way, we'll shop your risk with our curated A-rated markets.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="bg-slate-800/50 border-slate-700 p-8 text-center" data-testid="card-step-1">
-              <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">1</span>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+            {/* Upload Option */}
+            <Card className="p-8 bg-slate-800/50 border-slate-700 hover:border-emerald-600/50 transition-all duration-300 group" data-testid="card-upload-option">
+              <div className="w-14 h-14 rounded-lg bg-emerald-600/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Upload className="w-7 h-7 text-emerald-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Complete Application</h3>
-              <p className="text-slate-400 mb-4">Fill out our streamlined application form with your organization details and coverage needs.</p>
-              <Badge className="bg-slate-700 text-slate-300">5-10 minutes</Badge>
+              <h3 className="text-xl font-bold text-white mb-3">Upload Existing Application</h3>
+              <p className="text-slate-400 mb-6">
+                Already have an application package? Upload your existing ACORD forms, loss runs, and supporting documents in any format.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <span>ACORD forms, PDFs, or custom apps accepted</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <span>Include loss runs (3-5 years preferred)</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <span>We triage and confirm completeness</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <span>Indication within 24-48 hours</span>
+                </li>
+              </ul>
+              <Button 
+                className="w-full bg-emerald-600 hover:bg-emerald-700 group/btn"
+                asChild
+                data-testid="button-upload-submission"
+              >
+                <a href="mailto:pickleball@matterhornprotects.com?subject=Pickleball Program Submission - Document Upload">
+                  Upload Your Submission
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </a>
+              </Button>
             </Card>
 
-            <Card className="bg-slate-800/50 border-slate-700 p-8 text-center" data-testid="card-step-2">
-              <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">2</span>
+            {/* Digital Application Option */}
+            <Card className="p-8 bg-slate-800/50 border-slate-700 hover:border-emerald-600/50 transition-all duration-300 group" data-testid="card-digital-option">
+              <div className="w-14 h-14 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <FileText className="w-7 h-7 text-cyan-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Receive Quote</h3>
-              <p className="text-slate-400 mb-4">Get your customized quote back quickly with competitive rates tailored to your state and coverage.</p>
-              <Badge className="bg-slate-700 text-slate-300">24-48 hours</Badge>
+              <h3 className="text-xl font-bold text-white mb-3">Complete Digital Application</h3>
+              <p className="text-slate-400 mb-6">
+                Use our comprehensive online application designed specifically for pickleball risks. Quick, guided, and optimized for fast quoting.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                  <span>Purpose-built for pickleball facilities</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                  <span>Guided questions for complete submissions</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                  <span>Automatic routing to best-fit markets</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-slate-300">
+                  <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                  <span>Same-day indications on clean risks</span>
+                </li>
+              </ul>
+              <Button 
+                variant="secondary"
+                className="w-full group/btn"
+                onClick={() => scrollToSection("broker-application")}
+                data-testid="button-digital-application"
+              >
+                Start Digital Application
+                <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              </Button>
             </Card>
+          </div>
 
-            <Card className="bg-slate-800/50 border-slate-700 p-8 text-center" data-testid="card-step-3">
-              <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">3</span>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Get Coverage</h3>
-              <p className="text-slate-400 mb-4">Review your options, select your coverage, and get protected. Same-day processing available.</p>
-              <Badge className="bg-slate-700 text-slate-300">Same day</Badge>
-            </Card>
+          {/* How It Works */}
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold text-white text-center mb-8">How It Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {[
+                { step: "1", title: "Submit", desc: "Upload docs or complete our form" },
+                { step: "2", title: "UW Review", desc: "Our team evaluates your risk" },
+                { step: "3", title: "Quote", desc: "Receive quotes from curated markets" },
+                { step: "4", title: "Bind", desc: "Select coverage and get protected" },
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <div className="flex flex-col items-center text-center flex-1">
+                    <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold mb-2">
+                      {item.step}
+                    </div>
+                    <h4 className="font-semibold text-white text-sm">{item.title}</h4>
+                    <p className="text-slate-400 text-xs">{item.desc}</p>
+                  </div>
+                  {index < 3 && (
+                    <ArrowRight className="w-5 h-5 text-slate-600 hidden md:block flex-shrink-0" />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
