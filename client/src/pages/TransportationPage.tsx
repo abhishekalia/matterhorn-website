@@ -514,28 +514,30 @@ export default function TransportationPage() {
           {/* Quick Access Application Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <p className="w-full text-center text-[10px] uppercase tracking-widest text-white/40 mb-2">Quick Access</p>
-            <Button
-              size="sm"
-              variant="outline"
-              className="text-[11px] font-medium border-white/20 hover:border-[#ffaa00]/50 hover:bg-[#ffaa00]/10 transition-all duration-300"
-              style={{ color: NEON_COLORS.amber }}
-              onClick={() => setApplicationModalOpen(true)}
-              data-testid="button-motor-carrier-app"
-            >
-              <FileText className="w-3 h-3 mr-1.5" />
-              Motor Carrier + IC Application
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              className="text-[11px] font-medium border-white/20 hover:border-[#00d4ff]/50 hover:bg-[#00d4ff]/10 transition-all duration-300"
-              style={{ color: NEON_COLORS.cyan }}
-              onClick={() => setApplicationModalOpen(true)}
-              data-testid="button-logistics-app"
-            >
-              <FileText className="w-3 h-3 mr-1.5" />
-              Logistics + Freight Brokers Application
-            </Button>
+            <Link href="/transportation/motor-carrier-application">
+              <Button
+                size="sm"
+                variant="outline"
+                className="text-[11px] font-medium border-white/20 hover:border-[#ffaa00]/50 hover:bg-[#ffaa00]/10 transition-all duration-300"
+                style={{ color: NEON_COLORS.amber }}
+                data-testid="button-motor-carrier-app"
+              >
+                <FileText className="w-3 h-3 mr-1.5" />
+                Motor Carrier + IC Application
+              </Button>
+            </Link>
+            <Link href="/transportation/logistics-application">
+              <Button
+                size="sm"
+                variant="outline"
+                className="text-[11px] font-medium border-white/20 hover:border-[#00d4ff]/50 hover:bg-[#00d4ff]/10 transition-all duration-300"
+                style={{ color: NEON_COLORS.cyan }}
+                data-testid="button-logistics-app"
+              >
+                <FileText className="w-3 h-3 mr-1.5" />
+                Logistics + Freight Brokers Application
+              </Button>
+            </Link>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60 mb-12">

@@ -11,6 +11,8 @@ import YouthSportsPage from "@/pages/YouthSportsPage";
 import TravelPage from "@/pages/TravelPage";
 import RideSharePage from "@/pages/RideSharePage";
 import TransportationPage from "@/pages/TransportationPage";
+import MotorCarrierApplicationPage from "@/pages/MotorCarrierApplicationPage";
+import LogisticsApplicationPage from "@/pages/LogisticsApplicationPage";
 import SportsPage from "@/pages/SportsPage";
 import EntertainmentPage from "@/pages/EntertainmentPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -27,6 +29,8 @@ function Router() {
       <Route path="/travel" component={TravelPage} />
       <Route path="/rideshare" component={RideSharePage} />
       <Route path="/transportation" component={TransportationPage} />
+      <Route path="/transportation/motor-carrier-application" component={MotorCarrierApplicationPage} />
+      <Route path="/transportation/logistics-application" component={LogisticsApplicationPage} />
       <Route path="/sports" component={SportsPage} />
       <Route path="/entertainment" component={EntertainmentPage} />
       <Route path="/privacy" component={PrivacyPolicy} />
