@@ -672,30 +672,6 @@ export default function YouthSportsPage() {
             </div>
           </div>
 
-          {/* Program Stats */}
-          <div className={`rounded-lg p-8 ${isDarkMode ? 'bg-white/5' : 'bg-primary/5'} mb-12`}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">15-25%</div>
-                <div className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  Average savings vs. individual market rates
-                </div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">50,000+</div>
-                <div className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  Youth organizations served
-                </div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary mb-2">3M+</div>
-                <div className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  Youth participants covered annually
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="text-center">
             <Button 
               size="lg"
