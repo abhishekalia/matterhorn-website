@@ -527,7 +527,7 @@ export default function YouthSportsPage() {
           </div>
           
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+          <div className="flex flex-col items-center gap-2 mt-12 animate-bounce">
             <span className="text-[9px] tracking-[0.3em] uppercase text-white/30">Scroll</span>
             <ChevronDown className="w-4 h-4 text-white/30" />
           </div>
