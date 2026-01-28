@@ -449,7 +449,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </nav>
-
       {/* Hero Section with Neon Accents */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div
@@ -493,10 +492,7 @@ export default function TransportationPage() {
             We aren't a giant wholesaler. We are specialized problem solvers for OA, CL, PD, and NTL programs.
           </p>
           
-          <p className="text-lg text-white/70 mb-10 max-w-3xl mx-auto leading-relaxed">
-            One application connects you to curated transportation markets plus a digital servicing platform 
-            that automates driver management, fleet changes, and COI delivery.
-          </p>
+          <p className="text-lg text-white/70 mb-10 max-w-3xl mx-auto leading-relaxed">One application connects you to curated transportation markets plus a digital servicing platform that automates driver and equipment management, fleet changes, and COI delivery.</p>
 
           <div className="flex justify-center items-center mb-16">
             <Button
@@ -556,7 +552,6 @@ export default function TransportationPage() {
           <ChevronDown className="w-8 h-8" />
         </button>
       </section>
-
       {/* Leadership Section */}
       <section 
         id="leadership" 
@@ -604,7 +599,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* Market Curation Section */}
       <section 
         data-animate 
@@ -649,7 +643,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* Markets & Coverage Section with Neon Styling */}
       <section 
         id="markets" 
@@ -796,7 +789,6 @@ export default function TransportationPage() {
           </p>
         </div>
       </section>
-
       {/* Why Matterhorn Section */}
       <section 
         id="why-us" 
@@ -843,7 +835,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* Technology Section */}
       <section 
         id="technology" 
@@ -917,7 +908,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* Case Studies Section - Interactive Design */}
       <section 
         id="case-studies" 
@@ -1162,7 +1152,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* Appointment Flow Section */}
       <section 
         data-animate
@@ -1249,7 +1238,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section 
         data-animate
@@ -1346,7 +1334,6 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section 
         data-animate
@@ -1522,13 +1509,10 @@ export default function TransportationPage() {
           </div>
         </div>
       </section>
-
       {/* Closing Section - Interactive Letter Hover */}
       <ClosingSection />
-
       {/* Footer */}
       <Footer />
-
       <BrokerApplicationModal 
         open={applicationModalOpen} 
         onOpenChange={setApplicationModalOpen} 
