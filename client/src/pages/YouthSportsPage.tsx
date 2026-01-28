@@ -425,46 +425,111 @@ export default function YouthSportsPage() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        {/* Background Image with Ken Burns Effect */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center scale-105 animate-[subtle-zoom_20s_ease-in-out_infinite_alternate]"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/70 via-[#0A1628]/60 to-[#0A1628]/90" />
+        
+        {/* Multi-layer Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/80 via-[#0A1628]/50 to-[#0A1628]/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#00ff88]/5 via-transparent to-[#00d4ff]/5" />
+        
+        {/* Animated Glow Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00ff88]/10 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#00d4ff]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff00ff]/5 rounded-full blur-[200px] animate-pulse" style={{ animationDelay: "2s" }} />
+        
+        {/* Scan Line Effect */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{
+          backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)'
+        }} />
+        
+        {/* Floating Micro Text - Left Side */}
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-8 text-[10px] tracking-[0.3em] uppercase text-white/20 font-light">
+          <div className="rotate-[-90deg] origin-left whitespace-nowrap">Youth Sports Protection</div>
+          <div className="rotate-[-90deg] origin-left whitespace-nowrap ml-8">Est. 2024</div>
+        </div>
+        
+        {/* Floating Micro Text - Right Side */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-8 text-[10px] tracking-[0.3em] uppercase text-white/20 font-light items-end">
+          <div className="rotate-90 origin-right whitespace-nowrap">Nationwide Coverage</div>
+          <div className="rotate-90 origin-right whitespace-nowrap mr-8">3M+ Participants</div>
+        </div>
+        
+        {/* Corner Accent Lines */}
+        <div className="absolute top-20 left-0 w-32 h-[1px] bg-gradient-to-r from-[#00ff88]/50 to-transparent" />
+        <div className="absolute top-20 left-0 w-[1px] h-32 bg-gradient-to-b from-[#00ff88]/50 to-transparent" />
+        <div className="absolute bottom-20 right-0 w-32 h-[1px] bg-gradient-to-l from-[#00d4ff]/50 to-transparent" />
+        <div className="absolute bottom-20 right-0 w-[1px] h-32 bg-gradient-to-t from-[#00d4ff]/50 to-transparent" />
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2">
+          {/* Micro Text Above Badge */}
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#00ff88]/50" />
+            <span className="text-[10px] tracking-[0.4em] uppercase text-[#00ff88]/60 font-light">Matterhorn Protects</span>
+            <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#00ff88]/50" />
+          </div>
+          
+          <Badge className="mb-6 bg-[#00ff88]/10 text-[#00ff88] border-[#00ff88]/30 backdrop-blur-sm px-4 py-2">
             Specialty Insurance for Youth Sports
           </Badge>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" data-testid="heading-hero">
-            Youth Sports<br />Coverage
+            <span className="inline-block animate-[fadeInUp_0.8s_ease-out]">Youth Sports</span>
+            <br />
+            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00ff88] to-white animate-[fadeInUp_0.8s_ease-out_0.2s_both]">Coverage</span>
           </h1>
 
           <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed" data-testid="description-hero">
             Comprehensive protection designed specifically for youth leagues, coaches, and participants.
             Tailored coverage solutions that grow with your organization.
           </p>
+          
+          {/* Micro Stats Row */}
+          <div className="flex items-center justify-center gap-8 mb-10">
+            <div className="text-center">
+              <div className="text-[10px] tracking-[0.2em] uppercase text-white/30 mb-1">Markets</div>
+              <div className="text-sm font-semibold text-[#00ff88]">30+</div>
+            </div>
+            <div className="w-[1px] h-8 bg-white/10" />
+            <div className="text-center">
+              <div className="text-[10px] tracking-[0.2em] uppercase text-white/30 mb-1">States</div>
+              <div className="text-sm font-semibold text-[#00d4ff]">50</div>
+            </div>
+            <div className="w-[1px] h-8 bg-white/10" />
+            <div className="text-center">
+              <div className="text-[10px] tracking-[0.2em] uppercase text-white/30 mb-1">Coverage Options</div>
+              <div className="text-sm font-semibold text-[#ff00ff]">55+</div>
+            </div>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               size="lg"
               onClick={() => scrollToSection("quote")}
-              className="bg-white text-[#0A1628] px-8"
+              className="bg-[#00ff88] text-black px-8 group"
               data-testid="button-get-started"
             >
               Get Started
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               size="lg"
               variant="outline"
-              className="bg-transparent border-white/30 text-white px-8"
+              className="bg-white/5 backdrop-blur-sm border-white/30 text-white px-8"
               onClick={() => scrollToSection("contact")}
               data-testid="button-contact-team"
             >
               Contact Our Team
             </Button>
+          </div>
+          
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-[9px] tracking-[0.3em] uppercase text-white/30">Scroll</span>
+            <ChevronDown className="w-4 h-4 text-white/30" />
           </div>
         </div>
       </section>
