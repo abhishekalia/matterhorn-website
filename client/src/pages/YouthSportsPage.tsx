@@ -58,7 +58,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
-import heroBg from "@assets/stock_images/youth_soccer_team_ce_56a4b64e.jpg";
+import heroBg from "@assets/stock_images/youth_sports_hero.jpg";
 import youthLeagueImg from "@assets/stock_images/youth_soccer_practic_7460c554.jpg";
 import youthCoachingImg from "@assets/stock_images/youth_basketball_gam_dd1940dd.jpg";
 import wayneGutridgePhoto from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
@@ -99,13 +99,13 @@ export default function YouthSportsPage() {
   // Why Matterhorn data
   const whyMatterhorn = [
     {
-      title: "NAYS Partnership",
-      description: "Exclusive access to NAYS-certified programs with 15-25% savings through group rates and collective bargaining power.",
+      title: "Specialty Expertise",
+      description: "Deep knowledge of youth sports risks with tailored coverage solutions designed by industry veterans.",
       icon: Award,
     },
     {
       title: "60+ Years Experience",
-      description: "NAYS brings over six decades of youth sports expertise, ensuring comprehensive protection for every program.",
+      description: "Over six decades of youth sports expertise, ensuring comprehensive protection for every program.",
       icon: Trophy,
     },
     {
@@ -146,7 +146,7 @@ export default function YouthSportsPage() {
     },
     {
       title: "Youth Leagues",
-      description: "NAYS-certified coverage for local, regional, and national youth league operations.",
+      description: "Comprehensive coverage for local, regional, and national youth league operations.",
       icon: Trophy,
       features: ["League Liability", "Volunteer Protection", "Event Coverage", "Tournament Insurance"],
     },
@@ -170,7 +170,7 @@ export default function YouthSportsPage() {
       title: "Multi-State Youth Soccer League",
       category: "Youth League",
       challenge: "A large soccer organization operating in 8 states was facing fragmented coverage and inconsistent pricing across regions, with renewals taking months to coordinate.",
-      solution: "We consolidated all coverage under a single NAYS-certified program with unified limits and centralized administration, reducing their annual premium by 22%.",
+      solution: "We consolidated all coverage under a single comprehensive program with unified limits and centralized administration, reducing their annual premium by 22%.",
       results: { "Premium Savings": "22%", "States Unified": "8", "Renewal Time": "5 Days" },
       brokerBenefits: ["Single point of contact for all states", "Automated certificate generation", "Consolidated billing"],
       clientBenefits: ["Consistent coverage across all programs", "Reduced administrative burden", "Better claims experience"],
@@ -179,7 +179,7 @@ export default function YouthSportsPage() {
       title: "Summer Sports Camp Network",
       category: "Camps",
       challenge: "A network of 15 summer camps needed comprehensive coverage including abuse & molestation, but was struggling to find affordable options with proper limits.",
-      solution: "Our NAYS partnership provided access to specialized camp coverage with enhanced A&M limits and integrated background check requirements.",
+      solution: "Our specialty programs provided access to specialized camp coverage with enhanced A&M limits and integrated background check requirements.",
       results: { "Coverage Enhanced": "3x", "Camps Covered": "15", "Quote Turnaround": "48hrs" },
       brokerBenefits: ["Specialized camp expertise", "Streamlined enrollment", "Risk management resources"],
       clientBenefits: ["Enhanced A&M protection", "Integrated safety programs", "Parent confidence"],
@@ -207,44 +207,44 @@ export default function YouthSportsPage() {
     }
   };
 
-  const naysFeatures = [
+  const programFeatures = [
     {
       icon: Award,
-      title: "NAYS-Certified Coverage",
-      description: "Exclusive access to insurance programs specifically designed and approved by the National Alliance for Youth Sports, ensuring comprehensive protection that meets industry standards.",
+      title: "Specialized Coverage",
+      description: "Exclusive access to insurance programs specifically designed for youth sports, ensuring comprehensive protection that meets industry standards.",
     },
     {
       icon: DollarSign,
-      title: "Negotiated Group Rates",
-      description: "Leverage our NAYS partnership to access preferential pricing through bulk purchasing power. Our collective bargaining delivers 15-25% savings compared to individual market rates.",
+      title: "Competitive Group Rates",
+      description: "Access preferential pricing through our collective purchasing power. Our group programs deliver 15-25% savings compared to individual market rates.",
     },
     {
       icon: Network,
       title: "Nationwide Network",
-      description: "Connect with NAYS's network of 3+ million youth sports participants across 50,000+ organizations. Instant credibility and streamlined enrollment for league directors.",
+      description: "Connect with a network of 3+ million youth sports participants across 50,000+ organizations. Instant credibility and streamlined enrollment for league directors.",
     },
     {
       icon: Cpu,
       title: "Automated Administration",
-      description: "NAYS-integrated digital platform handles participant enrollment, certificate generation, and renewal management automatically. Reduce administrative work by 70%.",
+      description: "Digital platform handles participant enrollment, certificate generation, and renewal management automatically. Reduce administrative work by 70%.",
     },
     {
       icon: CheckCircle,
       title: "Program Compliance",
-      description: "All coverage packages are pre-approved by NAYS, ensuring your programs meet safety and insurance requirements for certification and grant eligibility.",
+      description: "All coverage packages meet safety and insurance requirements for certification and grant eligibility.",
     },
     {
       icon: HeadphonesIcon,
       title: "Claims Support",
-      description: "Dedicated claims team familiar with NAYS standards and youth sports scenarios. Average claim resolution 40% faster than industry standard.",
+      description: "Dedicated claims team familiar with youth sports scenarios. Average claim resolution 40% faster than industry standard.",
     },
   ];
 
-  const partnershipSteps = [
+  const programSteps = [
     {
       step: 1,
       title: "Collective Negotiation",
-      description: "NAYS negotiates directly with A-rated carriers using combined volume from thousands of leagues to secure lower premiums.",
+      description: "We negotiate directly with A-rated carriers using combined volume from thousands of leagues to secure lower premiums.",
     },
     {
       step: 2,
@@ -254,12 +254,12 @@ export default function YouthSportsPage() {
     {
       step: 3,
       title: "Risk Mitigation",
-      description: "NAYS safety training and certification requirements reduce claim frequency, resulting in lower rates for all participants.",
+      description: "Safety training and certification requirements reduce claim frequency, resulting in lower rates for all participants.",
     },
     {
       step: 4,
       title: "Technology Integration",
-      description: "Our platform integrates with NAYS systems for automated enrollment, reducing administrative overhead and passing savings to you.",
+      description: "Our platform provides automated enrollment, reducing administrative overhead and passing savings to you.",
     },
   ];
 
@@ -297,7 +297,7 @@ export default function YouthSportsPage() {
   ];
 
   const youthLeagueFeatures = [
-    "NAYS General Liability",
+    "Youth Sports General Liability",
     "Accident Medical & AD&D",
     "Equipment & Gear Coverage",
     "Tournament Travel Protection",
@@ -331,7 +331,7 @@ export default function YouthSportsPage() {
   const resources = [
     {
       title: "Coverage Summary",
-      description: "Comprehensive overview of all NAYS youth sports coverage options, limits, and pricing.",
+      description: "Comprehensive overview of all youth sports coverage options, limits, and pricing.",
       type: "PDF Guide",
       size: "2.4 MB",
     },
@@ -348,8 +348,8 @@ export default function YouthSportsPage() {
       size: "8.7 MB",
     },
     {
-      title: "NAYS Partnership Guide",
-      description: "Detailed explanation of the NAYS partnership benefits and how to leverage group rates.",
+      title: "Program Benefits Guide",
+      description: "Detailed explanation of the program benefits and how to leverage group rates.",
       type: "PDF Guide",
       size: "1.8 MB",
     },
@@ -434,19 +434,19 @@ export default function YouthSportsPage() {
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2">
-            Official NAYS Partnership • 50,000+ Organizations
+            Specialty Insurance for Youth Sports
           </Badge>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" data-testid="heading-hero">
-            Youth Sports Insurance<br />Through NAYS
+            Youth Sports<br />Coverage
           </h1>
 
           <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed" data-testid="description-hero">
-            Exclusive NAYS-certified coverage with 15-25% savings through group rates.
-            Comprehensive protection for youth leagues, coaches, and participants across all 50 states.
+            Comprehensive protection designed specifically for youth leagues, coaches, and participants.
+            Tailored coverage solutions that grow with your organization.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               size="lg"
               onClick={() => scrollToSection("quote")}
@@ -460,27 +460,11 @@ export default function YouthSportsPage() {
               size="lg"
               variant="outline"
               className="bg-transparent border-white/30 text-white px-8"
-              asChild
-              data-testid="button-broker-portal"
+              onClick={() => scrollToSection("contact")}
+              data-testid="button-contact-team"
             >
-              <Link href="/brokers">Broker Portal</Link>
+              Contact Our Team
             </Button>
-          </div>
-
-          {/* Stats Bar */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white" data-testid="stat-markets">30+</div>
-              <div className="text-sm text-white/60">A-Rated Markets</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white" data-testid="stat-states">50</div>
-              <div className="text-sm text-white/60">States Covered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white" data-testid="stat-options">55+</div>
-              <div className="text-sm text-white/60">Coverage Options</div>
-            </div>
           </div>
         </div>
       </section>
@@ -666,31 +650,31 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
-      {/* NAYS Partnership Section */}
-      <section id="nays-partnership" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
+      {/* Program Benefits Section */}
+      <section id="program-benefits" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Badge className="bg-primary/20 text-primary border-primary/30">
-              NAYS Partnership
+              Program Benefits
             </Badge>
           </div>
 
           <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-nays">
-              Leveraging the Power of NAYS
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-program-benefits">
+              The Matterhorn Advantage
             </h2>
             <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Our exclusive partnership with the National Alliance for Youth Sports unlocks unparalleled coverage quality, competitive pricing, and seamless integration for youth leagues nationwide.
+              Our specialty youth sports programs deliver unparalleled coverage quality, competitive pricing, and seamless integration for youth leagues nationwide.
             </p>
           </div>
 
           {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-            {naysFeatures.map((feature, index) => (
+            {programFeatures.map((feature, index) => (
               <Card 
                 key={index}
                 className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} hover-elevate`}
-                data-testid={`card-nays-feature-${index}`}
+                data-testid={`card-program-feature-${index}`}
               >
                 <feature.icon className="w-10 h-10 text-primary mb-4" />
                 <h3 className={`text-xl font-semibold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -703,13 +687,13 @@ export default function YouthSportsPage() {
             ))}
           </div>
 
-          {/* How Partnership Works */}
+          {/* How Our Programs Work */}
           <div className="mb-16">
             <h3 className={`text-2xl font-bold text-center mb-12 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              How the Partnership Works
+              How Our Programs Work
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {partnershipSteps.map((item, index) => (
+              {programSteps.map((item, index) => (
                 <div key={index} className="text-center" data-testid={`step-${index + 1}`}>
                   <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">
                     {item.step}
@@ -725,7 +709,7 @@ export default function YouthSportsPage() {
             </div>
           </div>
 
-          {/* Partnership Stats */}
+          {/* Program Stats */}
           <div className={`rounded-lg p-8 ${isDarkMode ? 'bg-white/5' : 'bg-primary/5'} mb-12`}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
@@ -737,7 +721,7 @@ export default function YouthSportsPage() {
               <div>
                 <div className="text-4xl font-bold text-primary mb-2">50,000+</div>
                 <div className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  Youth organizations in NAYS network
+                  Youth organizations served
                 </div>
               </div>
               <div>
@@ -754,9 +738,9 @@ export default function YouthSportsPage() {
               size="lg"
               onClick={() => scrollToSection("quote")}
               className="bg-primary"
-              data-testid="button-get-nays-coverage"
+              data-testid="button-get-youth-coverage"
             >
-              Get NAYS-Certified Coverage
+              Get Youth Sports Coverage
             </Button>
           </div>
         </div>
@@ -799,10 +783,10 @@ export default function YouthSportsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-programs">
-              NAYS Youth Sports Coverage
+              Youth Sports Coverage
             </h2>
             <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Comprehensive insurance programs exclusively designed for youth sports organizations through our NAYS partnership.
+              Comprehensive insurance programs exclusively designed for youth sports organizations.
             </p>
           </div>
 
@@ -824,7 +808,7 @@ export default function YouthSportsPage() {
                   <Badge className="bg-primary/20 text-primary border-primary/30">Ages 5-18</Badge>
                 </div>
                 <p className={`text-sm mb-6 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  NAYS-certified comprehensive coverage for recreational leagues, competitive programs, and travel teams with automated participant management.
+                  Comprehensive coverage for recreational leagues, competitive programs, and travel teams with automated participant management.
                 </p>
                 <div className="space-y-2 mb-6">
                   {youthLeagueFeatures.map((feature, index) => (
@@ -862,7 +846,7 @@ export default function YouthSportsPage() {
                   <Badge className="bg-primary/20 text-primary border-primary/30">Volunteer & Paid Staff</Badge>
                 </div>
                 <p className={`text-sm mb-6 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  Specialized protection for coaches, administrators, and volunteers with NAYS safety certification requirements built-in.
+                  Specialized protection for coaches, administrators, and volunteers with safety certification requirements built-in.
                 </p>
                 <div className="space-y-2 mb-6">
                   {coachingFeatures.map((feature, index) => (
@@ -893,7 +877,7 @@ export default function YouthSportsPage() {
             Find Organizations in Your Territory
           </h2>
           <p className={`text-lg mb-8 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-            Search by ZIP code to discover youth sports organizations in your region that need NAYS-certified coverage.
+            Search by ZIP code to discover youth sports organizations in your region that need coverage.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
@@ -1452,7 +1436,7 @@ export default function YouthSportsPage() {
               </p>
               <div className="flex items-center gap-2">
                 <Badge className="bg-primary/20 text-primary border-primary/30">
-                  Official NAYS Partner
+                  Youth Sports Specialist
                 </Badge>
               </div>
             </div>

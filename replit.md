@@ -98,12 +98,12 @@ Preferred communication style: Simple, everyday language.
 
 **Landing Pages**
 - `/pickleball` - Pickleball Program landing page with coverage options, franchise programs, broker application
-- `/youth-sports` - NAYS Youth Sports Program landing page with comprehensive sections including:
+- `/youth-sports` - Youth Sports Coverage landing page with comprehensive sections including:
   - Leadership section (Wayne Gutridge, Isaac Allen, Mike Asselin)
   - Why Work With Matterhorn section (4 key benefits)
   - Available Markets section (6 A-rated carriers)
   - Featured Applications section (Organizations, Camps, Leagues, Tournaments, Academies)
-  - NAYS Partnership section with detailed features
+  - Program Benefits section with detailed features
   - Interactive Case Studies section (3 real broker success stories with tabbed navigation)
   - Quote form for lead generation
 - `/travel` - Travel Program landing page with CFAR coverage, instant pricing, enterprise solutions, platform integration
