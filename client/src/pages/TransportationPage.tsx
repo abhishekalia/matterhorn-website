@@ -212,32 +212,28 @@ export default function TransportationPage() {
       highlight: "Turnkey protection for 1099 fleets and gig workers",
     },
     {
-      title: "Motor Carriers",
-      description: "Primary + excess structures, fleet-focused servicing, fast turnaround.",
-      coverage: "Primary AL, Excess, Physical Damage",
-      icon: Truck,
-      highlight: "Core fleet policies for primary and excess needs",
-    },
-    {
-      title: "Ride Share & Delivery",
-      description: "Evolving exposures, driver-centric workflows, consistent COI delivery.",
-      coverage: "TNC Coverage, Last-Mile, P2P",
-      icon: Car,
-      highlight: "Dynamic coverage for the modern gig economy",
-    },
-    {
       title: "Logistics & Freight Brokers",
       description: "Operational liability clarity, contract-driven support, claims-ready documentation.",
       coverage: "Contingent Cargo, Errors & Omissions, General Liability",
       icon: Package,
       highlight: "Comprehensive protection for brokerage operations",
     },
+  ];
+
+  const featuredPrograms = [
     {
-      title: "Unique & Hard-to-Place",
-      description: "Creative structuring, specialist review, market access.",
-      coverage: "Hazmat, Distressed Risk, Custom Structures",
-      icon: Award,
-      highlight: "We find homes for the risks others reject",
+      title: "Ride Share",
+      description: "Comprehensive coverage solutions for TNC drivers and platforms with evolving exposures and driver-centric workflows.",
+      coverage: "TNC Coverage, Last-Mile, P2P, Gap Coverage",
+      icon: Car,
+      highlight: "Dynamic coverage for the modern gig economy",
+    },
+    {
+      title: "Association Programs",
+      description: "Custom-built insurance programs for trade associations and member organizations with group buying power.",
+      coverage: "Group Programs, Member Benefits, Affinity Coverage",
+      icon: Users,
+      highlight: "Leverage collective strength for better rates",
     },
   ];
 
@@ -688,10 +684,10 @@ export default function TransportationPage() {
             </p>
           </div>
 
-          {/* First row - 3 cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-8">
-            {marketSegments.slice(0, 3).map((segment, index) => {
-              const neonColors = [NEON_COLORS.amber, NEON_COLORS.cyan, NEON_COLORS.safetyGreen];
+          {/* Markets - 2 cards centered */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto mb-16">
+            {marketSegments.map((segment, index) => {
+              const neonColors = [NEON_COLORS.amber, NEON_COLORS.cyan];
               const neonColor = neonColors[index % neonColors.length];
               return (
                 <Card 
@@ -733,18 +729,32 @@ export default function TransportationPage() {
               );
             })}
           </div>
-          
-          {/* Second row - 2 cards centered */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-3xl mx-auto">
-            {marketSegments.slice(3).map((segment, index) => {
-              const neonColors = [NEON_COLORS.electric, NEON_COLORS.amber];
+
+          {/* Featured Programs Section */}
+          <div className={`text-center mb-12 ${getAnimationClass("markets")}`}>
+            <Badge className="mb-4 px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.electric}20`, 
+              color: NEON_COLORS.electric, 
+              borderColor: `${NEON_COLORS.electric}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.electric}30`
+            }}>
+              Featured Programs
+            </Badge>
+            <h3 className="text-2xl md:text-3xl font-bold text-white">
+              Specialized Coverage Solutions
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
+            {featuredPrograms.map((program, index) => {
+              const neonColors = [NEON_COLORS.safetyGreen, NEON_COLORS.electric];
               const neonColor = neonColors[index % neonColors.length];
               return (
                 <Card 
-                  key={index + 3} 
+                  key={index} 
                   className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover-elevate transition-all duration-500 group cursor-pointer relative overflow-visible ${getAnimationClass("markets")}`}
-                  style={{ transitionDelay: `${(index + 3) * 75}ms` }}
-                  data-testid={`card-market-${index + 3}`}
+                  style={{ transitionDelay: `${index * 75}ms` }}
+                  data-testid={`card-program-${index}`}
                 >
                   {/* Hover glow effect */}
                   <div 
@@ -761,18 +771,18 @@ export default function TransportationPage() {
                       className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
                       style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
                     >
-                      <segment.icon className="w-7 h-7" style={{ color: neonColor }} />
+                      <program.icon className="w-7 h-7" style={{ color: neonColor }} />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#ffaa00] transition-colors">{segment.title}</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#ffaa00] transition-colors">{program.title}</h3>
                     <p className="text-white/60 text-sm leading-relaxed mb-4">
-                      {segment.description}
+                      {program.description}
                     </p>
                     <div className="pt-4 border-t border-white/10">
                       <p className="text-xs font-medium mb-1" style={{ color: neonColor }}>Coverage:</p>
-                      <p className="text-xs text-white/50">{segment.coverage}</p>
+                      <p className="text-xs text-white/50">{program.coverage}</p>
                     </div>
                     <div className="mt-4 pt-4 border-t border-white/10">
-                      <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
+                      <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{program.highlight}</p>
                     </div>
                   </div>
                 </Card>
