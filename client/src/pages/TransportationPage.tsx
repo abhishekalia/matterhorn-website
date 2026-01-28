@@ -526,22 +526,6 @@ export default function TransportationPage() {
             </div>
           </div>
 
-          {/* Stats Row with Neon Styling */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="text-center group hover:scale-105 transition-transform duration-300"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text" style={{ 
-                  backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.amber}, ${NEON_COLORS.cyan}, ${NEON_COLORS.safetyGreen})`
-                }}>
-                  {stat.value}
-                </div>
-                <div className="text-sm text-white/60 mt-1 group-hover:text-white/80 transition-colors">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <button
