@@ -7,7 +7,7 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: "30+", label: "A-Rated Markets" },
+  { value: "15", label: "A-Rated Markets" },
   { value: "50", label: "States Covered" },
   { value: "100+", label: "Years Combined Experience" },
   { value: "55+", label: "Coverages" },
