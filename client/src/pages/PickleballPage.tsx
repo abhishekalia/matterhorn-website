@@ -880,7 +880,7 @@ export default function PickleballPage() {
               <p className="text-slate-400 mb-6">
                 Already have an application package? Upload your existing ACORD forms, loss runs, and supporting documents in any format.
               </p>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3">
                 <li className="flex items-center gap-2 text-sm text-slate-300">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>ACORD forms, PDFs, or custom apps accepted</span>
@@ -898,16 +898,6 @@ export default function PickleballPage() {
                   <span>Indication within 24-48 hours</span>
                 </li>
               </ul>
-              <Button 
-                className="w-full bg-emerald-600 hover:bg-emerald-700 group/btn"
-                asChild
-                data-testid="button-upload-submission"
-              >
-                <a href="mailto:pickleball@matterhornprotects.com?subject=Pickleball Program Submission - Document Upload">
-                  Upload Your Submission
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                </a>
-              </Button>
             </Card>
 
             {/* Digital Application Option */}
@@ -919,7 +909,7 @@ export default function PickleballPage() {
               <p className="text-slate-400 mb-6">
                 Use our comprehensive online application designed specifically for pickleball risks. Quick, guided, and optimized for fast quoting.
               </p>
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3">
                 <li className="flex items-center gap-2 text-sm text-slate-300">
                   <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                   <span>Purpose-built for pickleball facilities</span>
@@ -937,16 +927,20 @@ export default function PickleballPage() {
                   <span>Same-day indications on clean risks</span>
                 </li>
               </ul>
-              <Button 
-                variant="secondary"
-                className="w-full group/btn"
-                onClick={() => scrollToSection("broker-application")}
-                data-testid="button-digital-application"
-              >
-                Start Digital Application
-                <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Button>
             </Card>
+          </div>
+
+          {/* Start Application Button */}
+          <div className="text-center mb-12">
+            <Button 
+              size="lg"
+              className="bg-emerald-600 hover:bg-emerald-700 group"
+              onClick={() => scrollToSection("broker-application")}
+              data-testid="button-start-pickleball-application"
+            >
+              Start Your Pickleball Application
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </div>
 
           {/* How It Works */}
