@@ -895,14 +895,14 @@ export default function SportsPage() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
             {marketSegments.map((segment, index) => {
               const neonColors = ['#00ff88', '#00d4ff', '#ff00ff', '#ffff00', '#00ff88'];
               const neonColor = neonColors[index % neonColors.length];
               return (
                 <Card 
                   key={index}
-                  className={`p-6 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden ${getAnimationClass("markets")}`}
+                  className={`p-6 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] ${getAnimationClass("markets")}`}
                   style={{ 
                     transitionDelay: `${index * 100}ms`,
                     borderColor: 'rgba(255,255,255,0.1)'
