@@ -49,16 +49,151 @@ import {
   TrendingUp,
   Layers,
   Cpu,
+  Target,
+  Trophy,
+  Heart,
+  Tent,
+  GraduationCap,
+  TrendingDown,
+  ChevronDown,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import heroBg from "@assets/stock_images/youth_soccer_team_ce_56a4b64e.jpg";
 import youthLeagueImg from "@assets/stock_images/youth_soccer_practic_7460c554.jpg";
 import youthCoachingImg from "@assets/stock_images/youth_basketball_gam_dd1940dd.jpg";
+import wayneGutridgePhoto from "@assets/generated_images/Wayne_Gutridge_professional_headshot_bd36310d.png";
+import isaacAllenPhoto from "@assets/generated_images/Isaac_Allen_professional_headshot_640e0cbc.png";
+import mikeAsselinPhoto from "@assets/generated_images/Mike_Asselin_professional_headshot.png";
 
 export default function YouthSportsPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [zipCode, setZipCode] = useState("");
   const [applicationModalOpen, setApplicationModalOpen] = useState(false);
+  const [activeCaseStudy, setActiveCaseStudy] = useState(0);
+
+  // Leadership team data
+  const leadership = [
+    {
+      name: "Wayne Gutridge",
+      title: "CEO & Founder",
+      description: "A visionary leader in specialty insurance, Wayne founded Matterhorn with a mission to revolutionize program design for youth organizations.",
+      territory: "National",
+      photo: wayneGutridgePhoto,
+    },
+    {
+      name: "Isaac Allen",
+      title: "President",
+      description: "Isaac brings deep expertise in sports risk management and carrier relationships, ensuring our youth sports programs meet evolving needs.",
+      territory: "National",
+      photo: isaacAllenPhoto,
+    },
+    {
+      name: "Mike Asselin",
+      title: "Chief Operating Officer",
+      description: "Mike's background in sports management and player development drives our youth sports division's operational excellence.",
+      territory: "National",
+      photo: mikeAsselinPhoto,
+    },
+  ];
+
+  // Why Matterhorn data
+  const whyMatterhorn = [
+    {
+      title: "NAYS Partnership",
+      description: "Exclusive access to NAYS-certified programs with 15-25% savings through group rates and collective bargaining power.",
+      icon: Award,
+    },
+    {
+      title: "60+ Years Experience",
+      description: "NAYS brings over six decades of youth sports expertise, ensuring comprehensive protection for every program.",
+      icon: Trophy,
+    },
+    {
+      title: "Nationwide Coverage",
+      description: "Coverage available in all 50 states with programs serving 3+ million participants annually.",
+      icon: Globe,
+    },
+    {
+      title: "Technology-Enabled",
+      description: "Digital enrollment, instant certificates, and automated participant management for seamless operations.",
+      icon: Settings,
+    },
+  ];
+
+  // Available markets data
+  const availableMarkets = [
+    { name: "Markel", rating: "A+" },
+    { name: "Philadelphia Insurance", rating: "A+" },
+    { name: "Great American", rating: "A" },
+    { name: "Nationwide", rating: "A+" },
+    { name: "Tokio Marine", rating: "A++" },
+    { name: "Chubb", rating: "A++" },
+  ];
+
+  // Featured applications data
+  const featuredApplications = [
+    {
+      title: "Youth Sports Organizations",
+      description: "Comprehensive coverage for recreational leagues, competitive programs, and travel teams.",
+      icon: Users,
+      features: ["General Liability", "Participant Accident", "D&O Coverage", "Equipment Protection"],
+    },
+    {
+      title: "Sports Camps",
+      description: "Specialized programs for day camps, overnight camps, and specialty training facilities.",
+      icon: Tent,
+      features: ["Camper Accident Medical", "Abuse & Molestation", "Property Coverage", "Travel Protection"],
+    },
+    {
+      title: "Youth Leagues",
+      description: "NAYS-certified coverage for local, regional, and national youth league operations.",
+      icon: Trophy,
+      features: ["League Liability", "Volunteer Protection", "Event Coverage", "Tournament Insurance"],
+    },
+    {
+      title: "Tournaments & Events",
+      description: "Event-specific coverage for competitions, showcases, and multi-day tournaments.",
+      icon: Calendar,
+      features: ["Event Cancellation", "Spectator Liability", "Vendor Coverage", "Prize Indemnity"],
+    },
+    {
+      title: "Sports Academies",
+      description: "Year-round coverage for training academies, skill development programs, and elite athlete programs.",
+      icon: GraduationCap,
+      features: ["Professional Liability", "Instructor Coverage", "Facility Insurance", "Student Accident"],
+    },
+  ];
+
+  // Case studies data
+  const caseStudies = [
+    {
+      title: "Multi-State Youth Soccer League",
+      category: "Youth League",
+      challenge: "A large soccer organization operating in 8 states was facing fragmented coverage and inconsistent pricing across regions, with renewals taking months to coordinate.",
+      solution: "We consolidated all coverage under a single NAYS-certified program with unified limits and centralized administration, reducing their annual premium by 22%.",
+      results: { "Premium Savings": "22%", "States Unified": "8", "Renewal Time": "5 Days" },
+      brokerBenefits: ["Single point of contact for all states", "Automated certificate generation", "Consolidated billing"],
+      clientBenefits: ["Consistent coverage across all programs", "Reduced administrative burden", "Better claims experience"],
+    },
+    {
+      title: "Summer Sports Camp Network",
+      category: "Camps",
+      challenge: "A network of 15 summer camps needed comprehensive coverage including abuse & molestation, but was struggling to find affordable options with proper limits.",
+      solution: "Our NAYS partnership provided access to specialized camp coverage with enhanced A&M limits and integrated background check requirements.",
+      results: { "Coverage Enhanced": "3x", "Camps Covered": "15", "Quote Turnaround": "48hrs" },
+      brokerBenefits: ["Specialized camp expertise", "Streamlined enrollment", "Risk management resources"],
+      clientBenefits: ["Enhanced A&M protection", "Integrated safety programs", "Parent confidence"],
+    },
+    {
+      title: "Travel Baseball Organization",
+      category: "Tournaments",
+      challenge: "A travel baseball organization hosting 20+ tournaments annually needed event coverage that scaled with varying participant counts and venue requirements.",
+      solution: "We created a master policy with per-event certificates and flexible participant limits, allowing seamless scaling for tournaments of any size.",
+      results: { "Events Covered": "20+", "Flexibility": "100%", "Admin Time": "-70%" },
+      brokerBenefits: ["Event-based pricing", "Instant certificates", "Venue compliance support"],
+      clientBenefits: ["Scalable coverage", "Venue approval ready", "Tournament peace of mind"],
+    },
+  ];
 
   // Scroll to top when page loads
   useEffect(() => {
@@ -279,7 +414,7 @@ export default function YouthSportsPage() {
               </button>
               <Button 
                 onClick={() => scrollToSection("quote")}
-                className="bg-primary hover:bg-primary/90"
+                className="bg-primary"
                 data-testid="button-get-quote-header"
               >
                 Get a Quote
@@ -315,7 +450,7 @@ export default function YouthSportsPage() {
             <Button 
               size="lg"
               onClick={() => scrollToSection("quote")}
-              className="bg-white text-[#0A1628] hover:bg-white/90 px-8"
+              className="bg-white text-[#0A1628] px-8"
               data-testid="button-get-started"
             >
               Get Started
@@ -324,7 +459,7 @@ export default function YouthSportsPage() {
             <Button 
               size="lg"
               variant="outline"
-              className="bg-transparent border-white/30 text-white hover:bg-white/10 px-8"
+              className="bg-transparent border-white/30 text-white px-8"
               asChild
               data-testid="button-broker-portal"
             >
@@ -350,8 +485,189 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
+      {/* Leadership Section */}
+      <section id="leadership" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 mb-4">
+              Leadership
+            </Badge>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-leadership">
+              Youth Sports Industry Veterans
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+              Led by executives with deep experience in youth sports risk management and carrier relationships.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {leadership.map((leader, index) => (
+              <Card 
+                key={index} 
+                className={`p-6 text-center group overflow-visible ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10 hover:border-[#00ff88]/50' : 'bg-white border-gray-200 hover:border-[#00ff88]/50'} hover-elevate`}
+              >
+                <div className="relative w-28 h-28 mx-auto mb-6">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00ff88]/30 to-[#00d4ff]/20 animate-pulse" />
+                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-[#00ff88]/30 group-hover:border-[#00ff88]/60 transition-all duration-500">
+                    <img 
+                      src={leader.photo} 
+                      alt={leader.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <h3 className={`text-xl font-bold mb-1 group-hover:text-[#00ff88] transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{leader.name}</h3>
+                <p className="text-[#00ff88] font-medium mb-2">{leader.title}</p>
+                <Badge className={`text-xs mb-4 ${isDarkMode ? 'bg-white/10 text-white/70 border-white/20' : 'bg-gray-100 text-gray-600 border-gray-200'}`}>
+                  <MapPin className="w-3 h-3 mr-1" />
+                  {leader.territory}
+                </Badge>
+                <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>{leader.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Work With Matterhorn Section */}
+      <section id="why-matterhorn" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 mb-4">
+              Why Matterhorn
+            </Badge>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-why-matterhorn">
+              The Youth Sports Insurance{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">
+                Advantage
+              </span>
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+              Partner with industry leaders to access exclusive programs designed specifically for youth sports organizations.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {whyMatterhorn.map((item, index) => (
+              <Card 
+                key={index}
+                className={`p-6 group overflow-visible ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10 hover:border-[#00ff88]/50' : 'bg-gray-50 border-gray-200 hover:border-[#00ff88]/50'} hover-elevate`}
+              >
+                <div className={`w-12 h-12 rounded-md flex items-center justify-center mb-4 transition-all duration-300 ${isDarkMode ? 'bg-[#00ff88]/20 group-hover:bg-[#00ff88]/30' : 'bg-[#00ff88]/10 group-hover:bg-[#00ff88]/20'}`}>
+                  <item.icon className="w-6 h-6 text-[#00ff88]" />
+                </div>
+                <h3 className={`text-lg font-bold mb-2 group-hover:text-[#00ff88] transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{item.title}</h3>
+                <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>{item.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Available Markets Section */}
+      <section id="markets" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <Badge className="bg-[#00d4ff]/20 text-[#00d4ff] border-[#00d4ff]/30 mb-4">
+              Available Markets
+            </Badge>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-markets">
+              Access to A-Rated Carriers
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+              One submission connects you to our curated selection of A-rated markets with specialized youth sports expertise.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto mb-12">
+            {availableMarkets.map((market, index) => (
+              <div 
+                key={index}
+                className={`px-6 py-4 rounded-lg border overflow-visible ${isDarkMode ? 'bg-white/5 border-white/10 hover:border-[#00d4ff]/50' : 'bg-white border-gray-200 hover:border-[#00d4ff]/50'} hover-elevate`}
+              >
+                <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{market.name}</span>
+                <Badge className="ml-2 bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 text-xs">
+                  {market.rating}
+                </Badge>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <p className={`text-sm mb-4 ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
+              Plus access to 20+ additional specialty markets for unique risks
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Applications Section */}
+      <section id="applications" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 mb-4">
+              Featured Applications
+            </Badge>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-applications">
+              Programs for Every Youth Sports Need
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+              Specialized coverage applications designed for organizations, camps, leagues, tournaments, and academies.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6">
+            {featuredApplications.map((app, index) => {
+              const neonColors = ['#00ff88', '#00d4ff', '#ff00ff', '#00ff88', '#00d4ff'];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+                <Card 
+                  key={index}
+                  className={`p-6 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] group overflow-visible ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10' : 'bg-gray-50 border-gray-200'} hover-elevate`}
+                  style={{ borderColor: 'transparent' }}
+                  data-testid={`card-application-${index}`}
+                >
+                  <div 
+                    className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-all duration-300"
+                    style={{ backgroundColor: `${neonColor}20` }}
+                  >
+                    <app.icon className="w-6 h-6" style={{ color: neonColor }} />
+                  </div>
+                  <h3 className={`text-lg font-bold mb-2 group-hover:text-[#00ff88] transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    {app.title}
+                  </h3>
+                  <p className={`text-sm mb-4 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                    {app.description}
+                  </p>
+                  <div className="space-y-2">
+                    {app.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4" style={{ color: neonColor }} />
+                        <span className={`text-xs ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              size="lg"
+              className="bg-[#00ff88] text-black group"
+              onClick={() => scrollToSection("quote")}
+              data-testid="button-start-application"
+            >
+              Start Your Application
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* NAYS Partnership Section */}
-      <section className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
+      <section id="nays-partnership" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Badge className="bg-primary/20 text-primary border-primary/30">
@@ -437,7 +753,7 @@ export default function YouthSportsPage() {
             <Button 
               size="lg"
               onClick={() => scrollToSection("quote")}
-              className="bg-primary hover:bg-primary/90"
+              className="bg-primary"
               data-testid="button-get-nays-coverage"
             >
               Get NAYS-Certified Coverage
@@ -520,7 +836,7 @@ export default function YouthSportsPage() {
                 </div>
                 <Button 
                   variant="outline"
-                  className={`${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}
+                  className={`${isDarkMode ? 'border-white/20 text-white' : ''}`}
                   onClick={() => scrollToSection("quote")}
                   data-testid="button-learn-more-league"
                 >
@@ -558,7 +874,7 @@ export default function YouthSportsPage() {
                 </div>
                 <Button 
                   variant="outline"
-                  className={`${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}
+                  className={`${isDarkMode ? 'border-white/20 text-white' : ''}`}
                   onClick={() => scrollToSection("quote")}
                   data-testid="button-learn-more-coaching"
                 >
@@ -604,11 +920,238 @@ export default function YouthSportsPage() {
           <div className="mt-8">
             <Button 
               variant="outline"
-              className={`${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}
+              className={`${isDarkMode ? 'border-white/20 text-white' : ''}`}
               data-testid="button-contact-territory"
             >
               Contact Territory Support
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section id="case-studies" className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
+        {isDarkMode && (
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00ff88]/5 rounded-full blur-[150px] animate-pulse" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#00d4ff]/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
+          </div>
+        )}
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#00ff88]" />
+              <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 text-[10px] uppercase tracking-widest px-4">
+                Success Stories
+              </Badge>
+              <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#00ff88]" />
+            </div>
+            <h2 className={`text-3xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-case-studies">
+              Real Results,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#00ff88]">
+                Real Brokers
+              </span>
+            </h2>
+            <p className={`text-base max-w-2xl mx-auto ${isDarkMode ? 'text-white/50' : 'text-gray-600'}`}>
+              Discover how our partners solve complex youth sports insurance challenges
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8">
+            <div className="lg:col-span-4 space-y-3">
+              {caseStudies.map((study, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveCaseStudy(index)}
+                  className={`w-full text-left p-5 rounded-lg border transition-all duration-500 group relative overflow-hidden ${
+                    activeCaseStudy === index
+                      ? isDarkMode 
+                        ? "bg-gradient-to-r from-[#00ff88]/20 to-[#00d4ff]/10 border-[#00ff88]/50 shadow-lg shadow-[#00ff88]/20"
+                        : "bg-gradient-to-r from-[#00ff88]/10 to-[#00d4ff]/5 border-[#00ff88]/50"
+                      : isDarkMode
+                        ? "bg-white/[0.03] border-white/10 hover:bg-white/[0.06] hover:border-white/20"
+                        : "bg-gray-50 border-gray-200 hover:bg-gray-100"
+                  }`}
+                  data-testid={`case-study-tab-${index}`}
+                >
+                  {activeCaseStudy === index && (
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#00ff88]/30 rounded-full blur-3xl" />
+                  )}
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold transition-all ${
+                        activeCaseStudy === index
+                          ? "bg-[#00ff88] text-black"
+                          : isDarkMode
+                            ? "bg-white/10 text-white/50 group-hover:bg-[#00ff88]/30 group-hover:text-[#00ff88]"
+                            : "bg-gray-200 text-gray-500 group-hover:bg-[#00ff88]/20 group-hover:text-[#00ff88]"
+                      }`}>
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+                      <Badge 
+                        variant="outline" 
+                        className={`text-[9px] uppercase tracking-wider border-none ${
+                          activeCaseStudy === index
+                            ? "bg-[#00ff88]/30 text-white"
+                            : isDarkMode ? "bg-white/10 text-white/50" : "bg-gray-200 text-gray-500"
+                        }`}
+                      >
+                        {study.category}
+                      </Badge>
+                    </div>
+                    <h3 className={`font-semibold transition-colors ${
+                      activeCaseStudy === index 
+                        ? isDarkMode ? "text-white" : "text-gray-900"
+                        : isDarkMode ? "text-white/70 group-hover:text-white" : "text-gray-600 group-hover:text-gray-900"
+                    }`}>
+                      {study.title}
+                    </h3>
+                    
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className={`flex-1 h-1 rounded-full overflow-hidden ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`}>
+                        <div 
+                          className={`h-full rounded-full transition-all duration-700 ${
+                            activeCaseStudy === index
+                              ? "w-full bg-gradient-to-r from-[#00ff88] to-[#00d4ff]"
+                              : "w-0"
+                          }`}
+                        />
+                      </div>
+                      <ArrowRight className={`w-4 h-4 transition-all ${
+                        activeCaseStudy === index
+                          ? "text-[#00ff88] translate-x-1"
+                          : isDarkMode ? "text-white/30" : "text-gray-400"
+                      }`} />
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <div className="lg:col-span-8">
+              <Card className={`overflow-hidden relative ${isDarkMode ? 'bg-[#1B2A41]/40 border-white/10 backdrop-blur-xl' : 'bg-white border-gray-200'}`}>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff]" />
+                
+                <div className="p-8">
+                  <div className="grid grid-cols-3 gap-4 mb-8">
+                    {Object.entries(caseStudies[activeCaseStudy].results).map(([key, value], idx) => (
+                      <div 
+                        key={key}
+                        className={`relative group p-4 rounded-lg border text-center overflow-hidden transition-all duration-300 ${isDarkMode ? 'bg-gradient-to-br from-white/[0.05] to-transparent border-white/10 hover:border-[#00ff88]/30' : 'bg-gray-50 border-gray-200 hover:border-[#00ff88]/30'}`}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#00ff88]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <p className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff] relative z-10">
+                          {value}
+                        </p>
+                        <p className={`text-[10px] uppercase tracking-widest mt-1 font-medium relative z-10 ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
+                          {key}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-md bg-red-500/20 flex items-center justify-center">
+                          <TrendingDown className="w-4 h-4 text-red-400" />
+                        </div>
+                        <h4 className="text-sm font-semibold text-red-400 uppercase tracking-wider">
+                          Challenge
+                        </h4>
+                      </div>
+                      <p className={`text-sm leading-relaxed pl-10 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                        {caseStudies[activeCaseStudy].challenge}
+                      </p>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-md bg-green-500/20 flex items-center justify-center">
+                          <TrendingUp className="w-4 h-4 text-green-400" />
+                        </div>
+                        <h4 className="text-sm font-semibold text-green-400 uppercase tracking-wider">
+                          Solution
+                        </h4>
+                      </div>
+                      <p className={`text-sm leading-relaxed pl-10 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                        {caseStudies[activeCaseStudy].solution}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className={`grid md:grid-cols-2 gap-6 pt-6 border-t ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-md bg-[#00d4ff]/20 flex items-center justify-center">
+                          <Briefcase className="w-3 h-3 text-[#00d4ff]" />
+                        </div>
+                        <h4 className="text-xs font-semibold text-[#00d4ff] uppercase tracking-wider">
+                          Broker Benefits
+                        </h4>
+                      </div>
+                      <ul className="space-y-2">
+                        {caseStudies[activeCaseStudy].brokerBenefits.map((benefit, idx) => (
+                          <li key={idx} className={`flex items-start gap-2 text-sm group transition-colors ${isDarkMode ? 'text-white/60 hover:text-white/80' : 'text-gray-600 hover:text-gray-800'}`}>
+                            <CheckCircle className="w-4 h-4 text-[#00d4ff]/70 flex-shrink-0 mt-0.5 group-hover:text-[#00d4ff] transition-colors" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-6 h-6 rounded-md bg-[#ff00ff]/20 flex items-center justify-center">
+                          <Users className="w-3 h-3 text-[#ff00ff]" />
+                        </div>
+                        <h4 className="text-xs font-semibold text-[#ff00ff] uppercase tracking-wider">
+                          Client Benefits
+                        </h4>
+                      </div>
+                      <ul className="space-y-2">
+                        {caseStudies[activeCaseStudy].clientBenefits.map((benefit, idx) => (
+                          <li key={idx} className={`flex items-start gap-2 text-sm group transition-colors ${isDarkMode ? 'text-white/60 hover:text-white/80' : 'text-gray-600 hover:text-gray-800'}`}>
+                            <CheckCircle className="w-4 h-4 text-[#ff00ff]/70 flex-shrink-0 mt-0.5 group-hover:text-[#ff00ff] transition-colors" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className={`mt-8 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4 ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <p className={`text-sm ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
+                      Want similar results for your clients?
+                    </p>
+                    <Button 
+                      onClick={() => scrollToSection("quote")}
+                      className="group bg-[#00ff88] hover:bg-[#00ff88]/90 text-black"
+                      data-testid="button-case-study-cta"
+                    >
+                      Start Your Success Story
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
+              <div className="flex justify-center gap-2 mt-6">
+                {caseStudies.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveCaseStudy(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      activeCaseStudy === index
+                        ? "w-8 bg-gradient-to-r from-[#00ff88] to-[#00d4ff]"
+                        : isDarkMode ? "bg-white/20 hover:bg-white/40" : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                    data-testid={`case-study-dot-${index}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -646,7 +1189,7 @@ export default function YouthSportsPage() {
           <div className="text-center">
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90"
+              className="bg-primary"
               onClick={() => setApplicationModalOpen(true)}
               data-testid="button-become-broker"
             >
@@ -688,7 +1231,7 @@ export default function YouthSportsPage() {
                 <Button 
                   variant="outline"
                   size="sm"
-                  className={`w-full ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}
+                  className={`w-full ${isDarkMode ? 'border-white/20 text-white' : ''}`}
                   data-testid={`button-download-${index}`}
                 >
                   <Download className="w-4 h-4 mr-2" />
@@ -704,7 +1247,7 @@ export default function YouthSportsPage() {
             </p>
             <Button 
               variant="outline"
-              className={`${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}
+              className={`${isDarkMode ? 'border-white/20 text-white' : ''}`}
               data-testid="button-request-materials"
             >
               Request Custom Materials
@@ -749,7 +1292,7 @@ export default function YouthSportsPage() {
               </p>
               <Button 
                 variant="outline"
-                className={`w-full ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : ''}`}
+                className={`w-full ${isDarkMode ? 'border-white/20 text-white' : ''}`}
                 data-testid="button-submit-inquiry"
               >
                 Submit Inquiry
@@ -991,7 +1534,7 @@ export default function YouthSportsPage() {
               <div className="mt-6">
                 <Button 
                   size="sm"
-                  className="bg-primary hover:bg-primary/90"
+                  className="bg-primary"
                   onClick={() => scrollToSection('quote')}
                   data-testid="button-footer-quote"
                 >
