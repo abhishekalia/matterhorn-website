@@ -216,23 +216,71 @@ export default function LogisticsApplicationPage() {
       </section>
 
       {/* Application Section */}
-      <section className="py-16 bg-[#0D1B2A]">
-        <div className="max-w-4xl mx-auto px-6">
-          {/* Application Button */}
-          <div className="flex justify-center gap-4 mb-12">
+      <section className="py-20 bg-[#0D1B2A] relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-[150px] opacity-30" style={{ backgroundColor: NEON_COLORS.cyan }} />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full blur-[120px] opacity-20" style={{ backgroundColor: NEON_COLORS.amber }} />
+        </div>
+
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          {/* Header */}
+          <div className="text-center mb-10">
+            <Badge className="mb-4 px-3 py-1" style={{ 
+              backgroundColor: `${NEON_COLORS.cyan}20`, 
+              color: NEON_COLORS.cyan, 
+              borderColor: `${NEON_COLORS.cyan}40`,
+            }}>
+              Get Started
+            </Badge>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Ready to Apply?
+            </h2>
+            <p className="text-white/60 max-w-2xl mx-auto">
+              Complete our streamlined digital application and receive an indication within 24-48 hours.
+            </p>
+          </div>
+
+          {/* Application Card */}
+          <Card className="p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm max-w-xl mx-auto text-center hover-elevate overflow-visible transition-all duration-300">
+            <div 
+              className="w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6"
+              style={{ backgroundColor: `${NEON_COLORS.cyan}20`, boxShadow: `0 0 30px ${NEON_COLORS.cyan}30` }}
+            >
+              <FileText className="w-8 h-8" style={{ color: NEON_COLORS.cyan }} />
+            </div>
+            <h3 className="text-xl font-bold text-white mb-3">Logistics & Freight Broker Application</h3>
+            <p className="text-white/60 text-sm mb-6">
+              Our broker-friendly form is designed for speed. Apply online and our underwriting team will review your submission promptly.
+            </p>
+            <ul className="text-left text-sm text-white/70 space-y-2 mb-8 max-w-sm mx-auto">
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: NEON_COLORS.safetyGreen }} />
+                <span>Quick 10-minute application</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: NEON_COLORS.safetyGreen }} />
+                <span>Auto-save progress as you go</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: NEON_COLORS.safetyGreen }} />
+                <span>24-48 hour response time</span>
+              </li>
+            </ul>
             <Button
-              variant="default"
-              className="flex items-center gap-2"
+              size="lg"
+              className="w-full group"
               asChild
+              style={{ backgroundColor: NEON_COLORS.cyan }}
               data-testid="tab-digital"
             >
               <a href="https://form.jotform.com/251255738573060" target="_blank" rel="noopener noreferrer">
-                <FileText className="w-4 h-4" />
+                <FileText className="w-5 h-5 mr-2" />
                 Complete Digital Application
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-          </div>
-
+          </Card>
         </div>
       </section>
 
