@@ -40,7 +40,7 @@ import {
   Upload,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
-import { ContactFormModal } from "@/components/ContactFormModal";
+import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import pickleballHeroImage from "@/assets/images/pickleball-hero.png";
 
 const US_STATES = [
@@ -926,7 +926,7 @@ export default function PickleballPage() {
         </div>
       </footer>
 
-      <ContactFormModal 
+      <BrokerApplicationModal 
         open={contactModalOpen} 
         onOpenChange={setContactModalOpen} 
       />
