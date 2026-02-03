@@ -314,9 +314,9 @@ export default function LogisticsApplicationPage() {
               <Phone className="w-4 h-4" style={{ color: NEON_COLORS.cyan }} />
               <span>1-844-600-0611</span>
             </a>
-            <a href="mailto:logistics@matterhornprotects.com" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+            <a href="mailto:support@matterhornprotects.com" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
               <Mail className="w-4 h-4" style={{ color: NEON_COLORS.amber }} />
-              <span>logistics@matterhornprotects.com</span>
+              <span>support@matterhornprotects.com</span>
             </a>
           </div>
         </div>
