@@ -558,7 +558,7 @@ export default function MotorCarrierApplicationPage() {
                 className="w-full group"
                 asChild
               >
-                <a href="mailto:transportation@matterhornprotects.com?subject=Discovery Call Request - Motor Carrier">
+                <a href="mailto:support@matterhornprotects.com?subject=Discovery Call Request - Motor Carrier">
                   Schedule a Call
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
