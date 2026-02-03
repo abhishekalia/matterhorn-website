@@ -260,11 +260,13 @@ export default function PickleballPage() {
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => scrollToSection("coverage")}
                 className="border-white/30 text-white backdrop-blur-sm bg-white/10"
+                asChild
                 data-testid="button-learn-more"
               >
-                Learn More
+                <a href="mailto:support@matterhornprotects.com?subject=Pickleball Insurance Inquiry">
+                  Learn More
+                </a>
               </Button>
             </div>
           </div>
