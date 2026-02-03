@@ -40,6 +40,7 @@ import {
   Upload,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
+import { ContactFormModal } from "@/components/ContactFormModal";
 import pickleballHeroImage from "@/assets/images/pickleball-hero.png";
 
 const US_STATES = [
@@ -133,6 +134,7 @@ const marketRates = [
 ];
 
 export default function PickleballPage() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     agencyName: "",
@@ -247,13 +249,11 @@ export default function PickleballPage() {
               <Button
                 size="lg"
                 className="bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
-                asChild
+                onClick={() => setContactModalOpen(true)}
                 data-testid="button-get-started"
               >
-                <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
-                  Get Started Today
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
+                Get Started Today
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button
                 size="lg"
@@ -704,13 +704,11 @@ export default function PickleballPage() {
                 <Button
                   size="lg"
                   className="bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
-                  asChild
+                  onClick={() => setContactModalOpen(true)}
                   data-testid="button-submit-application"
                 >
-                  <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
-                    Start Your Application
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </a>
+                  Start Your Application
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </div>
             </Card>
@@ -820,13 +818,11 @@ export default function PickleballPage() {
             <Button 
               size="lg"
               className="bg-emerald-600 group"
-              asChild
+              onClick={() => setContactModalOpen(true)}
               data-testid="button-start-pickleball-application"
             >
-              <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
-                Start Your Pickleball Application
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              Start Your Pickleball Application
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 
@@ -871,12 +867,10 @@ export default function PickleballPage() {
             <Button
               size="lg"
               className="bg-emerald-600 px-8 py-6 text-lg"
-              asChild
+              onClick={() => setContactModalOpen(true)}
               data-testid="button-start-application"
             >
-              <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
-                Start Your Application
-              </a>
+              Start Your Application
             </Button>
             <Button
               size="lg"
@@ -931,6 +925,11 @@ export default function PickleballPage() {
           </p>
         </div>
       </footer>
+
+      <ContactFormModal 
+        open={contactModalOpen} 
+        onOpenChange={setContactModalOpen} 
+      />
     </div>
   );
 }
