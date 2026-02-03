@@ -697,7 +697,7 @@ export default function PickleballPage() {
                 <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <FileText className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Complete Your Broker Application</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Get in Touch</h3>
                 <p className="text-slate-300 mb-8 max-w-xl mx-auto">
                   Fill out our secure online application to become an appointed broker. Get access to competitive rates, comprehensive coverage options, and dedicated support for pickleball programs.
                 </p>
