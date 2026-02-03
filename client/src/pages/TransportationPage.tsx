@@ -855,7 +855,7 @@ export default function TransportationPage() {
                       <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
                     </div>
                     <div className="mt-4">
-                      <a href="https://form.jotform.com/251257386293060" target="_blank" rel="noopener noreferrer">
+                      <a href={index === 0 ? "https://form.jotform.com/251257386293060" : "https://form.jotform.com/251255738573060"} target="_blank" rel="noopener noreferrer">
                         <Button
                           size="sm"
                           variant="outline"
