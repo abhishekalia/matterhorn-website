@@ -246,12 +246,14 @@ export default function PickleballPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                onClick={() => scrollToSection("broker-application")}
-                className="bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30"
+                className="bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
+                asChild
                 data-testid="button-get-started"
               >
-                Get Started Today
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
+                  Get Started Today
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
               </Button>
               <Button
                 size="lg"
