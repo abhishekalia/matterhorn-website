@@ -822,11 +822,13 @@ export default function PickleballPage() {
             <Button 
               size="lg"
               className="bg-emerald-600 group"
-              onClick={() => setContactModalOpen(true)}
+              asChild
               data-testid="button-start-pickleball-application"
             >
-              Start Your Pickleball Application
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
+                Start Your Pickleball Application
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
 
