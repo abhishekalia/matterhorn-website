@@ -954,12 +954,14 @@ export default function YouthSportsPage() {
                       Want similar results for your clients?
                     </p>
                     <Button 
-                      onClick={() => scrollToSection("contact")}
+                      asChild
                       className="group bg-[#00ff88] hover:bg-[#00ff88]/90 text-black"
                       data-testid="button-case-study-cta"
                     >
-                      Start Your Success Story
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <a href="mailto:support@matterhornprotects.com">
+                        Start Your Success Story
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </a>
                     </Button>
                   </div>
                 </div>
