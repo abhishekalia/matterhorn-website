@@ -855,7 +855,7 @@ export default function TransportationPage() {
                       <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
                     </div>
                     <div className="mt-4">
-                      <Link href={segment.link}>
+                      <a href="https://form.jotform.com/251257386293060" target="_blank" rel="noopener noreferrer">
                         <Button
                           size="sm"
                           variant="outline"
@@ -867,7 +867,7 @@ export default function TransportationPage() {
                           Apply Now
                           <ArrowRight className="w-3 h-3 ml-1.5" />
                         </Button>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </Card>
