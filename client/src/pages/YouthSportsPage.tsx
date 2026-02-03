@@ -715,11 +715,13 @@ export default function YouthSportsPage() {
           <div className="text-center">
             <Button 
               size="lg"
-              onClick={() => scrollToSection("contact")}
+              asChild
               className="bg-primary"
               data-testid="button-get-youth-coverage"
             >
-              Get Youth Sports Coverage
+              <a href="https://form.jotform.com/260276518705056" target="_blank" rel="noopener noreferrer">
+                Get Youth Sports Coverage
+              </a>
             </Button>
           </div>
         </div>
