@@ -690,146 +690,29 @@ export default function PickleballPage() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <Card className="bg-slate-800/50 border-slate-700 p-8">
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <Label className="text-slate-300">Full Name *</Label>
-                    <Input
-                      required
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="bg-slate-700 border-slate-600 text-white mt-1"
-                      data-testid="input-full-name"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-slate-300">Agency Name *</Label>
-                    <Input
-                      required
-                      value={formData.agencyName}
-                      onChange={(e) => setFormData({ ...formData, agencyName: e.target.value })}
-                      className="bg-slate-700 border-slate-600 text-white mt-1"
-                      data-testid="input-agency-name"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-slate-300">Email Address *</Label>
-                    <Input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bg-slate-700 border-slate-600 text-white mt-1"
-                      data-testid="input-email"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-slate-300">Phone Number *</Label>
-                    <Input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="bg-slate-700 border-slate-600 text-white mt-1"
-                      data-testid="input-phone"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-slate-300">License Number *</Label>
-                    <Input
-                      required
-                      value={formData.licenseNumber}
-                      onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
-                      className="bg-slate-700 border-slate-600 text-white mt-1"
-                      data-testid="input-license-number"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-slate-300">Licensed State *</Label>
-                    <Select
-                      value={formData.licensedState}
-                      onValueChange={(value) => setFormData({ ...formData, licensedState: value })}
-                    >
-                      <SelectTrigger className="bg-slate-700 border-slate-600 text-white mt-1" data-testid="select-licensed-state">
-                        <SelectValue placeholder="Select state" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {US_STATES.map((state) => (
-                          <SelectItem key={state} value={state}>{state}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label className="text-slate-300">Years of Experience *</Label>
-                    <Input
-                      required
-                      value={formData.yearsExperience}
-                      onChange={(e) => setFormData({ ...formData, yearsExperience: e.target.value })}
-                      className="bg-slate-700 border-slate-600 text-white mt-1"
-                      data-testid="input-years-experience"
-                    />
-                  </div>
-                  <div>
-                    <Label className="text-slate-300">Estimated Annual Premium Volume</Label>
-                    <Select
-                      value={formData.premiumVolume}
-                      onValueChange={(value) => setFormData({ ...formData, premiumVolume: value })}
-                    >
-                      <SelectTrigger className="bg-slate-700 border-slate-600 text-white mt-1" data-testid="select-premium-volume">
-                        <SelectValue placeholder="Select range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="under-100k">Under $100,000</SelectItem>
-                        <SelectItem value="100k-250k">$100,000 - $250,000</SelectItem>
-                        <SelectItem value="250k-500k">$250,000 - $500,000</SelectItem>
-                        <SelectItem value="500k-1m">$500,000 - $1,000,000</SelectItem>
-                        <SelectItem value="over-1m">Over $1,000,000</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+            <Card className="bg-gradient-to-br from-emerald-900/50 to-teal-900/50 border-emerald-500/30 p-8 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <FileText className="w-8 h-8 text-white" />
                 </div>
-
-                <div>
-                  <Label className="text-slate-300">Current Carriers (Optional)</Label>
-                  <Input
-                    value={formData.currentCarriers}
-                    onChange={(e) => setFormData({ ...formData, currentCarriers: e.target.value })}
-                    className="bg-slate-700 border-slate-600 text-white mt-1"
-                    data-testid="input-current-carriers"
-                  />
-                </div>
-
-                <div>
-                  <Label className="text-slate-300">Areas of Specialization (Optional)</Label>
-                  <Input
-                    value={formData.specialization}
-                    onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
-                    className="bg-slate-700 border-slate-600 text-white mt-1"
-                    data-testid="input-specialization"
-                  />
-                </div>
-
-                <div>
-                  <Label className="text-slate-300">Additional Information (Optional)</Label>
-                  <Textarea
-                    value={formData.additionalInfo}
-                    onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
-                    className="bg-slate-700 border-slate-600 text-white mt-1"
-                    rows={4}
-                    data-testid="textarea-additional-info"
-                  />
-                </div>
-
+                <h3 className="text-2xl font-bold text-white mb-4">Complete Your Broker Application</h3>
+                <p className="text-slate-300 mb-8 max-w-xl mx-auto">
+                  Fill out our secure online application to become an appointed broker. Get access to competitive rates, comprehensive coverage options, and dedicated support for pickleball programs.
+                </p>
                 <Button
-                  type="submit"
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 py-6 text-lg"
+                  size="lg"
+                  className="bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
+                  asChild
                   data-testid="button-submit-application"
                 >
-                  Submit Application
+                  <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
+                    Start Your Application
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </a>
                 </Button>
-              </form>
+              </div>
             </Card>
 
             <Card className="bg-slate-800/50 border-slate-700 p-6 mt-6" data-testid="card-what-happens-next">
@@ -936,12 +819,14 @@ export default function PickleballPage() {
           <div className="text-center mb-12">
             <Button 
               size="lg"
-              className="bg-emerald-600 hover:bg-emerald-700 group"
-              onClick={() => scrollToSection("broker-application")}
+              className="bg-emerald-600 group"
+              asChild
               data-testid="button-start-pickleball-application"
             >
-              Start Your Pickleball Application
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
+                Start Your Pickleball Application
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
           </div>
 
@@ -985,11 +870,13 @@ export default function PickleballPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button
               size="lg"
-              onClick={() => scrollToSection("broker-application")}
-              className="bg-emerald-600 hover:bg-emerald-700 px-8 py-6 text-lg"
+              className="bg-emerald-600 px-8 py-6 text-lg"
+              asChild
               data-testid="button-start-application"
             >
-              Start Your Application
+              <a href="https://form.jotform.com/250985130794060" target="_blank" rel="noopener noreferrer">
+                Start Your Application
+              </a>
             </Button>
             <Button
               size="lg"
