@@ -220,13 +220,15 @@ export default function MotorCarrierApplicationPage() {
           {/* Tab Selector */}
           <div className="flex justify-center gap-4 mb-12">
             <Button
-              variant={activeTab === "digital" ? "default" : "outline"}
-              className={`flex items-center gap-2 ${activeTab === "digital" ? "" : "border-white/20 text-white/70"}`}
-              onClick={() => setActiveTab("digital")}
+              variant="default"
+              className="flex items-center gap-2"
+              asChild
               data-testid="tab-digital"
             >
-              <FileText className="w-4 h-4" />
-              Complete Digital Application
+              <a href="https://form.jotform.com/251257386293060" target="_blank" rel="noopener noreferrer">
+                <FileText className="w-4 h-4" />
+                Complete Digital Application
+              </a>
             </Button>
             <Button
               variant={activeTab === "upload" ? "default" : "outline"}
