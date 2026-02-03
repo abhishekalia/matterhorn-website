@@ -570,9 +570,9 @@ export default function PickleballPage() {
                   asChild
                   data-testid="button-book-call"
                 >
-                  <a href="https://calendly.com/matterhornprotects/territory" target="_blank" rel="noopener noreferrer">
+                  <a href="tel:1-844-600-0611">
                     <Phone className="w-4 h-4 mr-2" />
-                    Book Your Call Now
+                    Call Us Now
                   </a>
                 </Button>
                 <p className="text-center text-emerald-400/80 text-sm mt-4">
