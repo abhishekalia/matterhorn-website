@@ -517,7 +517,7 @@ export default function TransportationPage() {
           {/* Quick Access Application Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             <p className="w-full text-center text-[10px] uppercase tracking-widest text-white/40 mb-2">Quick Access</p>
-            <Link href="/transportation/motor-carrier-application">
+            <a href="https://form.jotform.com/251257386293060" target="_blank" rel="noopener noreferrer">
               <Button
                 size="sm"
                 variant="outline"
@@ -528,7 +528,7 @@ export default function TransportationPage() {
                 <FileText className="w-3 h-3 mr-1.5" />
                 Motor Carrier + IC Application
               </Button>
-            </Link>
+            </a>
             <Link href="/transportation/logistics-application">
               <Button
                 size="sm"
