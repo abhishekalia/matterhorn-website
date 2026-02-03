@@ -494,7 +494,7 @@ export default function YouthSportsPage() {
               size="lg"
               variant="outline"
               className="bg-white/5 backdrop-blur-sm border-white/30 text-white px-8"
-              onClick={() => scrollToSection("contact")}
+              onClick={() => setApplicationModalOpen(true)}
               data-testid="button-contact-team"
             >
               Contact Our Team
