@@ -506,7 +506,7 @@ export default function TransportationPage() {
                 color: '#fff',
                 boxShadow: `0 0 25px ${NEON_COLORS.amber}50`
               }}
-              onClick={() => scrollToSection("markets")}
+              onClick={() => setApplicationModalOpen(true)}
               data-testid="button-explore-programs"
             >
               Connect With Our Team
