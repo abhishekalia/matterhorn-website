@@ -481,12 +481,14 @@ export default function YouthSportsPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button 
               size="lg"
-              onClick={() => scrollToSection("contact")}
+              asChild
               className="bg-[#00ff88] text-black px-8 group"
               data-testid="button-get-started"
             >
-              Get Started
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <a href="https://form.jotform.com/260276518705056" target="_blank" rel="noopener noreferrer">
+                Get Started
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
             <Button 
               size="lg"
