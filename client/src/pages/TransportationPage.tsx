@@ -529,7 +529,7 @@ export default function TransportationPage() {
                 Motor Carrier + IC Application
               </Button>
             </a>
-            <Link href="/transportation/logistics-application">
+            <a href="https://form.jotform.com/251255738573060" target="_blank" rel="noopener noreferrer">
               <Button
                 size="sm"
                 variant="outline"
@@ -540,7 +540,7 @@ export default function TransportationPage() {
                 <FileText className="w-3 h-3 mr-1.5" />
                 Logistics + Freight Brokers Application
               </Button>
-            </Link>
+            </a>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60 mb-12">
