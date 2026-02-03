@@ -745,12 +745,14 @@ export default function TransportationPage() {
               </div>
 
               <Button 
-                onClick={() => setApplicationModalOpen(true)} 
+                asChild
                 data-testid="button-schedule-demo"
                 className="group"
               >
-                Schedule a Demo
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <a href="mailto:support@matterhornprotects.com?subject=Schedule a Demo - Transportation Platform">
+                  Schedule a Demo
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
             </div>
 
