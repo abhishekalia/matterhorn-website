@@ -225,18 +225,60 @@ export default function TransportationPage() {
 
   const featuredPrograms = [
     {
-      title: "Ride Share",
-      description: "Comprehensive coverage solutions for TNC drivers and platforms with evolving exposures and driver-centric workflows.",
-      coverage: "TNC Coverage, Last-Mile, P2P, Gap Coverage",
-      icon: Car,
-      highlight: "Dynamic coverage for the modern gig economy",
+      title: "Motor Carrier + Independent Contractors",
+      description: "Comprehensive coverage solutions for motor carriers and 1099 independent contractor fleets with scalable onboarding and compliance-ready documentation.",
+      coverage: "OA, Commercial Liability, Physical Damage, Non-Trucking Liability, Workers Comp",
+      icon: Truck,
+      highlight: "Turnkey protection for IC fleets and owner-operators",
+      programHighlights: [
+        "Up to $1,000,000 Occupational Accident coverage",
+        "Up to $1,000,000 Commercial Auto Liability",
+        "Physical Damage coverage available",
+        "Non-Trucking Liability included",
+        "Workers Compensation options",
+        "15% Commission structure",
+        "No minimum fleet size requirements",
+        "Quick 24-48 hour turnaround on quotes",
+      ],
+      riskTypes: [
+        "Long-Haul Trucking",
+        "Regional Carriers",
+        "Last-Mile Delivery",
+        "Hotshot & Expedited",
+        "Flatbed & Specialized",
+        "Intermodal Drayage",
+        "Owner-Operators",
+        "1099 IC Fleets",
+      ],
+      jotformUrl: "https://form.jotform.com/251257386293060",
     },
     {
-      title: "Association Programs",
-      description: "Custom-built insurance programs for trade associations and member organizations with group buying power.",
-      coverage: "Group Programs, Member Benefits, Affinity Coverage",
-      icon: Users,
-      highlight: "Leverage collective strength for better rates",
+      title: "Logistics + Freight Brokers",
+      description: "Operational liability protection for freight brokerages with contract-driven support and claims-ready documentation.",
+      coverage: "Contingent Cargo, Errors & Omissions, General Liability, Truck Broker Liability",
+      icon: Package,
+      highlight: "Comprehensive protection for brokerage operations",
+      programHighlights: [
+        "Up to $1,000,000 Contingent Cargo limits",
+        "Up to $1,000,000 Errors & Omissions",
+        "General Liability coverage included",
+        "Truck Broker Liability options",
+        "Contract-compliant documentation",
+        "15% Commission structure",
+        "High-value freight coverage available",
+        "Quick 24-48 hour turnaround on quotes",
+      ],
+      riskTypes: [
+        "Property Brokers",
+        "Freight Forwarders",
+        "3PL Providers",
+        "Customs Brokers",
+        "NVOCC Operations",
+        "Intermodal Brokers",
+        "Specialized Freight",
+        "Temperature-Controlled",
+      ],
+      jotformUrl: "https://form.jotform.com/251255738573060",
     },
   ];
 
@@ -561,13 +603,156 @@ export default function TransportationPage() {
         </div>
 
         <button
-          onClick={() => scrollToSection("leadership")}
+          onClick={() => scrollToSection("markets")}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-white/60 hover:text-primary transition-all duration-300 animate-bounce hover:animate-none hover:scale-110"
           data-testid="button-scroll-down"
         >
           <ChevronDown className="w-8 h-8" />
         </button>
       </section>
+
+      {/* Markets & Coverage Section - Featured Programs */}
+      <section 
+        id="markets" 
+        data-animate
+        className="py-24 bg-[#0D1B2A] relative overflow-hidden"
+      >
+        {/* Neon glow effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.amber}12` }} />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.cyan}10`, animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.safetyGreen}08`, animationDelay: "1s" }} />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className={`text-center mb-16 ${getAnimationClass("markets")}`}>
+            <Badge className="mb-6 px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.amber}20`, 
+              color: NEON_COLORS.amber, 
+              borderColor: `${NEON_COLORS.amber}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.amber}30`
+            }}>
+              Featured Programs
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="heading-markets">
+              Built for{" "}
+              <span className="text-transparent bg-clip-text" style={{ 
+                backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.amber}, ${NEON_COLORS.cyan}, ${NEON_COLORS.safetyGreen})`
+              }}>Modern Transportation Risk</span>
+            </h2>
+            <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
+              Specialized program solutions for motor carriers, independent contractors, and freight brokerages 
+              with comprehensive coverage and streamlined digital applications.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+            {featuredPrograms.map((program, index) => {
+              const neonColors = [NEON_COLORS.amber, NEON_COLORS.cyan];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+                <Card 
+                  key={index} 
+                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm transition-all duration-500 relative overflow-hidden ${getAnimationClass("markets")}`}
+                  style={{ transitionDelay: `${index * 75}ms` }}
+                  data-testid={`card-featured-program-${index}`}
+                >
+                  {/* Top accent bar */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1"
+                    style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
+                  />
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div 
+                        className="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
+                      >
+                        <program.icon className="w-7 h-7" style={{ color: neonColor }} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-white">{program.title}</h3>
+                        <p className="text-sm font-medium mt-1" style={{ color: neonColor }}>{program.highlight}</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-white/60 text-sm leading-relaxed mb-4">
+                      {program.description}
+                    </p>
+                    
+                    <div className="pt-4 border-t border-white/10 mb-4">
+                      <p className="text-xs font-medium mb-1" style={{ color: neonColor }}>Coverage:</p>
+                      <p className="text-xs text-white/50">{program.coverage}</p>
+                    </div>
+
+                    {/* Accordion Dropdowns */}
+                    <Accordion type="single" collapsible className="space-y-2">
+                      <AccordionItem value="highlights" className="border-white/10">
+                        <AccordionTrigger className="text-sm text-white/80 hover:text-white py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-white/10">
+                          <span className="flex items-center gap-2">
+                            <CheckCircle className="w-4 h-4" style={{ color: neonColor }} />
+                            Program Highlights
+                          </span>
+                        </AccordionTrigger>
+                        <AccordionContent className="pt-3 pb-1 px-2">
+                          <ul className="space-y-2">
+                            {program.programHighlights.map((highlight, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-sm text-white/70">
+                                <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: neonColor }} />
+                                <span>{highlight}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </AccordionContent>
+                      </AccordionItem>
+                      
+                      <AccordionItem value="risk-types" className="border-white/10">
+                        <AccordionTrigger className="text-sm text-white/80 hover:text-white py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-white/10">
+                          <span className="flex items-center gap-2">
+                            <Target className="w-4 h-4" style={{ color: neonColor }} />
+                            Risk Types
+                          </span>
+                        </AccordionTrigger>
+                        <AccordionContent className="pt-3 pb-1 px-2">
+                          <div className="grid grid-cols-2 gap-2">
+                            {program.riskTypes.map((risk, idx) => (
+                              <div key={idx} className="flex items-center gap-2 text-sm text-white/70">
+                                <ArrowRight className="w-3 h-3 flex-shrink-0" style={{ color: neonColor }} />
+                                <span>{risk}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+
+                    <div className="mt-6">
+                      <a href={program.jotformUrl} target="_blank" rel="noopener noreferrer">
+                        <Button
+                          size="default"
+                          className="w-full font-medium transition-all duration-300"
+                          style={{ backgroundColor: neonColor, color: '#fff' }}
+                          data-testid={`button-apply-featured-${index}`}
+                        >
+                          <FileText className="w-4 h-4 mr-2" />
+                          Apply Now
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+
+          <p className={`text-center text-sm text-white/50 mt-8 ${getAnimationClass("markets")}`}>
+            <strong className="text-white/70">Broker Note:</strong> All programs are backed by A-VII or better rated carriers. 
+            Admitted and Non-Admitted paper available depending on state and risk class.
+          </p>
+        </div>
+      </section>
+
       {/* Leadership Section */}
       <section 
         id="leadership" 
@@ -778,179 +963,6 @@ export default function TransportationPage() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-      {/* Markets & Coverage Section with Neon Styling */}
-      <section 
-        id="markets" 
-        data-animate
-        className="py-24 bg-[#0D1B2A] relative overflow-hidden"
-      >
-        {/* Neon glow effects */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.amber}12` }} />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.cyan}10`, animationDelay: "2s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.safetyGreen}08`, animationDelay: "1s" }} />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className={`text-center mb-20 ${getAnimationClass("markets")}`}>
-            <Badge className="mb-6 px-4 py-1.5" style={{ 
-              backgroundColor: `${NEON_COLORS.amber}20`, 
-              color: NEON_COLORS.amber, 
-              borderColor: `${NEON_COLORS.amber}40`,
-              boxShadow: `0 0 15px ${NEON_COLORS.amber}30`
-            }}>
-              Markets & Coverage
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="heading-markets">
-              Built for{" "}
-              <span className="text-transparent bg-clip-text" style={{ 
-                backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.amber}, ${NEON_COLORS.cyan}, ${NEON_COLORS.safetyGreen})`
-              }}>Modern Transportation Risk</span>
-            </h2>
-            <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
-              We partner with brokers serving transportation operators of all shapes and sizes—from high-volume 
-              placements to unique exposures that need thoughtful underwriting and structure.
-            </p>
-          </div>
-
-          {/* Markets - 2 cards centered */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto mb-16">
-            {marketSegments.map((segment, index) => {
-              const neonColors = [NEON_COLORS.amber, NEON_COLORS.cyan];
-              const neonColor = neonColors[index % neonColors.length];
-              return (
-                <Card 
-                  key={index} 
-                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover-elevate transition-all duration-500 group cursor-pointer relative overflow-visible ${getAnimationClass("markets")}`}
-                  style={{ transitionDelay: `${index * 75}ms` }}
-                  data-testid={`card-market-${index}`}
-                >
-                  {/* Hover glow effect */}
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{ background: `radial-gradient(circle at 30% 30%, ${neonColor}15 0%, transparent 60%)` }}
-                  />
-                  <div 
-                    className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
-                  />
-                  
-                  <div className="relative z-10">
-                    <div 
-                      className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
-                      style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
-                    >
-                      <segment.icon className="w-7 h-7" style={{ color: neonColor }} />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#ffaa00] transition-colors">{segment.title}</h3>
-                    <p className="text-white/60 text-sm leading-relaxed mb-4">
-                      {segment.description}
-                    </p>
-                    <div className="pt-4 border-t border-white/10">
-                      <p className="text-xs font-medium mb-1" style={{ color: neonColor }}>Coverage:</p>
-                      <p className="text-xs text-white/50">{segment.coverage}</p>
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-white/10">
-                      <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{segment.highlight}</p>
-                    </div>
-                    <div className="mt-4">
-                      <a href={index === 0 ? "https://form.jotform.com/251257386293060" : "https://form.jotform.com/251255738573060"} target="_blank" rel="noopener noreferrer">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="w-full text-[11px] font-medium border-white/20 hover:bg-white/10 transition-all duration-300"
-                          style={{ color: neonColor, borderColor: `${neonColor}40` }}
-                          data-testid={`button-apply-market-${index}`}
-                        >
-                          <FileText className="w-3 h-3 mr-1.5" />
-                          Apply Now
-                          <ArrowRight className="w-3 h-3 ml-1.5" />
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-
-          {/* Featured Programs Section */}
-          <div className={`text-center mb-12 ${getAnimationClass("markets")}`}>
-            <Badge className="mb-4 px-4 py-1.5" style={{ 
-              backgroundColor: `${NEON_COLORS.electric}20`, 
-              color: NEON_COLORS.electric, 
-              borderColor: `${NEON_COLORS.electric}40`,
-              boxShadow: `0 0 15px ${NEON_COLORS.electric}30`
-            }}>
-              Featured Programs
-            </Badge>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">Specialized Program Solutions</h3>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-4xl mx-auto">
-            {featuredPrograms.map((program, index) => {
-              const neonColors = [NEON_COLORS.safetyGreen, NEON_COLORS.electric];
-              const neonColor = neonColors[index % neonColors.length];
-              return (
-                <Card 
-                  key={index} 
-                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm hover-elevate transition-all duration-500 group cursor-pointer relative overflow-visible ${getAnimationClass("markets")}`}
-                  style={{ transitionDelay: `${index * 75}ms` }}
-                  data-testid={`card-program-${index}`}
-                >
-                  {/* Hover glow effect */}
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{ background: `radial-gradient(circle at 30% 30%, ${neonColor}15 0%, transparent 60%)` }}
-                  />
-                  <div 
-                    className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
-                  />
-                  
-                  <div className="relative z-10">
-                    <div 
-                      className="w-14 h-14 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300"
-                      style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
-                    >
-                      <program.icon className="w-7 h-7" style={{ color: neonColor }} />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-[#ffaa00] transition-colors">{program.title}</h3>
-                    <p className="text-white/60 text-sm leading-relaxed mb-4">
-                      {program.description}
-                    </p>
-                    <div className="pt-4 border-t border-white/10">
-                      <p className="text-xs font-medium mb-1" style={{ color: neonColor }}>Coverage:</p>
-                      <p className="text-xs text-white/50">{program.coverage}</p>
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-white/10">
-                      <p className="text-sm font-medium" style={{ color: `${neonColor}cc` }}>{program.highlight}</p>
-                    </div>
-                    <div className="mt-4">
-                      <a href={`mailto:support@matterhornprotects.com?subject=Inquiry: ${program.title} Program`}>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="w-full text-[11px] font-medium border-white/20 hover:bg-white/10 transition-all duration-300"
-                          style={{ color: neonColor, borderColor: `${neonColor}40` }}
-                          data-testid={`button-contact-program-${index}`}
-                        >
-                          <Mail className="w-3 h-3 mr-1.5" />
-                          Contact Our Team
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-
-          <p className={`text-center text-sm text-white/50 mt-8 ${getAnimationClass("markets")}`}>
-            <strong className="text-white/70">Broker Note:</strong> All programs are backed by A-VII or better rated carriers. 
-            Admitted and Non-Admitted paper available depending on state and risk class.
-          </p>
         </div>
       </section>
       {/* Case Studies Section - Interactive Design */}
