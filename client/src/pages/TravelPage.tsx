@@ -51,7 +51,10 @@ import {
   Heart,
   AlertCircle,
   MapPin,
+  Target,
+  ChevronDown,
 } from "lucide-react";
+import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
 
 // Neon color palette for Travel
@@ -64,8 +67,7 @@ const NEON_COLORS = {
 
 export default function TravelPage() {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [tripCost, setTripCost] = useState("");
-  const [isBrokerSale, setIsBrokerSale] = useState(false);
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -83,43 +85,43 @@ export default function TravelPage() {
       icon: Shield,
       badge: "Ultimate Flexibility",
       title: "Cancel For Any Reason",
-      description: "Get up to 75% of your trip cost back if you cancel for literally any reason—no questions asked.",
+      description: "Offer your clients up to 75% trip cost reimbursement for any cancellation reason—a key differentiator for your agency.",
     },
     {
-      icon: Zap,
-      badge: "60-Second Quotes",
-      title: "Instant Coverage",
-      description: "Enter your trip details. Get a quote instantly. Purchase and receive your policy documents in under a minute.",
+      icon: DollarSign,
+      badge: "Competitive Commission",
+      title: "15% Commission",
+      description: "Earn industry-leading commissions on every travel policy sold. Quick payouts and transparent reporting.",
     },
     {
       icon: Globe,
       badge: "Full Trip Coverage",
       title: "Comprehensive Protection",
-      description: "Medical emergencies, trip delays, baggage loss, evacuations—we've got you covered from departure to return.",
+      description: "Medical emergencies, trip delays, baggage loss, evacuations—complete coverage solutions for your clients.",
     },
     {
       icon: HeadphonesIcon,
-      badge: "Always There",
-      title: "24/7 Global Support",
-      description: "Emergency assistance anywhere in the world, anytime. Speak with real humans who actually help.",
+      badge: "Broker Support",
+      title: "Dedicated Team",
+      description: "Priority access to our underwriting team. Get fast answers and custom solutions for complex travel risks.",
     },
   ];
 
   const howItWorks = [
     {
       step: "01",
-      title: "Get Your Quote",
-      description: "Answer a few quick questions about your trip. See your price instantly—no email signup required.",
+      title: "Submit Your Risk",
+      description: "Send us your client's travel details. We'll review and provide competitive coverage options quickly.",
     },
     {
       step: "02",
-      title: "Choose Your Coverage",
-      description: "Select from Essential, Enhanced, or Premium protection. Customize with add-ons that fit your needs.",
+      title: "Choose Coverage",
+      description: "Select from Essential, Enhanced, or Premium protection. Customize with add-ons to fit your client's needs.",
     },
     {
       step: "03",
-      title: "Travel Protected",
-      description: "Receive your policy documents via email in under 60 seconds. Access 24/7 support from anywhere.",
+      title: "Bind & Earn",
+      description: "Receive policy documents within 24-48 hours. Commission paid promptly on every bound policy.",
     },
   ];
 
@@ -297,19 +299,19 @@ export default function TravelPage() {
 
   const testimonials = [
     {
-      quote: "Had to cancel our Italy trip last minute due to a family emergency. Matterhorn's CFAR coverage reimbursed 75% of our $12,000 trip within a week. No hassle, no questions asked.",
-      author: "Sarah M.",
-      location: "San Francisco",
+      quote: "CFAR coverage is a game-changer for my high-net-worth clients. Matterhorn's 75% reimbursement gives them peace of mind on luxury trips, and the 15% commission helps my bottom line.",
+      author: "Jennifer M.",
+      location: "Premier Travel Partners, Chicago",
     },
     {
-      quote: "Got sick in Thailand and needed medical evacuation. Matterhorn's 24/7 team arranged everything and covered the $45,000 bill. Can't imagine traveling without them now.",
-      author: "James T.",
-      location: "Toronto",
+      quote: "Had a client need emergency evacuation from a remote destination. Matterhorn's team coordinated everything seamlessly. That kind of support makes me look great to my clients.",
+      author: "David K.",
+      location: "Global Adventures Insurance, Miami",
     },
     {
-      quote: "The quote process took literally 60 seconds. Bought my policy right in the checkout of my travel booking. So easy compared to other insurance sites.",
-      author: "Emily R.",
-      location: "New York",
+      quote: "Fast turnaround, competitive rates, and a dedicated underwriting team that actually answers the phone. Matterhorn has become my go-to for all travel insurance placements.",
+      author: "Rachel T.",
+      location: "Coastal Insurance Group, Boston",
     },
   ];
 
@@ -395,7 +397,7 @@ export default function TravelPage() {
             </Link>
 
             <nav className="hidden md:flex items-center gap-3">
-              {["Get Quote", "Coverages", "Groups", "Platforms"].map((item) => (
+              {["Program", "Coverages", "Groups", "Platforms"].map((item) => (
                 <Button 
                   key={item}
                   variant="ghost"
@@ -460,39 +462,39 @@ export default function TravelPage() {
           </Badge>
 
           <h1 className={`text-5xl md:text-7xl font-bold mb-6 leading-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-hero">
-            TRAVEL PROTECTED.<br />
+            TRAVEL INSURANCE<br />
             <span className="text-transparent bg-clip-text" style={{ 
               backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.sunset}, ${NEON_COLORS.magenta})`
-            }}>TRAVEL CONFIDENT.</span>
+            }}>FOR BROKERS.</span>
           </h1>
 
           <p className={`text-xl mb-10 max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`} data-testid="description-hero">
-            Cancel For Any Reason travel insurance designed for modern travelers. Get a quote in 60 seconds.
+            Cancel For Any Reason coverage, comprehensive protection, and competitive commissions. Partner with Matterhorn to serve your travel clients better.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <Button 
               size="lg"
-              onClick={() => scrollToSection("quote")}
+              onClick={() => setApplicationModalOpen(true)}
               className="px-8 font-bold group"
               style={{ 
                 backgroundColor: NEON_COLORS.skyBlue, 
                 color: '#000',
                 boxShadow: `0 0 25px ${NEON_COLORS.skyBlue}50`
               }}
-              data-testid="button-get-instant-quote"
+              data-testid="button-connect-team"
             >
-              Get Instant Quote
+              Connect With Our Team
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
               size="lg"
               variant="outline"
-              onClick={() => scrollToSection("how-it-works")}
+              onClick={() => scrollToSection("program")}
               className={`px-8 ${isDarkMode ? 'border-white/30 text-white hover:bg-white/10 hover:border-[#00d4ff]/50' : ''}`}
-              data-testid="button-how-it-works"
+              data-testid="button-view-program"
             >
-              How It Works
+              View Program Details
             </Button>
           </div>
 
@@ -504,13 +506,241 @@ export default function TravelPage() {
             </div>
             <span className={`hidden md:block ${isDarkMode ? 'text-white/30' : 'text-gray-300'}`}>|</span>
             <div className="flex items-center gap-2 hover:scale-105 transition-transform">
-              <HeadphonesIcon className="w-5 h-5" style={{ color: NEON_COLORS.sunset }} />
-              <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>24/7 Support</span>
+              <DollarSign className="w-5 h-5" style={{ color: NEON_COLORS.sunset }} />
+              <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>15% Commission</span>
             </div>
             <span className={`hidden md:block ${isDarkMode ? 'text-white/30' : 'text-gray-300'}`}>|</span>
             <div className="flex items-center gap-2 hover:scale-105 transition-transform">
-              <Zap className="w-5 h-5" style={{ color: NEON_COLORS.magenta }} />
-              <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>60-Second Quotes</span>
+              <Clock className="w-5 h-5" style={{ color: NEON_COLORS.magenta }} />
+              <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>24-48hr Turnaround</span>
+            </div>
+          </div>
+        </div>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => scrollToSection("program")}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-white/60"
+          data-testid="button-scroll-down"
+        >
+          <ChevronDown className="w-8 h-8" />
+        </Button>
+      </section>
+
+      {/* Program Highlights Section */}
+      <section id="program" className="py-24 relative overflow-hidden" data-testid="section-program-highlights">
+        {/* Animated Background */}
+        <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-br from-[#0A1628] via-[#0F1D32]/30 to-[#0A1628]' : 'bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-50'}`} />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.skyBlue}15` }} />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.sunset}10`, animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.magenta}08`, animationDelay: "1s" }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.skyBlue}20`, 
+              color: NEON_COLORS.skyBlue, 
+              borderColor: `${NEON_COLORS.skyBlue}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.skyBlue}30`
+            }}>
+              <Star className="w-3 h-3 mr-1" />
+              Broker Program
+            </Badge>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-program-highlights">
+              Program{" "}
+              <span className="text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.sunset}, ${NEON_COLORS.magenta})` }}>
+                Highlights & Enhancements
+              </span>
+            </h2>
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+              Comprehensive travel coverage with CFAR protection, competitive broker commissions, and dedicated underwriting support.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Highlights & Risk Types */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Main Card with Accordions */}
+              <Card className={`p-8 backdrop-blur-sm relative overflow-hidden ${isDarkMode ? 'bg-[#0F1D32]/60 border-white/10' : 'bg-white border-gray-200'}`} data-testid="card-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.sunset}, ${NEON_COLORS.magenta})` }} />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${NEON_COLORS.skyBlue}20`, boxShadow: `0 0 25px ${NEON_COLORS.skyBlue}25` }}>
+                    <Plane className="w-6 h-6" style={{ color: NEON_COLORS.skyBlue }} />
+                  </div>
+                  <div>
+                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Travel Program Details</h3>
+                    <p className="text-sm" style={{ color: NEON_COLORS.skyBlue }}>CFAR Coverage Available</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["highlights"]} className="space-y-3">
+                  {/* Program Highlights Accordion */}
+                  <AccordionItem value="highlights" className={`rounded-lg overflow-hidden ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <AccordionTrigger className={`text-base hover:no-underline py-4 px-5 transition-colors rounded-lg ${isDarkMode ? 'text-white bg-white/5 hover:bg-white/10' : 'text-gray-900 bg-gray-50 hover:bg-gray-100'}`}>
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5" style={{ color: NEON_COLORS.skyBlue }} />
+                        <span className="font-semibold">Highlights & Enhancements</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          { text: "Cancel For Any Reason (CFAR) - Up to 75% Reimbursement", highlight: true },
+                          { text: "Trip Interruption - Up to 150% of Trip Cost", highlight: true },
+                          { text: "Emergency Medical - Up to $500,000", highlight: false },
+                          { text: "Medical Evacuation - Up to $1,000,000", highlight: false },
+                          { text: "Trip Delay - $200/day (12+ hours)", highlight: false },
+                          { text: "Baggage Loss/Delay Coverage", highlight: false },
+                          { text: "24/7 Global Assistance", highlight: false },
+                          { text: "Adventure Sports Coverage Available", highlight: false },
+                          { text: "Pre-Existing Condition Waiver", highlight: false },
+                          { text: "15% Commission", highlight: true },
+                          { text: "A-Rated Carrier Partners", highlight: false },
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0`} style={{ backgroundColor: item.highlight ? NEON_COLORS.skyBlue : isDarkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.3)' }} />
+                            <span className={`text-sm ${item.highlight ? 'font-medium' : ''} group-hover:opacity-100 transition-colors`} style={{ color: item.highlight ? NEON_COLORS.skyBlue : isDarkMode ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)' }}>
+                              {item.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Coverage Types Accordion */}
+                  <AccordionItem value="coverage-types" className={`rounded-lg overflow-hidden ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <AccordionTrigger className={`text-base hover:no-underline py-4 px-5 transition-colors rounded-lg ${isDarkMode ? 'text-white bg-white/5 hover:bg-white/10' : 'text-gray-900 bg-gray-50 hover:bg-gray-100'}`}>
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5" style={{ color: NEON_COLORS.sunset }} />
+                        <span className="font-semibold">Travel Types Covered</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          "Leisure & Vacation Travel",
+                          "Business Travel",
+                          "Adventure & Expedition",
+                          "Cruise Coverage",
+                          "International Travel",
+                          "Domestic Travel",
+                          "Group Tours",
+                          "Family Vacations",
+                          "Honeymoons & Destination Weddings",
+                          "Student Travel",
+                        ].map((type, idx) => (
+                          <div key={idx} className={`flex items-center gap-2 text-sm transition-colors group ${isDarkMode ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                            <ArrowRight className="w-3 h-3 flex-shrink-0 group-hover:translate-x-1 transition-transform" style={{ color: NEON_COLORS.sunset }} />
+                            <span>{type}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className={`mt-8 pt-6 ${isDarkMode ? 'border-t border-white/10' : 'border-t border-gray-200'}`}>
+                  <Button
+                    size="lg"
+                    className="w-full text-black font-semibold shadow-lg transition-all duration-300"
+                    style={{ 
+                      background: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.sunset})`,
+                      boxShadow: `0 0 25px ${NEON_COLORS.skyBlue}40`
+                    }}
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-start-application-highlights"
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    Connect With Our Team
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Callout & Quick Facts */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Competitive Advantage Callout */}
+              <Card className={`p-6 relative overflow-hidden group transition-all duration-500 ${isDarkMode ? '' : 'bg-white'}`} style={{ 
+                background: isDarkMode ? `linear-gradient(135deg, ${NEON_COLORS.skyBlue}15 0%, ${NEON_COLORS.sunset}10 100%)` : undefined,
+                borderColor: isDarkMode ? `${NEON_COLORS.skyBlue}30` : undefined
+              }} data-testid="card-competitive-advantage">
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl transition-all" style={{ backgroundColor: `${NEON_COLORS.skyBlue}20` }} />
+                <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full blur-2xl" style={{ backgroundColor: `${NEON_COLORS.sunset}15` }} />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: NEON_COLORS.skyBlue, boxShadow: `0 0 30px ${NEON_COLORS.skyBlue}40` }}>
+                    <Shield className="w-7 h-7 text-black" />
+                  </div>
+                  <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>CFAR Advantage</h3>
+                  <p className="text-lg font-medium mb-4" style={{ color: NEON_COLORS.skyBlue }}>
+                    Cancel For Any Reason Coverage
+                  </p>
+                  <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                    Give your clients the ultimate flexibility with up to 75% reimbursement for any cancellation reason. A key differentiator that closes more deals.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0F1D32]/50 border-white/10 hover:border-white/30' : 'bg-white border-gray-200 hover:border-gray-300'}`} data-testid="card-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.skyBlue}20` }}>
+                    <Clock className="w-5 h-5" style={{ color: NEON_COLORS.skyBlue }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>24-48hr</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Quote Turnaround</p>
+                </Card>
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0F1D32]/50 border-white/10 hover:border-white/30' : 'bg-white border-gray-200 hover:border-gray-300'}`} data-testid="card-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.sunset}20` }}>
+                    <Globe className="w-5 h-5" style={{ color: NEON_COLORS.sunset }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>50 States</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>National Coverage</p>
+                </Card>
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0F1D32]/50 border-white/10 hover:border-white/30' : 'bg-white border-gray-200 hover:border-gray-300'}`} data-testid="card-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.magenta}20` }}>
+                    <Award className="w-5 h-5" style={{ color: NEON_COLORS.magenta }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>A-Rated</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Carrier Partners</p>
+                </Card>
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0F1D32]/50 border-white/10 hover:border-white/30' : 'bg-white border-gray-200 hover:border-gray-300'}`} data-testid="card-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.skyBlue}20` }}>
+                    <DollarSign className="w-5 h-5" style={{ color: NEON_COLORS.skyBlue }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>15%</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Commission</p>
+                </Card>
+              </div>
+
+              {/* Contact Card */}
+              <Card className={`p-5 ${isDarkMode ? 'bg-[#0F1D32]/50 border-white/10' : 'bg-white border-gray-200'}`} data-testid="card-contact-info">
+                <h4 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <Mail className="w-4 h-4" style={{ color: NEON_COLORS.skyBlue }} />
+                  Need More Information?
+                </h4>
+                <p className={`text-sm mb-3 ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
+                  Reach out to our team for program details and custom quotes.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.skyBlue }}>
+                    <Mail className="w-4 h-4" />
+                    support@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.sunset }}>
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -597,118 +827,6 @@ export default function TravelPage() {
         </div>
       </section>
 
-      {/* Instant Pricing / Quote Form Section */}
-      <section id="quote" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
-              INSTANT PRICING
-            </Badge>
-          </div>
-
-          <div className="text-center mb-12">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-quote">
-              GET YOUR QUOTE IN 60 SECONDS
-            </h2>
-            <p className={`text-lg ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              No email required. See your price instantly.
-            </p>
-          </div>
-
-          {/* Progress Steps */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            {[1, 2, 3, 4].map((step) => (
-              <div key={step} className="flex items-center gap-2">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step === 1 ? 'bg-primary text-white' : isDarkMode ? 'bg-white/10 text-white/50' : 'bg-gray-200 text-gray-500'}`}>
-                  {step}
-                </div>
-                {step < 4 && <div className={`w-8 h-0.5 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`} />}
-              </div>
-            ))}
-          </div>
-
-          <Card className={`p-8 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'}`}>
-            <h3 className={`text-xl font-semibold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Trip Details
-            </h3>
-
-            <form className="space-y-6">
-              <div className="space-y-2">
-                <Label className={isDarkMode ? 'text-white' : ''}>Destination</Label>
-                <Select>
-                  <SelectTrigger className={isDarkMode ? 'bg-white/5 border-white/20 text-white' : ''} data-testid="select-destination">
-                    <SelectValue placeholder="Select destination" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {destinations.map((dest) => (
-                      <SelectItem key={dest} value={dest.toLowerCase().replace(/\//g, '-').replace(/\s+/g, '-')}>
-                        {dest}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label className={isDarkMode ? 'text-white' : ''}>Trip Cost</Label>
-                <div className="relative">
-                  <span className={`absolute left-3 top-1/2 transform -translate-y-1/2 ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>$</span>
-                  <Input
-                    type="number"
-                    placeholder="Include flights, hotels, tours, and activities"
-                    value={tripCost}
-                    onChange={(e) => setTripCost(e.target.value)}
-                    className={`pl-7 ${isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}`}
-                    data-testid="input-trip-cost"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Departure Date</Label>
-                  <Input
-                    type="date"
-                    className={isDarkMode ? 'bg-white/5 border-white/20 text-white' : ''}
-                    data-testid="input-departure-date"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label className={isDarkMode ? 'text-white' : ''}>Return Date</Label>
-                  <Input
-                    type="date"
-                    className={isDarkMode ? 'bg-white/5 border-white/20 text-white' : ''}
-                    data-testid="input-return-date"
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  id="broker-sale"
-                  checked={isBrokerSale}
-                  onCheckedChange={(checked) => setIsBrokerSale(checked as boolean)}
-                  data-testid="checkbox-broker-sale"
-                />
-                <Label htmlFor="broker-sale" className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  This is a broker sale
-                </Label>
-              </div>
-
-              <Button 
-                type="submit"
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90"
-                data-testid="button-continue"
-              >
-                Continue
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </form>
-          </Card>
-        </div>
-      </section>
-
       {/* How It Works Section */}
       <section id="how-it-works" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-6">
@@ -720,7 +838,7 @@ export default function TravelPage() {
 
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-how-it-works">
-              THREE STEPS TO PEACE OF MIND
+              THREE STEPS TO PLACE COVERAGE
             </h2>
           </div>
 
@@ -986,7 +1104,7 @@ export default function TravelPage() {
 
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-testimonials">
-              TRUSTED BY TRAVELERS WORLDWIDE
+              TRUSTED BY BROKERS NATIONWIDE
             </h2>
           </div>
 
@@ -1240,10 +1358,10 @@ export default function TravelPage() {
                 </li>
                 <li>
                   <button
-                    onClick={() => scrollToSection('quote')}
+                    onClick={() => scrollToSection('program')}
                     className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
                   >
-                    Get Quote
+                    Program
                   </button>
                 </li>
                 <li>
@@ -1304,10 +1422,10 @@ export default function TravelPage() {
                 <Button
                   size="sm"
                   className="bg-primary hover:bg-primary/90"
-                  onClick={() => scrollToSection('quote')}
-                  data-testid="button-footer-quote"
+                  onClick={() => setApplicationModalOpen(true)}
+                  data-testid="button-footer-contact"
                 >
-                  Get a Quote
+                  Contact Our Team
                 </Button>
               </div>
             </div>
@@ -1334,6 +1452,12 @@ export default function TravelPage() {
           </div>
         </div>
       </footer>
+
+      {/* Broker Application Modal */}
+      <BrokerApplicationModal 
+        open={applicationModalOpen} 
+        onOpenChange={setApplicationModalOpen} 
+      />
     </div>
   );
 }
