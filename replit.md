@@ -106,8 +106,21 @@ Preferred communication style: Simple, everyday language.
   - Program Benefits section with detailed features
   - Interactive Case Studies section (3 real broker success stories with tabbed navigation)
   - Quote form for lead generation
-- `/travel` - Travel Program landing page with CFAR coverage, instant pricing, enterprise solutions, platform integration
+- `/travel` - Travel Program landing page with CFAR coverage (100% reimbursement), High Value Trip Coverage up to $1M, enterprise solutions
 - `/rideshare` - Ride Share Economy Program landing page with driver coverage, fleet management, rating system, onboarding flow
+- `/sports` - Main Sports Programs landing page with Quick Quotes section linking to:
+  - Pickleball program
+  - Youth Sports program
+  - Sports Organization Quick Quote (Jotform: https://form.jotform.com/260276518705056)
+  - Adventure Sports program
+- `/adventure-sports` - Adventure Sports Program landing page with:
+  - Program Highlights for Adventure Tour & Guide Operators (accordion with 6 coverage types, up to $5M limits)
+  - Adventure Travel Programs section (6 categories: Water Sports, Mountain & Climbing, Aerial Adventures, Wilderness Expeditions, Eco-Tourism & Wildlife, Motorized Adventures)
+  - Featured Paddle Sport Operators program with International Rapid Media Film Festival partnership
+  - Expeditions & Hunting section (Hunting Outfitters, Fishing Expeditions, International Expeditions, Expedition Travel Insurance)
+  - Case Studies with tabbed navigation (3 adventure broker success stories)
+  - Leadership section
+  - Amber/orange neon color theme
 - All landing pages feature custom navigation with smooth scroll, hero sections, dark/light theme toggle, and contact forms
 - Contact info: support@matterhornprotects.com, 1-844-600-0611
 - "Access Now" CTAs in MarketingLandingPagesSection link to internal routes for Pickleball, Youth Sports, Travel, and Ride Share
