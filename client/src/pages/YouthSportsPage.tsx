@@ -772,37 +772,130 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
-      {/* Why Work With Matterhorn Section */}
-      <section id="why-matterhorn" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Combined Why Matterhorn Section */}
+      <section id="why-matterhorn" className="py-24 relative overflow-hidden" style={{ background: isDarkMode ? 'linear-gradient(135deg, #0A1628 0%, #0F1D32 50%, #0A1628 100%)' : 'linear-gradient(135deg, #f9fafb 0%, #f3f4f6 50%, #f9fafb 100%)' }}>
+        {/* Animated Background Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full blur-[200px] animate-pulse opacity-30" style={{ background: 'radial-gradient(circle, #00ff88 0%, transparent 70%)' }} />
+          <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full blur-[150px] animate-pulse opacity-20" style={{ background: 'radial-gradient(circle, #00d4ff 0%, transparent 70%)', animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[250px] animate-pulse opacity-10" style={{ background: 'radial-gradient(circle, #ff00ff 0%, transparent 70%)', animationDelay: '4s' }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section Header */}
           <div className="text-center mb-16">
-            <Badge className="bg-[#00ff88]/20 text-[#00ff88] border-[#00ff88]/30 mb-4">
-              Why Matterhorn
-            </Badge>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-why-matterhorn">
-              The Youth Sports Insurance{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#00ff88]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00ff88]">Complete Protection</span>
+              <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#00ff88]" />
+            </div>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-why-matterhorn">
+              The Matterhorn{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff]">
                 Advantage
               </span>
             </h2>
             <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-              Partner with industry leaders to access exclusive programs designed specifically for youth sports organizations.
+              60+ years of specialty expertise, nationwide coverage, and technology-driven solutions for youth sports organizations.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {whyMatterhorn.map((item, index) => (
-              <Card 
-                key={index}
-                className={`p-6 group overflow-visible ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10 hover:border-[#00ff88]/50' : 'bg-gray-50 border-gray-200 hover:border-[#00ff88]/50'} hover-elevate`}
-              >
-                <div className={`w-12 h-12 rounded-md flex items-center justify-center mb-4 transition-all duration-300 ${isDarkMode ? 'bg-[#00ff88]/20 group-hover:bg-[#00ff88]/30' : 'bg-[#00ff88]/10 group-hover:bg-[#00ff88]/20'}`}>
-                  <item.icon className="w-6 h-6 text-[#00ff88]" />
-                </div>
-                <h3 className={`text-lg font-bold mb-2 group-hover:text-[#00ff88] transition-colors ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{item.title}</h3>
-                <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>{item.description}</p>
-              </Card>
+          {/* Key Stats Strip */}
+          <div className={`flex flex-wrap justify-center gap-4 md:gap-8 mb-16 p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 backdrop-blur-sm border border-white/10' : 'bg-white shadow-lg border border-gray-100'}`}>
+            {[
+              { value: "60+", label: "Years Experience", color: "#00ff88" },
+              { value: "50", label: "States Covered", color: "#00d4ff" },
+              { value: "3M+", label: "Participants", color: "#ff00ff" },
+              { value: "15%", label: "Commission", color: "#00ff88" },
+              { value: "24hr", label: "Quote Turnaround", color: "#00d4ff" },
+            ].map((stat, idx) => (
+              <div key={idx} className="text-center px-4 md:px-6">
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: stat.color }}>{stat.value}</div>
+                <div className={`text-[10px] uppercase tracking-wider mt-1 ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>{stat.label}</div>
+              </div>
             ))}
+          </div>
+
+          {/* Coverage Types - Compact Grid */}
+          <div className="mb-16">
+            <h3 className={`text-xl font-bold text-center mb-8 flex items-center justify-center gap-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              <Shield className="w-5 h-5 text-[#00ff88]" />
+              Complete Coverage Suite
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              {[
+                { icon: Shield, title: "General Liability", color: "#00ff88" },
+                { icon: FileText, title: "Accident Medical", color: "#00d4ff" },
+                { icon: Users, title: "Abuse & Molestation", color: "#ff00ff" },
+                { icon: Briefcase, title: "D&O / E&O", color: "#00ff88" },
+                { icon: Package, title: "Property & Gear", color: "#00d4ff" },
+                { icon: Plane, title: "Travel Coverage", color: "#ff00ff" },
+              ].map((coverage, idx) => (
+                <div 
+                  key={idx}
+                  className={`p-4 rounded-xl text-center group transition-all duration-300 cursor-default ${isDarkMode ? 'bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20' : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 shadow-sm'}`}
+                >
+                  <div 
+                    className="w-10 h-10 rounded-lg mx-auto mb-3 flex items-center justify-center transition-transform group-hover:scale-110"
+                    style={{ backgroundColor: `${coverage.color}20` }}
+                  >
+                    <coverage.icon className="w-5 h-5" style={{ color: coverage.color }} />
+                  </div>
+                  <p className={`text-xs font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>{coverage.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* How It Works - Horizontal Flow */}
+          <div className={`rounded-2xl p-8 ${isDarkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-white shadow-xl border border-gray-100'}`}>
+            <h3 className={`text-xl font-bold text-center mb-8 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              How Our Programs Work
+            </h3>
+            <div className="grid md:grid-cols-4 gap-6 md:gap-4">
+              {[
+                { step: "01", title: "Submit", desc: "Complete simple application with basic program details", icon: FileText, color: "#00ff88" },
+                { step: "02", title: "Quote", desc: "Receive competitive quotes within 24-48 hours", icon: Clock, color: "#00d4ff" },
+                { step: "03", title: "Bind", desc: "Digital binding with instant certificate generation", icon: CheckCircle, color: "#ff00ff" },
+                { step: "04", title: "Support", desc: "Dedicated team for claims and ongoing service", icon: HeadphonesIcon, color: "#00ff88" },
+              ].map((item, idx) => (
+                <div key={idx} className="relative group">
+                  {/* Connection Line */}
+                  {idx < 3 && (
+                    <div className={`hidden md:block absolute top-8 left-[60%] w-[80%] h-[2px] ${isDarkMode ? 'bg-gradient-to-r from-white/20 to-transparent' : 'bg-gradient-to-r from-gray-200 to-transparent'}`} />
+                  )}
+                  <div className="text-center relative z-10">
+                    <div 
+                      className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{ 
+                        backgroundColor: `${item.color}15`,
+                        boxShadow: `0 0 30px ${item.color}20`
+                      }}
+                    >
+                      <item.icon className="w-7 h-7" style={{ color: item.color }} />
+                    </div>
+                    <div className="text-[10px] font-bold tracking-wider mb-1" style={{ color: item.color }}>{item.step}</div>
+                    <h4 className={`font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{item.title}</h4>
+                    <p className={`text-xs leading-relaxed ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Button 
+              size="lg"
+              asChild
+              className="bg-gradient-to-r from-[#00ff88] to-[#00d4ff] text-black font-semibold px-8 shadow-lg shadow-[#00ff88]/30 hover:shadow-[#00ff88]/50 transition-all"
+              data-testid="button-get-youth-coverage"
+            >
+              <a href="https://form.jotform.com/260276518705056" target="_blank" rel="noopener noreferrer">
+                Get Youth Sports Coverage
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -872,111 +965,6 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
-      {/* Program Benefits Section */}
-      <section id="program-benefits" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
-              Program Benefits
-            </Badge>
-          </div>
-
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-program-benefits">
-              The Matterhorn Advantage
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Our specialty youth sports programs deliver unparalleled coverage quality, competitive pricing, and seamless integration for youth leagues nationwide.
-            </p>
-          </div>
-
-          {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-            {programFeatures.map((feature, index) => (
-              <Card 
-                key={index}
-                className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'} hover-elevate`}
-                data-testid={`card-program-feature-${index}`}
-              >
-                <feature.icon className="w-10 h-10 text-primary mb-4" />
-                <h3 className={`text-xl font-semibold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {feature.title}
-                </h3>
-                <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  {feature.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-
-          {/* How Our Programs Work */}
-          <div className="mb-16">
-            <h3 className={`text-2xl font-bold text-center mb-12 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              How Our Programs Work
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {programSteps.map((item, index) => (
-                <div key={index} className="text-center" data-testid={`step-${index + 1}`}>
-                  <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                    {item.step}
-                  </div>
-                  <h4 className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                    {item.title}
-                  </h4>
-                  <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center">
-            <Button 
-              size="lg"
-              asChild
-              className="bg-primary"
-              data-testid="button-get-youth-coverage"
-            >
-              <a href="https://form.jotform.com/260276518705056" target="_blank" rel="noopener noreferrer">
-                Get Youth Sports Coverage
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Coverage Suite Section */}
-      <section id="coverage" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-coverage">
-              Complete Coverage Suite
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              From general liability to specialized programs, we protect every aspect of youth sports.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coverageSuite.map((coverage, index) => (
-              <Card 
-                key={index}
-                className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} hover-elevate`}
-                data-testid={`card-coverage-${index}`}
-              >
-                <coverage.icon className="w-10 h-10 text-primary mb-4" />
-                <h3 className={`text-xl font-semibold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {coverage.title}
-                </h3>
-                <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  {coverage.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Case Studies Section */}
       <section id="case-studies" className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
