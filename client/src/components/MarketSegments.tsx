@@ -24,7 +24,7 @@ const markets = [
     route: "/transportation",
     featured: true,
     stats: [
-      "17+ A-Rated Markets",
+      "15 A-Rated Markets",
       "Driver Management System",
       "Automated Invoicing",
       "Marketing Scrapes"
