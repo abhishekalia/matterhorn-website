@@ -1184,72 +1184,6 @@ export default function TravelPage() {
         </div>
       </section>
 
-      {/* Expert Guidance Section */}
-      <section id="contact" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
-              EXPERT GUIDANCE
-            </Badge>
-          </div>
-
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-contact">
-              CONNECT WITH OUR UNDERWRITERS
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Need custom coverage? Complex trip requirements? Our team of travel insurance experts is here to help craft the perfect policy.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <Card className={`p-6 text-center ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'}`}>
-              <Phone className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                CALL US
-              </h3>
-              <p className="text-primary font-bold mb-1">1-800-MATTERHORN</p>
-              <p className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>
-                Mon-Fri 8AM-8PM EST
-              </p>
-            </Card>
-
-            <Card className={`p-6 text-center ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'}`}>
-              <Mail className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                EMAIL US
-              </h3>
-              <p className="text-primary font-bold mb-1">underwriters@</p>
-              <p className="text-primary font-bold">matterhornprotects.com</p>
-            </Card>
-
-            <Card className={`p-6 text-center ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'}`}>
-              <Calendar className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                SCHEDULE CONSULTATION
-              </h3>
-              <Button className="bg-primary hover:bg-primary/90 mb-1" data-testid="button-book-call">
-                Book a Call
-              </Button>
-              <p className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>
-                15-minute expert review
-              </p>
-            </Card>
-          </div>
-
-          <div className="text-center">
-            <Button
-              size="lg"
-              variant="outline"
-              className={isDarkMode ? 'border-white/30 text-white hover:bg-white/10' : ''}
-              data-testid="button-schedule-call"
-            >
-              SCHEDULE A CALL
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Broker Program Section */}
       <section id="broker" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-6">
@@ -1375,10 +1309,10 @@ export default function TravelPage() {
                 </li>
                 <li>
                   <button
-                    onClick={() => scrollToSection('contact')}
+                    onClick={() => scrollToSection('broker')}
                     className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
                   >
-                    Contact
+                    Broker Program
                   </button>
                 </li>
               </ul>
