@@ -301,18 +301,15 @@ export default function TravelPage() {
   const testimonials = [
     {
       quote: "CFAR coverage is a game-changer for my high-net-worth clients. Matterhorn's 100% reimbursement gives them peace of mind on luxury trips, and the 15% commission helps my bottom line.",
-      author: "Jennifer M.",
-      location: "Premier Travel Partners, Chicago",
+      location: "Chicago, IL",
     },
     {
       quote: "Had a client need emergency evacuation from a remote destination. Matterhorn's team coordinated everything seamlessly. That kind of support makes me look great to my clients.",
-      author: "David K.",
-      location: "Global Adventures Insurance, Miami",
+      location: "Miami, FL",
     },
     {
       quote: "Fast turnaround, competitive rates, and a dedicated underwriting team that actually answers the phone. Matterhorn has become my go-to for all travel insurance placements.",
-      author: "Rachel T.",
-      location: "Coastal Insurance Group, Boston",
+      location: "Boston, MA",
     },
   ];
 
@@ -1231,11 +1228,8 @@ export default function TravelPage() {
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                      — {testimonial.author}
-                    </p>
                     <p className="text-sm transition-colors" style={{ color: neonColor }}>
-                      {testimonial.location}
+                      — {testimonial.location}
                     </p>
                   </div>
                 </div>
