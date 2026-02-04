@@ -231,8 +231,8 @@ export default function TransportationPage() {
       icon: Truck,
       highlight: "Turnkey protection for IC fleets and owner-operators",
       programHighlights: [
-        "Up to $1,000,000 Occupational Accident coverage",
-        "Up to $1,000,000 Commercial Auto Liability",
+        "Up to $5,000,000 Occupational Accident coverage",
+        "Up to $5,000,000 Commercial Auto Liability",
         "Physical Damage coverage available",
         "Non-Trucking Liability included",
         "Workers Compensation options",
@@ -259,8 +259,8 @@ export default function TransportationPage() {
       icon: Package,
       highlight: "Comprehensive protection for brokerage operations",
       programHighlights: [
-        "Up to $1,000,000 Contingent Cargo limits",
-        "Up to $1,000,000 Errors & Omissions",
+        "Up to $5,000,000 Contingent Cargo limits",
+        "Up to $5,000,000 Errors & Omissions",
         "General Liability coverage included",
         "Truck Broker Liability options",
         "Contract-compliant documentation",
