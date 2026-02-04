@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   Mountain,
   Users,
   Zap,
@@ -33,6 +39,10 @@ import {
   Sparkles,
   PartyPopper,
   Clapperboard,
+  Clock,
+  Globe,
+  Shield,
+  DollarSign,
 } from "lucide-react";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
@@ -310,7 +320,7 @@ export default function EntertainmentPage() {
             </Link>
 
             <div className="hidden lg:flex items-center gap-3">
-              {["Markets", "Coverages", "Case Studies", "Why Us"].map((item) => (
+              {["Program", "Markets", "Coverages", "Case Studies", "Why Us"].map((item) => (
                 <Button
                   key={item}
                   variant="ghost"
@@ -389,7 +399,7 @@ export default function EntertainmentPage() {
             </Button>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60 mb-12">
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
             <div className="flex items-center gap-2">
               <Film className="w-4 h-4" style={{ color: NEON_COLORS.gold }} />
               <span>Film & TV Production</span>
@@ -403,38 +413,237 @@ export default function EntertainmentPage() {
               <span>Digital Content</span>
             </div>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="text-center p-4 rounded-lg border border-white/10 hover-elevate overflow-visible transition-all duration-300"
-                style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}
-              >
-                <div 
-                  className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text"
-                  style={{ 
-                    backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.gold}, ${NEON_COLORS.magenta})`
-                  }}
-                >
-                  {stat.value}
-                </div>
-                <div className="text-sm text-white/60 mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => scrollToSection("markets")}
+          onClick={() => scrollToSection("program")}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-white/60"
           data-testid="button-scroll-down"
         >
           <ChevronDown className="w-8 h-8" />
         </Button>
+      </section>
+
+      {/* Program Highlights Section */}
+      <section id="program" className="py-24 relative overflow-hidden" data-testid="section-program-highlights">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#1B2A41]/30 to-[#0A1628]" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.gold}15` }} />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.magenta}10`, animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.electric}08`, animationDelay: "1s" }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.gold}20`, 
+              color: NEON_COLORS.gold, 
+              borderColor: `${NEON_COLORS.gold}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.gold}30`
+            }}>
+              <Star className="w-3 h-3 mr-1" />
+              Comprehensive Program
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="heading-program-highlights">
+              Program{" "}
+              <span className="text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.gold}, ${NEON_COLORS.magenta}, ${NEON_COLORS.electric})` }}>
+                Highlights & Enhancements
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
+              Specialized entertainment coverage with industry-leading terms and limits for productions of all sizes.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Highlights & Risk Types */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Main Card with Accordions */}
+              <Card className="p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm relative overflow-hidden" data-testid="card-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, ${NEON_COLORS.gold}, ${NEON_COLORS.magenta}, ${NEON_COLORS.electric})` }} />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${NEON_COLORS.gold}20`, boxShadow: `0 0 25px ${NEON_COLORS.gold}25` }}>
+                    <Award className="w-6 h-6" style={{ color: NEON_COLORS.gold }} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Entertainment Program Details</h3>
+                    <p className="text-sm" style={{ color: NEON_COLORS.gold }}>Up to $5M limits available</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["highlights"]} className="space-y-3">
+                  {/* Program Highlights Accordion */}
+                  <AccordionItem value="highlights" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:no-underline py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors rounded-lg" style={{ color: 'white' }}>
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5" style={{ color: NEON_COLORS.gold }} />
+                        <span className="font-semibold">Highlights & Enhancements</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          { text: "All Risk Production Coverage", highlight: false },
+                          { text: "Up to $5,000,000 CGL in-house capabilities", highlight: true },
+                          { text: "$1,000,000 Abuse & Molestation (Claims Made)", highlight: true },
+                          { text: "Negative Film / Faulty Stock coverage", highlight: false },
+                          { text: "Cast Insurance included", highlight: false },
+                          { text: "Extra Expense & Essential Elements", highlight: false },
+                          { text: "Equipment & Props coverage", highlight: false },
+                          { text: "Sets, Scenery & Wardrobe protection", highlight: false },
+                          { text: "Third Party Property Damage", highlight: false },
+                          { text: "Weather Delay / Adverse Weather", highlight: false },
+                          { text: "Pre-Production & Post-Production covered", highlight: false },
+                          { text: "15% Commission", highlight: true },
+                          { text: "Flexible terms for all production types", highlight: false },
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0`} style={{ backgroundColor: item.highlight ? NEON_COLORS.gold : 'rgba(255,255,255,0.4)' }} />
+                            <span className={`text-sm ${item.highlight ? 'font-medium' : ''} group-hover:text-white transition-colors`} style={{ color: item.highlight ? NEON_COLORS.gold : 'rgba(255,255,255,0.7)' }}>
+                              {item.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Risk Types Accordion */}
+                  <AccordionItem value="risk-types" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:no-underline py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors rounded-lg" style={{ color: 'white' }}>
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5" style={{ color: NEON_COLORS.magenta }} />
+                        <span className="font-semibold">Risk Types Covered</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          "Feature Films & Documentaries",
+                          "Television Productions",
+                          "Commercials & Music Videos",
+                          "Live Events & Concerts",
+                          "Theater Productions",
+                          "Digital & Streaming Content",
+                          "Corporate Events",
+                          "Award Shows & Galas",
+                          "Sports Broadcasting",
+                          "Festival Productions",
+                        ].map((risk, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors group">
+                            <ArrowRight className="w-3 h-3 flex-shrink-0 group-hover:translate-x-1 transition-transform" style={{ color: NEON_COLORS.magenta }} />
+                            <span>{risk}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <Button
+                    size="lg"
+                    className="w-full text-black font-semibold shadow-lg transition-all duration-300"
+                    style={{ 
+                      background: `linear-gradient(90deg, ${NEON_COLORS.gold}, ${NEON_COLORS.magenta})`,
+                      boxShadow: `0 0 25px ${NEON_COLORS.gold}40`
+                    }}
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-start-application-highlights"
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    Connect With Our Team
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Callout & Quick Facts */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Competitive Advantage Callout */}
+              <Card className="p-6 relative overflow-hidden group transition-all duration-500" style={{ 
+                background: `linear-gradient(135deg, ${NEON_COLORS.gold}15 0%, ${NEON_COLORS.magenta}10 100%)`,
+                borderColor: `${NEON_COLORS.gold}30`
+              }} data-testid="card-competitive-advantage">
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl transition-all" style={{ backgroundColor: `${NEON_COLORS.gold}20` }} />
+                <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full blur-2xl" style={{ backgroundColor: `${NEON_COLORS.magenta}15` }} />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: NEON_COLORS.gold, boxShadow: `0 0 30px ${NEON_COLORS.gold}40` }}>
+                    <DollarSign className="w-7 h-7 text-black" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Production-Ready Coverage</h3>
+                  <p className="text-lg font-medium mb-4" style={{ color: NEON_COLORS.gold }}>
+                    Fast turnaround for tight schedules
+                  </p>
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    Our entertainment program offers up to $5,000,000 in CGL limits with rapid binding authority, perfect for productions with tight timelines.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10 hover:border-white/30 transition-all group" data-testid="card-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.gold}20` }}>
+                    <Clock className="w-5 h-5" style={{ color: NEON_COLORS.gold }} />
+                  </div>
+                  <p className="text-2xl font-bold text-white">24-48hr</p>
+                  <p className="text-white/50 text-sm">Quote Turnaround</p>
+                </Card>
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10 hover:border-white/30 transition-all group" data-testid="card-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.magenta}20` }}>
+                    <Globe className="w-5 h-5" style={{ color: NEON_COLORS.magenta }} />
+                  </div>
+                  <p className="text-2xl font-bold text-white">50 States</p>
+                  <p className="text-white/50 text-sm">National Coverage</p>
+                </Card>
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10 hover:border-white/30 transition-all group" data-testid="card-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.electric}20` }}>
+                    <Shield className="w-5 h-5" style={{ color: NEON_COLORS.electric }} />
+                  </div>
+                  <p className="text-2xl font-bold text-white">A-Rated</p>
+                  <p className="text-white/50 text-sm">Carrier Partners</p>
+                </Card>
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10 hover:border-white/30 transition-all group" data-testid="card-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.gold}20` }}>
+                    <Users className="w-5 h-5" style={{ color: NEON_COLORS.gold }} />
+                  </div>
+                  <p className="text-2xl font-bold text-white">15%</p>
+                  <p className="text-white/50 text-sm">Commission</p>
+                </Card>
+              </div>
+
+              {/* Contact Card */}
+              <Card className="p-5 bg-[#1B2A41]/50 border-white/10" data-testid="card-contact-info">
+                <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                  <Mail className="w-4 h-4" style={{ color: NEON_COLORS.gold }} />
+                  Need More Information?
+                </h4>
+                <p className="text-white/50 text-sm mb-3">
+                  Reach out to our team for program details and custom quotes.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.gold }}>
+                    <Mail className="w-4 h-4" />
+                    support@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.magenta }}>
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Market Segments Section */}
