@@ -805,9 +805,8 @@ export default function YouthSportsPage() {
             {[
               { value: "60+", label: "Years Experience", color: "#00ff88" },
               { value: "50", label: "States Covered", color: "#00d4ff" },
-              { value: "3M+", label: "Participants", color: "#ff00ff" },
-              { value: "15%", label: "Commission", color: "#00ff88" },
-              { value: "24hr", label: "Quote Turnaround", color: "#00d4ff" },
+              { value: "15%", label: "Commission", color: "#ff00ff" },
+              { value: "24hr", label: "Quote Turnaround", color: "#00ff88" },
             ].map((stat, idx) => (
               <div key={idx} className="text-center px-4 md:px-6">
                 <div className="text-2xl md:text-3xl font-bold" style={{ color: stat.color }}>{stat.value}</div>
