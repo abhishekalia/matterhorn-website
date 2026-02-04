@@ -7,7 +7,7 @@ const pillars = [
   {
     icon: Layers,
     title: "Curated Markets",
-    description: "We don't just connect you to carriers—we've hand-selected A-rated markets that understand specialty risk. Each market in our portfolio has been vetted for their appetite, responsiveness, and willingness to write the complex risks your clients bring to the table. One application opens doors to 10, 12, even 17+ markets depending on the segment.",
+    description: "Hand-selected A-rated markets that understand specialty risk. One application opens doors to 10, 12, even 17+ carriers depending on the segment.",
     highlights: [
       "A-Rated carrier partners across all segments",
       "Pre-negotiated appetites for specialty risks",
@@ -18,7 +18,7 @@ const pillars = [
   {
     icon: Cpu,
     title: "Innovative Technology",
-    description: "We built Matterhorn because brokers were drowning in administrative work. Our platform automates the tedious stuff—submissions, invoicing, participant management—so you can focus on what you do best: serving clients. Real-time quoting, API integrations, and digital workflows that actually work.",
+    description: "Our platform automates submissions, invoicing, and participant management so you can focus on serving clients. Real-time quoting and digital workflows that work.",
     highlights: [
       "Automated submission and invoicing",
       "Real-time quoting and COI generation",
@@ -29,7 +29,7 @@ const pillars = [
   {
     icon: Target,
     title: "Market Expertise",
-    description: "Our team has spent decades placing and rating specialty risks. We know how to present your submissions in the language carriers need to hear. When you partner with Matterhorn, you're not just getting access to markets—you're getting a team that knows how to get deals done for complex, unique clients.",
+    description: "Decades of experience placing specialty risks. We present your submissions in the language carriers need, getting deals done for complex clients.",
     highlights: [
       "Decades of specialty insurance experience",
       "Deep knowledge of carrier appetites",
