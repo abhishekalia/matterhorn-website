@@ -226,8 +226,8 @@ export default function TransportationPage() {
   const featuredPrograms = [
     {
       title: "Motor Carrier + Independent Contractors",
-      description: "Comprehensive coverage solutions for motor carriers and 1099 independent contractor fleets with scalable onboarding and compliance-ready documentation.",
-      coverage: "OA, Commercial Liability, Physical Damage, Non-Trucking Liability, Workers Comp",
+      description: "Comprehensive coverage for motor carriers and 1099 IC fleets with scalable onboarding and compliance-ready documentation.",
+      coverage: "Occupational Accident, Commercial Liability, Physical Damage, Non-Trucking Liability, Workers Comp",
       icon: Truck,
       highlight: "Turnkey protection for IC fleets and owner-operators",
       programHighlights: [
@@ -255,7 +255,7 @@ export default function TransportationPage() {
     {
       title: "Logistics + Freight Brokers",
       description: "Operational liability protection for freight brokerages with contract-driven support and claims-ready documentation.",
-      coverage: "Contingent Cargo, Errors & Omissions, General Liability, Truck Broker Liability",
+      coverage: "Contingent Cargo, Errors & Omissions, General Liability, Truck Broker Liability, Cyber Liability",
       icon: Package,
       highlight: "Comprehensive protection for brokerage operations",
       programHighlights: [
@@ -645,14 +645,14 @@ export default function TransportationPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto items-stretch">
             {featuredPrograms.map((program, index) => {
               const neonColors = [NEON_COLORS.amber, NEON_COLORS.cyan];
               const neonColor = neonColors[index % neonColors.length];
               return (
                 <Card 
                   key={index} 
-                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm transition-all duration-500 relative overflow-hidden ${getAnimationClass("markets")}`}
+                  className={`p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm transition-all duration-500 relative overflow-hidden flex flex-col ${getAnimationClass("markets")}`}
                   style={{ transitionDelay: `${index * 75}ms` }}
                   data-testid={`card-featured-program-${index}`}
                 >
@@ -662,71 +662,79 @@ export default function TransportationPage() {
                     style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
                   />
                   
-                  <div className="relative z-10">
-                    <div className="flex items-start gap-4 mb-6">
+                  <div className="relative z-10 flex flex-col flex-1">
+                    {/* Header - fixed height */}
+                    <div className="flex items-start gap-4 mb-6 min-h-[80px]">
                       <div 
                         className="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"
                         style={{ backgroundColor: `${neonColor}20`, boxShadow: `0 0 25px ${neonColor}25` }}
                       >
                         <program.icon className="w-7 h-7" style={{ color: neonColor }} />
                       </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-white">{program.title}</h3>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-white leading-tight">{program.title}</h3>
                         <p className="text-sm font-medium mt-1" style={{ color: neonColor }}>{program.highlight}</p>
                       </div>
                     </div>
                     
-                    <p className="text-white/60 text-sm leading-relaxed mb-4">
-                      {program.description}
-                    </p>
+                    {/* Description - fixed height */}
+                    <div className="min-h-[60px] mb-4">
+                      <p className="text-white/60 text-sm leading-relaxed">
+                        {program.description}
+                      </p>
+                    </div>
                     
-                    <div className="pt-4 border-t border-white/10 mb-4">
+                    {/* Coverage - fixed height */}
+                    <div className="pt-4 border-t border-white/10 mb-4 min-h-[70px]">
                       <p className="text-xs font-medium mb-1" style={{ color: neonColor }}>Coverage:</p>
                       <p className="text-xs text-white/50">{program.coverage}</p>
                     </div>
 
-                    {/* Accordion Dropdowns */}
-                    <Accordion type="single" collapsible className="space-y-2">
-                      <AccordionItem value="highlights" className="border-white/10">
-                        <AccordionTrigger className="text-sm text-white/80 hover:text-white py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-white/10">
-                          <span className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4" style={{ color: neonColor }} />
-                            Program Highlights
-                          </span>
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-3 pb-1 px-2">
-                          <ul className="space-y-2">
-                            {program.programHighlights.map((highlight, idx) => (
-                              <li key={idx} className="flex items-start gap-2 text-sm text-white/70">
-                                <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: neonColor }} />
-                                <span>{highlight}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </AccordionContent>
-                      </AccordionItem>
-                      
-                      <AccordionItem value="risk-types" className="border-white/10">
-                        <AccordionTrigger className="text-sm text-white/80 hover:text-white py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-white/10">
-                          <span className="flex items-center gap-2">
-                            <Target className="w-4 h-4" style={{ color: neonColor }} />
-                            Risk Types
-                          </span>
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-3 pb-1 px-2">
-                          <div className="grid grid-cols-2 gap-2">
-                            {program.riskTypes.map((risk, idx) => (
-                              <div key={idx} className="flex items-center gap-2 text-sm text-white/70">
-                                <ArrowRight className="w-3 h-3 flex-shrink-0" style={{ color: neonColor }} />
-                                <span>{risk}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
+                    {/* Accordion Dropdowns - flex-1 to push button to bottom */}
+                    <div className="flex-1">
+                      <Accordion type="single" collapsible className="space-y-2">
+                        <AccordionItem value="highlights" className="border-white/10">
+                          <AccordionTrigger className="text-sm text-white/80 hover:text-white py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-white/10">
+                            <span className="flex items-center gap-2">
+                              <CheckCircle className="w-4 h-4" style={{ color: neonColor }} />
+                              Program Highlights
+                            </span>
+                          </AccordionTrigger>
+                          <AccordionContent className="pt-3 pb-1 px-2">
+                            <ul className="space-y-2">
+                              {program.programHighlights.map((highlight, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-sm text-white/70">
+                                  <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: neonColor }} />
+                                  <span>{highlight}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+                        
+                        <AccordionItem value="risk-types" className="border-white/10">
+                          <AccordionTrigger className="text-sm text-white/80 hover:text-white py-3 px-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-white/10">
+                            <span className="flex items-center gap-2">
+                              <Target className="w-4 h-4" style={{ color: neonColor }} />
+                              Risk Types
+                            </span>
+                          </AccordionTrigger>
+                          <AccordionContent className="pt-3 pb-1 px-2">
+                            <div className="grid grid-cols-2 gap-2">
+                              {program.riskTypes.map((risk, idx) => (
+                                <div key={idx} className="flex items-center gap-2 text-sm text-white/70">
+                                  <ArrowRight className="w-3 h-3 flex-shrink-0" style={{ color: neonColor }} />
+                                  <span>{risk}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
+                    </div>
 
-                    <div className="mt-6">
+                    {/* Apply Button - always at bottom */}
+                    <div className="mt-6 pt-4">
                       <a href={program.jotformUrl} target="_blank" rel="noopener noreferrer">
                         <Button
                           size="default"
