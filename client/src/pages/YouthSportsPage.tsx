@@ -655,15 +655,14 @@ export default function YouthSportsPage() {
             {/* Right Column - Callout & Quick Facts */}
             <div className="lg:col-span-5 space-y-6">
               {/* Competitive Advantage Callout */}
-              <Card className={`p-6 relative overflow-hidden group transition-all duration-500 ${isDarkMode ? 'bg-gradient-to-br from-[#00ff88]/20 to-[#00d4ff]/10 border-[#00ff88]/30 hover:border-[#00ff88]/50' : 'bg-gradient-to-br from-green-50 to-cyan-50 border-green-200 hover:border-green-400'}`} data-testid="card-competitive-advantage">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#00ff88]/20 rounded-full blur-3xl group-hover:bg-[#00ff88]/30 transition-all" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#00d4ff]/15 rounded-full blur-2xl" />
+              <Card className={`p-6 relative overflow-hidden group transition-all duration-500 ${isDarkMode ? 'bg-slate-800/90 border-slate-600 hover:border-[#00ff88]/50' : 'bg-white border-gray-200 hover:border-green-400 shadow-lg'}`} data-testid="card-competitive-advantage">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#00ff88]" />
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-full bg-[#00ff88] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 30px rgba(0, 255, 136, 0.4)' }}>
                     <DollarSign className="w-7 h-7 text-black" />
                   </div>
                   <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Much Higher Starting Limits</h3>
-                  <p className="text-[#00ff88] text-lg font-medium mb-4">
+                  <p className={`text-lg font-medium mb-4 ${isDarkMode ? 'text-[#00ff88]' : 'text-green-600'}`}>
                     Than our main competitors can offer
                   </p>
                   <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-gray-600'}`}>
