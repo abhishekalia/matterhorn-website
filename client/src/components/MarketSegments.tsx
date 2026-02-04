@@ -379,7 +379,6 @@ export default function MarketSegments() {
         <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-purple-500/6 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
-
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -404,7 +403,7 @@ export default function MarketSegments() {
           {/* Market Count Stats */}
           <div className="flex items-center justify-center gap-8 mt-8">
             <div className="text-center">
-              <p className="text-3xl font-bold text-primary">4</p>
+              <p className="text-3xl font-bold text-primary">15</p>
               <p className="text-[10px] uppercase tracking-wider text-white/40">Markets</p>
             </div>
             <div className="w-[1px] h-10 bg-white/10" />
