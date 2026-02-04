@@ -490,7 +490,7 @@ export default function EntertainmentPage() {
                       <ul className="space-y-3">
                         {[
                           { text: "All Risk Production Coverage", highlight: false },
-                          { text: "Up to $5,000,000 CGL in-house capabilities", highlight: true },
+                          { text: "Up to $5,000,000 CGL", highlight: true },
                           { text: "$1,000,000 Abuse & Molestation (Claims Made)", highlight: true },
                           { text: "Negative Film / Faulty Stock coverage", highlight: false },
                           { text: "Cast Insurance included", highlight: false },

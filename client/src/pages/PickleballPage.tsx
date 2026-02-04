@@ -360,7 +360,7 @@ export default function PickleballPage() {
                       <ul className="space-y-3">
                         {[
                           { text: "All Risk Coverage", highlight: false },
-                          { text: "Up to $5,000,000 CGL in-house capabilities", highlight: true },
+                          { text: "Up to $5,000,000 CGL", highlight: true },
                           { text: "$1,000,000 Abuse (Claims Made)", highlight: true },
                           { text: "Participants Liability included", highlight: false },
                           { text: "No Deductible on Qualifying Risks!", highlight: false },
