@@ -681,67 +681,6 @@ export default function PickleballPage() {
         </div>
       </section>
 
-      {/* Broker Application Form */}
-      <section id="broker-application" className="py-20 bg-slate-900/50" data-testid="section-broker-application">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" data-testid="text-application-title">
-              Become an Appointed Broker
-            </h2>
-            <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-              Join our network of specialized pickleball insurance brokers. Get access to competitive rates, comprehensive coverage options, and dedicated support.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <Card className="bg-gradient-to-br from-emerald-900/50 to-teal-900/50 border-emerald-500/30 p-8 text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl" />
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FileText className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Get in Touch</h3>
-                <p className="text-slate-300 mb-8 max-w-xl mx-auto">
-                  Fill out our secure online application to become an appointed broker. Get access to competitive rates, comprehensive coverage options, and dedicated support for pickleball programs.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
-                  onClick={() => setContactModalOpen(true)}
-                  data-testid="button-submit-application"
-                >
-                  Start Your Application
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-slate-800/50 border-slate-700 p-6 mt-6" data-testid="card-what-happens-next">
-              <h3 className="text-xl font-bold text-white mb-4">What Happens Next?</h3>
-              <ol className="space-y-3 text-slate-400">
-                <li className="flex items-start gap-3">
-                  <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-sm">1</span>
-                  <span>We'll review your application within 2-3 business days</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-sm">2</span>
-                  <span>Our team will contact you to discuss appointment details and requirements</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-sm">3</span>
-                  <span>Complete the appointment paperwork and carrier contracting process</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="bg-emerald-600 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-sm">4</span>
-                  <span>Receive access to our broker portal, marketing materials, and sales support</span>
-                </li>
-              </ol>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Submission Options Section */}
       <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-950" data-testid="section-submission-options">
         <div className="container mx-auto px-6">
