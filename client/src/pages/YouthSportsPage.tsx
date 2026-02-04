@@ -899,6 +899,160 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
+      {/* NAYS Partnership Section */}
+      <section id="nays-partnership" className="py-24 relative overflow-hidden" style={{ background: isDarkMode ? 'linear-gradient(135deg, #0A1628 0%, #1a0a28 50%, #0A1628 100%)' : 'linear-gradient(135deg, #fdf4ff 0%, #f0f9ff 50%, #fdf4ff 100%)' }}>
+        {/* Animated Background Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[200px] animate-pulse opacity-40" style={{ background: 'radial-gradient(circle, #ff00ff 0%, transparent 70%)' }} />
+          <div className="absolute bottom-1/4 left-1/4 w-[350px] h-[350px] rounded-full blur-[150px] animate-pulse opacity-30" style={{ background: 'radial-gradient(circle, #00ff88 0%, transparent 70%)', animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[250px] animate-pulse opacity-20" style={{ background: 'radial-gradient(circle, #00d4ff 0%, transparent 70%)', animationDelay: '4s' }} />
+        </div>
+
+        {/* Floating Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(6)].map((_, i) => (
+            <div 
+              key={i}
+              className="absolute w-2 h-2 rounded-full bg-[#00ff88]/30 animate-pulse"
+              style={{
+                top: `${20 + i * 15}%`,
+                left: `${10 + i * 15}%`,
+                animationDelay: `${i * 0.5}s`,
+                animationDuration: `${3 + i * 0.5}s`
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#ff00ff]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#ff00ff]">Official Partnership</span>
+              <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#ff00ff]" />
+            </div>
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+              <Handshake className="w-5 h-5 text-[#00ff88]" />
+              <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Matterhorn × NAYS</span>
+            </div>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-nays-section">
+              NAYS{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff00ff] via-[#00d4ff] to-[#00ff88]">
+                Partnership
+              </span>
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+              As an official National Alliance for Youth Sports insurance partner, we help NAYS members secure the best coverage at the best possible rates.
+            </p>
+          </div>
+
+          {/* Interactive Card Grid */}
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            {/* Left - Benefits */}
+            <div className="lg:col-span-5 space-y-4">
+              {[
+                { icon: DollarSign, title: "Up to 20% Member Savings", desc: "Exclusive preferential pricing for verified NAYS members", color: "#00ff88" },
+                { icon: Shield, title: "$5M Enhanced Limits", desc: "Higher coverage limits with A&M protection included", color: "#00d4ff" },
+                { icon: Clock, title: "24hr Priority Quotes", desc: "Expedited processing for all NAYS member applications", color: "#ff00ff" },
+                { icon: Award, title: "NAYS Compliance Ready", desc: "All policies meet NAYS certification requirements", color: "#00ff88" },
+              ].map((item, idx) => (
+                <div 
+                  key={idx}
+                  className={`flex items-start gap-4 p-4 rounded-xl transition-all duration-300 group cursor-default ${isDarkMode ? 'bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20' : 'bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 shadow-sm'}`}
+                  data-testid={`nays-benefit-${idx}`}
+                >
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110"
+                    style={{ backgroundColor: `${item.color}20`, boxShadow: `0 0 20px ${item.color}15` }}
+                  >
+                    <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                  </div>
+                  <div>
+                    <h3 className={`font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{item.title}</h3>
+                    <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Right - CTA Card */}
+            <div className="lg:col-span-7">
+              <Card className={`p-8 relative overflow-hidden group ${isDarkMode ? 'bg-gradient-to-br from-[#1a0a28]/80 to-[#0a1a28]/80 border-[#ff00ff]/30 hover:border-[#ff00ff]/50' : 'bg-white border-purple-200 hover:border-purple-400 shadow-2xl'}`} data-testid="card-nays-cta">
+                {/* Animated Border Gradient */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#ff00ff] via-[#00d4ff] to-[#00ff88]" />
+                
+                {/* Background Glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#ff00ff]/10 rounded-full blur-[100px] group-hover:bg-[#ff00ff]/20 transition-all" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#00ff88]/10 rounded-full blur-[80px]" />
+
+                <div className="relative z-10">
+                  {/* Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#ff00ff] to-[#00d4ff] flex items-center justify-center" style={{ boxShadow: '0 0 40px rgba(255, 0, 255, 0.4)' }}>
+                      <Handshake className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <Badge className="bg-[#ff00ff]/20 text-[#ff00ff] border-[#ff00ff]/30 mb-2">
+                        Exclusive Access
+                      </Badge>
+                      <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>NAYS Member Benefits</h3>
+                    </div>
+                  </div>
+
+                  {/* Stats Row */}
+                  <div className={`grid grid-cols-3 gap-4 mb-8 p-4 rounded-xl ${isDarkMode ? 'bg-black/20' : 'bg-gray-50'}`}>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-[#ff00ff]">20%</div>
+                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Savings</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-[#00d4ff]">$5M</div>
+                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Limits</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-[#00ff88]">15%</div>
+                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Commission</div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className={`mb-8 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                    As a NAYS member, you and your clients qualify for exclusive rates, enhanced coverage limits, and priority processing. Explore the full partnership benefits.
+                  </p>
+
+                  {/* CTAs */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button 
+                      size="lg"
+                      asChild
+                      className="flex-1 bg-gradient-to-r from-[#ff00ff] to-[#00d4ff] text-white font-semibold shadow-lg shadow-[#ff00ff]/30 hover:shadow-[#ff00ff]/50 transition-all"
+                      data-testid="button-nays-explore"
+                    >
+                      <Link href="/nays-partnership">
+                        Explore Partnership
+                        <ArrowRight className="ml-2 w-5 h-5" />
+                      </Link>
+                    </Button>
+                    <Button 
+                      size="lg"
+                      variant="outline"
+                      asChild
+                      className={`flex-1 ${isDarkMode ? 'bg-white/5 border-white/30 text-white hover:bg-white/10' : 'border-gray-300 hover:bg-gray-50'}`}
+                      data-testid="button-nays-quote"
+                    >
+                      <a href="https://form.jotform.com/260276518705056" target="_blank" rel="noopener noreferrer">
+                        Get NAYS Quote
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Applications Section */}
       <section id="applications" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto px-6">

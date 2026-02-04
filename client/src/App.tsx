@@ -18,6 +18,7 @@ import EntertainmentPage from "@/pages/EntertainmentPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NaysMembersPage from "@/pages/NaysMembersPage";
+import NAYSPartnershipPage from "@/pages/NAYSPartnershipPage";
 
 function Router() {
   return (
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
       <Route path="/naysmembers" component={NaysMembersPage} />
+      <Route path="/nays-partnership" component={NAYSPartnershipPage} />
       <Route component={NotFound} />
     </Switch>
   );
