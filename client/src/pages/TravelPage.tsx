@@ -57,6 +57,7 @@ import {
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
+import matterhornHeroBg from "@/assets/images/matterhorn-hero-bg.png";
 
 // Neon color palette for Travel
 const NEON_COLORS = {
@@ -440,6 +441,19 @@ export default function TravelPage() {
 
       {/* Hero Section with Neon Accents */}
       <section id="hero" className={`relative min-h-screen flex items-center justify-center pt-20 ${isDarkMode ? 'bg-gradient-to-b from-[#0A1628] via-[#0F1D32] to-[#0A1628]' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+        {/* Matterhorn Mountain Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <img 
+            src={matterhornHeroBg} 
+            alt="" 
+            className="absolute bottom-0 left-0 right-0 w-full h-auto object-cover object-bottom opacity-40"
+            style={{ 
+              maskImage: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)'
+            }}
+          />
+        </div>
+        
         {/* Neon glow effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.skyBlue}15` }} />
