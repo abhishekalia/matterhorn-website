@@ -85,7 +85,7 @@ export default function TravelPage() {
       icon: Shield,
       badge: "Ultimate Flexibility",
       title: "Cancel For Any Reason",
-      description: "Offer your clients up to 75% trip cost reimbursement for any cancellation reason—a key differentiator for your agency.",
+      description: "Offer your clients up to 100% trip cost reimbursement for any cancellation reason—a key differentiator for your agency.",
     },
     {
       icon: DollarSign,
@@ -133,7 +133,7 @@ export default function TravelPage() {
         {
           title: "Cancel For Any Reason",
           items: [
-            "Up to 75% reimbursement (Essential) or 100% (Enhanced/Premium)",
+            "Up to 100% reimbursement available",
             "Must cancel 48+ hours before departure",
           ],
         },
@@ -141,7 +141,7 @@ export default function TravelPage() {
           title: "Trip Interruption",
           items: [
             "Return home early for any covered reason",
-            "Up to 75% of trip cost (Essential) or 150% (Premium)",
+            "Up to 150% of trip cost",
           ],
         },
         {
@@ -299,7 +299,7 @@ export default function TravelPage() {
 
   const testimonials = [
     {
-      quote: "CFAR coverage is a game-changer for my high-net-worth clients. Matterhorn's 75% reimbursement gives them peace of mind on luxury trips, and the 15% commission helps my bottom line.",
+      quote: "CFAR coverage is a game-changer for my high-net-worth clients. Matterhorn's 100% reimbursement gives them peace of mind on luxury trips, and the 15% commission helps my bottom line.",
       author: "Jennifer M.",
       location: "Premier Travel Partners, Chicago",
     },
@@ -318,7 +318,7 @@ export default function TravelPage() {
   const faqs = [
     {
       question: "What does 'Cancel For Any Reason' actually mean?",
-      answer: "CFAR coverage allows you to cancel your trip for literally any reason and receive up to 75% (Essential) or 100% (Enhanced/Premium) of your non-refundable trip costs back. You must cancel at least 48 hours before your scheduled departure date.",
+      answer: "CFAR coverage allows you to cancel your trip for literally any reason and receive up to 100% of your non-refundable trip costs back. You must cancel at least 48 hours before your scheduled departure date.",
     },
     {
       question: "When do I need to purchase insurance?",
@@ -591,7 +591,8 @@ export default function TravelPage() {
                     <AccordionContent className="pt-4 pb-2 px-2">
                       <ul className="space-y-3">
                         {[
-                          { text: "Cancel For Any Reason (CFAR) - Up to 75% Reimbursement", highlight: true },
+                          { text: "Cancel For Any Reason (CFAR) - Up to 100% Reimbursement", highlight: true },
+                          { text: "High Value Trip Coverage - Up to $1M Per Trip", highlight: true },
                           { text: "Trip Interruption - Up to 150% of Trip Cost", highlight: true },
                           { text: "Emergency Medical - Up to $500,000", highlight: false },
                           { text: "Medical Evacuation - Up to $1,000,000", highlight: false },
@@ -684,7 +685,7 @@ export default function TravelPage() {
                     Cancel For Any Reason Coverage
                   </p>
                   <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-                    Give your clients the ultimate flexibility with up to 75% reimbursement for any cancellation reason. A key differentiator that closes more deals.
+                    Give your clients the ultimate flexibility with up to 100% reimbursement for any cancellation reason. A key differentiator that closes more deals.
                   </p>
                 </div>
               </Card>
