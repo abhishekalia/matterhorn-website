@@ -56,6 +56,7 @@ import {
 } from "lucide-react";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
+import Footer from "@/components/Footer";
 
 // Neon color palette for Travel
 const NEON_COLORS = {
@@ -829,41 +830,92 @@ export default function TravelPage() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="how-it-works" className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
+        {/* Animated background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-40 -left-40 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.skyBlue}10` }} />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.sunset}08`, animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.magenta}06`, animationDelay: "2s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
+            <Badge className="px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.sunset}20`, 
+              color: NEON_COLORS.sunset, 
+              borderColor: `${NEON_COLORS.sunset}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.sunset}30`
+            }}>
               HOW IT WORKS
             </Badge>
           </div>
 
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-how-it-works">
-              THREE STEPS TO PLACE COVERAGE
+              THREE STEPS TO{" "}
+              <span className="text-transparent bg-clip-text" style={{ 
+                backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.sunset}, ${NEON_COLORS.magenta})`
+              }}>PLACE COVERAGE</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howItWorks.map((step, index) => (
-              <div key={index} className="text-center" data-testid={`step-${index + 1}`}>
-                <div className="text-6xl font-bold text-primary/30 mb-4">{step.step}</div>
-                <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {step.title}
-                </h3>
-                <p className={`${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  {step.description}
-                </p>
-              </div>
-            ))}
+            {howItWorks.map((step, index) => {
+              const neonColors = [NEON_COLORS.skyBlue, NEON_COLORS.sunset, NEON_COLORS.magenta];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+              <Card 
+                key={index} 
+                className={`text-center p-8 relative overflow-hidden group transition-all duration-500 hover-elevate ${isDarkMode ? 'bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm' : 'bg-white border-gray-200'}`}
+                data-testid={`step-${index + 1}`}
+              >
+                {/* Hover glow */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at 50% 30%, ${neonColor}15 0%, transparent 70%)` }}
+                />
+                <div 
+                  className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: `linear-gradient(90deg, transparent, ${neonColor}, transparent)` }}
+                />
+                
+                <div className="relative z-10">
+                  <div 
+                    className="text-6xl font-bold mb-4 transition-all duration-300 group-hover:scale-110"
+                    style={{ color: neonColor, textShadow: `0 0 30px ${neonColor}50` }}
+                  >
+                    {step.step}
+                  </div>
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    {step.title}
+                  </h3>
+                  <p className={`${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
+                    {step.description}
+                  </p>
+                </div>
+              </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Coverage Details Section */}
-      <section id="coverage" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="coverage" className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
+        {/* Animated background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-20 right-10 w-96 h-96 rounded-full blur-[150px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.magenta}08` }} />
+          <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.skyBlue}06`, animationDelay: "1.5s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
+            <Badge className="px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.magenta}20`, 
+              color: NEON_COLORS.magenta, 
+              borderColor: `${NEON_COLORS.magenta}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.magenta}30`
+            }}>
               COVERAGE DETAILS
             </Badge>
           </div>
@@ -871,7 +923,9 @@ export default function TravelPage() {
           <div className="text-center mb-12">
             <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-coverage">
               COMPREHENSIVE PROTECTION<br />
-              <span className="text-primary">FOR EVERY JOURNEY</span>
+              <span className="text-transparent bg-clip-text" style={{ 
+                backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.skyBlue}, ${NEON_COLORS.magenta})`
+              }}>FOR EVERY JOURNEY</span>
             </h2>
             <p className={`text-lg ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
               What's covered when you choose Matterhorn
@@ -879,45 +933,72 @@ export default function TravelPage() {
           </div>
 
           <Tabs defaultValue="cancellation" className="w-full">
-            <TabsList className={`w-full flex flex-wrap justify-center mb-8 ${isDarkMode ? 'bg-white/5' : 'bg-gray-100'}`}>
-              {coverageTabs.map((tab) => (
+            <TabsList className={`w-full flex flex-wrap justify-center mb-8 gap-2 ${isDarkMode ? 'bg-white/5' : 'bg-gray-100'}`} style={{ 
+              boxShadow: isDarkMode ? `0 0 30px ${NEON_COLORS.skyBlue}10` : 'none'
+            }}>
+              {coverageTabs.map((tab, idx) => {
+                const neonColors = [NEON_COLORS.skyBlue, NEON_COLORS.sunset, NEON_COLORS.magenta, NEON_COLORS.gold];
+                return (
                 <TabsTrigger
                   key={tab.id}
                   value={tab.id}
-                  className="text-sm px-4 py-2"
+                  className="text-sm px-4 py-2 transition-all duration-300 data-[state=active]:shadow-lg"
+                  style={{ 
+                    '--tw-shadow-color': neonColors[idx % neonColors.length],
+                  } as React.CSSProperties}
                   data-testid={`tab-${tab.id}`}
                 >
                   {tab.label}
                 </TabsTrigger>
-              ))}
+                );
+              })}
             </TabsList>
 
-            {coverageTabs.map((tab) => (
+            {coverageTabs.map((tab, tabIdx) => {
+              const neonColors = [NEON_COLORS.skyBlue, NEON_COLORS.sunset, NEON_COLORS.magenta, NEON_COLORS.gold];
+              return (
               <TabsContent key={tab.id} value={tab.id}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {tab.content.map((item, index) => (
+                  {tab.content.map((item, index) => {
+                    const neonColor = neonColors[(tabIdx + index) % neonColors.length];
+                    return (
                     <Card
                       key={index}
-                      className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'}`}
+                      className={`p-6 relative overflow-hidden group transition-all duration-500 hover-elevate ${isDarkMode ? 'bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm' : 'bg-gray-50 border-gray-200'}`}
                     >
-                      <h4 className={`text-lg font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                        {item.title}
-                      </h4>
-                      <ul className="space-y-2">
-                        {item.items.map((point, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
-                            <span className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                              {point}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                      {/* Hover glow */}
+                      <div 
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                        style={{ background: `radial-gradient(circle at 20% 20%, ${neonColor}12 0%, transparent 60%)` }}
+                      />
+                      <div 
+                        className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{ background: `linear-gradient(90deg, ${neonColor}, transparent)` }}
+                      />
+                      
+                      <div className="relative z-10">
+                        <h4 className={`text-lg font-semibold mb-4 flex items-center gap-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                          <span className="w-2 h-2 rounded-full" style={{ backgroundColor: neonColor, boxShadow: `0 0 10px ${neonColor}` }} />
+                          {item.title}
+                        </h4>
+                        <ul className="space-y-2">
+                          {item.items.map((point, idx) => (
+                            <li key={idx} className="flex items-start gap-2 group/item">
+                              <CheckCircle className="w-4 h-4 mt-1 flex-shrink-0 transition-colors" style={{ color: neonColor }} />
+                              <span className={`text-sm ${isDarkMode ? 'text-white/70 group-hover/item:text-white/90' : 'text-gray-600 group-hover/item:text-gray-900'} transition-colors`}>
+                                {point}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </Card>
-                  ))}
+                    );
+                  })}
                 </div>
               </TabsContent>
-            ))}
+              );
+            })}
           </Tabs>
         </div>
       </section>
@@ -1095,41 +1176,72 @@ export default function TravelPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
+        {/* Animated background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-1/3 left-10 w-72 h-72 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.gold}08` }} />
+          <div className="absolute bottom-1/4 right-20 w-80 h-80 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.skyBlue}06`, animationDelay: "2s" }} />
+          <div className="absolute top-10 right-1/3 w-64 h-64 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.sunset}05`, animationDelay: "1s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
+            <Badge className="px-4 py-1.5" style={{ 
+              backgroundColor: `${NEON_COLORS.gold}20`, 
+              color: NEON_COLORS.gold, 
+              borderColor: `${NEON_COLORS.gold}40`,
+              boxShadow: `0 0 15px ${NEON_COLORS.gold}30`
+            }}>
               TESTIMONIALS
             </Badge>
           </div>
 
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-testimonials">
-              TRUSTED BY BROKERS NATIONWIDE
+              TRUSTED BY{" "}
+              <span className="text-transparent bg-clip-text" style={{ 
+                backgroundImage: `linear-gradient(90deg, ${NEON_COLORS.gold}, ${NEON_COLORS.sunset})`
+              }}>BROKERS NATIONWIDE</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {testimonials.map((testimonial, index) => (
+            {testimonials.map((testimonial, index) => {
+              const neonColors = [NEON_COLORS.skyBlue, NEON_COLORS.sunset, NEON_COLORS.gold];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
               <Card
                 key={index}
-                className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'}`}
+                className={`p-6 relative overflow-hidden group transition-all duration-500 hover-elevate ${isDarkMode ? 'bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm' : 'bg-white border-gray-200'}`}
                 data-testid={`card-testimonial-${index}`}
               >
-                <Quote className="w-8 h-8 text-primary mb-4" />
-                <p className={`text-sm mb-6 italic ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>
-                  "{testimonial.quote}"
-                </p>
-                <div>
-                  <p className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                    — {testimonial.author}
+                {/* Hover glow */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at 10% 10%, ${neonColor}15 0%, transparent 60%)` }}
+                />
+                <div 
+                  className="absolute top-0 left-0 bottom-0 w-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: `linear-gradient(180deg, ${neonColor}, transparent)` }}
+                />
+                
+                <div className="relative z-10">
+                  <Quote className="w-8 h-8 mb-4 transition-all duration-300 group-hover:scale-110" style={{ color: neonColor }} />
+                  <p className={`text-sm mb-6 italic ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>
+                    "{testimonial.quote}"
                   </p>
-                  <p className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>
-                    {testimonial.location}
-                  </p>
+                  <div>
+                    <p className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                      — {testimonial.author}
+                    </p>
+                    <p className="text-sm transition-colors" style={{ color: neonColor }}>
+                      {testimonial.location}
+                    </p>
+                  </div>
                 </div>
               </Card>
-            ))}
+              );
+            })}
           </div>
 
           {/* Stats */}
@@ -1184,209 +1296,8 @@ export default function TravelPage() {
         </div>
       </section>
 
-      {/* Broker Program Section */}
-      <section id="broker" className={`py-24 ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Badge className="bg-primary/20 text-primary border-primary/30">
-              BROKER PROGRAM
-            </Badge>
-          </div>
-
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-broker">
-              BECOME A BROKER PARTNER
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Join our network of insurance brokers and earn commissions on every sale. Register your email and start earning today.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {brokerBenefits.map((benefit, index) => (
-              <Card
-                key={index}
-                className={`p-6 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'}`}
-                data-testid={`card-broker-${index}`}
-              >
-                <benefit.icon className="w-10 h-10 text-primary mb-4" />
-                <h3 className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {benefit.title}
-                </h3>
-                <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  {benefit.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-
-          {/* Broker Registration Form */}
-          <Card className={`max-w-xl mx-auto p-8 ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'}`}>
-            <h3 className={`text-xl font-semibold mb-2 text-center ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Register as a Broker
-            </h3>
-            <p className={`text-sm text-center mb-6 ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>
-              BROKER EMAIL ADDRESS
-            </p>
-            <form className="space-y-4">
-              <div className="space-y-2">
-                <Input
-                  type="email"
-                  placeholder="Enter your broker email"
-                  className={isDarkMode ? 'bg-white/5 border-white/20 text-white placeholder:text-white/40' : ''}
-                  data-testid="input-broker-email"
-                />
-                <p className={`text-xs ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
-                  This email will be used to credit all sales and commission payments
-                </p>
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-primary hover:bg-primary/90"
-                data-testid="button-register-broker"
-              >
-                REGISTER NOW
-              </Button>
-              <p className={`text-xs text-center ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
-                By registering, you agree to our Broker Terms & Conditions. You'll receive instant access to your broker dashboard upon registration.
-              </p>
-            </form>
-            <p className={`text-sm text-center mt-6 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-              Questions about the broker program?{" "}
-              <a href="mailto:brokers@matterhornprotects.com" className="text-primary hover:underline">
-                Contact our broker team
-              </a>
-            </p>
-          </Card>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className={`py-16 ${isDarkMode ? 'bg-[#050D1A] border-t border-white/10' : 'bg-gray-100 border-t border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            {/* Brand */}
-            <div className="md:col-span-1">
-              <Link href="/" className="flex items-center gap-2 mb-4">
-                <Mountain className="h-8 w-8 text-primary" />
-                <div>
-                  <span className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>MATTERHORN</span>
-                  <span className={`text-xs block ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>INSURANCE GROUP</span>
-                </div>
-              </Link>
-              <p className={`text-sm mb-4 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-                AI-led specialty insurance program design shop serving brokers exclusively across Sports, Transportation, and Travel markets.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <button
-                    onClick={() => scrollToSection('hero')}
-                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
-                  >
-                    Home
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection('program')}
-                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
-                  >
-                    Program
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection('coverage')}
-                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
-                  >
-                    Coverage
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection('broker')}
-                    className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
-                  >
-                    Broker Program
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            {/* Coverage */}
-            <div>
-              <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Coverage Options</h4>
-              <ul className="space-y-2">
-                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Cancel For Any Reason</li>
-                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Medical & Evacuation</li>
-                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Baggage Protection</li>
-                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Trip Delay</li>
-                <li className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>24/7 Assistance</li>
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className={`font-semibold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Contact Us</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="tel:18006288376"
-                    className={`flex items-center gap-2 text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
-                  >
-                    <Phone className="h-4 w-4" />
-                    1-800-MATTERHORN
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:underwriters@matterhornprotects.com"
-                    className={`flex items-center gap-2 text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}
-                  >
-                    <Mail className="h-4 w-4" />
-                    underwriters@matterhornprotects.com
-                  </a>
-                </li>
-              </ul>
-              <div className="mt-6">
-                <Button
-                  size="sm"
-                  className="bg-primary hover:bg-primary/90"
-                  onClick={() => setApplicationModalOpen(true)}
-                  data-testid="button-footer-contact"
-                >
-                  Contact Our Team
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className={`pt-8 border-t ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className={`text-sm ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
-                © {new Date().getFullYear()} Matterhorn Insurance Group. All rights reserved.
-              </p>
-              <div className="flex items-center gap-6">
-                <a href="#" className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
-                  Privacy Policy
-                </a>
-                <a href="#" className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
-                  Terms of Service
-                </a>
-                <a href="#" className={`text-sm hover:text-primary transition-colors ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
-                  Broker Terms
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Broker Application Modal */}
       <BrokerApplicationModal 
