@@ -988,49 +988,6 @@ export default function YouthSportsPage() {
         </div>
       </section>
 
-      {/* Built for Brokers Section */}
-      <section id="brokers" className={`py-24 ${isDarkMode ? 'bg-[#0F1D32]' : 'bg-gray-50'}`}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-brokers">
-              Built for Brokers
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-              Join our network and access exclusive markets, automation tools, and dedicated support.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {brokerBenefits.map((benefit, index) => (
-              <Card 
-                key={index}
-                className={`p-6 text-center ${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white border-gray-200'}`}
-                data-testid={`card-broker-benefit-${index}`}
-              >
-                <benefit.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className={`text-xl font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {benefit.title}
-                </h3>
-                <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  {benefit.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button 
-              size="lg"
-              className="bg-primary"
-              onClick={() => setApplicationModalOpen(true)}
-              data-testid="button-become-broker"
-            >
-              Become a Broker Partner
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className={`py-16 ${isDarkMode ? 'bg-[#050D1A] border-t border-white/10' : 'bg-gray-100 border-t border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-6">
