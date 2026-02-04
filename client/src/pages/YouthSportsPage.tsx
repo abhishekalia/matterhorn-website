@@ -15,6 +15,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   Shield,
   Clock,
   MapPin,
@@ -505,6 +511,220 @@ export default function YouthSportsPage() {
           <div className="flex flex-col items-center gap-2 mt-12 animate-bounce">
             <span className="text-[9px] tracking-[0.3em] uppercase text-white/30">Scroll</span>
             <ChevronDown className="w-4 h-4 text-white/30" />
+          </div>
+        </div>
+      </section>
+
+      {/* Program Highlights Section */}
+      <section id="program-highlights" className="py-24 relative overflow-hidden" style={{ background: isDarkMode ? 'linear-gradient(to bottom, #0A1628, #0F1D32)' : 'linear-gradient(to bottom, #f9fafb, #f3f4f6)' }} data-testid="section-program-highlights">
+        {/* Animated Neon Background Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full blur-[150px] animate-pulse bg-[#00ff88]/10" />
+          <div className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-[#00d4ff]/8" style={{ animationDelay: "1.5s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full blur-[100px] animate-pulse bg-[#ff00ff]/5" style={{ animationDelay: "3s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#00ff88]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00ff88]">Youth Sports Coverage</span>
+              <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#00ff88]" />
+            </div>
+            <Badge className="bg-[#00ff88]/10 text-[#00ff88] border-[#00ff88]/30 mb-6">
+              Up to $5M Limits Available
+            </Badge>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`} data-testid="heading-program-highlights">
+              Program{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#00ff88]">
+                Highlights & Enhancements
+              </span>
+            </h2>
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
+              Leading with competitive rating and specialized knowledge for youth sports organizations, leagues, and programs.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Highlights & Risk Types */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Main Card with Accordions */}
+              <Card className={`p-8 relative overflow-hidden ${isDarkMode ? 'bg-[#0A1628]/80 border-[#00ff88]/20' : 'bg-white border-gray-200'} backdrop-blur-sm`} data-testid="card-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff]" />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-[#00ff88]/20 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(0, 255, 136, 0.25)' }}>
+                    <Award className="w-6 h-6 text-[#00ff88]" />
+                  </div>
+                  <div>
+                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Youth Sports Program Details</h3>
+                    <p className="text-sm text-[#00ff88]">Up to $5M limits available</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["highlights"]} className="space-y-3">
+                  {/* Program Highlights Accordion */}
+                  <AccordionItem value="highlights" className={`${isDarkMode ? 'border-white/10' : 'border-gray-200'} rounded-lg overflow-hidden`}>
+                    <AccordionTrigger className={`text-base py-4 px-5 transition-colors rounded-lg ${isDarkMode ? 'text-white hover:text-[#00ff88] bg-white/5 hover:bg-white/10 [&[data-state=open]]:bg-[#00ff88]/10' : 'text-gray-900 hover:text-[#00ff88] bg-gray-50 hover:bg-gray-100 [&[data-state=open]]:bg-[#00ff88]/10'}`}>
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-[#00ff88]" />
+                        <span className="font-semibold">Highlights & Enhancements</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          { text: "All Risk Coverage for Youth Organizations", highlight: false },
+                          { text: "Up to $5,000,000 CGL in-house capabilities", highlight: true },
+                          { text: "$1,000,000 Abuse & Molestation (Claims Made)", highlight: true },
+                          { text: "Participants Liability included", highlight: false },
+                          { text: "No Deductible on Qualifying Risks!", highlight: false },
+                          { text: "Up to $5,000,000 Errors & Omissions", highlight: false },
+                          { text: "$1,000,000 Coaches Professional Liability", highlight: false },
+                          { text: "Up to $5,000,000 D&O Coverage", highlight: false },
+                          { text: "$1,000,000 Employer's Liability", highlight: false },
+                          { text: "Accident Medical with AD&D", highlight: false },
+                          { text: "All coaches and volunteers covered", highlight: false },
+                          { text: "Property & Equipment coverage available", highlight: false },
+                          { text: "15% Commission", highlight: true },
+                          { text: "Coverage tailored with flexible terms", highlight: false },
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${item.highlight ? 'bg-[#00ff88]' : isDarkMode ? 'bg-slate-500' : 'bg-gray-400'}`} />
+                            <span className={`text-sm ${item.highlight ? 'text-[#00ff88] font-medium' : isDarkMode ? 'text-slate-300' : 'text-gray-600'} group-hover:${isDarkMode ? 'text-white' : 'text-gray-900'} transition-colors`}>
+                              {item.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Risk Types Accordion */}
+                  <AccordionItem value="risk-types" className={`${isDarkMode ? 'border-white/10' : 'border-gray-200'} rounded-lg overflow-hidden`}>
+                    <AccordionTrigger className={`text-base py-4 px-5 transition-colors rounded-lg ${isDarkMode ? 'text-white hover:text-[#00d4ff] bg-white/5 hover:bg-white/10 [&[data-state=open]]:bg-[#00d4ff]/10' : 'text-gray-900 hover:text-[#00d4ff] bg-gray-50 hover:bg-gray-100 [&[data-state=open]]:bg-[#00d4ff]/10'}`}>
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5 text-[#00d4ff]" />
+                        <span className="font-semibold">Risk Types Covered</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          "Youth Leagues & Associations",
+                          "Travel Ball Teams",
+                          "Recreational Programs",
+                          "Summer Camps",
+                          "Sports Academies",
+                          "Tournament Organizers",
+                          "Coaching Clinics",
+                          "School Athletic Programs",
+                          "Community Recreation Centers",
+                          "After-School Programs",
+                        ].map((risk, idx) => (
+                          <div key={idx} className={`flex items-center gap-2 text-sm ${isDarkMode ? 'text-slate-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors group`}>
+                            <ArrowRight className="w-3 h-3 text-[#00d4ff] flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                            <span>{risk}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className={`mt-8 pt-6 border-t ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-[#00ff88] to-[#00d4ff] text-black font-semibold shadow-lg shadow-[#00ff88]/30 hover:shadow-[#00ff88]/50 transition-all duration-300"
+                    asChild
+                    data-testid="button-start-application-highlights"
+                  >
+                    <a href="https://form.jotform.com/260276518705056" target="_blank" rel="noopener noreferrer">
+                      <FileText className="w-5 h-5 mr-2" />
+                      Start Your Application
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Callout & Quick Facts */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Competitive Advantage Callout */}
+              <Card className={`p-6 relative overflow-hidden group transition-all duration-500 ${isDarkMode ? 'bg-gradient-to-br from-[#00ff88]/20 to-[#00d4ff]/10 border-[#00ff88]/30 hover:border-[#00ff88]/50' : 'bg-gradient-to-br from-green-50 to-cyan-50 border-green-200 hover:border-green-400'}`} data-testid="card-competitive-advantage">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#00ff88]/20 rounded-full blur-3xl group-hover:bg-[#00ff88]/30 transition-all" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#00d4ff]/15 rounded-full blur-2xl" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-[#00ff88] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 30px rgba(0, 255, 136, 0.4)' }}>
+                    <DollarSign className="w-7 h-7 text-black" />
+                  </div>
+                  <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Much Higher Starting Limits</h3>
+                  <p className="text-[#00ff88] text-lg font-medium mb-4">
+                    Than our main competitors can offer
+                  </p>
+                  <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-gray-600'}`}>
+                    Our program offers up to $5,000,000 in CGL limits with in-house binding authority, providing faster turnarounds and more competitive pricing for youth sports organizations.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0A1628]/60 border-[#0F1D32] hover:border-[#00ff88]/40' : 'bg-white border-gray-200 hover:border-green-400'}`} data-testid="card-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg bg-[#00ff88]/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Clock className="w-5 h-5 text-[#00ff88]" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>24-48hr</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-gray-500'}`}>Quote Turnaround</p>
+                </Card>
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0A1628]/60 border-[#0F1D32] hover:border-[#00d4ff]/40' : 'bg-white border-gray-200 hover:border-cyan-400'}`} data-testid="card-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg bg-[#00d4ff]/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Globe className="w-5 h-5 text-[#00d4ff]" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>50 States</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-gray-500'}`}>National Coverage</p>
+                </Card>
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0A1628]/60 border-[#0F1D32] hover:border-[#ff00ff]/40' : 'bg-white border-gray-200 hover:border-purple-400'}`} data-testid="card-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#ff00ff]/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Shield className="w-5 h-5 text-[#ff00ff]" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>A-Rated</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-gray-500'}`}>Carrier Partners</p>
+                </Card>
+                <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0A1628]/60 border-[#0F1D32] hover:border-[#00ff88]/40' : 'bg-white border-gray-200 hover:border-green-400'}`} data-testid="card-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg bg-[#00ff88]/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Users className="w-5 h-5 text-[#00ff88]" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>15%</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-gray-500'}`}>Commission</p>
+                </Card>
+              </div>
+
+              {/* Contact Card */}
+              <Card className={`p-5 ${isDarkMode ? 'bg-[#0A1628]/60 border-[#0F1D32]' : 'bg-white border-gray-200'}`} data-testid="card-contact-info">
+                <h4 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <Mail className="w-4 h-4 text-[#00ff88]" />
+                  Need More Information?
+                </h4>
+                <p className={`text-sm mb-3 ${isDarkMode ? 'text-slate-400' : 'text-gray-600'}`}>
+                  Reach out to our team for program details and custom quotes.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-[#00ff88] text-sm hover:text-[#00d4ff] transition-colors flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    support@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-[#00ff88] text-sm hover:text-[#00d4ff] transition-colors flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
