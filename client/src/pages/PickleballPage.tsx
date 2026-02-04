@@ -7,6 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -38,6 +44,9 @@ import {
   Mail,
   Phone,
   Upload,
+  Target,
+  Award,
+  Star,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
@@ -166,10 +175,10 @@ export default function PickleballPage() {
   };
 
   const navItems = [
+    { label: "Program", id: "program-highlights" },
     { label: "Coverage", id: "coverage" },
     { label: "Benefits", id: "why-choose" },
     { label: "Franchise", id: "franchise" },
-    { label: "Broker", id: "broker-application" },
   ];
 
   return (
@@ -204,7 +213,7 @@ export default function PickleballPage() {
           </nav>
           
           <Button
-            onClick={() => scrollToSection("broker-application")}
+            onClick={() => scrollToSection("program-highlights")}
             className="bg-emerald-600 hover:bg-emerald-700 text-white"
             data-testid="button-header-get-started"
           >
@@ -288,6 +297,217 @@ export default function PickleballPage() {
               <p className="text-2xl font-bold text-white">Quick</p>
               <p className="text-slate-300">Quote Turnaround</p>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Highlights Section */}
+      <section id="program-highlights" className="py-24 relative overflow-hidden" data-testid="section-program-highlights">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-emerald-500/15" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse bg-teal-500/10" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse bg-cyan-500/8" style={{ animationDelay: "1s" }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.3)' }}>
+              <Star className="w-3 h-3 mr-1" />
+              Comprehensive Program
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="heading-program-highlights">
+              Program{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                Highlights & Enhancements
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Leading with competitive rating and specialized knowledge for pickleball facilities, clubs, and organizations.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Highlights & Risk Types */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Main Card with Accordions */}
+              <Card className="p-8 bg-slate-900/60 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.25)' }}>
+                    <Award className="w-6 h-6 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Pickleball Program Details</h3>
+                    <p className="text-sm text-emerald-400">Up to $5M limits available</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["highlights"]} className="space-y-3">
+                  {/* Program Highlights Accordion */}
+                  <AccordionItem value="highlights" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-emerald-400 py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-emerald-500/10 rounded-lg">
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emerald-400" />
+                        <span className="font-semibold">Highlights & Enhancements</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          { text: "All Risk Coverage", highlight: false },
+                          { text: "Up to $5,000,000 CGL in-house capabilities", highlight: true },
+                          { text: "$1,000,000 Abuse (Claims Made)", highlight: true },
+                          { text: "Participants Liability included", highlight: false },
+                          { text: "No Deductible on Qualifying Risks!", highlight: false },
+                          { text: "Up to $5,000,000 Errors & Omissions", highlight: false },
+                          { text: "$1,000,000 Malpractice (Claims Made)", highlight: false },
+                          { text: "Up to $5,000,000 Tenants Legal Liability", highlight: false },
+                          { text: "$1,000,000 Employer's Liability", highlight: false },
+                          { text: "$1,000,000 Employee Benefits", highlight: false },
+                          { text: "All trainers working on your behalf covered", highlight: false },
+                          { text: "Property coverage available", highlight: false },
+                          { text: "15% Commission", highlight: true },
+                          { text: "Coverage tailored with flexible terms", highlight: false },
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${item.highlight ? 'bg-emerald-400' : 'bg-slate-500'}`} />
+                            <span className={`text-sm ${item.highlight ? 'text-emerald-300 font-medium' : 'text-slate-300'} group-hover:text-white transition-colors`}>
+                              {item.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Risk Types Accordion */}
+                  <AccordionItem value="risk-types" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-emerald-400 py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-teal-500/10 rounded-lg">
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5 text-teal-400" />
+                        <span className="font-semibold">Risk Types Covered</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          "Individual & Group Instructors",
+                          "Fitness Studios & Health Clubs",
+                          "Indoor/Outdoor Facilities",
+                          "Community Centers",
+                          "Recreation Programs",
+                          "Tournament Organizers",
+                          "Leagues & Associations",
+                          "Equipment Retailers",
+                          "Coaching Academies",
+                          "Corporate Events",
+                        ].map((risk, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors group">
+                            <ArrowRight className="w-3 h-3 text-teal-400 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                            <span>{risk}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-300"
+                    asChild
+                    data-testid="button-start-application-highlights"
+                  >
+                    <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
+                      <FileText className="w-5 h-5 mr-2" />
+                      Start Your Application
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Callout & Quick Facts */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Competitive Advantage Callout */}
+              <Card className="p-6 bg-gradient-to-br from-emerald-900/50 to-teal-900/30 border-emerald-500/30 relative overflow-hidden group hover:border-emerald-400/50 transition-all duration-500" data-testid="card-competitive-advantage">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl group-hover:bg-emerald-500/30 transition-all" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-500/15 rounded-full blur-2xl" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}>
+                    <DollarSign className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Much Higher Starting Limits</h3>
+                  <p className="text-emerald-300 text-lg font-medium mb-4">
+                    Than our main competitors can offer
+                  </p>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Our program offers up to $5,000,000 in CGL limits with in-house binding authority, providing faster turnarounds and more competitive pricing.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-emerald-500/40 transition-all group" data-testid="card-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Clock className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">24-48hr</p>
+                  <p className="text-slate-400 text-sm">Quote Turnaround</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-teal-500/40 transition-all group" data-testid="card-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Globe className="w-5 h-5 text-teal-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">50 States</p>
+                  <p className="text-slate-400 text-sm">National Coverage</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-cyan-500/40 transition-all group" data-testid="card-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Shield className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">A-Rated</p>
+                  <p className="text-slate-400 text-sm">Carrier Partners</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-emerald-500/40 transition-all group" data-testid="card-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Users className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">15%</p>
+                  <p className="text-slate-400 text-sm">Commission</p>
+                </Card>
+              </div>
+
+              {/* Contact Card */}
+              <Card className="p-5 bg-slate-800/50 border-slate-700" data-testid="card-contact-info">
+                <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-emerald-400" />
+                  Need More Information?
+                </h4>
+                <p className="text-slate-400 text-sm mb-3">
+                  Reach out to our team for program details and custom quotes.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-emerald-400 text-sm hover:text-emerald-300 transition-colors flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    support@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-emerald-400 text-sm hover:text-emerald-300 transition-colors flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
