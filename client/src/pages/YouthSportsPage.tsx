@@ -428,6 +428,12 @@ export default function YouthSportsPage() {
           <div className="absolute bottom-36 left-[22%] w-1 h-1 bg-[#ff00ff]/40 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }} />
           <div className="absolute top-1/3 right-[28%] w-2.5 h-2.5 bg-[#00ff88]/30 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }} />
           <div className="absolute bottom-1/4 right-[12%] w-1.5 h-1.5 bg-[#00d4ff]/40 rounded-full animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '1.5s' }} />
+          
+          {/* Animated gradient lines */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00ff88]/30 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00d4ff]/30 to-transparent" />
+          <div className="absolute top-0 bottom-0 left-[10%] w-px bg-gradient-to-b from-transparent via-[#00ff88]/10 to-transparent" />
+          <div className="absolute top-0 bottom-0 right-[10%] w-px bg-gradient-to-b from-transparent via-[#ff00ff]/10 to-transparent" />
         </div>
         
         {/* Scan Line Effect */}
