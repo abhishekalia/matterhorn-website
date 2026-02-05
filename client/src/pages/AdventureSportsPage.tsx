@@ -51,6 +51,7 @@ import Footer from "@/components/Footer";
 import adventureHero from "@/assets/images/adventure-hiking-hero.jpg";
 import bcFishingLodgeHero from "@/assets/images/bc-fishing-lodge-hero.png";
 import mountainMooseHuntingImg from "@/assets/images/mountain-moose-hunting.png";
+import bcFlyinFishingLodgeImg from "@/assets/images/bc-flyin-fishing-lodge.png";
 import kayakingImg from "@/assets/images/kayaking-rapids.jpg";
 import rockClimbingImg from "@/assets/images/rock-climbing.jpg";
 import flyFishingImg from "@/assets/images/fly-fishing.jpg";
@@ -303,7 +304,7 @@ export default function AdventureSportsPage() {
       challenge: "A network of five fly-in fishing lodges in Alaska and British Columbia struggled to find coverage due to bush plane transportation, remote locations, and bear country exposure.",
       solution: "Partnered with specialty aviation and adventure markets to create an integrated program covering all aviation exposure, lodge operations, guide liability, and emergency evacuation.",
       results: { premium: "$320K", lodges: "5", guests: "2,000+" },
-      image: flyFishingImg,
+      image: bcFlyinFishingLodgeImg,
       brokerBenefits: [
         "Accessed markets others couldn't find",
         "Built expertise in remote lodge niche",
