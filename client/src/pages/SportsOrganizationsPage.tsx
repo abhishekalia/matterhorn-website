@@ -748,47 +748,258 @@ export default function SportsOrganizationsPage() {
       </section>
 
       {/* Franchise Program Section */}
-      <section id="franchise" className={`py-24 ${isDarkMode ? "bg-slate-950" : "bg-white"}`}>
-        <div className="container mx-auto px-6">
+      <section id="franchise" className={`py-24 relative overflow-hidden ${isDarkMode ? "bg-slate-950" : "bg-white"}`}>
+        {/* Background Effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full blur-[150px] bg-purple-500/10" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-[120px] bg-violet-500/8" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-purple-500/20 text-purple-400 border-purple-500/30">
-              Franchise Programs
-            </Badge>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-              Building Custom Franchise Insurance Programs
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500/50" />
+              <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30 px-4 py-1.5">
+                <Network className="w-3 h-3 mr-1" />
+                Franchise Programs
+              </Badge>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500/50" />
+            </div>
+            <h2 className={`text-3xl md:text-5xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+              Unified Insurance for{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-fuchsia-400">
+                Franchise Networks
+              </span>
             </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>
-              We specialize in designing and implementing comprehensive insurance programs for franchise networks of all sizes. Our proven process ensures consistent coverage, competitive pricing, and seamless administration across all locations.
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${isDarkMode ? "text-white/70" : "text-gray-600"}`}>
+              Transform your franchise insurance from fragmented policies into a powerful competitive advantage. We design master programs that deliver consistent coverage, volume discounts, and seamless administration across every location.
             </p>
           </div>
 
-          {/* Process Steps */}
-          <div className="max-w-5xl mx-auto mb-20">
-            <div className="relative">
-              {/* Connection Line */}
-              <div className={`absolute left-8 top-0 bottom-0 w-0.5 ${isDarkMode ? "bg-purple-500/30" : "bg-purple-200"}`} />
-              
-              <div className="space-y-8">
-                {franchiseProcess.map((step, index) => (
-                  <div key={index} className="relative flex gap-6">
-                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-purple-500/20 border-2 border-purple-500 flex items-center justify-center z-10">
-                      <span className="text-xl font-bold text-purple-400">{step.step}</span>
-                    </div>
-                    <Card className={`flex-1 p-6 ${isDarkMode ? "bg-slate-800/50 border-white/10" : "bg-white border-gray-200"}`}>
-                      <h3 className={`text-xl font-semibold mb-2 ${isDarkMode ? "text-white" : "text-gray-900"}`}>{step.title}</h3>
-                      <p className={`mb-4 ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{step.description}</p>
-                      <div className="grid grid-cols-2 gap-2">
-                        {step.details.map((detail, i) => (
-                          <div key={i} className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-purple-400" />
-                            <span className={`text-sm ${isDarkMode ? "text-white/70" : "text-gray-600"}`}>{detail}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </Card>
+          {/* Key Benefits Grid */}
+          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+            {[
+              { icon: DollarSign, title: "20-35% Premium Savings", desc: "Volume-based pricing delivers significant cost reductions across your network" },
+              { icon: Shield, title: "Consistent Protection", desc: "Standardized coverage ensures every location meets brand requirements" },
+              { icon: Cpu, title: "Automated Administration", desc: "Digital enrollment, instant certificates, and real-time compliance tracking" },
+              { icon: TrendingUp, title: "Scalable Growth", desc: "Automatic coverage for new locations as your franchise expands" },
+            ].map((benefit, idx) => {
+              const IconComponent = benefit.icon;
+              return (
+                <Card key={idx} className={`p-6 text-center group hover:border-purple-500/50 transition-all duration-300 ${isDarkMode ? "bg-slate-900/60 border-white/10" : "bg-white border-gray-200"}`}>
+                  <div className="w-14 h-14 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 20px rgba(168, 85, 247, 0.2)' }}>
+                    <IconComponent className="w-7 h-7 text-purple-400" />
                   </div>
-                ))}
-              </div>
+                  <h3 className={`font-bold mb-2 ${isDarkMode ? "text-white" : "text-gray-900"}`}>{benefit.title}</h3>
+                  <p className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{benefit.desc}</p>
+                </Card>
+              );
+            })}
+          </div>
+
+          {/* Interactive Process & Benefits Section */}
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto mb-20">
+            {/* Left Column - Interactive Accordions */}
+            <div className="lg:col-span-7">
+              <Card className={`p-8 relative overflow-hidden ${isDarkMode ? "bg-slate-900/60 border-purple-500/20" : "bg-white border-purple-200"}`}>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-violet-400 to-fuchsia-500" />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(168, 85, 247, 0.25)' }}>
+                    <Layers className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-[8px] uppercase tracking-[0.3em] text-purple-400/70 font-medium">Program Design</p>
+                    <h3 className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>How We Build Your Program</h3>
+                  </div>
+                </div>
+
+                <Accordion type="single" collapsible defaultValue="step-1" className="space-y-3">
+                  {franchiseProcess.map((step, index) => (
+                    <AccordionItem key={index} value={`step-${step.step}`} className="border-white/10 rounded-lg overflow-hidden">
+                      <AccordionTrigger className={`text-base py-4 px-5 rounded-lg transition-colors ${isDarkMode ? "text-white hover:text-purple-400 bg-white/5 hover:bg-white/10" : "text-gray-900 hover:text-purple-600 bg-gray-50 hover:bg-gray-100"}`}>
+                        <span className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-full bg-purple-500/30 flex items-center justify-center text-sm font-bold text-purple-400">{step.step}</span>
+                          <span className="font-semibold">{step.title}</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-4 pb-2 px-5">
+                        <p className={`mb-4 ${isDarkMode ? "text-white/70" : "text-gray-600"}`}>{step.description}</p>
+                        <div className="grid grid-cols-2 gap-2">
+                          {step.details.map((detail, i) => (
+                            <div key={i} className="flex items-center gap-2 group">
+                              <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                              <span className={`text-sm group-hover:text-purple-300 transition-colors ${isDarkMode ? "text-white/70" : "text-gray-600"}`}>{detail}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+
+                {/* Why Choose Us Accordion */}
+                <div className="mt-6 pt-6 border-t border-white/10">
+                  <Accordion type="multiple" className="space-y-3">
+                    <AccordionItem value="franchisor-benefits" className="border-white/10 rounded-lg overflow-hidden">
+                      <AccordionTrigger className={`text-base py-4 px-5 rounded-lg transition-colors ${isDarkMode ? "text-white hover:text-violet-400 bg-violet-500/10 hover:bg-violet-500/20" : "text-gray-900 hover:text-violet-600 bg-violet-50 hover:bg-violet-100"}`}>
+                        <span className="flex items-center gap-3">
+                          <Building2 className="w-5 h-5 text-violet-400" />
+                          <span className="font-semibold">Benefits for Franchisors</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-4 pb-2 px-5">
+                        <div className="space-y-3">
+                          {[
+                            { title: "Brand Protection", desc: "Ensure every location meets your coverage standards and protects your brand reputation" },
+                            { title: "Compliance Visibility", desc: "Real-time dashboard showing insurance status across all locations with automated alerts" },
+                            { title: "Reduced Administrative Burden", desc: "Centralized program management eliminates individual policy tracking and renewal chasing" },
+                            { title: "Leverage Buying Power", desc: "Network-wide volume discounts that benefit all franchisees while strengthening relationships" },
+                            { title: "New Location Efficiency", desc: "Streamlined onboarding with coverage automatically available for new franchisees" },
+                          ].map((item, i) => (
+                            <div key={i} className={`p-3 rounded-lg ${isDarkMode ? "bg-white/5" : "bg-gray-50"}`}>
+                              <span className={`font-semibold block ${isDarkMode ? "text-white" : "text-gray-900"}`}>{item.title}</span>
+                              <p className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{item.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="franchisee-benefits" className="border-white/10 rounded-lg overflow-hidden">
+                      <AccordionTrigger className={`text-base py-4 px-5 rounded-lg transition-colors ${isDarkMode ? "text-white hover:text-fuchsia-400 bg-fuchsia-500/10 hover:bg-fuchsia-500/20" : "text-gray-900 hover:text-fuchsia-600 bg-fuchsia-50 hover:bg-fuchsia-100"}`}>
+                        <span className="flex items-center gap-3">
+                          <Users className="w-5 h-5 text-fuchsia-400" />
+                          <span className="font-semibold">Benefits for Franchisees</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-4 pb-2 px-5">
+                        <div className="space-y-3">
+                          {[
+                            { title: "Lower Premiums", desc: "Benefit from network buying power with 20-35% average premium savings" },
+                            { title: "Simplified Coverage", desc: "Pre-approved coverage that meets franchisor requirements—no guesswork" },
+                            { title: "Fast Enrollment", desc: "Digital enrollment with instant certificates of insurance available 24/7" },
+                            { title: "Expert Claims Support", desc: "Dedicated claims team familiar with your specific business operations" },
+                            { title: "Risk Management Resources", desc: "Access to safety resources, training materials, and loss prevention tools" },
+                          ].map((item, i) => (
+                            <div key={i} className={`p-3 rounded-lg ${isDarkMode ? "bg-white/5" : "bg-gray-50"}`}>
+                              <span className={`font-semibold block ${isDarkMode ? "text-white" : "text-gray-900"}`}>{item.title}</span>
+                              <p className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{item.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="broker-benefits" className="border-white/10 rounded-lg overflow-hidden">
+                      <AccordionTrigger className={`text-base py-4 px-5 rounded-lg transition-colors ${isDarkMode ? "text-white hover:text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20" : "text-gray-900 hover:text-emerald-600 bg-emerald-50 hover:bg-emerald-100"}`}>
+                        <span className="flex items-center gap-3">
+                          <Handshake className="w-5 h-5 text-emerald-400" />
+                          <span className="font-semibold">Benefits for Brokers</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-4 pb-2 px-5">
+                        <div className="space-y-3">
+                          {[
+                            { title: "Recurring Revenue", desc: "Long-term franchise relationships with built-in growth as networks expand" },
+                            { title: "Reduced Servicing", desc: "Automated administration means less time on paperwork, more time selling" },
+                            { title: "Specialty Expertise", desc: "Access our deep franchise insurance knowledge to win complex accounts" },
+                            { title: "Marketing Support", desc: "Co-branded materials and presentations to help you pitch franchise prospects" },
+                            { title: "Priority Access", desc: "Dedicated underwriting team for fast turnaround on quotes and endorsements" },
+                          ].map((item, i) => (
+                            <div key={i} className={`p-3 rounded-lg ${isDarkMode ? "bg-white/5" : "bg-gray-50"}`}>
+                              <span className={`font-semibold block ${isDarkMode ? "text-white" : "text-gray-900"}`}>{item.title}</span>
+                              <p className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{item.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-purple-500 to-violet-500 text-white font-semibold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
+                    onClick={() => setApplicationModalOpen(true)}
+                  >
+                    <Network className="w-5 h-5 mr-2" />
+                    Start Your Franchise Program
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Quick Stats & Contact */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Program Stats */}
+              <Card className={`p-6 relative overflow-hidden ${isDarkMode ? "bg-gradient-to-br from-purple-900/40 to-violet-900/30 border-purple-500/30" : "bg-gradient-to-br from-purple-50 to-violet-50 border-purple-200"}`}>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl" />
+                <div className="relative z-10">
+                  <h3 className={`text-xl font-bold mb-6 ${isDarkMode ? "text-white" : "text-gray-900"}`}>Program Capabilities</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { value: "500+", label: "Locations Managed" },
+                      { value: "28%", label: "Avg. Premium Savings" },
+                      { value: "99.5%", label: "Compliance Rate" },
+                      { value: "24hr", label: "Quote Turnaround" },
+                      { value: "35+", label: "States Covered" },
+                      { value: "75%", label: "Admin Time Saved" },
+                    ].map((stat, i) => (
+                      <div key={i} className={`p-4 rounded-lg ${isDarkMode ? "bg-slate-900/50" : "bg-white"}`}>
+                        <div className="text-2xl font-bold text-purple-400">{stat.value}</div>
+                        <div className={`text-xs ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+
+              {/* Coverage Types */}
+              <Card className={`p-6 ${isDarkMode ? "bg-slate-800/50 border-white/10" : "bg-white border-gray-200"}`}>
+                <h4 className={`font-semibold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>Program Coverage Options</h4>
+                <div className="space-y-2">
+                  {[
+                    "General Liability & Products",
+                    "Professional Liability / E&O",
+                    "Property & Equipment",
+                    "Workers' Compensation",
+                    "Cyber Liability",
+                    "Employment Practices",
+                    "Business Auto",
+                    "Umbrella / Excess",
+                  ].map((coverage, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                      <span className={`text-sm ${isDarkMode ? "text-white/70" : "text-gray-600"}`}>{coverage}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              {/* Contact Card */}
+              <Card className={`p-6 ${isDarkMode ? "bg-slate-800/50 border-white/10" : "bg-white border-gray-200"}`}>
+                <h4 className={`font-semibold mb-3 flex items-center gap-2 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                  <Mail className="w-4 h-4 text-purple-400" />
+                  Franchise Program Team
+                </h4>
+                <p className={`text-sm mb-4 ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>
+                  Ready to discuss a custom program for your franchise network?
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:franchise@matterhornprotects.com" className="text-purple-400 text-sm hover:text-purple-300 transition-colors flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    franchise@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-purple-400 text-sm hover:text-purple-300 transition-colors flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
             </div>
           </div>
 
