@@ -32,6 +32,7 @@ import {
   Shield,
   Heart,
   Building,
+  Building2,
   Plane,
   Fish,
 } from "lucide-react";
@@ -534,10 +535,10 @@ export default function SportsPage() {
                   Youth Sports
                 </span>
               </Link>
-              <a href="https://form.jotform.com/260276518705056" target="_blank" rel="noopener noreferrer" data-testid="link-sports-org-quote" className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover-elevate transition-colors cursor-pointer">
-                <FileText className="w-3 h-3" />
-                Sports Organization Quick Quote
-              </a>
+              <Link href="/sports-organizations" data-testid="link-sports-organizations" className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover-elevate transition-colors cursor-pointer">
+                <Building2 className="w-3 h-3" />
+                Sports Organizations
+              </Link>
               <Link href="/adventure-sports" data-testid="link-adventure-sports" className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover-elevate transition-colors cursor-pointer">
                 <Bike className="w-3 h-3" />
                 Adventure Sports

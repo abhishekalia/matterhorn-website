@@ -20,6 +20,7 @@ import TermsOfService from "@/pages/TermsOfService";
 import NaysMembersPage from "@/pages/NaysMembersPage";
 import NAYSPartnershipPage from "@/pages/NAYSPartnershipPage";
 import AdventureSportsPage from "@/pages/AdventureSportsPage";
+import SportsOrganizationsPage from "@/pages/SportsOrganizationsPage";
 
 function Router() {
   return (
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/naysmembers" component={NaysMembersPage} />
       <Route path="/nays-partnership" component={NAYSPartnershipPage} />
       <Route path="/adventure-sports" component={AdventureSportsPage} />
+      <Route path="/sports-organizations" component={SportsOrganizationsPage} />
       <Route component={NotFound} />
     </Switch>
   );

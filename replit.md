@@ -111,8 +111,17 @@ Preferred communication style: Simple, everyday language.
 - `/sports` - Main Sports Programs landing page with Quick Quotes section linking to:
   - Pickleball program
   - Youth Sports program
-  - Sports Organization Quick Quote (Jotform: https://form.jotform.com/260276518705056)
+  - Sports Organizations program
   - Adventure Sports program
+- `/sports-organizations` - Sports Organizations Program landing page with:
+  - Program Highlights section with 6 coverage types (General Liability up to $5M, Professional Liability, Property, Participant Accident, D&O, Cyber & Crime)
+  - Who We Cover section featuring 12 organization types (Fitness Centers, Training Academies, Indoor/Outdoor Facilities, Golf/Sports Simulators, Go-Karting, Sports Camps, Youth Organizations, Martial Arts, Aquatic Facilities, Dance/Gymnastics, Sports Leagues)
+  - Franchise Organization section with 5-step program building process (Discovery, Program Design, Carrier Negotiation, Implementation, Ongoing Management)
+  - Featured case study: National Fitness Franchise Network (250+ locations, 35 states, 28% premium savings)
+  - Why Matterhorn section with 4 key benefits
+  - Case Studies with tabbed navigation (3 success stories)
+  - Leadership section
+  - Emerald/cyan neon color theme
 - `/adventure-sports` - Adventure Sports Program landing page with:
   - Program Highlights for Adventure Tour & Guide Operators (accordion with 6 coverage types, up to $5M limits)
   - Adventure Travel Programs section (6 categories: Water Sports, Mountain & Climbing, Aerial Adventures, Wilderness Expeditions, Eco-Tourism & Wildlife, Motorized Adventures)
