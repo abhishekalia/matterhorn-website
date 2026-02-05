@@ -108,7 +108,7 @@ Preferred communication style: Simple, everyday language.
   - Quote form for lead generation
 - `/travel` - Travel Program landing page with CFAR coverage (100% reimbursement), High Value Trip Coverage up to $1M, enterprise solutions
 - `/rideshare` - Ride Share Economy Program landing page with driver coverage, fleet management, rating system, onboarding flow
-- `/sports` - Main Sports Programs landing page with Quick Quotes section linking to:
+- `/sports` - Main Sports Programs landing page with Featured Programs section linking to:
   - Pickleball program
   - Youth Sports program
   - Sports Organizations program

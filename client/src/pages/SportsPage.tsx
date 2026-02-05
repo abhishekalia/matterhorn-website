@@ -529,9 +529,9 @@ export default function SportsPage() {
             </div>
           </div>
 
-          {/* Quick Quotes */}
+          {/* Featured Programs */}
           <div className="text-center">
-            <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Quick Quotes</p>
+            <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Featured Programs</p>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
               <Link href="/pickleball">
                 <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-[#00ff88] transition-colors cursor-pointer group" data-testid="link-pickleball-sports">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Truck, Package, Zap, Users, Plane } from "lucide-react";
+import { ChevronDown, Truck, Package, Zap, Users, Plane, Mountain, Building2 } from "lucide-react";
 import { BrokerApplicationModal } from "./BrokerApplicationModal";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 
@@ -65,8 +65,8 @@ export default function HeroSection() {
           </Button>
         </div>
 
-        {/* Quick Links */}
-        <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Quick Quotes</p>
+        {/* Featured Programs */}
+        <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">Featured Programs</p>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
           <Link href="/transportation/motor-carrier-application">
             <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-amber-400 transition-colors cursor-pointer group" data-testid="link-motor-carrier">
@@ -90,6 +90,18 @@ export default function HeroSection() {
             <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-green-400 transition-colors cursor-pointer group" data-testid="link-youth-sports">
               <Users className="w-3 h-3 group-hover:scale-110 transition-transform" />
               Youth Sports
+            </span>
+          </Link>
+          <Link href="/sports-organizations">
+            <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-teal-400 transition-colors cursor-pointer group" data-testid="link-sports-organizations">
+              <Building2 className="w-3 h-3 group-hover:scale-110 transition-transform" />
+              Sports Organizations
+            </span>
+          </Link>
+          <Link href="/adventure-sports">
+            <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-white/50 hover:text-orange-400 transition-colors cursor-pointer group" data-testid="link-adventure-sports">
+              <Mountain className="w-3 h-3 group-hover:scale-110 transition-transform" />
+              Adventure Sports
             </span>
           </Link>
           <Link href="/travel">
