@@ -779,6 +779,22 @@ export default function AdventureSportsPage() {
 
             {/* Right Column - Quick Facts & Contact */}
             <div className="lg:col-span-5 space-y-6">
+              {/* Hero Image */}
+              <Card className="relative overflow-hidden border-amber-500/30 h-56" data-testid="card-backcountry-hero-image">
+                <img 
+                  src={bcFishingLodgeHero} 
+                  alt="Remote BC fishing lodge with floatplane" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <Badge style={{ backgroundColor: `${NEON_COLORS.amber}20`, color: NEON_COLORS.amber, borderColor: `${NEON_COLORS.amber}40` }}>
+                    <Fish className="w-3 h-3 mr-1" />
+                    Remote Lodge Operations
+                  </Badge>
+                </div>
+              </Card>
+
               {/* Competitive Advantage Callout */}
               <Card className={`p-6 relative overflow-hidden ${isDarkMode ? 'border-amber-500/30' : 'border-amber-200'}`} style={{ background: isDarkMode ? `linear-gradient(135deg, ${NEON_COLORS.amber}15, ${NEON_COLORS.orange}10)` : `linear-gradient(135deg, #fef3c7, #fed7aa)` }} data-testid="card-competitive-advantage">
                 <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl" style={{ backgroundColor: `${NEON_COLORS.amber}20` }} />
