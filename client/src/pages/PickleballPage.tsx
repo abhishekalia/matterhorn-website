@@ -57,6 +57,7 @@ import {
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
+import Footer from "@/components/Footer";
 import pickleballHeroImage from "@/assets/images/pickleball-hero.png";
 
 const US_STATES = [
@@ -1316,22 +1317,7 @@ export default function PickleballPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-slate-800">
-        <div className="container mx-auto px-6 text-center">
-          <Link href="/">
-            <div className="flex items-center justify-center gap-3 cursor-pointer group mb-4">
-              <Mountain className="w-6 h-6 text-emerald-500 group-hover:scale-110 transition-transform" />
-              <div className="flex flex-col items-center">
-                <span className="text-lg font-bold text-white leading-tight">MATTERHORN</span>
-                <span className="text-[9px] font-medium text-white/60 tracking-widest uppercase">Insurance Group</span>
-              </div>
-            </div>
-          </Link>
-          <p className="text-slate-400 text-sm">
-            © {new Date().getFullYear()} Matterhorn Insurance Group. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
       <BrokerApplicationModal 
         open={contactModalOpen} 
