@@ -54,6 +54,10 @@ import rockClimbingImg from "@/assets/images/rock-climbing.jpg";
 import flyFishingImg from "@/assets/images/fly-fishing.jpg";
 import scubaDivingImg from "@/assets/images/scuba-diving.jpg";
 import skydivingImg from "@/assets/images/skydiving.jpg";
+import bcFishingTripImg from "@/assets/images/bc-fishing-trip.png";
+import mountainHuntingImg from "@/assets/images/mountain-hunting-trip.png";
+import seaKayakingImg from "@/assets/images/sea-kayaking.png";
+import bushplaneLandingImg from "@/assets/images/bushplane-landing.png";
 import wayneGutridgePhoto from "@assets/avatars/wayne_gutridge_avatar.png";
 import isaacAllenPhoto from "@assets/avatars/isaac_allen_avatar.png";
 import mikeAsselinPhoto from "@assets/avatars/mike_asselin_avatar.png";
@@ -949,10 +953,10 @@ export default function AdventureSportsPage() {
           {/* Expedition Travel Images Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { img: flyFishingImg, label: "Fly Fishing" },
-              { img: rockClimbingImg, label: "Rock Climbing" },
-              { img: scubaDivingImg, label: "Scuba Diving" },
-              { img: skydivingImg, label: "Skydiving" },
+              { img: bcFishingTripImg, label: "Remote Fishing - BC" },
+              { img: mountainHuntingImg, label: "Mountain Hunting" },
+              { img: seaKayakingImg, label: "Sea Kayaking" },
+              { img: bushplaneLandingImg, label: "Bushplane Access" },
             ].map((item, i) => (
               <div key={i} className="relative h-40 rounded-xl overflow-hidden group">
                 <img src={item.img} alt={item.label} className="absolute inset-0 w-full h-full object-cover" />
