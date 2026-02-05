@@ -56,6 +56,7 @@ import bcFishingLodgeHero from "@/assets/images/bc-fishing-lodge-hero.png";
 import mountainMooseHuntingImg from "@/assets/images/mountain-moose-hunting.png";
 import bcFlyinFishingLodgeImg from "@/assets/images/bc-flyin-fishing-lodge.png";
 import kayakingImg from "@/assets/images/kayaking-rapids.jpg";
+import seaKayakersExpeditionImg from "@/assets/images/sea-kayakers-island-expedition.png";
 import rockClimbingImg from "@/assets/images/rock-climbing.jpg";
 import flyFishingImg from "@/assets/images/fly-fishing.jpg";
 import scubaDivingImg from "@/assets/images/scuba-diving.jpg";
@@ -279,7 +280,7 @@ export default function AdventureSportsPage() {
       challenge: "A premier rafting operation running trips across three western states faced fragmented coverage with different carriers per location, inconsistent limits, and gaps in guide professional liability.",
       solution: "We consolidated all operations under a single master program with unified $5M limits, enhanced guide E&O, and added remote evacuation coverage for their most challenging river runs.",
       results: { premium: "$185K", guides: "45+", locations: "12 Put-ins" },
-      image: kayakingImg,
+      image: seaKayakersExpeditionImg,
       brokerBenefits: [
         "Single carrier relationship across states",
         "Streamlined renewal process",
