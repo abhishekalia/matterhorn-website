@@ -242,7 +242,7 @@ export default function AdventureSportsPage() {
       brokerBenefits: [
         "Single carrier relationship across states",
         "Streamlined renewal process",
-        "Enhanced commission on consolidated placement",
+        "Priority underwriting on consolidated placement",
       ],
     },
     {

@@ -588,7 +588,6 @@ export default function YouthSportsPage() {
                           { text: "Accident Medical with AD&D", highlight: false },
                           { text: "All coaches and volunteers covered", highlight: false },
                           { text: "Property & Equipment coverage available", highlight: false },
-                          { text: "15% Commission", highlight: true },
                           { text: "Coverage tailored with flexible terms", highlight: false },
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-3 group">
@@ -696,10 +695,10 @@ export default function YouthSportsPage() {
                 </Card>
                 <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0A1628]/60 border-[#0F1D32] hover:border-[#00ff88]/40' : 'bg-white border-gray-200 hover:border-green-400'}`} data-testid="card-quick-fact-4">
                   <div className="w-10 h-10 rounded-lg bg-[#00ff88]/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <Users className="w-5 h-5 text-[#00ff88]" />
+                    <Award className="w-5 h-5 text-[#00ff88]" />
                   </div>
-                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>15%</p>
-                  <p className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-gray-500'}`}>Commission</p>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Same Day</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-gray-500'}`}>Appointments</p>
                 </Card>
               </div>
 
@@ -805,7 +804,7 @@ export default function YouthSportsPage() {
             {[
               { value: "60+", label: "Years Experience", color: "#00ff88" },
               { value: "50", label: "States Covered", color: "#00d4ff" },
-              { value: "15%", label: "Commission", color: "#ff00ff" },
+              { value: "3M+", label: "Participants", color: "#ff00ff" },
               { value: "24hr", label: "Quote Turnaround", color: "#00ff88" },
             ].map((stat, idx) => (
               <div key={idx} className="text-center px-4 md:px-6">
@@ -1011,8 +1010,8 @@ export default function YouthSportsPage() {
                       <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Limits</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-[#00ff88]">15%</div>
-                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Commission</div>
+                      <div className="text-2xl font-bold text-[#00ff88]">3M+</div>
+                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Participants</div>
                     </div>
                   </div>
 

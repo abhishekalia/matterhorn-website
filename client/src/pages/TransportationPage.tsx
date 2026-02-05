@@ -236,7 +236,6 @@ export default function TransportationPage() {
         "Physical Damage coverage available",
         "Non-Trucking Liability included",
         "Workers Compensation options",
-        "15% Commission structure",
         "No minimum fleet size requirements",
         "Quick 24-48 hour turnaround on quotes",
       ],
@@ -264,7 +263,6 @@ export default function TransportationPage() {
         "General Liability coverage included",
         "Truck Broker Liability options",
         "Contract-compliant documentation",
-        "15% Commission structure",
         "High-value freight coverage available",
         "Quick 24-48 hour turnaround on quotes",
       ],
@@ -342,7 +340,7 @@ export default function TransportationPage() {
       brokerBenefits: [
         "Reduced administrative workload by 75%",
         "Faster quote-to-bind cycle (24-48 hours vs 2 weeks)",
-        "Competitive commission structure preserved",
+        "Preferred market access maintained",
         "Single point of contact for all IC coverage needs",
       ],
       clientBenefits: [
@@ -362,7 +360,7 @@ export default function TransportationPage() {
         "Consolidated book simplifies servicing",
         "Proactive renewal strategy reduces churn risk",
         "Access to markets with better loss tolerance",
-        "Enhanced commission on consolidated placement",
+        "Priority underwriting on consolidated placement",
       ],
       clientBenefits: [
         "15% premium reduction through consolidation",
@@ -1357,7 +1355,7 @@ export default function TransportationPage() {
               <ul className="space-y-4">
                 {[
                   "Direct access to Matterhorn's specialty programs",
-                  "Competitive commission structures",
+                  "Competitive market access",
                   "Same-day appointment approvals for qualified agencies",
                   "Instant access to our broker portal",
                 ].map((item, idx) => (

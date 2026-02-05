@@ -371,7 +371,6 @@ export default function PickleballPage() {
                           { text: "$1,000,000 Employee Benefits", highlight: false },
                           { text: "All trainers working on your behalf covered", highlight: false },
                           { text: "Property coverage available", highlight: false },
-                          { text: "15% Commission", highlight: true },
                           { text: "Coverage tailored with flexible terms", highlight: false },
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-3 group">
@@ -480,10 +479,10 @@ export default function PickleballPage() {
                 </Card>
                 <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-emerald-500/40 transition-all group" data-testid="card-quick-fact-4">
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <Users className="w-5 h-5 text-emerald-400" />
+                    <Award className="w-5 h-5 text-emerald-400" />
                   </div>
-                  <p className="text-2xl font-bold text-white">15%</p>
-                  <p className="text-slate-400 text-sm">Commission</p>
+                  <p className="text-2xl font-bold text-white">Same Day</p>
+                  <p className="text-slate-400 text-sm">Appointments</p>
                 </Card>
               </div>
 

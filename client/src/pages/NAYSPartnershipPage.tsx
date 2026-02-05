@@ -356,10 +356,6 @@ export default function NAYSPartnershipPage() {
                   <span className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>Member Discount</span>
                   <span className="font-bold text-[#ff00ff]">Up to 20%</span>
                 </div>
-                <div className={`flex justify-between items-center p-3 rounded-lg ${isDarkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
-                  <span className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>Commission</span>
-                  <span className="font-bold text-[#00ff88]">15%</span>
-                </div>
               </div>
 
               <Button 
@@ -472,7 +468,7 @@ export default function NAYSPartnershipPage() {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-[#00ff88]" />
-              <span className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>15% Commission</span>
+              <span className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>Same Day Appointments</span>
             </div>
           </div>
         </div>

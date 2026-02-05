@@ -91,9 +91,9 @@ export default function TravelPage() {
     },
     {
       icon: DollarSign,
-      badge: "Competitive Commission",
-      title: "15% Commission",
-      description: "Earn industry-leading commissions on every travel policy sold. Quick payouts and transparent reporting.",
+      badge: "Fast Turnaround",
+      title: "24-48 Hour Quotes",
+      description: "Get competitive quotes quickly with priority underwriting for travel programs. Streamlined processing for faster client service.",
     },
     {
       icon: Globe,
@@ -122,8 +122,8 @@ export default function TravelPage() {
     },
     {
       step: "03",
-      title: "Bind & Earn",
-      description: "Receive policy documents within 24-48 hours. Commission paid promptly on every bound policy.",
+      title: "Bind & Deliver",
+      description: "Receive policy documents within 24-48 hours. Seamless processing on every bound policy.",
     },
   ];
 
@@ -301,7 +301,7 @@ export default function TravelPage() {
 
   const testimonials = [
     {
-      quote: "CFAR coverage is a game-changer for my high-net-worth clients. Matterhorn's 100% reimbursement gives them peace of mind on luxury trips, and the 15% commission helps my bottom line.",
+      quote: "CFAR coverage is a game-changer for my high-net-worth clients. Matterhorn's 100% reimbursement gives them peace of mind on luxury trips, and the fast turnaround helps my business grow.",
       location: "Chicago, IL",
     },
     {
@@ -344,8 +344,8 @@ export default function TravelPage() {
   const brokerBenefits = [
     {
       icon: DollarSign,
-      title: "INSTANT COMMISSIONS",
-      description: "Earn competitive commissions on every policy sold",
+      title: "INSTANT PROCESSING",
+      description: "Fast policy issuance on every policy sold",
     },
     {
       icon: Zap,
@@ -481,7 +481,7 @@ export default function TravelPage() {
           </h1>
 
           <p className={`text-xl mb-10 max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`} data-testid="description-hero">
-            Cancel For Any Reason coverage, comprehensive protection, and competitive commissions. Partner with Matterhorn to serve your travel clients better.
+            Cancel For Any Reason coverage, comprehensive protection, and 24-48 hour quotes. Partner with Matterhorn to serve your travel clients better.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -519,7 +519,7 @@ export default function TravelPage() {
             <span className={`hidden md:block ${isDarkMode ? 'text-white/30' : 'text-gray-300'}`}>|</span>
             <div className="flex items-center gap-2 hover:scale-105 transition-transform">
               <DollarSign className="w-5 h-5" style={{ color: NEON_COLORS.sunset }} />
-              <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>15% Commission</span>
+              <span className={`text-sm font-medium ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>$1M Trip Coverage</span>
             </div>
             <span className={`hidden md:block ${isDarkMode ? 'text-white/30' : 'text-gray-300'}`}>|</span>
             <div className="flex items-center gap-2 hover:scale-105 transition-transform">
@@ -569,7 +569,7 @@ export default function TravelPage() {
               </span>
             </h2>
             <p className={`text-lg md:text-xl max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-              Comprehensive travel coverage with CFAR protection, competitive broker commissions, and dedicated underwriting support.
+              Comprehensive travel coverage with CFAR protection, fast turnaround, and dedicated underwriting support.
             </p>
           </div>
 
@@ -613,7 +613,6 @@ export default function TravelPage() {
                           { text: "24/7 Global Assistance", highlight: false },
                           { text: "Adventure Sports Coverage Available", highlight: false },
                           { text: "Pre-Existing Condition Waiver", highlight: false },
-                          { text: "15% Commission", highlight: true },
                           { text: "A-Rated Carrier Partners", highlight: false },
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-3 group">
@@ -727,10 +726,10 @@ export default function TravelPage() {
                 </Card>
                 <Card className={`p-5 transition-all group ${isDarkMode ? 'bg-[#0F1D32]/50 border-white/10 hover:border-white/30' : 'bg-white border-gray-200 hover:border-gray-300'}`} data-testid="card-quick-fact-4">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.skyBlue}20` }}>
-                    <DollarSign className="w-5 h-5" style={{ color: NEON_COLORS.skyBlue }} />
+                    <Award className="w-5 h-5" style={{ color: NEON_COLORS.skyBlue }} />
                   </div>
-                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>15%</p>
-                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Commission</p>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Same Day</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Appointments</p>
                 </Card>
               </div>
 

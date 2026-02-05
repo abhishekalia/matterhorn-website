@@ -47,7 +47,7 @@ const caseStudies: CaseStudy[] = [
       },
     ],
     brokerBenefits: [
-      { icon: TrendingUp, text: "Annual commission growth", metric: "$125K+" },
+      { icon: TrendingUp, text: "Annual book growth", metric: "$125K+" },
       { icon: Users, text: "Client retention increase", metric: "94%" },
       { icon: Award, text: "New accounts generated", metric: "67" },
     ],
@@ -68,7 +68,7 @@ const caseStudies: CaseStudy[] = [
       { icon: Zap, text: "Tournament event add-ons", metric: "On-demand" },
     ],
     brokerBenefits: [
-      { icon: DollarSign, text: "First-year commission", metric: "$89K" },
+      { icon: DollarSign, text: "First-year premium volume", metric: "$89K" },
       {
         icon: TrendingUp,
         text: "Referral business generated",
@@ -140,7 +140,7 @@ const caseStudies: CaseStudy[] = [
     ],
     brokerBenefits: [
       { icon: TrendingUp, text: "Client retention", metric: "100%" },
-      { icon: DollarSign, text: "Annual commission income", metric: "$67K" },
+      { icon: DollarSign, text: "Annual premium volume", metric: "$67K" },
       { icon: Award, text: "Youth sports niche dominance" },
     ],
     gradient: "from-orange-600/20 via-amber-600/20 to-yellow-900/20",

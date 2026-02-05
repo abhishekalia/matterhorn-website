@@ -29,7 +29,6 @@ const partnerships = [
       "Pre-qualified leads from 2,500+ leagues actively seeking coverage",
       "Automated enrollment reduces manual work by 90%",
       "Built-in renewal pipeline with 85%+ retention rates",
-      "Commission structure competitive with traditional youth sports programs",
       "White-label option to brand the program as your own",
       "Dedicated NAYS partnership account manager for support"
     ],

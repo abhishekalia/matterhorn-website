@@ -258,7 +258,7 @@ export default function SportsPage() {
       brokerBenefits: [
         "Single point of contact for multi-state coverage",
         "Streamlined renewal process across all locations",
-        "Enhanced commission on consolidated placement",
+        "Priority underwriting on consolidated placement",
         "Positioned as strategic partner for growth",
       ],
       clientBenefits: [
@@ -315,7 +315,7 @@ export default function SportsPage() {
       brokerBenefits: [
         "Recurring revenue from association relationship",
         "Automated enrollment reduces admin burden",
-        "Volume-based commission escalators",
+        "Volume-based program incentives",
         "Protected book from competitive threats",
       ],
       clientBenefits: [

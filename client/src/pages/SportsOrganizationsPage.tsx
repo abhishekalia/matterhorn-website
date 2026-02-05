@@ -547,13 +547,7 @@ export default function SportsOrganizationsPage() {
                             </div>
                           </li>
                         ))}
-                        <li className="flex items-start gap-3 group">
-                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-emerald-400" />
-                          <span className={`text-sm font-medium ${isDarkMode ? "text-emerald-300" : "text-emerald-700"}`}>
-                            15% Commission for Brokers
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 group">
+                        <li className="flex items-start gap-3">
                           <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-slate-500" />
                           <span className={`text-sm ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
                             Coverage tailored with flexible terms
@@ -691,10 +685,10 @@ export default function SportsOrganizationsPage() {
                 </Card>
                 <Card className={`p-5 ${isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-white border-gray-200"}`} data-testid="card-quick-fact-4">
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3">
-                    <Users className="w-5 h-5 text-emerald-400" />
+                    <Award className="w-5 h-5 text-emerald-400" />
                   </div>
-                  <p className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>15%</p>
-                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>Commission</p>
+                  <p className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>Same Day</p>
+                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>Appointments</p>
                 </Card>
               </div>
 

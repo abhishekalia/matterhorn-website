@@ -248,8 +248,8 @@ export default function EntertainmentPage() {
       brokerBenefits: [
         "Single policy for complex multi-venue tour",
         "Streamlined administration across dates",
-        "Enhanced commission on large placement",
         "Strategic partnership with talent management",
+        "Priority claims handling",
       ],
       clientBenefits: [
         "One policy covering all 40 tour dates",
@@ -500,7 +500,6 @@ export default function EntertainmentPage() {
                           { text: "Third Party Property Damage", highlight: false },
                           { text: "Weather Delay / Adverse Weather", highlight: false },
                           { text: "Pre-Production & Post-Production covered", highlight: false },
-                          { text: "15% Commission", highlight: true },
                           { text: "Flexible terms for all production types", highlight: false },
                         ].map((item, idx) => (
                           <li key={idx} className="flex items-start gap-3 group">
@@ -614,10 +613,10 @@ export default function EntertainmentPage() {
                 </Card>
                 <Card className="p-5 bg-[#1B2A41]/50 border-white/10 hover:border-white/30 transition-all group" data-testid="card-quick-fact-4">
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${NEON_COLORS.gold}20` }}>
-                    <Users className="w-5 h-5" style={{ color: NEON_COLORS.gold }} />
+                    <Award className="w-5 h-5" style={{ color: NEON_COLORS.gold }} />
                   </div>
-                  <p className="text-2xl font-bold text-white">15%</p>
-                  <p className="text-white/50 text-sm">Commission</p>
+                  <p className="text-2xl font-bold text-white">Same Day</p>
+                  <p className="text-white/50 text-sm">Appointments</p>
                 </Card>
               </div>
 

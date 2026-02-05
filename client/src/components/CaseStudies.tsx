@@ -20,7 +20,7 @@ const caseStudies = [
       "20% reduction in coverage cost increased competitive positioning",
       "Complete setup in 3 days vs. industry standard 4-6 weeks",
       "Zero manual driver tracking—all automated through dashboard",
-      "Real-time commission tracking and reporting",
+      "Real-time reporting dashboard",
       "Automated renewal management and driver updates"
     ],
     clientBenefits: [
@@ -44,7 +44,7 @@ const caseStudies = [
     solution: "We built a fully integrated insurance package embedded into their event registration platform, bundling team insurance, event organizer coverage, and participant protection—all issued automatically at checkout.",
     brokerBenefits: [
       "Automated enrollment = zero manual data entry",
-      "Commission paid automatically on each registration",
+      "Streamlined payment processing on each registration",
       "Built-in renewal management for returning teams",
       "Real-time dashboard showing all active coverages",
       "Scalable to unlimited teams without operational overhead"
@@ -70,7 +70,7 @@ const caseStudies = [
     solution: "We architected an embedded travel insurance package covering medical, trip interruption, and equipment protection—automatically included in every trip booking and issued instantly via API integration.",
     brokerBenefits: [
       "Zero manual policy issuance—fully API-driven",
-      "Automatic commission on every trip booked",
+      "Automatic payment processing on every trip booked",
       "Real-time reporting on all active policies",
       "Built-in claims support handled by our team",
       "White-label option with broker branding"
