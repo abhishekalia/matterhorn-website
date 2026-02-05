@@ -1104,7 +1104,7 @@ export default function SportsPage() {
               asChild
               data-testid="button-contact-sports-team"
             >
-              <a href="mailto:sports@matterhornprotects.com?subject=Sports Program Inquiry - Custom Submission Design">
+              <a href="mailto:support@matterhornprotects.com?subject=Sports Program Inquiry - Custom Submission Design">
                 Contact Our Team
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -1334,9 +1334,9 @@ export default function SportsPage() {
                   Reach out to our sports team for program details and custom quotes.
                 </p>
                 <div className="flex flex-col gap-2">
-                  <a href="mailto:sports@matterhornprotects.com" className="text-sm text-primary hover:opacity-80 transition-colors flex items-center gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-sm text-primary hover:opacity-80 transition-colors flex items-center gap-2">
                     <Mail className="w-3 h-3" />
-                    sports@matterhornprotects.com
+                    support@matterhornprotects.com
                   </a>
                   <a href="tel:1-844-600-0611" className="text-sm text-cyan-400 hover:opacity-80 transition-colors flex items-center gap-2">
                     <Phone className="w-3 h-3" />

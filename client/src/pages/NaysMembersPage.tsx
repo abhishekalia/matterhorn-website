@@ -386,7 +386,7 @@ export default function NaysMembersPage() {
             Sports Program<br />
             MTRHRN Agent<br />
             Brianna Lavin<br />
-            <a href="mailto:blavin@matterhornprotects.com" className="text-primary hover:underline">blavin@matterhornprotects.com</a>
+            <a href="mailto:support@matterhornprotects.com" className="text-primary hover:underline">support@matterhornprotects.com</a>
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-center text-gray-900 mb-8">
             League Presidents &<br />Directors
@@ -462,7 +462,7 @@ export default function NaysMembersPage() {
             Sports Program<br />
             MTRHRN Agent<br />
             Brianna Lavin<br />
-            <a href="mailto:blavin@matterhornprotects.com" className="text-primary hover:underline">blavin@matterhornprotects.com</a>
+            <a href="mailto:support@matterhornprotects.com" className="text-primary hover:underline">support@matterhornprotects.com</a>
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-center text-gray-900 mb-8">
             Managers, Coaches,<br />Trainers
@@ -538,7 +538,7 @@ export default function NaysMembersPage() {
       >
         <div className="container mx-auto px-6">
           <div className="text-sm text-gray-500 mb-2 text-right">
-            <a href="mailto:blavin@matterhornprotects.com" className="text-primary hover:underline">blavin@matterhornprotects.com</a>
+            <a href="mailto:support@matterhornprotects.com" className="text-primary hover:underline">support@matterhornprotects.com</a>
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-center text-gray-900 mb-8">
             Event Coverage
@@ -617,7 +617,7 @@ export default function NaysMembersPage() {
           <div className="text-sm text-white/70 mb-4">
             MTRHRN Partner<br />
             Wayne Gutridge<br />
-            <a href="mailto:wgutridge@matterhornprotects.com" className="text-primary hover:underline">wgutridge@matterhornprotects.com</a>
+            <a href="mailto:support@matterhornprotects.com" className="text-primary hover:underline">support@matterhornprotects.com</a>
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-center mb-8">
             Enterprise<br />Accounts
@@ -720,8 +720,8 @@ export default function NaysMembersPage() {
               <div className="text-center text-white/60 text-sm mt-2">
                 <p>Sports Program Partner</p>
                 <p className="font-medium text-white/80">Wayne Gutridge</p>
-                <a href="mailto:wgutridge@matterhornprotects.com" className="text-cyan-400 hover:underline">
-                  wgutridge@matterhornprotects.com
+                <a href="mailto:support@matterhornprotects.com" className="text-cyan-400 hover:underline">
+                  support@matterhornprotects.com
                 </a>
               </div>
             </div>

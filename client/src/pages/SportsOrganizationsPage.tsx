@@ -1011,9 +1011,9 @@ export default function SportsOrganizationsPage() {
                   Ready to discuss a custom program for your franchise network?
                 </p>
                 <div className="flex flex-col gap-2">
-                  <a href="mailto:franchise@matterhornprotects.com" className="text-purple-400 text-sm hover:text-purple-300 transition-colors flex items-center gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-purple-400 text-sm hover:text-purple-300 transition-colors flex items-center gap-2">
                     <Mail className="w-4 h-4" />
-                    franchise@matterhornprotects.com
+                    support@matterhornprotects.com
                   </a>
                   <a href="tel:1-844-600-0611" className="text-purple-400 text-sm hover:text-purple-300 transition-colors flex items-center gap-2">
                     <Phone className="w-4 h-4" />

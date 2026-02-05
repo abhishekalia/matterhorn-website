@@ -767,14 +767,14 @@ export default function PickleballPage() {
                   asChild
                   data-testid="button-email-application"
                 >
-                  <a href="mailto:submissions@matterhornprotects.com?subject=Pickleball%20Facility%20Application%20Submission">
+                  <a href="mailto:support@matterhornprotects.com?subject=Pickleball%20Facility%20Application%20Submission">
                     <Mail className="w-4 h-4 mr-2" />
                     Email Your Application
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
                 <p className="text-center text-emerald-400 text-xs mt-3">
-                  submissions@matterhornprotects.com
+                  support@matterhornprotects.com
                 </p>
               </Card>
             </div>
@@ -1481,7 +1481,7 @@ export default function PickleballPage() {
                     asChild
                     data-testid="button-schedule-discovery-call"
                   >
-                    <a href="mailto:construction@matterhornprotects.com?subject=New Facility Build - Discovery Call Request">
+                    <a href="mailto:support@matterhornprotects.com?subject=New Facility Build - Discovery Call Request">
                       <CalendarDays className="w-4 h-4 mr-2" />
                       Schedule Discovery Call
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -1791,7 +1791,7 @@ export default function PickleballPage() {
                     asChild
                     data-testid="button-schedule-franchise-consultation"
                   >
-                    <a href="mailto:franchise@matterhornprotects.com?subject=Franchise Program Inquiry">
+                    <a href="mailto:support@matterhornprotects.com?subject=Franchise Program Inquiry">
                       <Mail className="w-5 h-5 mr-2" />
                       Contact Franchise Team
                       <ArrowRight className="w-5 h-5 ml-2" />

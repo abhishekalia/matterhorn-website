@@ -553,7 +553,7 @@ export default function AdventureSportsPage() {
                 boxShadow: `0 0 20px ${NEON_COLORS.emerald}20`
               }}
               variant="outline"
-              onClick={() => window.location.href = 'mailto:adventure@matterhornprotects.com?subject=Adventure Sports Program Inquiry'}
+              onClick={() => window.location.href = 'mailto:support@matterhornprotects.com?subject=Adventure Sports Program Inquiry'}
               data-testid="button-contact-team-adventure-programs"
             >
               <Mail className="w-4 h-4 mr-2" />
@@ -889,9 +889,9 @@ export default function AdventureSportsPage() {
                   Reach out to our adventure sports team for program details and custom quotes.
                 </p>
                 <div className="flex flex-col gap-2">
-                  <a href="mailto:adventure@matterhornprotects.com" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.amber }}>
+                  <a href="mailto:support@matterhornprotects.com" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.amber }}>
                     <Mail className="w-3 h-3" />
-                    adventure@matterhornprotects.com
+                    support@matterhornprotects.com
                   </a>
                   <a href="tel:1-844-600-0611" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.emerald }}>
                     <Phone className="w-3 h-3" />
@@ -1594,9 +1594,9 @@ export default function AdventureSportsPage() {
                   Ready to discuss custom travel protection for your operation?
                 </p>
                 <div className="flex flex-col gap-2">
-                  <a href="mailto:travel@matterhornprotects.com" className="text-sky-400 text-sm hover:text-sky-300 transition-colors flex items-center gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-sky-400 text-sm hover:text-sky-300 transition-colors flex items-center gap-2">
                     <Mail className="w-4 h-4" />
-                    travel@matterhornprotects.com
+                    support@matterhornprotects.com
                   </a>
                   <a href="tel:1-844-600-0611" className="text-cyan-400 text-sm hover:text-cyan-300 transition-colors flex items-center gap-2">
                     <Phone className="w-4 h-4" />

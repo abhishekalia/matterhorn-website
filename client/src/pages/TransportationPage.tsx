@@ -1402,8 +1402,8 @@ export default function TransportationPage() {
                   <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                   <div>
                     <p className="text-xs text-white/50">Email</p>
-                    <a href="mailto:jwarren@matterhornprotects.com" className="font-medium text-white hover:text-primary transition-colors text-sm">
-                      jwarren@matterhornprotects.com
+                    <a href="mailto:support@matterhornprotects.com" className="font-medium text-white hover:text-primary transition-colors text-sm">
+                      support@matterhornprotects.com
                     </a>
                   </div>
                 </div>
@@ -1424,7 +1424,7 @@ export default function TransportationPage() {
                   className="w-full" 
                   asChild
                 >
-                  <a href="mailto:jwarren@matterhornprotects.com">
+                  <a href="mailto:support@matterhornprotects.com">
                     Book a Call
                     <Phone className="ml-2 w-4 h-4" />
                   </a>

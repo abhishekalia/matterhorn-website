@@ -41,7 +41,7 @@ const marketDetails = [
       "Marketing Scrapes",
       "Consolidated Digital Application"
     ],
-    contact: { name: "Wayne Gutridge", email: "wgutridge@matterhornprotects.com" }
+    contact: { name: "Wayne Gutridge", email: "support@matterhornprotects.com" }
   },
   {
     id: "transportation",
@@ -68,7 +68,7 @@ const marketDetails = [
       "Marketing Scrapes",
       "Consolidated Digital Application"
     ],
-    contact: { name: "Stephen Mueller", email: "smueller@matterhornprotects.com" }
+    contact: { name: "Stephen Mueller", email: "support@matterhornprotects.com" }
   },
   {
     id: "travel",
@@ -95,7 +95,7 @@ const marketDetails = [
       "API Platform Integrations",
       "White Label Package"
     ],
-    contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
+    contact: { name: "John Warren", email: "support@matterhornprotects.com" }
   },
   {
     id: "entertainment",
@@ -130,7 +130,7 @@ const marketDetails = [
       "Real-time COI Generation",
       "Consolidated Digital Application"
     ],
-    contact: { name: "John Warren", email: "jwarren@matterhornprotects.com" }
+    contact: { name: "John Warren", email: "support@matterhornprotects.com" }
   },
 ];
 
