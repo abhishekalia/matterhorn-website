@@ -854,6 +854,212 @@ export default function AdventureSportsPage() {
         </div>
       </section>
 
+      {/* Case Studies Section */}
+      <section 
+        id="case-studies" 
+        data-animate 
+        className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-[#0D1B2A]' : 'bg-gray-50'}`}
+      >
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-amber-500/10" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse bg-emerald-500/8" style={{ animationDelay: "2s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section Header with Micro Font */}
+          <div className={`text-center mb-16 ${getAnimationClass("case-studies")}`}>
+            <p className="text-[8px] md:text-[9px] uppercase tracking-[0.35em] font-medium mb-3" style={{ color: NEON_COLORS.amber }}>
+              Broker Success Stories
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+              Adventure{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-emerald-500">
+                Case Studies
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Real-world examples of how we've helped adventure operators and their brokers solve complex coverage challenges.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Case Study Selector with Accordions */}
+            <div className="lg:col-span-5 space-y-4">
+              <Card className="p-6 bg-slate-900/60 border-amber-500/20 backdrop-blur-sm relative overflow-hidden">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-orange-400 to-emerald-500" />
+                
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 20px rgba(245, 158, 11, 0.2)' }}>
+                    <TrendingUp className="w-5 h-5 text-amber-400" />
+                  </div>
+                  <div>
+                    <p className="text-[8px] uppercase tracking-[0.3em] text-amber-400/70 font-medium">Select a Story</p>
+                    <h3 className="text-lg font-bold text-white">Case Studies</h3>
+                  </div>
+                </div>
+
+                <Accordion type="single" value={`case-${activeCaseStudy}`} onValueChange={(val) => setActiveCaseStudy(parseInt(val.replace('case-', '')) || 0)} className="space-y-2">
+                  {caseStudies.map((study, index) => (
+                    <AccordionItem 
+                      key={index} 
+                      value={`case-${index}`} 
+                      className="border-white/10 rounded-lg overflow-hidden"
+                    >
+                      <AccordionTrigger 
+                        className={`text-sm text-white hover:text-amber-400 py-3 px-4 transition-colors rounded-lg ${
+                          activeCaseStudy === index 
+                            ? 'bg-amber-500/20 text-amber-300' 
+                            : 'bg-white/5 hover:bg-white/10'
+                        }`}
+                        data-testid={`accordion-case-study-${index}`}
+                      >
+                        <span className="flex items-center gap-3 text-left">
+                          <div className={`w-2 h-2 rounded-full flex-shrink-0 ${activeCaseStudy === index ? 'bg-amber-400' : 'bg-slate-500'}`} />
+                          <div>
+                            <span className="font-semibold block">{study.category}</span>
+                            <span className="text-[10px] uppercase tracking-wider text-slate-400">{study.location}</span>
+                          </div>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-3 pb-2 px-4">
+                        <p className="text-[11px] text-slate-400 mb-3">{study.title}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {Object.entries(study.results).map(([key, value], i) => (
+                            <Badge 
+                              key={i}
+                              className="text-[9px] px-2 py-0.5"
+                              style={{ backgroundColor: `${NEON_COLORS.amber}15`, color: NEON_COLORS.amber, borderColor: `${NEON_COLORS.amber}30` }}
+                            >
+                              {value}
+                            </Badge>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </Card>
+
+              {/* Quick Stats Card */}
+              <Card className="p-5 bg-slate-800/50 border-slate-700">
+                <p className="text-[8px] uppercase tracking-[0.3em] text-emerald-400/70 font-medium mb-3">Program Metrics</p>
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-amber-400">$650K+</p>
+                    <p className="text-[9px] uppercase tracking-wider text-slate-400">Total Premium</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-emerald-400">20+</p>
+                    <p className="text-[9px] uppercase tracking-wider text-slate-400">Locations</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xl font-bold text-cyan-400">2,500+</p>
+                    <p className="text-[9px] uppercase tracking-wider text-slate-400">Guests Covered</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Active Case Study Display */}
+            <div className="lg:col-span-7">
+              <Card className="overflow-hidden bg-slate-900/60 border-amber-500/20 h-full">
+                {/* Case Study Image */}
+                <div className="relative h-56 lg:h-64">
+                  <img 
+                    src={caseStudies[activeCaseStudy].image} 
+                    alt={caseStudies[activeCaseStudy].title} 
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <Badge style={{ backgroundColor: `${NEON_COLORS.amber}20`, color: NEON_COLORS.amber, borderColor: `${NEON_COLORS.amber}40` }}>
+                      {caseStudies[activeCaseStudy].category}
+                    </Badge>
+                  </div>
+                </div>
+                
+                <div className="p-6 lg:p-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <MapPin className="w-3 h-3 text-slate-400" />
+                    <span className="text-[10px] uppercase tracking-wider text-slate-400">
+                      {caseStudies[activeCaseStudy].location}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-4">
+                    {caseStudies[activeCaseStudy].title}
+                  </h3>
+
+                  {/* Challenge & Solution Accordion */}
+                  <Accordion type="multiple" defaultValue={["challenge", "solution"]} className="space-y-2 mb-6">
+                    <AccordionItem value="challenge" className="border-white/10 rounded-lg overflow-hidden">
+                      <AccordionTrigger className="text-sm text-white hover:text-amber-400 py-3 px-4 bg-white/5 hover:bg-white/10 transition-colors rounded-lg">
+                        <span className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                          <span className="text-[10px] uppercase tracking-wider font-semibold">Challenge</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-3 pb-2 px-4">
+                        <p className="text-sm text-slate-300 leading-relaxed">
+                          {caseStudies[activeCaseStudy].challenge}
+                        </p>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="solution" className="border-white/10 rounded-lg overflow-hidden">
+                      <AccordionTrigger className="text-sm text-white hover:text-emerald-400 py-3 px-4 bg-white/5 hover:bg-white/10 transition-colors rounded-lg">
+                        <span className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          <span className="text-[10px] uppercase tracking-wider font-semibold">Solution</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-3 pb-2 px-4">
+                        <p className="text-sm text-slate-300 leading-relaxed">
+                          {caseStudies[activeCaseStudy].solution}
+                        </p>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="benefits" className="border-white/10 rounded-lg overflow-hidden">
+                      <AccordionTrigger className="text-sm text-white hover:text-cyan-400 py-3 px-4 bg-white/5 hover:bg-white/10 transition-colors rounded-lg">
+                        <span className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                          <span className="text-[10px] uppercase tracking-wider font-semibold">Broker Benefits</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-3 pb-2 px-4">
+                        <div className="space-y-2">
+                          {caseStudies[activeCaseStudy].brokerBenefits.map((benefit, i) => (
+                            <div key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                              <CheckCircle className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                              <span>{benefit}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+
+                  {/* Results Stats */}
+                  <div className="grid grid-cols-3 gap-3">
+                    {Object.entries(caseStudies[activeCaseStudy].results).map(([key, value], i) => (
+                      <div key={i} className="text-center p-3 rounded-lg bg-white/5">
+                        <div className="text-lg font-bold text-amber-400">{value}</div>
+                        <div className="text-[9px] uppercase tracking-wider text-slate-400">
+                          {key.replace(/([A-Z])/g, ' $1').trim()}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Program - Paddle Sport Operators */}
       <section 
         id="paddle-sports" 
@@ -1089,120 +1295,6 @@ export default function AdventureSportsPage() {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* Case Studies Section */}
-      <section 
-        id="case-studies" 
-        data-animate 
-        className={`py-20 relative overflow-hidden ${isDarkMode ? 'bg-[#0D1B2A]' : 'bg-gray-50'}`}
-      >
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-12 ${getAnimationClass("case-studies")}`}>
-            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-medium mb-2" style={{ color: NEON_COLORS.amber }}>
-              Success Stories
-            </p>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Adventure{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-emerald-500">
-                Case Studies
-              </span>
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-              Real-world examples of how we've helped adventure operators and their brokers solve complex coverage challenges.
-            </p>
-          </div>
-
-          {/* Case Study Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {caseStudies.map((study, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveCaseStudy(index)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCaseStudy === index
-                    ? 'bg-amber-500 text-black'
-                    : isDarkMode
-                    ? 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
-                    : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                }`}
-                data-testid={`tab-case-study-${index}`}
-              >
-                {study.category}
-              </button>
-            ))}
-          </div>
-
-          {/* Active Case Study */}
-          <Card className={`overflow-hidden ${isDarkMode ? 'bg-[#1B2A41]/50 border-amber-500/20' : 'bg-white border-amber-200'}`}>
-            <div className="grid lg:grid-cols-2 gap-0">
-              <div className="relative h-64 lg:h-auto min-h-[300px]">
-                <img 
-                  src={caseStudies[activeCaseStudy].image} 
-                  alt={caseStudies[activeCaseStudy].title} 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-transparent to-[#1B2A41]' : 'bg-gradient-to-r from-transparent to-white'} lg:block hidden`} />
-              </div>
-              
-              <div className="p-8 lg:p-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <Badge style={{ backgroundColor: `${NEON_COLORS.amber}20`, color: NEON_COLORS.amber, borderColor: `${NEON_COLORS.amber}40` }}>
-                    {caseStudies[activeCaseStudy].category}
-                  </Badge>
-                  <span className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
-                    <MapPin className="w-3 h-3 inline mr-1" />
-                    {caseStudies[activeCaseStudy].location}
-                  </span>
-                </div>
-
-                <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {caseStudies[activeCaseStudy].title}
-                </h3>
-
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <h4 className="text-amber-500 font-semibold text-sm mb-1">Challenge</h4>
-                    <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                      {caseStudies[activeCaseStudy].challenge}
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-emerald-500 font-semibold text-sm mb-1">Solution</h4>
-                    <p className={`text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                      {caseStudies[activeCaseStudy].solution}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Results Stats */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  {Object.entries(caseStudies[activeCaseStudy].results).map(([key, value], i) => (
-                    <div key={i} className={`text-center p-3 rounded-lg ${isDarkMode ? 'bg-white/5' : 'bg-gray-100'}`}>
-                      <div className="text-lg font-bold text-amber-500">{value}</div>
-                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
-                        {key.replace(/([A-Z])/g, ' $1').trim()}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Broker Benefits */}
-                <div>
-                  <h4 className={`font-semibold text-sm mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Broker Benefits</h4>
-                  <div className="space-y-2">
-                    {caseStudies[activeCaseStudy].brokerBenefits.map((benefit, i) => (
-                      <div key={i} className={`flex items-center gap-2 text-sm ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                        <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                        <span>{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card>
         </div>
       </section>
 
