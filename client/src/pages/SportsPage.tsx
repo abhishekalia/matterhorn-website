@@ -823,56 +823,6 @@ export default function SportsPage() {
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section 
-        id="leadership" 
-        data-animate 
-        className="py-24 bg-[#0D1B2A]"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 ${getAnimationClass("leadership")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              Leadership
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" data-testid="heading-leadership">
-              Sports Industry Veterans
-            </h2>
-            <p className="text-lg text-white/60 max-w-3xl mx-auto">
-              Led by executives with deep sports industry experience, including professional athlete representation 
-              and executive roles across hockey, golf, and sports management.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {leadership.map((leader, index) => (
-              <Card 
-                key={index} 
-                className={`p-6 text-center group overflow-visible bg-[#1B2A41]/50 border-white/10 hover:border-[#00ff88]/50 hover-elevate ${getAnimationClass("leadership")}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div className="relative w-28 h-28 mx-auto mb-6">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00ff88]/30 to-[#00d4ff]/20 animate-pulse" />
-                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-[#00ff88]/30 group-hover:border-[#00ff88]/60 transition-all duration-500">
-                    <img 
-                      src={leader.photo} 
-                      alt={leader.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold mb-1 text-white group-hover:text-[#00ff88] transition-colors">{leader.name}</h3>
-                <p className="text-[#00ff88] font-medium mb-2">{leader.title}</p>
-                <Badge className="bg-white/10 text-white/70 border-white/20 text-xs mb-4">
-                  <MapPin className="w-3 h-3 mr-1" />
-                  {leader.territory}
-                </Badge>
-                <p className="text-white/60 text-sm leading-relaxed">{leader.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why Matterhorn Section */}
       <section 
         id="why-us" 
