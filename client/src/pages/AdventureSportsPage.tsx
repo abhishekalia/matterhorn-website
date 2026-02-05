@@ -1493,14 +1493,14 @@ export default function AdventureSportsPage() {
             {/* Right Column - Benefits & Stats */}
             <div className="lg:col-span-5 space-y-6">
               {/* Annual Programs Card */}
-              <Card className="p-6 bg-gradient-to-br from-sky-900/40 to-cyan-900/30 border-sky-500/30 relative overflow-hidden" data-testid="card-annual-programs">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/15 rounded-full blur-3xl" />
+              <Card className="p-6 bg-gradient-to-br from-amber-900/40 to-orange-900/30 border-amber-500/30 relative overflow-hidden" data-testid="card-annual-programs">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/15 rounded-full blur-3xl" />
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-full bg-sky-500 flex items-center justify-center mb-4" style={{ boxShadow: '0 0 30px rgba(14, 165, 233, 0.4)' }}>
+                  <div className="w-14 h-14 rounded-full bg-amber-500 flex items-center justify-center mb-4" style={{ boxShadow: '0 0 30px rgba(245, 158, 11, 0.4)' }}>
                     <Calendar className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Annual Schedule Programs</h3>
-                  <p className="text-sky-400 text-lg font-medium mb-4">Blanket Coverage for Tour Operators</p>
+                  <p className="text-amber-400 text-lg font-medium mb-4">Blanket Coverage for Tour Operators</p>
                   <p className="text-sm text-slate-300 leading-relaxed mb-4">
                     Perfect for operators with recurring trips. One policy covers your entire season—no per-trip administration required.
                   </p>
@@ -1512,7 +1512,7 @@ export default function AdventureSportsPage() {
                       "Custom coverage tiers available",
                     ].map((benefit, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
-                        <CheckCircle className="w-4 h-4 text-sky-400 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
                         <span>{benefit}</span>
                       </li>
                     ))}
