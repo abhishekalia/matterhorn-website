@@ -309,6 +309,161 @@ export default function PickleballPage() {
         </div>
       </section>
 
+      {/* Combined Coverage & Benefits Section */}
+      <section id="coverage" className="py-24 relative overflow-hidden" data-testid="section-coverage">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-950 to-slate-900/80" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 right-10 w-64 h-64 rounded-full blur-[100px] animate-pulse bg-emerald-500/10" />
+          <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-teal-500/8" style={{ animationDelay: "1.5s" }} />
+          <div className="absolute top-1/2 right-1/3 w-48 h-48 rounded-full blur-[80px] animate-pulse bg-cyan-500/6" style={{ animationDelay: "3s" }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-emerald-500" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-400">Complete Protection Suite</span>
+              <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-emerald-500" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="text-coverage-title">
+              Coverage Options &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                Program Benefits
+              </span>
+            </h2>
+            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Experience comprehensive protection with our specialized pickleball program—designed for organizations like yours.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-10 max-w-7xl mx-auto">
+            {/* Left Column - Coverage Accordions */}
+            <div className="lg:col-span-7">
+              <Card className="bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-coverage-accordions">
+                {/* Top accent */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
+                
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.2)' }}>
+                      <Shield className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white">Comprehensive Coverage</h3>
+                      <p className="text-[11px] uppercase tracking-widest text-emerald-400/80">9 Coverage Types Available</p>
+                    </div>
+                  </div>
+
+                  <Accordion type="single" collapsible className="space-y-2">
+                    {coverageOptions.map((coverage, index) => {
+                      const colors = ['emerald', 'teal', 'cyan'];
+                      const colorClass = colors[index % 3];
+                      return (
+                        <AccordionItem key={index} value={`coverage-${index}`} className="border-white/10 rounded-lg overflow-hidden">
+                          <AccordionTrigger className="text-sm text-white hover:text-emerald-400 py-3 px-4 bg-white/[0.03] hover:bg-white/[0.06] transition-all [&[data-state=open]]:bg-emerald-500/10 rounded-lg group">
+                            <span className="flex items-center gap-3">
+                              <div className={`w-8 h-8 rounded-md bg-${colorClass}-500/20 flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                                <coverage.icon className={`w-4 h-4 text-${colorClass}-400`} />
+                              </div>
+                              <span className="font-medium text-left">{coverage.title}</span>
+                            </span>
+                          </AccordionTrigger>
+                          <AccordionContent className="pt-3 pb-4 px-4">
+                            <div className="pl-11">
+                              <p className="text-slate-400 text-sm leading-relaxed">{coverage.description}</p>
+                              <div className="mt-3 flex flex-wrap gap-2">
+                                <span className="text-[9px] uppercase tracking-wider px-2 py-1 rounded bg-white/5 text-slate-500 border border-white/10">
+                                  Up to $5M Available
+                                </span>
+                                <span className="text-[9px] uppercase tracking-wider px-2 py-1 rounded bg-white/5 text-slate-500 border border-white/10">
+                                  Flexible Terms
+                                </span>
+                              </div>
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      );
+                    })}
+                  </Accordion>
+                </div>
+
+                {/* Footer badges */}
+                <div className="px-6 py-4 border-t border-white/10 bg-white/[0.02]">
+                  <div className="flex flex-wrap gap-3 justify-center">
+                    <span className="text-[9px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
+                      <Globe className="w-3 h-3" />
+                      Nationwide
+                    </span>
+                    <span className="text-[9px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 flex items-center gap-1.5">
+                      <MapPin className="w-3 h-3" />
+                      State-Adjustable
+                    </span>
+                    <span className="text-[9px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center gap-1.5">
+                      <DollarSign className="w-3 h-3" />
+                      Competitive Rates
+                    </span>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Why Choose Benefits */}
+            <div className="lg:col-span-5 space-y-4" id="why-choose">
+              <div className="flex items-center gap-2 mb-4">
+                <Award className="w-5 h-5 text-emerald-400" />
+                <h3 className="text-lg font-bold text-white">Why Choose Matterhorn?</h3>
+              </div>
+              
+              {whyChooseItems.map((item, index) => (
+                <Card 
+                  key={index}
+                  className="p-4 bg-slate-800/40 border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300 group cursor-pointer"
+                  data-testid={`card-why-${index}`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <span className="text-[10px] font-bold text-emerald-400">{String(index + 1).padStart(2, '0')}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-white text-sm mb-1 group-hover:text-emerald-400 transition-colors">{item.title}</h4>
+                      <p className="text-slate-400 text-xs leading-relaxed">{item.description}</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
+                  </div>
+                </Card>
+              ))}
+
+              {/* CTA Card */}
+              <Card className="p-5 bg-[#0D1B2A] border-emerald-500/40 mt-6 relative overflow-hidden" data-testid="card-cta-apply">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/25 to-teal-900/15 pointer-events-none" />
+                <div className="flex items-center gap-3 mb-3 relative z-10">
+                  <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.4)' }}>
+                    <Zap className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-emerald-400">Ready to Start?</p>
+                    <p className="font-semibold text-white">Get Your Quote Today</p>
+                  </div>
+                </div>
+                <Button
+                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium"
+                  asChild
+                  data-testid="button-apply-coverage-section"
+                >
+                  <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
+                    <FileText className="w-4 h-4 mr-2" />
+                    Start Application
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Program Highlights Section */}
       <section id="program-highlights" className="py-24 relative overflow-hidden" data-testid="section-program-highlights">
         {/* Animated Background */}
@@ -514,161 +669,6 @@ export default function PickleballPage() {
                     1-844-600-0611
                   </a>
                 </div>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Combined Coverage & Benefits Section */}
-      <section id="coverage" className="py-24 relative overflow-hidden" data-testid="section-coverage">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-950 to-slate-900/80" />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-10 w-64 h-64 rounded-full blur-[100px] animate-pulse bg-emerald-500/10" />
-          <div className="absolute bottom-20 left-10 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-teal-500/8" style={{ animationDelay: "1.5s" }} />
-          <div className="absolute top-1/2 right-1/3 w-48 h-48 rounded-full blur-[80px] animate-pulse bg-cyan-500/6" style={{ animationDelay: "3s" }} />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-emerald-500" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-400">Complete Protection Suite</span>
-              <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-emerald-500" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="text-coverage-title">
-              Coverage Options &{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
-                Program Benefits
-              </span>
-            </h2>
-            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Experience comprehensive protection with our specialized pickleball program—designed for organizations like yours.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-12 gap-10 max-w-7xl mx-auto">
-            {/* Left Column - Coverage Accordions */}
-            <div className="lg:col-span-7">
-              <Card className="bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-coverage-accordions">
-                {/* Top accent */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
-                
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.2)' }}>
-                      <Shield className="w-5 h-5 text-emerald-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-white">Comprehensive Coverage</h3>
-                      <p className="text-[11px] uppercase tracking-widest text-emerald-400/80">9 Coverage Types Available</p>
-                    </div>
-                  </div>
-
-                  <Accordion type="single" collapsible className="space-y-2">
-                    {coverageOptions.map((coverage, index) => {
-                      const colors = ['emerald', 'teal', 'cyan'];
-                      const colorClass = colors[index % 3];
-                      return (
-                        <AccordionItem key={index} value={`coverage-${index}`} className="border-white/10 rounded-lg overflow-hidden">
-                          <AccordionTrigger className="text-sm text-white hover:text-emerald-400 py-3 px-4 bg-white/[0.03] hover:bg-white/[0.06] transition-all [&[data-state=open]]:bg-emerald-500/10 rounded-lg group">
-                            <span className="flex items-center gap-3">
-                              <div className={`w-8 h-8 rounded-md bg-${colorClass}-500/20 flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                                <coverage.icon className={`w-4 h-4 text-${colorClass}-400`} />
-                              </div>
-                              <span className="font-medium text-left">{coverage.title}</span>
-                            </span>
-                          </AccordionTrigger>
-                          <AccordionContent className="pt-3 pb-4 px-4">
-                            <div className="pl-11">
-                              <p className="text-slate-400 text-sm leading-relaxed">{coverage.description}</p>
-                              <div className="mt-3 flex flex-wrap gap-2">
-                                <span className="text-[9px] uppercase tracking-wider px-2 py-1 rounded bg-white/5 text-slate-500 border border-white/10">
-                                  Up to $5M Available
-                                </span>
-                                <span className="text-[9px] uppercase tracking-wider px-2 py-1 rounded bg-white/5 text-slate-500 border border-white/10">
-                                  Flexible Terms
-                                </span>
-                              </div>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-                      );
-                    })}
-                  </Accordion>
-                </div>
-
-                {/* Footer badges */}
-                <div className="px-6 py-4 border-t border-white/10 bg-white/[0.02]">
-                  <div className="flex flex-wrap gap-3 justify-center">
-                    <span className="text-[9px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
-                      <Globe className="w-3 h-3" />
-                      Nationwide
-                    </span>
-                    <span className="text-[9px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20 flex items-center gap-1.5">
-                      <MapPin className="w-3 h-3" />
-                      State-Adjustable
-                    </span>
-                    <span className="text-[9px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center gap-1.5">
-                      <DollarSign className="w-3 h-3" />
-                      Competitive Rates
-                    </span>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            {/* Right Column - Why Choose Benefits */}
-            <div className="lg:col-span-5 space-y-4" id="why-choose">
-              <div className="flex items-center gap-2 mb-4">
-                <Award className="w-5 h-5 text-emerald-400" />
-                <h3 className="text-lg font-bold text-white">Why Choose Matterhorn?</h3>
-              </div>
-              
-              {whyChooseItems.map((item, index) => (
-                <Card 
-                  key={index}
-                  className="p-4 bg-slate-800/40 border-slate-700/50 hover:border-emerald-500/30 transition-all duration-300 group cursor-pointer"
-                  data-testid={`card-why-${index}`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <span className="text-[10px] font-bold text-emerald-400">{String(index + 1).padStart(2, '0')}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h4 className="font-semibold text-white text-sm mb-1 group-hover:text-emerald-400 transition-colors">{item.title}</h4>
-                      <p className="text-slate-400 text-xs leading-relaxed">{item.description}</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
-                  </div>
-                </Card>
-              ))}
-
-              {/* CTA Card */}
-              <Card className="p-5 bg-[#0D1B2A] border-emerald-500/40 mt-6 relative overflow-hidden" data-testid="card-cta-apply">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/25 to-teal-900/15 pointer-events-none" />
-                <div className="flex items-center gap-3 mb-3 relative z-10">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.4)' }}>
-                    <Zap className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest text-emerald-400">Ready to Start?</p>
-                    <p className="font-semibold text-white">Get Your Quote Today</p>
-                  </div>
-                </div>
-                <Button
-                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium"
-                  asChild
-                  data-testid="button-apply-coverage-section"
-                >
-                  <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
-                    <FileText className="w-4 h-4 mr-2" />
-                    Start Application
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
               </Card>
             </div>
           </div>
