@@ -190,37 +190,49 @@ export default function AdventureSportsPage() {
       title: "Water Sports Operations",
       description: "Rafting, kayaking, paddleboarding, surfing instruction, dive operations, and coastal adventure tours.",
       icon: Waves,
+      color: NEON_COLORS.cyan,
       activities: ["Whitewater Rafting", "Sea Kayaking", "SUP Tours", "Surf Schools", "Scuba Operations"],
+      whoWeServe: ["Rafting Outfitters", "Kayak Tour Operators", "SUP Rental Companies", "Surf Instruction Schools", "Dive Centers", "Coastal Adventure Tours"],
     },
     {
       title: "Backcountry Fishing",
       description: "Fly-in lodges, remote fishing camps, guided river trips, and backcountry fishing operations.",
       icon: Fish,
+      color: NEON_COLORS.emerald,
       activities: ["Fly-In Lodges", "River Guides", "Backcountry Camps", "Saltwater Charters", "Ice Fishing"],
+      whoWeServe: ["Fly-In Fishing Lodges", "River Fishing Guides", "Backcountry Camp Operators", "Saltwater Charter Captains", "Ice Fishing Outfitters", "Fly Fishing Schools"],
     },
     {
       title: "Aerial Adventures",
       description: "Zip line operations, paragliding instruction, skydiving centers, and aerial adventure parks.",
       icon: Wind,
+      color: NEON_COLORS.amber,
       activities: ["Zip Line Tours", "Paragliding", "Hang Gliding", "Skydiving", "Canopy Tours"],
+      whoWeServe: ["Zip Line Operators", "Paragliding Instructors", "Hang Gliding Schools", "Skydiving Centers", "Canopy Tour Companies", "Aerial Adventure Parks"],
     },
     {
       title: "Hunting Outfitters",
       description: "Big game hunting guides, waterfowl operations, upland bird hunts, and remote hunting camps.",
       icon: Crosshair,
+      color: NEON_COLORS.orange,
       activities: ["Big Game Guides", "Waterfowl Hunts", "Upland Birds", "Remote Camps", "Trophy Hunts"],
+      whoWeServe: ["Big Game Outfitters", "Waterfowl Hunt Operators", "Upland Bird Guides", "Remote Hunting Lodges", "International Safari Operators", "Hunting Ranch Owners"],
     },
     {
       title: "Eco-Tourism & Wildlife",
       description: "Wildlife viewing tours, eco-lodges, bird watching expeditions, and nature photography trips.",
       icon: TreePine,
+      color: NEON_COLORS.lime,
       activities: ["Safari Tours", "Bird Watching", "Photo Tours", "Eco-Lodges", "Nature Walks"],
+      whoWeServe: ["Wildlife Safari Operators", "Eco-Lodge Owners", "Bird Watching Tour Guides", "Nature Photography Tours", "Conservation Tour Companies", "Wilderness Retreat Centers"],
     },
     {
       title: "Motorized Adventures",
       description: "ATV tours, snowmobile operations, jet ski rentals, and off-road adventure experiences.",
       icon: Navigation,
+      color: NEON_COLORS.cyan,
       activities: ["ATV Tours", "Snowmobile Tours", "Jet Ski Rentals", "Dune Buggies", "4x4 Adventures"],
+      whoWeServe: ["ATV Tour Operators", "Snowmobile Rental Companies", "Jet Ski Rental Centers", "Dune Buggy Tours", "4x4 Adventure Companies", "Off-Road Experience Parks"],
     },
   ];
 
@@ -480,6 +492,109 @@ export default function AdventureSportsPage() {
         </button>
       </section>
 
+      {/* Adventure Travel Programs Section - Moved to below hero */}
+      <section 
+        id="adventure-programs" 
+        data-animate 
+        className="py-24 relative overflow-hidden"
+        data-testid="section-adventure-programs"
+      >
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/10 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -left-40 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-emerald-500/10" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full blur-[100px] animate-pulse bg-cyan-500/8" style={{ animationDelay: "2s" }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.3)' }}>
+              <Compass className="w-3 h-3 mr-1" />
+              Adventure Travel Programs
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="heading-adventure-programs">
+              Coverage for Every{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-amber-400">
+                Adventure
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Specialized programs tailored to the unique risks of each adventure sector, from water sports to aerial adventures.
+            </p>
+          </div>
+
+          {/* Program Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {adventureTravelPrograms.map((program, index) => (
+              <Card 
+                key={index}
+                className="p-0 bg-slate-900/60 border-slate-700/50 backdrop-blur-sm relative overflow-hidden group hover:border-opacity-60 transition-all duration-500"
+                style={{ borderColor: `${program.color}30` }}
+                data-testid={`card-adventure-program-${index}`}
+              >
+                {/* Top accent bar */}
+                <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${program.color}, ${program.color}60)` }} />
+                
+                <div className="p-6">
+                  {/* Icon and Title */}
+                  <div className="flex items-start gap-4 mb-4">
+                    <div 
+                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300" 
+                      style={{ backgroundColor: `${program.color}20`, boxShadow: `0 0 20px ${program.color}15` }}
+                    >
+                      <program.icon className="w-6 h-6" style={{ color: program.color }} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white mb-1">{program.title}</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">{program.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Activity Badges */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {program.activities.map((activity, i) => (
+                      <Badge 
+                        key={i} 
+                        className="text-[10px] bg-slate-800/80 border-slate-600/50"
+                        style={{ color: program.color }}
+                      >
+                        {activity}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {/* Who We Serve Accordion */}
+                  <Accordion type="single" collapsible className="border-0">
+                    <AccordionItem value="who-we-serve" className="border-0">
+                      <AccordionTrigger 
+                        className="py-3 px-4 rounded-lg text-sm font-medium text-white hover:no-underline transition-all duration-300"
+                        style={{ backgroundColor: `${program.color}15` }}
+                      >
+                        <span className="flex items-center gap-2">
+                          <Users className="w-4 h-4" style={{ color: program.color }} />
+                          <span>Who We Serve</span>
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-3 pb-0">
+                        <div className="grid grid-cols-1 gap-2">
+                          {program.whoWeServe.map((item, i) => (
+                            <div key={i} className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors group/item">
+                              <ArrowRight className="w-3 h-3 flex-shrink-0 group-hover/item:translate-x-1 transition-transform" style={{ color: program.color }} />
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Program Highlights Section - Adventure Tour & Guide Operators */}
       <section 
         id="programs" 
@@ -732,74 +847,6 @@ export default function AdventureSportsPage() {
                 </div>
               </Card>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Adventure Travel Programs Section */}
-      <section 
-        id="travel" 
-        data-animate 
-        className={`py-20 relative overflow-hidden ${isDarkMode ? 'bg-[#0D1B2A]' : 'bg-gray-50'}`}
-      >
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-12 ${getAnimationClass("travel")}`}>
-            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-medium mb-2" style={{ color: NEON_COLORS.emerald }}>
-              Adventure Travel Programs
-            </p>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Coverage for Every{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500">
-                Adventure
-              </span>
-            </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-              Specialized programs tailored to the unique risks of each adventure sector, from water sports to aerial adventures.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {adventureTravelPrograms.map((program, index) => (
-              <Card 
-                key={index}
-                className={`p-6 group transition-all duration-500 ${
-                  isDarkMode 
-                    ? 'bg-[#1B2A41]/50 border-white/10 hover:border-emerald-500/40' 
-                    : 'bg-white border-gray-200 hover:border-emerald-500/40'
-                }`}
-                style={{
-                  boxShadow: 'none',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = `0 0 30px ${NEON_COLORS.emerald}20`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${NEON_COLORS.emerald}20` }}>
-                  <program.icon className="w-6 h-6" style={{ color: NEON_COLORS.emerald }} />
-                </div>
-                <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{program.title}</h3>
-                <p className={`text-sm mb-4 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>{program.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {program.activities.slice(0, 3).map((activity, i) => (
-                    <Badge 
-                      key={i} 
-                      variant="outline" 
-                      className={`text-[10px] ${isDarkMode ? 'border-white/20 text-white/70' : 'border-gray-300 text-gray-600'}`}
-                    >
-                      {activity}
-                    </Badge>
-                  ))}
-                  {program.activities.length > 3 && (
-                    <Badge variant="outline" className={`text-[10px] ${isDarkMode ? 'border-emerald-500/30 text-emerald-400' : 'border-emerald-500/30 text-emerald-600'}`}>
-                      +{program.activities.length - 3} more
-                    </Badge>
-                  )}
-                </div>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
