@@ -873,6 +873,44 @@ export default function SportsPage() {
         </div>
       </section>
 
+      {/* Why Matterhorn Section */}
+      <section 
+        id="why-us" 
+        data-animate
+        className="py-24 relative overflow-hidden"
+        style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className={`text-center mb-16 ${getAnimationClass("why-us")}`}>
+            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
+              Why Matterhorn
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              The Sports Insurance{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
+                Advantage
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {whyMatterhorn.map((item, index) => (
+              <Card 
+                key={index}
+                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] transition-all duration-500 group ${getAnimationClass("why-us")}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
+                  <item.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-white group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{item.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Market Segments Section */}
       <section 
         id="markets" 
@@ -1542,44 +1580,6 @@ export default function SportsPage() {
                 >
                   {path.buttonText}
                 </Button>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Matterhorn Section */}
-      <section 
-        id="why-us" 
-        data-animate
-        className="py-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 ${getAnimationClass("why-us")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              Why Matterhorn
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              The Sports Insurance{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
-                Advantage
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {whyMatterhorn.map((item, index) => (
-              <Card 
-                key={index}
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] transition-all duration-500 group ${getAnimationClass("why-us")}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-white group-hover:text-primary transition-colors">{item.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{item.description}</p>
               </Card>
             ))}
           </div>
