@@ -47,7 +47,7 @@ export default function HeroSection() {
           className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto font-medium"
           data-testid="hero-subheading"
         >
-          Your Markets. Your Authority. Your Platform.
+          Your Markets. Your Solutions. Your Team.
         </p>
 
         <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed" data-testid="hero-description">
