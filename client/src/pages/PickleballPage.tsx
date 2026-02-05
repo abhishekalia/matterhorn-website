@@ -682,6 +682,287 @@ export default function PickleballPage() {
         </div>
       </section>
 
+      {/* Submit Your Application Section - Enhanced Interactive */}
+      <section className="py-32 relative overflow-hidden" data-testid="section-submission-options">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] rounded-full blur-[180px] animate-pulse bg-emerald-500/10" />
+          <div className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] rounded-full blur-[150px] animate-pulse bg-teal-500/10" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[200px] animate-pulse bg-cyan-500/8" style={{ animationDelay: "2s" }} />
+        </div>
+        
+        {/* Decorative Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{ 
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <Badge className="mb-6 px-5 py-2 bg-emerald-500/20 text-emerald-400 border-emerald-500/40 text-sm" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}>
+              <Zap className="w-4 h-4 mr-2" />
+              Submit Your Application
+            </Badge>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight" data-testid="text-submission-title">
+              Two Ways to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 animate-gradient">
+                Get Started
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+              Submit your existing application materials or complete our comprehensive form—either way, we'll shop your risk with our curated A-rated markets.
+            </p>
+          </div>
+
+          {/* Main Interactive Cards */}
+          <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto mb-20">
+            
+            {/* Email Existing Application Card */}
+            <div className="group relative" data-testid="card-email-option">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-500" />
+              <Card className="relative p-10 bg-[#0D1B2A] border-emerald-500/30 backdrop-blur-xl rounded-2xl overflow-hidden h-full">
+                {/* Animated Top Border */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 bg-[length:200%_100%] animate-gradient" />
+                
+                {/* Corner Glow */}
+                <div className="absolute -top-20 -right-20 w-60 h-60 bg-emerald-500/20 rounded-full blur-3xl group-hover:bg-emerald-500/30 transition-all duration-500" />
+                
+                {/* Icon with Neon Effect */}
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: '0 0 40px rgba(16, 185, 129, 0.5)' }}>
+                    <Mail className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="absolute -inset-2 bg-emerald-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Email Existing Application</h3>
+                <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+                  Already have an application package? Email your existing ACORD forms, loss runs, and supporting documents directly to our underwriting team.
+                </p>
+                
+                {/* Features List with Hover Effects */}
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <span>ACORD forms, PDFs, or custom apps accepted</span>
+                  </li>
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <span>Include loss runs (3-5 years preferred)</span>
+                  </li>
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <span>We triage and confirm completeness</span>
+                  </li>
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
+                      <Clock className="w-4 h-4 text-emerald-400" />
+                    </div>
+                    <span className="font-semibold">Indication within 24-48 hours</span>
+                  </li>
+                </ul>
+                
+                {/* Email CTA Button */}
+                <Button 
+                  size="lg"
+                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg py-6 shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all group-hover:scale-[1.02]"
+                  asChild
+                  data-testid="button-email-application"
+                >
+                  <a href="mailto:submissions@matterhornprotects.com?subject=Pickleball%20Facility%20Application%20Submission">
+                    <Mail className="w-5 h-5 mr-3" />
+                    Email Your Application
+                    <ArrowRight className="w-5 h-5 ml-3" />
+                  </a>
+                </Button>
+                <p className="text-center text-emerald-400 text-sm mt-4 font-medium">
+                  submissions@matterhornprotects.com
+                </p>
+              </Card>
+            </div>
+
+            {/* Complete Digital Application Card */}
+            <div className="group relative" data-testid="card-digital-option">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-500" />
+              <Card className="relative p-10 bg-[#0D1B2A] border-cyan-500/30 backdrop-blur-xl rounded-2xl overflow-hidden h-full">
+                {/* Animated Top Border */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal-500 via-cyan-400 to-teal-500 bg-[length:200%_100%] animate-gradient" />
+                
+                {/* Corner Glow */}
+                <div className="absolute -top-20 -right-20 w-60 h-60 bg-cyan-500/20 rounded-full blur-3xl group-hover:bg-cyan-500/30 transition-all duration-500" />
+                
+                {/* Icon with Neon Effect */}
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: '0 0 40px rgba(34, 211, 238, 0.5)' }}>
+                    <FileText className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="absolute -inset-2 bg-cyan-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Complete Digital Application</h3>
+                <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+                  Use our comprehensive online application designed specifically for pickleball risks. Quick, guided, and optimized for fast quoting.
+                </p>
+                
+                {/* Features List with Hover Effects */}
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-cyan-400" />
+                    </div>
+                    <span>Purpose-built for pickleball facilities</span>
+                  </li>
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-cyan-400" />
+                    </div>
+                    <span>Guided questions for complete submissions</span>
+                  </li>
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
+                      <CheckCircle className="w-4 h-4 text-cyan-400" />
+                    </div>
+                    <span>Automatic routing to best-fit markets</span>
+                  </li>
+                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
+                      <Zap className="w-4 h-4 text-cyan-400" />
+                    </div>
+                    <span className="font-semibold">Same-day indications on clean risks</span>
+                  </li>
+                </ul>
+                
+                {/* Digital Application CTA Button */}
+                <Button 
+                  size="lg"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-bold text-lg py-6 shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all group-hover:scale-[1.02]"
+                  asChild
+                  data-testid="button-start-pickleball-application"
+                >
+                  <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
+                    <FileText className="w-5 h-5 mr-3" />
+                    Start Digital Application
+                    <ArrowRight className="w-5 h-5 ml-3" />
+                  </a>
+                </Button>
+                <p className="text-center text-cyan-400 text-sm mt-4 font-medium">
+                  Takes approximately 10-15 minutes
+                </p>
+              </Card>
+            </div>
+          </div>
+
+          {/* Interactive Process Timeline */}
+          <div className="max-w-5xl mx-auto mb-20">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">How It Works</h3>
+              <p className="text-slate-400">From submission to coverage in 4 simple steps</p>
+            </div>
+            
+            <div className="relative">
+              {/* Connecting Line */}
+              <div className="absolute top-12 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 rounded-full hidden md:block" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' }} />
+              
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {/* Step 1 */}
+                <div className="relative group">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-emerald-500/50 flex items-center justify-center mb-6 group-hover:border-emerald-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.3)' }}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-2xl" />
+                      <span className="text-3xl font-bold text-emerald-400">1</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">Submit</h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">Email docs or complete our digital form</p>
+                  </div>
+                </div>
+                
+                {/* Step 2 */}
+                <div className="relative group">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-teal-500/50 flex items-center justify-center mb-6 group-hover:border-teal-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(20, 184, 166, 0.3)' }}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent rounded-2xl" />
+                      <span className="text-3xl font-bold text-teal-400">2</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">UW Review</h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">Our team evaluates your risk</p>
+                  </div>
+                </div>
+                
+                {/* Step 3 */}
+                <div className="relative group">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-cyan-500/50 flex items-center justify-center mb-6 group-hover:border-cyan-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(34, 211, 238, 0.3)' }}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent rounded-2xl" />
+                      <span className="text-3xl font-bold text-cyan-400">3</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">Quote</h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">Receive quotes from curated markets</p>
+                  </div>
+                </div>
+                
+                {/* Step 4 */}
+                <div className="relative group">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-emerald-500/50 flex items-center justify-center mb-6 group-hover:border-emerald-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.3)' }}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-2xl" />
+                      <span className="text-3xl font-bold text-emerald-400">4</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">Bind</h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">Select coverage and get protected</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Strip */}
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-[#0D1B2A]/80 border-white/10 backdrop-blur-xl p-8 rounded-2xl">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="text-center md:text-left">
+                  <h4 className="text-xl font-bold text-white mb-2">Questions? We're here to help.</h4>
+                  <p className="text-slate-400">Our pickleball specialists are ready to assist with your submission.</p>
+                </div>
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    asChild
+                    className="border-emerald-500/40 text-white bg-white/5 hover:bg-emerald-500/10 hover:border-emerald-500/60 px-6"
+                    data-testid="button-call-us"
+                  >
+                    <a href="tel:1-844-600-0611">
+                      <Phone className="w-5 h-5 mr-2" />
+                      1-844-600-0611
+                    </a>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    asChild
+                    className="border-cyan-500/40 text-white bg-white/5 hover:bg-cyan-500/10 hover:border-cyan-500/60 px-6"
+                    data-testid="link-email"
+                  >
+                    <a href="mailto:support@matterhornprotects.com">
+                      <Mail className="w-5 h-5 mr-2" />
+                      Email Support
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* New Facilities Program Section */}
       <section id="new-facilities" className="py-24 relative overflow-hidden" data-testid="section-new-facilities">
         {/* Animated Background */}
@@ -1559,287 +1840,6 @@ export default function PickleballPage() {
                 </div>
               </Card>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Submit Your Application Section - Enhanced Interactive */}
-      <section className="py-32 relative overflow-hidden" data-testid="section-submission-options">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950" />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] rounded-full blur-[180px] animate-pulse bg-emerald-500/10" />
-          <div className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] rounded-full blur-[150px] animate-pulse bg-teal-500/10" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[200px] animate-pulse bg-cyan-500/8" style={{ animationDelay: "2s" }} />
-        </div>
-        
-        {/* Decorative Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{ 
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }} />
-
-        <div className="container mx-auto px-6 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-20">
-            <Badge className="mb-6 px-5 py-2 bg-emerald-500/20 text-emerald-400 border-emerald-500/40 text-sm" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}>
-              <Zap className="w-4 h-4 mr-2" />
-              Submit Your Application
-            </Badge>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight" data-testid="text-submission-title">
-              Two Ways to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 animate-gradient">
-                Get Started
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Submit your existing application materials or complete our comprehensive form—either way, we'll shop your risk with our curated A-rated markets.
-            </p>
-          </div>
-
-          {/* Main Interactive Cards */}
-          <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto mb-20">
-            
-            {/* Email Existing Application Card */}
-            <div className="group relative" data-testid="card-email-option">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-500" />
-              <Card className="relative p-10 bg-[#0D1B2A] border-emerald-500/30 backdrop-blur-xl rounded-2xl overflow-hidden h-full">
-                {/* Animated Top Border */}
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-500 bg-[length:200%_100%] animate-gradient" />
-                
-                {/* Corner Glow */}
-                <div className="absolute -top-20 -right-20 w-60 h-60 bg-emerald-500/20 rounded-full blur-3xl group-hover:bg-emerald-500/30 transition-all duration-500" />
-                
-                {/* Icon with Neon Effect */}
-                <div className="relative mb-8">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: '0 0 40px rgba(16, 185, 129, 0.5)' }}>
-                    <Mail className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="absolute -inset-2 bg-emerald-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Email Existing Application</h3>
-                <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                  Already have an application package? Email your existing ACORD forms, loss runs, and supporting documents directly to our underwriting team.
-                </p>
-                
-                {/* Features List with Hover Effects */}
-                <ul className="space-y-4 mb-10">
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <span>ACORD forms, PDFs, or custom apps accepted</span>
-                  </li>
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <span>Include loss runs (3-5 years preferred)</span>
-                  </li>
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <span>We triage and confirm completeness</span>
-                  </li>
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-emerald-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-500/30 transition-colors">
-                      <Clock className="w-4 h-4 text-emerald-400" />
-                    </div>
-                    <span className="font-semibold">Indication within 24-48 hours</span>
-                  </li>
-                </ul>
-                
-                {/* Email CTA Button */}
-                <Button 
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg py-6 shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all group-hover:scale-[1.02]"
-                  asChild
-                  data-testid="button-email-application"
-                >
-                  <a href="mailto:submissions@matterhornprotects.com?subject=Pickleball%20Facility%20Application%20Submission">
-                    <Mail className="w-5 h-5 mr-3" />
-                    Email Your Application
-                    <ArrowRight className="w-5 h-5 ml-3" />
-                  </a>
-                </Button>
-                <p className="text-center text-emerald-400 text-sm mt-4 font-medium">
-                  submissions@matterhornprotects.com
-                </p>
-              </Card>
-            </div>
-
-            {/* Complete Digital Application Card */}
-            <div className="group relative" data-testid="card-digital-option">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-500" />
-              <Card className="relative p-10 bg-[#0D1B2A] border-cyan-500/30 backdrop-blur-xl rounded-2xl overflow-hidden h-full">
-                {/* Animated Top Border */}
-                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-teal-500 via-cyan-400 to-teal-500 bg-[length:200%_100%] animate-gradient" />
-                
-                {/* Corner Glow */}
-                <div className="absolute -top-20 -right-20 w-60 h-60 bg-cyan-500/20 rounded-full blur-3xl group-hover:bg-cyan-500/30 transition-all duration-500" />
-                
-                {/* Icon with Neon Effect */}
-                <div className="relative mb-8">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ boxShadow: '0 0 40px rgba(34, 211, 238, 0.5)' }}>
-                    <FileText className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="absolute -inset-2 bg-cyan-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Complete Digital Application</h3>
-                <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                  Use our comprehensive online application designed specifically for pickleball risks. Quick, guided, and optimized for fast quoting.
-                </p>
-                
-                {/* Features List with Hover Effects */}
-                <ul className="space-y-4 mb-10">
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                    </div>
-                    <span>Purpose-built for pickleball facilities</span>
-                  </li>
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                    </div>
-                    <span>Guided questions for complete submissions</span>
-                  </li>
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-cyan-400" />
-                    </div>
-                    <span>Automatic routing to best-fit markets</span>
-                  </li>
-                  <li className="flex items-center gap-4 text-white p-3 rounded-lg bg-white/[0.03] hover:bg-cyan-500/10 transition-colors group/item">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/item:bg-cyan-500/30 transition-colors">
-                      <Zap className="w-4 h-4 text-cyan-400" />
-                    </div>
-                    <span className="font-semibold">Same-day indications on clean risks</span>
-                  </li>
-                </ul>
-                
-                {/* Digital Application CTA Button */}
-                <Button 
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-bold text-lg py-6 shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all group-hover:scale-[1.02]"
-                  asChild
-                  data-testid="button-start-pickleball-application"
-                >
-                  <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
-                    <FileText className="w-5 h-5 mr-3" />
-                    Start Digital Application
-                    <ArrowRight className="w-5 h-5 ml-3" />
-                  </a>
-                </Button>
-                <p className="text-center text-cyan-400 text-sm mt-4 font-medium">
-                  Takes approximately 10-15 minutes
-                </p>
-              </Card>
-            </div>
-          </div>
-
-          {/* Interactive Process Timeline */}
-          <div className="max-w-5xl mx-auto mb-20">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">How It Works</h3>
-              <p className="text-slate-400">From submission to coverage in 4 simple steps</p>
-            </div>
-            
-            <div className="relative">
-              {/* Connecting Line */}
-              <div className="absolute top-12 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 rounded-full hidden md:block" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' }} />
-              
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                {/* Step 1 */}
-                <div className="relative group">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-emerald-500/50 flex items-center justify-center mb-6 group-hover:border-emerald-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.3)' }}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-2xl" />
-                      <span className="text-3xl font-bold text-emerald-400">1</span>
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-2">Submit</h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">Email docs or complete our digital form</p>
-                  </div>
-                </div>
-                
-                {/* Step 2 */}
-                <div className="relative group">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-teal-500/50 flex items-center justify-center mb-6 group-hover:border-teal-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(20, 184, 166, 0.3)' }}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-transparent rounded-2xl" />
-                      <span className="text-3xl font-bold text-teal-400">2</span>
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-2">UW Review</h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">Our team evaluates your risk</p>
-                  </div>
-                </div>
-                
-                {/* Step 3 */}
-                <div className="relative group">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-cyan-500/50 flex items-center justify-center mb-6 group-hover:border-cyan-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(34, 211, 238, 0.3)' }}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-transparent rounded-2xl" />
-                      <span className="text-3xl font-bold text-cyan-400">3</span>
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-2">Quote</h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">Receive quotes from curated markets</p>
-                  </div>
-                </div>
-                
-                {/* Step 4 */}
-                <div className="relative group">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-2xl bg-[#0D1B2A] border-2 border-emerald-500/50 flex items-center justify-center mb-6 group-hover:border-emerald-400 group-hover:scale-110 transition-all duration-300 relative z-10" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.3)' }}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-2xl" />
-                      <span className="text-3xl font-bold text-emerald-400">4</span>
-                    </div>
-                    <h4 className="text-xl font-bold text-white mb-2">Bind</h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">Select coverage and get protected</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Strip */}
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-[#0D1B2A]/80 border-white/10 backdrop-blur-xl p-8 rounded-2xl">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="text-center md:text-left">
-                  <h4 className="text-xl font-bold text-white mb-2">Questions? We're here to help.</h4>
-                  <p className="text-slate-400">Our pickleball specialists are ready to assist with your submission.</p>
-                </div>
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    asChild
-                    className="border-emerald-500/40 text-white bg-white/5 hover:bg-emerald-500/10 hover:border-emerald-500/60 px-6"
-                    data-testid="button-call-us"
-                  >
-                    <a href="tel:1-844-600-0611">
-                      <Phone className="w-5 h-5 mr-2" />
-                      1-844-600-0611
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    asChild
-                    className="border-cyan-500/40 text-white bg-white/5 hover:bg-cyan-500/10 hover:border-cyan-500/60 px-6"
-                    data-testid="link-email"
-                  >
-                    <a href="mailto:support@matterhornprotects.com">
-                      <Mail className="w-5 h-5 mr-2" />
-                      Email Support
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </Card>
           </div>
         </div>
       </section>
