@@ -54,6 +54,13 @@ import {
   BarChart3,
   Network,
   Layers,
+  HardHat,
+  ArrowRightLeft,
+  Wrench,
+  AlertTriangle,
+  Flame,
+  FileCheck,
+  CalendarDays,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
@@ -668,6 +675,259 @@ export default function PickleballPage() {
                     <Phone className="w-4 h-4" />
                     1-844-600-0611
                   </a>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New Facilities Program Section */}
+      <section id="new-facilities" className="py-24 relative overflow-hidden" data-testid="section-new-facilities">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-cyan-950/20 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-20 left-1/4 w-96 h-96 rounded-full blur-[150px] animate-pulse bg-cyan-500/15" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-teal-500/12" style={{ animationDelay: "1.5s" }} />
+          <div className="absolute top-1/2 left-0 w-64 h-64 rounded-full blur-[100px] animate-pulse bg-emerald-500/10" style={{ animationDelay: "3s" }} />
+        </div>
+
+        {/* Blueprint Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(34, 211, 238, 0.5) 49px, rgba(34, 211, 238, 0.5) 50px), repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(34, 211, 238, 0.5) 49px, rgba(34, 211, 238, 0.5) 50px)' }} />
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-cyan-500/20 text-cyan-400 border-cyan-500/40" style={{ boxShadow: '0 0 20px rgba(34, 211, 238, 0.3)' }}>
+              <HardHat className="w-3 h-3 mr-1" />
+              For New Facility Builds
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-new-facilities-title">
+              Building a New Facility?{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-400 to-emerald-400">
+                We've Got You Covered
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              From groundbreaking to grand opening, our Builder's Risk program protects your investment and seamlessly transitions to operational coverage as your facility comes to life.
+            </p>
+          </div>
+
+          {/* Interactive Build Timeline */}
+          <div className="max-w-5xl mx-auto mb-16">
+            <Card className="p-8 bg-slate-900/70 border-cyan-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-build-timeline">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500" />
+              
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-teal-500/10 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(34, 211, 238, 0.2)' }}>
+                  <ArrowRightLeft className="w-6 h-6 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white">Seamless Coverage Transition</h3>
+                  <p className="text-sm text-cyan-400">From Construction to Operations</p>
+                </div>
+              </div>
+
+              {/* Timeline Visual */}
+              <div className="relative">
+                {/* Progress Bar Background */}
+                <div className="absolute top-8 left-0 right-0 h-2 bg-slate-800 rounded-full" />
+                {/* Animated Progress Fill */}
+                <div className="absolute top-8 left-0 h-2 bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500 rounded-full" style={{ width: '100%', animation: 'shimmer 3s ease-in-out infinite' }} />
+                
+                {/* Timeline Steps */}
+                <div className="grid grid-cols-4 gap-4 relative">
+                  {[
+                    { phase: "Pre-Build", icon: FileText, title: "Discovery & Planning", desc: "Site analysis, risk assessment, coverage design", color: "cyan", week: "Week 0" },
+                    { phase: "Construction", icon: HardHat, title: "Builder's Risk Active", desc: "Property, liability, equipment coverage", color: "teal", week: "Months 1-12" },
+                    { phase: "Transition", icon: ArrowRightLeft, title: "Coverage Migration", desc: "Phased transition to operational policies", color: "emerald", week: "Month 11-12" },
+                    { phase: "Operations", icon: Building2, title: "Full Operational Coverage", desc: "Complete GL, property, D&O, cyber", color: "emerald", week: "Ongoing" },
+                  ].map((step, index) => (
+                    <div key={index} className="relative pt-14 group">
+                      {/* Node */}
+                      <div className={`absolute top-5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-${step.color}-500 border-4 border-slate-900 shadow-lg shadow-${step.color}-500/40 group-hover:scale-125 transition-transform z-10`} />
+                      
+                      {/* Content Card */}
+                      <div className={`p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-${step.color}-500/40 hover:bg-${step.color}-500/5 transition-all group-hover:translate-y-1`}>
+                        <span className={`text-[9px] font-bold uppercase tracking-widest text-${step.color}-400 mb-2 block`}>{step.phase}</span>
+                        <div className={`w-10 h-10 rounded-lg bg-${step.color}-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
+                          <step.icon className={`w-5 h-5 text-${step.color}-400`} />
+                        </div>
+                        <h4 className="font-semibold text-white text-sm mb-1">{step.title}</h4>
+                        <p className="text-slate-400 text-xs leading-relaxed mb-2">{step.desc}</p>
+                        <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-${step.color}-500/20 text-${step.color}-400 border border-${step.color}-500/30`}>{step.week}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-12 gap-10 max-w-7xl mx-auto">
+            {/* Left Column - Builder's Risk Details */}
+            <div className="lg:col-span-7 space-y-6">
+              <Card className="p-8 bg-slate-900/70 border-cyan-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-builders-risk-details">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500" />
+                
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-teal-500/10 flex items-center justify-center" style={{ boxShadow: '0 0 30px rgba(34, 211, 238, 0.2)' }}>
+                    <Shield className="w-7 h-7 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Builder's Risk Coverage</h3>
+                    <p className="text-sm text-cyan-400">Comprehensive Construction Protection</p>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
+                    { icon: Building2, title: "Course of Construction", desc: "Protects your building and materials from day one through completion", color: "cyan" },
+                    { icon: Wrench, title: "Equipment & Materials", desc: "Coverage for installed and stored construction materials on-site", color: "teal" },
+                    { icon: HardHat, title: "Contractor Liability", desc: "Protection against third-party claims during construction", color: "emerald" },
+                    { icon: AlertTriangle, title: "Soft Costs Coverage", desc: "Extended overhead, financing, and delay expenses", color: "cyan" },
+                    { icon: Flame, title: "Fire & Natural Disasters", desc: "Comprehensive property coverage for construction risks", color: "teal" },
+                    { icon: FileCheck, title: "Permit & Code Updates", desc: "Coverage for code-required changes during build", color: "emerald" },
+                  ].map((item, index) => (
+                    <div key={index} className={`flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-${item.color}-500/30 transition-all group`}>
+                      <div className={`w-10 h-10 rounded-lg bg-${item.color}-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                        <item.icon className={`w-5 h-5 text-${item.color}-400`} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-white text-sm mb-1">{item.title}</h4>
+                        <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Transition Highlight */}
+                <div className="mt-6 p-5 rounded-xl bg-gradient-to-r from-cyan-500/10 via-teal-500/10 to-emerald-500/10 border border-cyan-500/20">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/30">
+                      <ArrowRightLeft className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-2">Seamless Transition Included</h4>
+                      <p className="text-white/80 text-sm leading-relaxed">
+                        As your facility nears completion, we automatically begin transitioning your coverage from Builder's Risk to full operational policies. No gaps, no lapses—just continuous protection from construction through your first member check-in.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Case Study & CTA */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Case Study Card */}
+              <Card className="p-6 bg-[#0D1B2A] border-cyan-500/40 relative overflow-hidden group" data-testid="card-new-facility-case-study">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/40 to-teal-900/20 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/15 rounded-full blur-3xl group-hover:bg-cyan-500/25 transition-all pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <Badge className="mb-4 bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
+                    <Star className="w-3 h-3 mr-1" />
+                    Case Study
+                  </Badge>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-2">Smash City Sports Complex</h3>
+                  <p className="text-cyan-400 font-medium mb-4">32-Court Indoor Facility • Phoenix, AZ</p>
+                  
+                  <p className="text-white/80 text-sm leading-relaxed mb-6">
+                    A broker partner approached us during the planning phase of a $12M, 80,000 sq ft indoor pickleball complex. We designed a comprehensive program covering the entire 14-month build and seamlessly transitioned them to operational coverage at opening.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">$12M</p>
+                      <p className="text-xs text-slate-400 mt-1">Project Value</p>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">14 Mo</p>
+                      <p className="text-xs text-slate-400 mt-1">Build Timeline</p>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">0 Days</p>
+                      <p className="text-xs text-slate-400 mt-1">Coverage Gaps</p>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">18%</p>
+                      <p className="text-xs text-slate-400 mt-1">Cost Savings</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 text-sm">
+                      <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                      <span className="text-white/80">Full Builder's Risk through construction</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm">
+                      <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0" />
+                      <span className="text-white/80">Phased transition starting Month 12</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                      <span className="text-white/80">Opening day with full operational coverage</span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Discovery Call CTA */}
+              <Card className="p-6 bg-gradient-to-br from-cyan-900/30 to-teal-900/20 border-cyan-500/30 relative overflow-hidden" data-testid="card-discovery-call-cta">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center" style={{ boxShadow: '0 0 35px rgba(34, 211, 238, 0.4)' }}>
+                      <Phone className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-widest text-cyan-400">Planning a Build?</p>
+                      <p className="font-bold text-white text-lg">Pre-Build Discovery Call</p>
+                    </div>
+                  </div>
+                  <p className="text-white/75 text-sm mb-5 leading-relaxed">
+                    Connect with our construction specialists before breaking ground. We'll analyze your project plans, identify all necessary coverages, and design a comprehensive program that protects you from day one through opening.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-center gap-2 text-sm text-white/80">
+                      <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-cyan-400" />
+                      </div>
+                      Review construction documents & timeline
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-white/80">
+                      <div className="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-teal-400" />
+                      </div>
+                      Identify all coverage requirements
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-white/80">
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                        <CheckCircle className="w-3 h-3 text-emerald-400" />
+                      </div>
+                      Design transition-ready program
+                    </li>
+                  </ul>
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all"
+                    asChild
+                    data-testid="button-schedule-discovery-call"
+                  >
+                    <a href="mailto:construction@matterhornprotects.com?subject=New Facility Build - Discovery Call Request">
+                      <CalendarDays className="w-5 h-5 mr-2" />
+                      Schedule Discovery Call
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
+                  </Button>
+                  <p className="text-center text-cyan-400/70 text-xs mt-4">
+                    Or call directly: 1-844-600-0611
+                  </p>
                 </div>
               </Card>
             </div>
