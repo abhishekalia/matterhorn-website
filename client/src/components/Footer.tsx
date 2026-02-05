@@ -37,10 +37,10 @@ export default function Footer() {
               </div>
             </div>
             <Badge className="bg-primary/20 text-white border-primary/30 backdrop-blur-sm mb-4">
-              Digital MGA
+              Hybrid MGU + MGA
             </Badge>
             <p className="text-white/80 text-base mb-6 leading-relaxed" data-testid="footer-tagline">
-              AI-led specialty insurance program design shop working exclusively with brokers in Sports, Transportation, and Travel markets.
+              Custom programs designed for brokers. Instant quotes. Curated markets. Technology that makes coverage effortless.
             </p>
             <div className="flex items-center gap-3">
               <Button 
