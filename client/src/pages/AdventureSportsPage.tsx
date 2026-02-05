@@ -1314,44 +1314,6 @@ export default function AdventureSportsPage() {
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section 
-        id="leadership" 
-        data-animate 
-        className={`py-20 relative overflow-hidden ${isDarkMode ? 'bg-[#0A1628]' : 'bg-white'}`}
-      >
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-12 ${getAnimationClass("leadership")}`}>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Meet Our{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
-                Leadership
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {leadership.map((leader, index) => (
-              <Card 
-                key={index}
-                className={`p-6 text-center transition-all duration-300 ${
-                  isDarkMode 
-                    ? 'bg-[#1B2A41]/50 border-white/10 hover:border-amber-500/30' 
-                    : 'bg-white border-gray-200 hover:border-amber-500/30'
-                }`}
-              >
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-amber-500/30">
-                  <img src={leader.photo} alt={leader.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{leader.name}</h3>
-                <p className="text-amber-500 text-sm font-medium mb-3">{leader.title}</p>
-                <p className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>{leader.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className={`py-20 relative overflow-hidden ${isDarkMode ? 'bg-gradient-to-b from-[#0A1628] to-[#0D1B2A]' : 'bg-gradient-to-b from-white to-gray-50'}`}>
         <div className="absolute inset-0 pointer-events-none">
