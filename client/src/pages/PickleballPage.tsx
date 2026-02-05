@@ -733,32 +733,65 @@ export default function PickleballPage() {
                 {/* Progress Bar Background */}
                 <div className="absolute top-8 left-0 right-0 h-2 bg-slate-800 rounded-full" />
                 {/* Animated Progress Fill */}
-                <div className="absolute top-8 left-0 h-2 bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500 rounded-full" style={{ width: '100%', animation: 'shimmer 3s ease-in-out infinite' }} />
+                <div className="absolute top-8 left-0 h-2 bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500 rounded-full" style={{ width: '100%' }} />
                 
                 {/* Timeline Steps */}
-                <div className="grid grid-cols-4 gap-4 relative">
-                  {[
-                    { phase: "Pre-Build", icon: FileText, title: "Discovery & Planning", desc: "Site analysis, risk assessment, coverage design", color: "cyan", week: "Week 0" },
-                    { phase: "Construction", icon: HardHat, title: "Builder's Risk Active", desc: "Property, liability, equipment coverage", color: "teal", week: "Months 1-12" },
-                    { phase: "Transition", icon: ArrowRightLeft, title: "Coverage Migration", desc: "Phased transition to operational policies", color: "emerald", week: "Month 11-12" },
-                    { phase: "Operations", icon: Building2, title: "Full Operational Coverage", desc: "Complete GL, property, D&O, cyber", color: "emerald", week: "Ongoing" },
-                  ].map((step, index) => (
-                    <div key={index} className="relative pt-14 group">
-                      {/* Node */}
-                      <div className={`absolute top-5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-${step.color}-500 border-4 border-slate-900 shadow-lg shadow-${step.color}-500/40 group-hover:scale-125 transition-transform z-10`} />
-                      
-                      {/* Content Card */}
-                      <div className={`p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-${step.color}-500/40 hover:bg-${step.color}-500/5 transition-all group-hover:translate-y-1`}>
-                        <span className={`text-[9px] font-bold uppercase tracking-widest text-${step.color}-400 mb-2 block`}>{step.phase}</span>
-                        <div className={`w-10 h-10 rounded-lg bg-${step.color}-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
-                          <step.icon className={`w-5 h-5 text-${step.color}-400`} />
-                        </div>
-                        <h4 className="font-semibold text-white text-sm mb-1">{step.title}</h4>
-                        <p className="text-slate-400 text-xs leading-relaxed mb-2">{step.desc}</p>
-                        <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-${step.color}-500/20 text-${step.color}-400 border border-${step.color}-500/30`}>{step.week}</span>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                  {/* Step 1: Pre-Build */}
+                  <div className="relative pt-14 group">
+                    <div className="absolute top-5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyan-500 border-4 border-slate-900 shadow-lg shadow-cyan-500/40 group-hover:scale-125 transition-transform z-10" />
+                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/40 hover:bg-cyan-500/5 transition-all">
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-cyan-400 mb-2 block">Pre-Build</span>
+                      <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <FileText className="w-5 h-5 text-cyan-400" />
                       </div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Discovery & Planning</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed mb-2">Site analysis, risk assessment, coverage design</p>
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">Week 0</span>
                     </div>
-                  ))}
+                  </div>
+                  
+                  {/* Step 2: Construction */}
+                  <div className="relative pt-14 group">
+                    <div className="absolute top-5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-teal-500 border-4 border-slate-900 shadow-lg shadow-teal-500/40 group-hover:scale-125 transition-transform z-10" />
+                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-teal-500/40 hover:bg-teal-500/5 transition-all">
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-teal-400 mb-2 block">Construction</span>
+                      <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <HardHat className="w-5 h-5 text-teal-400" />
+                      </div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Builder's Risk Active</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed mb-2">Property, liability, equipment coverage</p>
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-teal-500/20 text-teal-400 border border-teal-500/30">Months 1-12</span>
+                    </div>
+                  </div>
+                  
+                  {/* Step 3: Transition */}
+                  <div className="relative pt-14 group">
+                    <div className="absolute top-5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-emerald-500 border-4 border-slate-900 shadow-lg shadow-emerald-500/40 group-hover:scale-125 transition-transform z-10" />
+                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Transition</span>
+                      <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <ArrowRightLeft className="w-5 h-5 text-emerald-400" />
+                      </div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Coverage Migration</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed mb-2">Phased transition to operational policies</p>
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Month 11-12</span>
+                    </div>
+                  </div>
+                  
+                  {/* Step 4: Operations */}
+                  <div className="relative pt-14 group">
+                    <div className="absolute top-5 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-emerald-500 border-4 border-slate-900 shadow-lg shadow-emerald-500/40 group-hover:scale-125 transition-transform z-10" />
+                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">
+                      <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-400 mb-2 block">Operations</span>
+                      <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Building2 className="w-5 h-5 text-emerald-400" />
+                      </div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Full Operational Coverage</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed mb-2">Complete GL, property, D&O, cyber</p>
+                      <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Ongoing</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Card>
@@ -782,24 +815,60 @@ export default function PickleballPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    { icon: Building2, title: "Course of Construction", desc: "Protects your building and materials from day one through completion", color: "cyan" },
-                    { icon: Wrench, title: "Equipment & Materials", desc: "Coverage for installed and stored construction materials on-site", color: "teal" },
-                    { icon: HardHat, title: "Contractor Liability", desc: "Protection against third-party claims during construction", color: "emerald" },
-                    { icon: AlertTriangle, title: "Soft Costs Coverage", desc: "Extended overhead, financing, and delay expenses", color: "cyan" },
-                    { icon: Flame, title: "Fire & Natural Disasters", desc: "Comprehensive property coverage for construction risks", color: "teal" },
-                    { icon: FileCheck, title: "Permit & Code Updates", desc: "Coverage for code-required changes during build", color: "emerald" },
-                  ].map((item, index) => (
-                    <div key={index} className={`flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-${item.color}-500/30 transition-all group`}>
-                      <div className={`w-10 h-10 rounded-lg bg-${item.color}-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                        <item.icon className={`w-5 h-5 text-${item.color}-400`} />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-sm mb-1">{item.title}</h4>
-                        <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
-                      </div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 transition-all group">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Building2 className="w-5 h-5 text-cyan-400" />
                     </div>
-                  ))}
+                    <div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Course of Construction</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed">Protects your building and materials from day one through completion</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-all group">
+                    <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Wrench className="w-5 h-5 text-teal-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Equipment & Materials</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed">Coverage for installed and stored construction materials on-site</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-all group">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <HardHat className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Contractor Liability</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed">Protection against third-party claims during construction</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 transition-all group">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <AlertTriangle className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Soft Costs Coverage</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed">Extended overhead, financing, and delay expenses</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-all group">
+                    <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Flame className="w-5 h-5 text-teal-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Fire & Natural Disasters</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed">Comprehensive property coverage for construction risks</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-all group">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <FileCheck className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white text-sm mb-1">Permit & Code Updates</h4>
+                      <p className="text-slate-300 text-xs leading-relaxed">Coverage for code-required changes during build</p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Transition Highlight */}
@@ -836,7 +905,7 @@ export default function PickleballPage() {
                   <h3 className="text-2xl font-bold text-white mb-2">Smash City Sports Complex</h3>
                   <p className="text-cyan-400 font-medium mb-4">32-Court Indoor Facility • Phoenix, AZ</p>
                   
-                  <p className="text-white/80 text-sm leading-relaxed mb-6">
+                  <p className="text-white text-sm leading-relaxed mb-6">
                     A broker partner approached us during the planning phase of a $12M, 80,000 sq ft indoor pickleball complex. We designed a comprehensive program covering the entire 14-month build and seamlessly transitioned them to operational coverage at opening.
                   </p>
 
@@ -862,15 +931,15 @@ export default function PickleballPage() {
                   <div className="space-y-3">
                     <div className="flex items-center gap-3 text-sm">
                       <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                      <span className="text-white/80">Full Builder's Risk through construction</span>
+                      <span className="text-white">Full Builder's Risk through construction</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0" />
-                      <span className="text-white/80">Phased transition starting Month 12</span>
+                      <span className="text-white">Phased transition starting Month 12</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm">
                       <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                      <span className="text-white/80">Opening day with full operational coverage</span>
+                      <span className="text-white">Opening day with full operational coverage</span>
                     </div>
                   </div>
                 </div>
@@ -890,24 +959,24 @@ export default function PickleballPage() {
                       <p className="font-bold text-white text-lg">Pre-Build Discovery Call</p>
                     </div>
                   </div>
-                  <p className="text-white/75 text-sm mb-5 leading-relaxed">
+                  <p className="text-white text-sm mb-5 leading-relaxed">
                     Connect with our construction specialists before breaking ground. We'll analyze your project plans, identify all necessary coverages, and design a comprehensive program that protects you from day one through opening.
                   </p>
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-center gap-2 text-sm text-white/80">
-                      <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-center gap-3 text-sm text-white">
+                      <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-3 h-3 text-cyan-400" />
                       </div>
                       Review construction documents & timeline
                     </li>
-                    <li className="flex items-center gap-2 text-sm text-white/80">
-                      <div className="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center">
+                    <li className="flex items-center gap-3 text-sm text-white">
+                      <div className="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-3 h-3 text-teal-400" />
                       </div>
                       Identify all coverage requirements
                     </li>
-                    <li className="flex items-center gap-2 text-sm text-white/80">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                    <li className="flex items-center gap-3 text-sm text-white">
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-3 h-3 text-emerald-400" />
                       </div>
                       Design transition-ready program
@@ -1406,7 +1475,7 @@ export default function PickleballPage() {
                   <h3 className="text-2xl font-bold text-white mb-2">Dink & Drive Clubs</h3>
                   <p className="text-emerald-400 font-medium mb-4">National Franchise Network</p>
                   
-                  <p className="text-white/80 text-sm leading-relaxed mb-6">
+                  <p className="text-white text-sm leading-relaxed mb-6">
                     Dink & Drive Clubs, one of the fastest-growing pickleball franchise networks, partnered with Matterhorn to create a comprehensive insurance program for their 50+ locations nationwide.
                   </p>
 
@@ -1469,7 +1538,7 @@ export default function PickleballPage() {
                       <p className="font-bold text-white text-lg">Schedule a Franchise Consultation</p>
                     </div>
                   </div>
-                  <p className="text-white/75 text-sm mb-5">
+                  <p className="text-white text-sm mb-5 leading-relaxed">
                     Our franchise specialists will analyze your network and design a custom program that protects your brand while creating new revenue opportunities.
                   </p>
                   <Button
@@ -1495,38 +1564,44 @@ export default function PickleballPage() {
       </section>
 
       {/* Broker Territory Section */}
-      <section className="py-20 bg-slate-900/50" data-testid="section-broker-tools">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+      <section className="py-24 relative overflow-hidden" data-testid="section-broker-tools">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/15 to-slate-950" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' }}>
+              <Users className="w-3 h-3 mr-1" />
               For Insurance Brokers
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" data-testid="text-broker-tools-title">
-              Request Your Territory
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-broker-tools-title">
+              Request Your{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                Territory
+              </span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Secure exclusive access to pickleball facilities in your market. Book a call with our team to claim your territory and start writing business.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Why Claim Territory */}
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-territory-benefits">
-              <div className="w-12 h-12 bg-emerald-600/20 rounded-lg flex items-center justify-center mb-4">
+            <Card className="bg-slate-900/70 border-emerald-500/20 p-6 backdrop-blur-sm relative overflow-hidden" data-testid="card-territory-benefits">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500" />
+              <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center mb-4">
                 <MapPin className="w-6 h-6 text-emerald-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Exclusive Access</h3>
-              <p className="text-slate-400 mb-4">Get exclusive rights to pickleball facilities in your designated territory with no competition from other Matterhorn brokers.</p>
-              <ul className="space-y-2 text-slate-300 text-sm">
-                <li className="flex items-center gap-2">
+              <h3 className="text-xl font-bold text-white mb-3">Exclusive Access</h3>
+              <p className="text-slate-300 mb-5 leading-relaxed">Get exclusive rights to pickleball facilities in your designated territory with no competition from other Matterhorn brokers.</p>
+              <ul className="space-y-3 text-white text-sm">
+                <li className="flex items-center gap-3">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   Protected market area
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-3">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   Pre-qualified lead lists
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center gap-3">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   Marketing support
                 </li>
@@ -1535,17 +1610,17 @@ export default function PickleballPage() {
 
             {/* Book a Call CTA */}
             <Card className="bg-[#0D1B2A] border-emerald-500/40 p-6 relative overflow-hidden" data-testid="card-book-call">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-teal-900/20 pointer-events-none" />
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 to-teal-900/20 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10">
-                <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center mb-4" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.4)' }}>
                   <Phone className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Book a Territory Call</h3>
-                <p className="text-white/80 mb-6">Schedule a 15-minute call with our team to discuss available territories and get started.</p>
+                <h3 className="text-xl font-bold text-white mb-3">Book a Territory Call</h3>
+                <p className="text-white mb-6 leading-relaxed">Schedule a 15-minute call with our team to discuss available territories and get started.</p>
                 <Button 
                   size="lg"
-                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30"
+                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30"
                   asChild
                   data-testid="button-book-call"
                 >
@@ -1554,30 +1629,31 @@ export default function PickleballPage() {
                     Call Us Now
                   </a>
                 </Button>
-                <p className="text-center text-emerald-400/80 text-sm mt-4">
+                <p className="text-center text-emerald-400 text-sm mt-4">
                   Available Mon-Fri, 9am-5pm EST
                 </p>
               </div>
             </Card>
 
             {/* What to Expect */}
-            <Card className="bg-slate-800/50 border-slate-700 p-6" data-testid="card-what-to-expect">
-              <div className="w-12 h-12 bg-emerald-600/20 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-emerald-400" />
+            <Card className="bg-slate-900/70 border-emerald-500/20 p-6 backdrop-blur-sm relative overflow-hidden" data-testid="card-what-to-expect">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 to-cyan-500" />
+              <div className="w-12 h-12 bg-teal-500/20 rounded-lg flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-teal-400" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">What to Expect</h3>
-              <p className="text-slate-400 mb-4">On our call, we'll discuss your experience and help you select the right territory for your business.</p>
-              <ol className="space-y-3 text-slate-300 text-sm">
+              <h3 className="text-xl font-bold text-white mb-3">What to Expect</h3>
+              <p className="text-slate-300 mb-5 leading-relaxed">On our call, we'll discuss your experience and help you select the right territory for your business.</p>
+              <ol className="space-y-4 text-white text-sm">
                 <li className="flex items-start gap-3">
-                  <span className="bg-emerald-600 text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-xs">1</span>
+                  <span className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">1</span>
                   <span>Review available territories</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="bg-emerald-600 text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-xs">2</span>
+                  <span className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">2</span>
                   <span>Discuss your experience</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="bg-emerald-600 text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-xs">3</span>
+                  <span className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 text-xs font-bold">3</span>
                   <span>Claim your market</span>
                 </li>
               </ol>
@@ -1587,44 +1663,50 @@ export default function PickleballPage() {
       </section>
 
       {/* Submission Options Section */}
-      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-950" data-testid="section-submission-options">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <Badge className="bg-emerald-600/20 text-emerald-400 border-emerald-600/40 mb-4">
+      <section className="py-24 relative overflow-hidden" data-testid="section-submission-options">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-teal-950/15 to-slate-950" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-teal-500/20 text-teal-400 border-teal-500/40" style={{ boxShadow: '0 0 20px rgba(20, 184, 166, 0.3)' }}>
+              <Upload className="w-3 h-3 mr-1" />
               Submit Your Application
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" data-testid="text-submission-title">
-              Two Ways to Get Started
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-submission-title">
+              Two Ways to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                Get Started
+              </span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Submit your existing application materials or complete our comprehensive form—either way, we'll shop your risk with our curated A-rated markets.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
             {/* Upload Option */}
-            <Card className="p-8 bg-slate-800/50 border-slate-700 hover:border-emerald-600/50 transition-all duration-300 group" data-testid="card-upload-option">
-              <div className="w-14 h-14 rounded-lg bg-emerald-600/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Card className="p-8 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden group" data-testid="card-upload-option">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500" />
+              <div className="w-14 h-14 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.2)' }}>
                 <Upload className="w-7 h-7 text-emerald-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Upload Existing Application</h3>
-              <p className="text-slate-400 mb-6">
+              <p className="text-slate-300 mb-6 leading-relaxed">
                 Already have an application package? Upload your existing ACORD forms, loss runs, and supporting documents in any format.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>ACORD forms, PDFs, or custom apps accepted</span>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>Include loss runs (3-5 years preferred)</span>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>We triage and confirm completeness</span>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                   <span>Indication within 24-48 hours</span>
                 </li>
@@ -1632,28 +1714,29 @@ export default function PickleballPage() {
             </Card>
 
             {/* Digital Application Option */}
-            <Card className="p-8 bg-slate-800/50 border-slate-700 hover:border-emerald-600/50 transition-all duration-300 group" data-testid="card-digital-option">
-              <div className="w-14 h-14 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Card className="p-8 bg-slate-900/70 border-cyan-500/20 backdrop-blur-sm relative overflow-hidden group" data-testid="card-digital-option">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 to-cyan-500" />
+              <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 25px rgba(34, 211, 238, 0.2)' }}>
                 <FileText className="w-7 h-7 text-cyan-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Complete Digital Application</h3>
-              <p className="text-slate-400 mb-6">
+              <p className="text-slate-300 mb-6 leading-relaxed">
                 Use our comprehensive online application designed specifically for pickleball risks. Quick, guided, and optimized for fast quoting.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                   <span>Purpose-built for pickleball facilities</span>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                   <span>Guided questions for complete submissions</span>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                   <span>Automatic routing to best-fit markets</span>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-slate-300">
+                <li className="flex items-center gap-3 text-sm text-white">
                   <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
                   <span>Same-day indications on clean risks</span>
                 </li>
@@ -1662,40 +1745,40 @@ export default function PickleballPage() {
           </div>
 
           {/* Start Application Button */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <Button 
               size="lg"
-              className="bg-emerald-600 group"
+              className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all px-8"
               asChild
               data-testid="button-start-pickleball-application"
             >
               <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
                 Start Your Pickleball Application
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
           </div>
 
           {/* How It Works */}
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold text-white text-center mb-8">How It Works</h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <h3 className="text-xl font-bold text-white text-center mb-10">How It Works</h3>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
-                { step: "1", title: "Submit", desc: "Upload docs or complete our form" },
-                { step: "2", title: "UW Review", desc: "Our team evaluates your risk" },
-                { step: "3", title: "Quote", desc: "Receive quotes from curated markets" },
-                { step: "4", title: "Bind", desc: "Select coverage and get protected" },
+                { step: "1", title: "Submit", desc: "Upload docs or complete our form", color: "emerald" },
+                { step: "2", title: "UW Review", desc: "Our team evaluates your risk", color: "teal" },
+                { step: "3", title: "Quote", desc: "Receive quotes from curated markets", color: "cyan" },
+                { step: "4", title: "Bind", desc: "Select coverage and get protected", color: "emerald" },
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
+                <div key={index} className="flex items-center gap-4">
                   <div className="flex flex-col items-center text-center flex-1">
-                    <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold mb-2">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold mb-3 shadow-lg shadow-emerald-500/30">
                       {item.step}
                     </div>
-                    <h4 className="font-semibold text-white text-sm">{item.title}</h4>
-                    <p className="text-slate-400 text-xs">{item.desc}</p>
+                    <h4 className="font-semibold text-white text-sm mb-1">{item.title}</h4>
+                    <p className="text-slate-300 text-xs leading-relaxed">{item.desc}</p>
                   </div>
                   {index < 3 && (
-                    <ArrowRight className="w-5 h-5 text-slate-600 hidden md:block flex-shrink-0" />
+                    <ArrowRight className="w-5 h-5 text-emerald-500/50 hidden md:block flex-shrink-0" />
                   )}
                 </div>
               ))}
@@ -1705,28 +1788,41 @@ export default function PickleballPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-950" data-testid="section-final-cta">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" data-testid="text-cta-title">
-            Ready to Get Protected?
+      <section className="py-24 relative overflow-hidden" data-testid="section-final-cta">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full blur-[150px] animate-pulse bg-emerald-500/15" />
+          <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-teal-500/12" style={{ animationDelay: "1.5s" }} />
+        </div>
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' }}>
+            <Zap className="w-3 h-3 mr-1" />
+            Get Started Today
+          </Badge>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-cta-title">
+            Ready to Get{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+              Protected?
+            </span>
           </h2>
-          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
             Start your application today and join thousands of pickleball organizations that trust Matterhorn for their insurance needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Button
               size="lg"
-              className="bg-emerald-600 px-8 py-6 text-lg"
+              className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all px-10"
               onClick={() => setContactModalOpen(true)}
               data-testid="button-start-application"
             >
               Start Your Application
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               asChild
-              className="border-slate-600 text-white hover:bg-slate-800 px-8 py-6 text-lg"
+              className="border-emerald-500/40 text-white bg-white/5 backdrop-blur-sm hover:bg-emerald-500/10 hover:border-emerald-500/60 px-10"
               data-testid="button-call-us"
             >
               <a href="tel:1-844-600-0611">
@@ -1737,7 +1833,7 @@ export default function PickleballPage() {
           </div>
           
           {/* Contact Info */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-slate-400">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-slate-300">
             <a 
               href="mailto:support@matterhornprotects.com" 
               className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
