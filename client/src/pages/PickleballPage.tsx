@@ -1303,89 +1303,89 @@ export default function PickleballPage() {
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-12 gap-10 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Left Column - Builder's Risk Details */}
-            <div className="lg:col-span-7 space-y-6">
-              <Card className="p-8 bg-slate-900/70 border-cyan-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-builders-risk-details">
+            <div className="flex flex-col">
+              <Card className="p-8 bg-slate-900/70 border-cyan-500/20 backdrop-blur-sm relative overflow-hidden flex-1" data-testid="card-builders-risk-details">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-500" />
                 
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-teal-500/10 flex items-center justify-center" style={{ boxShadow: '0 0 30px rgba(34, 211, 238, 0.2)' }}>
-                    <Shield className="w-7 h-7 text-cyan-400" />
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-teal-500/10 flex items-center justify-center" style={{ boxShadow: '0 0 30px rgba(34, 211, 238, 0.2)' }}>
+                    <Shield className="w-6 h-6 text-cyan-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">Builder's Risk Coverage</h3>
-                    <p className="text-sm text-cyan-400">Comprehensive Construction Protection</p>
+                    <h3 className="text-lg font-bold text-white">Builder's Risk Coverage</h3>
+                    <p className="text-xs text-cyan-400">Comprehensive Construction Protection</p>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 transition-all group">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <Building2 className="w-5 h-5 text-cyan-400" />
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Building2 className="w-4 h-4 text-cyan-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm mb-1">Course of Construction</h4>
-                      <p className="text-slate-300 text-xs leading-relaxed">Protects your building and materials from day one through completion</p>
+                      <h4 className="font-semibold text-white text-xs mb-0.5">Course of Construction</h4>
+                      <p className="text-slate-400 text-[11px] leading-snug">Protects building and materials from day one</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-all group">
-                    <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <Wrench className="w-5 h-5 text-teal-400" />
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Wrench className="w-4 h-4 text-teal-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm mb-1">Equipment & Materials</h4>
-                      <p className="text-slate-300 text-xs leading-relaxed">Coverage for installed and stored construction materials on-site</p>
+                      <h4 className="font-semibold text-white text-xs mb-0.5">Equipment & Materials</h4>
+                      <p className="text-slate-400 text-[11px] leading-snug">Coverage for construction materials on-site</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-all group">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <HardHat className="w-5 h-5 text-emerald-400" />
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <HardHat className="w-4 h-4 text-emerald-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm mb-1">Contractor Liability</h4>
-                      <p className="text-slate-300 text-xs leading-relaxed">Protection against third-party claims during construction</p>
+                      <h4 className="font-semibold text-white text-xs mb-0.5">Contractor Liability</h4>
+                      <p className="text-slate-400 text-[11px] leading-snug">Third-party claims protection</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 transition-all group">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <AlertTriangle className="w-5 h-5 text-cyan-400" />
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-cyan-500/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <AlertTriangle className="w-4 h-4 text-cyan-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm mb-1">Soft Costs Coverage</h4>
-                      <p className="text-slate-300 text-xs leading-relaxed">Extended overhead, financing, and delay expenses</p>
+                      <h4 className="font-semibold text-white text-xs mb-0.5">Soft Costs Coverage</h4>
+                      <p className="text-slate-400 text-[11px] leading-snug">Overhead, financing, delay expenses</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-all group">
-                    <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <Flame className="w-5 h-5 text-teal-400" />
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Flame className="w-4 h-4 text-teal-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm mb-1">Fire & Natural Disasters</h4>
-                      <p className="text-slate-300 text-xs leading-relaxed">Comprehensive property coverage for construction risks</p>
+                      <h4 className="font-semibold text-white text-xs mb-0.5">Fire & Natural Disasters</h4>
+                      <p className="text-slate-400 text-[11px] leading-snug">Comprehensive property protection</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-all group">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <FileCheck className="w-5 h-5 text-emerald-400" />
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <FileCheck className="w-4 h-4 text-emerald-400" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white text-sm mb-1">Permit & Code Updates</h4>
-                      <p className="text-slate-300 text-xs leading-relaxed">Coverage for code-required changes during build</p>
+                      <h4 className="font-semibold text-white text-xs mb-0.5">Permit & Code Updates</h4>
+                      <p className="text-slate-400 text-[11px] leading-snug">Code-required change coverage</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Transition Highlight */}
-                <div className="mt-6 p-5 rounded-xl bg-gradient-to-r from-cyan-500/10 via-teal-500/10 to-emerald-500/10 border border-cyan-500/20">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/30">
-                      <ArrowRightLeft className="w-6 h-6 text-white" />
+                <div className="mt-5 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 via-teal-500/10 to-emerald-500/10 border border-cyan-500/20">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/30">
+                      <ArrowRightLeft className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white mb-2">Seamless Transition Included</h4>
-                      <p className="text-white/80 text-sm leading-relaxed">
-                        As your facility nears completion, we automatically begin transitioning your coverage from Builder's Risk to full operational policies. No gaps, no lapses—just continuous protection from construction through your first member check-in.
+                      <h4 className="font-bold text-white text-sm mb-1">Seamless Transition Included</h4>
+                      <p className="text-white/80 text-xs leading-relaxed">
+                        As your facility nears completion, we automatically transition your coverage from Builder's Risk to full operational policies. No gaps, no lapses.
                       </p>
                     </div>
                   </div>
@@ -1394,113 +1394,90 @@ export default function PickleballPage() {
             </div>
 
             {/* Right Column - Case Study & CTA */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="flex flex-col gap-6">
               {/* Case Study Card */}
-              <Card className="p-6 bg-[#0D1B2A] border-cyan-500/40 relative overflow-hidden group" data-testid="card-new-facility-case-study">
+              <Card className="p-6 bg-[#0D1B2A] border-cyan-500/40 relative overflow-hidden group flex-1" data-testid="card-new-facility-case-study">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/40 to-teal-900/20 pointer-events-none" />
-                <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/15 rounded-full blur-3xl group-hover:bg-cyan-500/25 transition-all pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/15 rounded-full blur-3xl group-hover:bg-cyan-500/25 transition-all pointer-events-none" />
                 
                 <div className="relative z-10">
-                  <Badge className="mb-4 bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
+                  <Badge className="mb-3 bg-cyan-500/20 text-cyan-400 border-cyan-500/30 text-xs">
                     <Star className="w-3 h-3 mr-1" />
                     Case Study
                   </Badge>
                   
-                  <h3 className="text-2xl font-bold text-white mb-2">Smash City Sports Complex</h3>
-                  <p className="text-cyan-400 font-medium mb-4">32-Court Indoor Facility • Phoenix, AZ</p>
+                  <h3 className="text-xl font-bold text-white mb-1">Smash City Sports Complex</h3>
+                  <p className="text-cyan-400 text-sm font-medium mb-3">32-Court Indoor Facility • Phoenix, AZ</p>
                   
-                  <p className="text-white text-sm leading-relaxed mb-6">
-                    A broker partner approached us during the planning phase of a $12M, 80,000 sq ft indoor pickleball complex. We designed a comprehensive program covering the entire 14-month build and seamlessly transitioned them to operational coverage at opening.
+                  <p className="text-white/90 text-sm leading-relaxed mb-4">
+                    A broker partner approached us during the planning phase of a $12M indoor pickleball complex. We designed coverage for the 14-month build and transitioned them to operational coverage at opening.
                   </p>
 
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
-                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">$12M</p>
-                      <p className="text-xs text-slate-400 mt-1">Project Value</p>
+                  <div className="grid grid-cols-4 gap-2 mb-4">
+                    <div className="text-center p-2.5 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">$12M</p>
+                      <p className="text-[9px] text-slate-400 mt-0.5">Project</p>
                     </div>
-                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
-                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">14 Mo</p>
-                      <p className="text-xs text-slate-400 mt-1">Build Timeline</p>
+                    <div className="text-center p-2.5 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">14 Mo</p>
+                      <p className="text-[9px] text-slate-400 mt-0.5">Timeline</p>
                     </div>
-                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
-                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">0 Days</p>
-                      <p className="text-xs text-slate-400 mt-1">Coverage Gaps</p>
+                    <div className="text-center p-2.5 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">0</p>
+                      <p className="text-[9px] text-slate-400 mt-0.5">Gaps</p>
                     </div>
-                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
-                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">18%</p>
-                      <p className="text-xs text-slate-400 mt-1">Cost Savings</p>
+                    <div className="text-center p-2.5 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">18%</p>
+                      <p className="text-[9px] text-slate-400 mt-0.5">Saved</p>
                     </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-sm">
-                      <CheckCircle className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                      <span className="text-white">Full Builder's Risk through construction</span>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-xs">
+                      <CheckCircle className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+                      <span className="text-white/90">Full Builder's Risk through construction</span>
                     </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <CheckCircle className="w-4 h-4 text-teal-400 flex-shrink-0" />
-                      <span className="text-white">Phased transition starting Month 12</span>
+                    <div className="flex items-center gap-2 text-xs">
+                      <CheckCircle className="w-3.5 h-3.5 text-teal-400 flex-shrink-0" />
+                      <span className="text-white/90">Phased transition starting Month 12</span>
                     </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                      <span className="text-white">Opening day with full operational coverage</span>
+                    <div className="flex items-center gap-2 text-xs">
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                      <span className="text-white/90">Opening day with full operational coverage</span>
                     </div>
                   </div>
                 </div>
               </Card>
 
               {/* Discovery Call CTA */}
-              <Card className="p-6 bg-gradient-to-br from-cyan-900/30 to-teal-900/20 border-cyan-500/30 relative overflow-hidden" data-testid="card-discovery-call-cta">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+              <Card className="p-5 bg-gradient-to-br from-cyan-900/30 to-teal-900/20 border-cyan-500/30 relative overflow-hidden" data-testid="card-discovery-call-cta">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
                 <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center" style={{ boxShadow: '0 0 35px rgba(34, 211, 238, 0.4)' }}>
-                      <Phone className="w-7 h-7 text-white" />
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center" style={{ boxShadow: '0 0 30px rgba(34, 211, 238, 0.4)' }}>
+                      <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-cyan-400">Planning a Build?</p>
-                      <p className="font-bold text-white text-lg">Pre-Build Discovery Call</p>
+                      <p className="text-[9px] uppercase tracking-widest text-cyan-400">Planning a Build?</p>
+                      <p className="font-bold text-white">Pre-Build Discovery Call</p>
                     </div>
                   </div>
-                  <p className="text-white text-sm mb-5 leading-relaxed">
-                    Connect with our construction specialists before breaking ground. We'll analyze your project plans, identify all necessary coverages, and design a comprehensive program that protects you from day one through opening.
+                  <p className="text-white/90 text-sm mb-4 leading-relaxed">
+                    Connect with our construction specialists before breaking ground. We'll design a comprehensive program that protects you from day one.
                   </p>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-center gap-3 text-sm text-white">
-                      <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="w-3 h-3 text-cyan-400" />
-                      </div>
-                      Review construction documents & timeline
-                    </li>
-                    <li className="flex items-center gap-3 text-sm text-white">
-                      <div className="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="w-3 h-3 text-teal-400" />
-                      </div>
-                      Identify all coverage requirements
-                    </li>
-                    <li className="flex items-center gap-3 text-sm text-white">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="w-3 h-3 text-emerald-400" />
-                      </div>
-                      Design transition-ready program
-                    </li>
-                  </ul>
                   <Button
-                    size="lg"
                     className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all"
                     asChild
                     data-testid="button-schedule-discovery-call"
                   >
                     <a href="mailto:construction@matterhornprotects.com?subject=New Facility Build - Discovery Call Request">
-                      <CalendarDays className="w-5 h-5 mr-2" />
+                      <CalendarDays className="w-4 h-4 mr-2" />
                       Schedule Discovery Call
-                      <ArrowRight className="w-5 h-5 ml-2" />
+                      <ArrowRight className="w-4 h-4 ml-2" />
                     </a>
                   </Button>
-                  <p className="text-center text-cyan-400/70 text-xs mt-4">
-                    Or call directly: 1-844-600-0611
+                  <p className="text-center text-cyan-400/70 text-xs mt-3">
+                    Or call: 1-844-600-0611
                   </p>
                 </div>
               </Card>
