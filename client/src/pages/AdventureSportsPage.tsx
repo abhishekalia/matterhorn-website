@@ -274,17 +274,17 @@ export default function AdventureSportsPage() {
   // Case studies
   const caseStudies = [
     {
-      title: "Multi-State Whitewater Rafting Company",
-      category: "Water Sports",
-      location: "Colorado / Utah / Idaho",
-      challenge: "A premier rafting operation running trips across three western states faced fragmented coverage with different carriers per location, inconsistent limits, and gaps in guide professional liability.",
-      solution: "We consolidated all operations under a single master program with unified $5M limits, enhanced guide E&O, and added remote evacuation coverage for their most challenging river runs.",
-      results: { premium: "$185K", guides: "45+", locations: "12 Put-ins" },
+      title: "Pacific Coast Sea Kayaking & Camping Outfitter",
+      category: "Embedded Travel",
+      location: "Pacific Northwest / BC / Alaska",
+      challenge: "A leading sea kayaking and wilderness camping company operating multi-day expeditions needed embedded travel insurance for 15,000 annual participants. Their existing patchwork of policies left gaps in medical evacuation, trip cancellation, and gear protection.",
+      solution: "Designed an embedded travel program integrated directly into their booking platform with automatic participant enrollment. Coverage includes trip cancellation (CFAR), $500K medical evacuation, paddling gear protection, and 24/7 global assistance for all 15,000 annual guests.",
+      results: { premium: "$275K", participants: "15,000", routes: "24 Expeditions" },
       image: seaKayakersExpeditionImg,
       brokerBenefits: [
-        "Single carrier relationship across states",
-        "Streamlined renewal process",
-        "Priority underwriting on consolidated placement",
+        "Embedded checkout integration for seamless enrollment",
+        "Annual blanket program simplifies administration",
+        "Per-participant pricing with volume discounts",
       ],
     },
     {
