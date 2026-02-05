@@ -282,10 +282,10 @@ export default function PickleballPage() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
-            <Card className="bg-slate-900/70 backdrop-blur-md border-emerald-500/30 p-6 text-center shadow-lg shadow-emerald-500/10" data-testid="stat-same-day">
-              <Clock className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
-              <p className="text-2xl font-bold text-white">Same Day</p>
-              <p className="text-slate-300">Broker Appointments</p>
+            <Card className="bg-slate-900/70 backdrop-blur-md border-emerald-500/30 p-6 text-center shadow-lg shadow-emerald-500/10" data-testid="stat-all-risk">
+              <Shield className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
+              <p className="text-2xl font-bold text-white">All Risk</p>
+              <p className="text-slate-300">Coverage Available</p>
             </Card>
             <Card className="bg-slate-900/70 backdrop-blur-md border-emerald-500/30 p-6 text-center shadow-lg shadow-emerald-500/10" data-testid="stat-national">
               <MapPin className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
