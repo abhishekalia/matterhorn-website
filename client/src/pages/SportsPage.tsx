@@ -37,6 +37,12 @@ import {
   Fish,
 } from "lucide-react";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
@@ -999,44 +1005,237 @@ export default function SportsPage() {
         </div>
       </section>
 
-      {/* Coverages Section */}
+      {/* Program Highlights Section - Consolidated Accordion Design */}
       <section 
         id="coverages" 
         data-animate
-        className="py-24 bg-[#0A1628]"
+        className="py-24 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #0A1628 0%, #1B2A41 50%, #0A1628 100%)' }}
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 ${getAnimationClass("coverages")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              Comprehensive Coverage
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              Access to All Sports Coverages Through{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
-                Curated Markets
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] bg-cyan-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className={`text-center mb-12 ${getAnimationClass("coverages")}`}>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-primary" />
+              <Badge className="bg-primary/20 text-primary border-primary/30 text-[10px] uppercase tracking-widest px-4">
+                Program Overview
+              </Badge>
+              <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-primary" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+              Comprehensive{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-primary">
+                Sports Coverage
               </span>
             </h2>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-white/60">
               One submission connects you to our carefully selected A-rated markets with specialized sports expertise.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {coverageTypes.map((coverage, index) => (
-              <div 
-                key={index}
-                className={`p-4 rounded-lg bg-white/[0.03] border border-white/10 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 group ${getAnimationClass("coverages")}`}
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Program Details with Accordions */}
+            <div className="lg:col-span-7 space-y-6">
+              <Card className="p-8 bg-[#1B2A41]/60 border-white/10 backdrop-blur-sm relative overflow-hidden" data-testid="card-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-cyan-400 to-purple-500" />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(0, 168, 199, 0.25)' }}>
+                    <Award className="w-6 h-6 text-primary" />
+                  </div>
                   <div>
-                    <h4 className="font-semibold text-white group-hover:text-primary transition-colors text-sm">{coverage.name}</h4>
-                    <p className="text-white/50 text-xs mt-1 leading-relaxed">{coverage.description}</p>
+                    <h3 className="text-xl font-bold text-white">Sports Programs</h3>
+                    <p className="text-sm text-primary">Multi-market access with curated expertise</p>
                   </div>
                 </div>
+
+                <Accordion type="multiple" defaultValue={["coverages"]} className="space-y-3">
+                  {/* Coverage Types Accordion */}
+                  <AccordionItem value="coverages" className="border border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger 
+                      className="text-base py-4 px-5 rounded-lg hover-elevate text-white bg-white/5 [&[data-state=open]]:bg-primary/10"
+                      data-testid="accordion-coverage-types"
+                    >
+                      <span className="flex items-center gap-3">
+                        <Shield className="w-5 h-5 text-primary" />
+                        <span className="font-semibold">Coverage Types & Limits</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {coverageTypes.map((coverage, idx) => (
+                          <div key={idx} className="flex items-start gap-3 group p-2 rounded-md hover:bg-white/5 transition-colors">
+                            <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-primary" />
+                            <div className="flex-1">
+                              <span className="text-sm font-medium text-primary/90">
+                                {coverage.name}
+                              </span>
+                              <p className="text-xs text-white/50 mt-0.5">{coverage.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Market Segments Accordion */}
+                  <AccordionItem value="segments" className="border border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger 
+                      className="text-base py-4 px-5 rounded-lg hover-elevate text-white bg-white/5 [&[data-state=open]]:bg-cyan-500/10"
+                      data-testid="accordion-market-segments"
+                    >
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5 text-cyan-400" />
+                        <span className="font-semibold">Markets We Serve</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {marketSegments.map((segment, idx) => {
+                          const SegmentIcon = segment.icon;
+                          return (
+                            <div key={idx} className="flex items-center gap-3 text-sm p-2 rounded-md hover:bg-white/5 transition-colors">
+                              <SegmentIcon className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                              <div>
+                                <span className="text-white/80 font-medium">{segment.title}</span>
+                                <p className="text-xs text-white/40">{segment.coverage}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Program Features Accordion */}
+                  <AccordionItem value="features" className="border border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger 
+                      className="text-base py-4 px-5 rounded-lg hover-elevate text-white bg-white/5 [&[data-state=open]]:bg-purple-500/10"
+                      data-testid="accordion-program-features"
+                    >
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-purple-400" />
+                        <span className="font-semibold">Program Features & Benefits</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          { text: "15+ A-rated sports-focused markets", highlight: true },
+                          { text: "In-house binding authority for faster turnarounds", highlight: true },
+                          { text: "Dedicated sports underwriting team", highlight: true },
+                          { text: "Same-day broker appointments available", highlight: true },
+                          { text: "Agnostic application acceptance", highlight: false },
+                          { text: "Custom program design capability", highlight: false },
+                          { text: "Digital certificate generation", highlight: false },
+                          { text: "Claims advocacy and support", highlight: false },
+                        ].map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${feature.highlight ? 'bg-purple-400' : 'bg-white/40'}`} />
+                            <span className={`text-sm ${feature.highlight ? 'text-purple-300 font-medium' : 'text-white/60'}`}>
+                              {feature.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-primary to-cyan-500 text-white font-semibold shadow-lg shadow-primary/30 transition-all duration-300"
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-get-appointed"
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    Get Appointed Today
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Quick Facts & Contact */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Competitive Advantage Callout */}
+              <Card className="p-6 relative overflow-hidden bg-gradient-to-br from-primary/20 to-cyan-500/10 border-primary/30" data-testid="card-competitive-advantage">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-500/15 rounded-full blur-2xl" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-4" style={{ boxShadow: '0 0 30px rgba(0, 168, 199, 0.4)' }}>
+                    <Zap className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 text-white">One Submission</h3>
+                  <p className="text-lg font-medium mb-4 text-primary">
+                    Access 15+ A-Rated Markets
+                  </p>
+                  <p className="text-sm leading-relaxed text-white/70">
+                    Our curated market access means your sports risks reach the right underwriters the first time—no shopping, no delays.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10" data-testid="card-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                    <Calendar className="w-5 h-5 text-primary" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">24-48hr</p>
+                  <p className="text-sm text-white/50">Quote Turnaround</p>
+                </Card>
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10" data-testid="card-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-3">
+                    <MapPin className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">50 States</p>
+                  <p className="text-sm text-white/50">National Coverage</p>
+                </Card>
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10" data-testid="card-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mb-3">
+                    <Shield className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">A-Rated</p>
+                  <p className="text-sm text-white/50">Carrier Partners</p>
+                </Card>
+                <Card className="p-5 bg-[#1B2A41]/50 border-white/10" data-testid="card-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                    <Award className="w-5 h-5 text-primary" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">Same Day</p>
+                  <p className="text-sm text-white/50">Appointments</p>
+                </Card>
               </div>
-            ))}
+
+              {/* Contact Card */}
+              <Card className="p-5 bg-[#1B2A41]/50 border-white/10" data-testid="card-contact-info">
+                <h4 className="text-sm font-semibold mb-3 flex items-center gap-2 text-white">
+                  <Mail className="w-4 h-4 text-primary" />
+                  Need More Information?
+                </h4>
+                <p className="text-sm mb-3 text-white/50">
+                  Reach out to our sports team for program details and custom quotes.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:sports@matterhornprotects.com" className="text-sm text-primary hover:opacity-80 transition-colors flex items-center gap-2">
+                    <Mail className="w-3 h-3" />
+                    sports@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-sm text-cyan-400 hover:opacity-80 transition-colors flex items-center gap-2">
+                    <Phone className="w-3 h-3" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
