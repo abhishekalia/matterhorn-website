@@ -49,6 +49,7 @@ import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import adventureHero from "@/assets/images/adventure-hiking-hero.jpg";
+import bcFishingLodgeHero from "@/assets/images/bc-fishing-lodge-hero.png";
 import kayakingImg from "@/assets/images/kayaking-rapids.jpg";
 import rockClimbingImg from "@/assets/images/rock-climbing.jpg";
 import flyFishingImg from "@/assets/images/fly-fishing.jpg";
@@ -404,7 +405,7 @@ export default function AdventureSportsPage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${adventureHero})` }}
+          style={{ backgroundImage: `url(${bcFishingLodgeHero})` }}
         >
           <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-br from-[#0A1628]/90 via-[#0A1628]/80 to-[#1B2A41]/85' : 'bg-gradient-to-br from-white/80 via-white/70 to-gray-100/85'}`} />
           <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-t from-[#0A1628] via-transparent to-transparent' : 'bg-gradient-to-t from-white via-transparent to-transparent'}`} />
