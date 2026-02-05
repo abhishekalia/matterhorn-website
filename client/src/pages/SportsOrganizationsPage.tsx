@@ -418,6 +418,27 @@ export default function SportsOrganizationsPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950" />
         </div>
         
+        {/* Enhanced Animated Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Large glowing orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '3s' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-500/8 rounded-full blur-[150px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+          
+          {/* Floating particles */}
+          <div className="absolute top-20 left-[10%] w-2 h-2 bg-emerald-400/60 rounded-full animate-bounce" style={{ animationDuration: '3s' }} />
+          <div className="absolute top-40 right-[15%] w-1.5 h-1.5 bg-cyan-400/50 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute bottom-32 left-[20%] w-1 h-1 bg-teal-400/40 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }} />
+          <div className="absolute top-1/3 right-[25%] w-2.5 h-2.5 bg-emerald-300/30 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+          <div className="absolute bottom-1/4 right-[10%] w-1.5 h-1.5 bg-cyan-300/40 rounded-full animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '1.5s' }} />
+          
+          {/* Animated gradient lines */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
+          <div className="absolute top-0 bottom-0 left-[10%] w-px bg-gradient-to-b from-transparent via-emerald-500/10 to-transparent" />
+          <div className="absolute top-0 bottom-0 right-[10%] w-px bg-gradient-to-b from-transparent via-teal-500/10 to-transparent" />
+        </div>
+        
         <div className="relative z-10 container mx-auto px-6 py-24 text-center">
           <Badge className="mb-6 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
             <Building2 className="w-3 h-3 mr-1" />

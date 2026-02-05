@@ -417,11 +417,25 @@ export default function AdventureSportsPage() {
           <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-t from-[#0A1628] via-transparent to-transparent' : 'bg-gradient-to-t from-white via-transparent to-transparent'}`} />
         </div>
         
-        {/* Neon accent glows */}
+        {/* Enhanced Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.amber}15` }} />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.emerald}10`, animationDelay: '1s' }} />
-          <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full blur-[80px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.cyan}15`, animationDelay: '2s' }} />
+          {/* Large glowing orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.amber}15`, animationDuration: '3s' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-[100px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.emerald}12`, animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.cyan}08`, animationDuration: '5s', animationDelay: '2s' }} />
+          
+          {/* Floating particles */}
+          <div className="absolute top-20 left-[10%] w-2 h-2 rounded-full animate-bounce" style={{ backgroundColor: `${NEON_COLORS.amber}60`, animationDuration: '3s' }} />
+          <div className="absolute top-40 right-[15%] w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: `${NEON_COLORS.emerald}50`, animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute bottom-32 left-[20%] w-1 h-1 rounded-full animate-bounce" style={{ backgroundColor: `${NEON_COLORS.cyan}40`, animationDuration: '3.5s', animationDelay: '0.5s' }} />
+          <div className="absolute top-1/3 right-[25%] w-2.5 h-2.5 rounded-full animate-bounce" style={{ backgroundColor: `${NEON_COLORS.amber}30`, animationDuration: '5s', animationDelay: '2s' }} />
+          <div className="absolute bottom-1/4 right-[10%] w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: `${NEON_COLORS.emerald}40`, animationDuration: '4.5s', animationDelay: '1.5s' }} />
+          
+          {/* Animated gradient lines */}
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(to right, transparent, ${NEON_COLORS.amber}30, transparent)` }} />
+          <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: `linear-gradient(to right, transparent, ${NEON_COLORS.emerald}30, transparent)` }} />
+          <div className="absolute top-0 bottom-0 left-[10%] w-px" style={{ background: `linear-gradient(to bottom, transparent, ${NEON_COLORS.amber}10, transparent)` }} />
+          <div className="absolute top-0 bottom-0 right-[10%] w-px" style={{ background: `linear-gradient(to bottom, transparent, ${NEON_COLORS.cyan}10, transparent)` }} />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-20">

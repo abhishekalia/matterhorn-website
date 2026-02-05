@@ -415,10 +415,20 @@ export default function YouthSportsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/80 via-[#0A1628]/50 to-[#0A1628]/95" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#00ff88]/5 via-transparent to-[#00d4ff]/5" />
         
-        {/* Animated Glow Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00ff88]/10 rounded-full blur-[150px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#00d4ff]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: "1s" }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff00ff]/5 rounded-full blur-[200px] animate-pulse" style={{ animationDelay: "2s" }} />
+        {/* Enhanced Animated Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Large glowing orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00ff88]/12 rounded-full blur-[150px] animate-pulse" style={{ animationDuration: '3s' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#00d4ff]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff00ff]/5 rounded-full blur-[200px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+          
+          {/* Floating particles */}
+          <div className="absolute top-24 left-[12%] w-2 h-2 bg-[#00ff88]/60 rounded-full animate-bounce" style={{ animationDuration: '3s' }} />
+          <div className="absolute top-48 right-[18%] w-1.5 h-1.5 bg-[#00d4ff]/50 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute bottom-36 left-[22%] w-1 h-1 bg-[#ff00ff]/40 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }} />
+          <div className="absolute top-1/3 right-[28%] w-2.5 h-2.5 bg-[#00ff88]/30 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+          <div className="absolute bottom-1/4 right-[12%] w-1.5 h-1.5 bg-[#00d4ff]/40 rounded-full animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '1.5s' }} />
+        </div>
         
         {/* Scan Line Effect */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{

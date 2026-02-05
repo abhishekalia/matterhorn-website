@@ -459,12 +459,25 @@ export default function SportsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-transparent to-transparent" />
         </div>
         
-        {/* Neon accent glows */}
+        {/* Enhanced Animated Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00ff88]/15 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#ff00ff]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-[#00d4ff]/15 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: "2s" }} />
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-[#ffff00]/8 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+          {/* Large glowing orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00ff88]/15 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '3s' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#ff00ff]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00d4ff]/8 rounded-full blur-[150px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+          
+          {/* Floating particles */}
+          <div className="absolute top-20 left-[10%] w-2 h-2 bg-[#00ff88]/60 rounded-full animate-bounce" style={{ animationDuration: '3s' }} />
+          <div className="absolute top-40 right-[15%] w-1.5 h-1.5 bg-[#ff00ff]/50 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute bottom-32 left-[20%] w-1 h-1 bg-[#00d4ff]/40 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }} />
+          <div className="absolute top-1/3 right-[25%] w-2.5 h-2.5 bg-[#00ff88]/30 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+          <div className="absolute bottom-1/4 right-[10%] w-1.5 h-1.5 bg-[#ff00ff]/40 rounded-full animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '1.5s' }} />
+          
+          {/* Animated gradient lines */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00ff88]/30 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#ff00ff]/30 to-transparent" />
+          <div className="absolute top-0 bottom-0 left-[10%] w-px bg-gradient-to-b from-transparent via-[#00ff88]/10 to-transparent" />
+          <div className="absolute top-0 bottom-0 right-[10%] w-px bg-gradient-to-b from-transparent via-[#00d4ff]/10 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-20">

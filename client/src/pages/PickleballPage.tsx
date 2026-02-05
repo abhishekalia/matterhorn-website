@@ -249,9 +249,26 @@ export default function PickleballPage() {
           {/* Dark gradient wash for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-900/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50" />
-          {/* Neon accent glows */}
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl" />
+          {/* Enhanced Animated Background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Large glowing orbs */}
+            <div className="absolute top-20 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '3s' }} />
+            <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[150px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+            
+            {/* Floating particles */}
+            <div className="absolute top-24 left-[12%] w-2 h-2 bg-emerald-400/60 rounded-full animate-bounce" style={{ animationDuration: '3s' }} />
+            <div className="absolute top-48 right-[18%] w-1.5 h-1.5 bg-teal-400/50 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+            <div className="absolute bottom-36 left-[22%] w-1 h-1 bg-cyan-400/40 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }} />
+            <div className="absolute top-1/3 right-[28%] w-2.5 h-2.5 bg-emerald-300/30 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+            <div className="absolute bottom-1/4 right-[12%] w-1.5 h-1.5 bg-teal-300/40 rounded-full animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '1.5s' }} />
+            
+            {/* Animated gradient lines */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
+            <div className="absolute top-0 bottom-0 left-[10%] w-px bg-gradient-to-b from-transparent via-emerald-500/10 to-transparent" />
+            <div className="absolute top-0 bottom-0 right-[10%] w-px bg-gradient-to-b from-transparent via-cyan-500/10 to-transparent" />
+          </div>
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
