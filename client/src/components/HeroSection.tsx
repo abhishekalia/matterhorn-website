@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Truck, Package, Zap, Users, Plane, Mountain, Building2 } from "lucide-react";
+import { ChevronDown, Truck, Package, Zap, Users, Plane, Mountain, Building2, ArrowRight } from "lucide-react";
 import { BrokerApplicationModal } from "./BrokerApplicationModal";
 import matterhornHero from "@assets/generated_images/Matterhorn_mountains_hero_background_315f6fa4.png";
 
@@ -57,11 +57,23 @@ export default function HeroSection() {
         <div className="flex justify-center items-center mb-10">
           <Button
             size="lg"
-            className="text-base px-10 py-6 bg-primary hover:bg-primary/90"
+            className="relative group text-base px-12 py-7 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-400 hover:via-blue-400 hover:to-purple-400 text-white font-bold rounded-full overflow-visible transition-all duration-500 hover:scale-105 active:scale-95"
+            style={{
+              boxShadow: '0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255,255,255,0.2)',
+            }}
             onClick={() => setApplicationModalOpen(true)}
             data-testid="button-connect"
           >
-            Connect with Our Team
+            {/* Animated glow ring */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
+            {/* Shimmer effect */}
+            <span className="absolute inset-0 rounded-full overflow-hidden">
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            </span>
+            <span className="relative z-10 flex items-center gap-2">
+              Connect with Our Team
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </span>
           </Button>
         </div>
 
