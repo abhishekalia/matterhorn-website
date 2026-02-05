@@ -952,39 +952,6 @@ export default function SportsOrganizationsPage() {
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section className={`py-24 ${isDarkMode ? "bg-slate-950" : "bg-white"}`}>
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
-              Leadership
-            </Badge>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-              Meet Our Team
-            </h2>
-            <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>
-              Industry veterans with decades of experience in sports insurance and risk management.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {leadership.map((leader, index) => (
-              <Card key={index} className={`p-6 text-center ${isDarkMode ? "bg-slate-800/50 border-white/10" : "bg-white border-gray-200"}`}>
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-emerald-500/30">
-                  <img src={leader.photo} alt={leader.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className={`font-semibold mb-1 ${isDarkMode ? "text-white" : "text-gray-900"}`}>{leader.name}</h3>
-                <p className="text-emerald-400 text-sm mb-3">{leader.title}</p>
-                <p className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{leader.description}</p>
-                <Badge variant="outline" className={`mt-4 ${isDarkMode ? "border-white/20 text-white/60" : "border-gray-300 text-gray-500"}`}>
-                  {leader.territory}
-                </Badge>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className={`py-24 ${isDarkMode ? "bg-gradient-to-b from-slate-900 to-slate-950" : "bg-gradient-to-b from-gray-50 to-white"}`}>
         <div className="container mx-auto px-6 text-center">
