@@ -540,9 +540,25 @@ export default function AdventureSportsPage() {
                 Adventure
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
               Specialized programs tailored to the unique risks of each adventure sector, from water sports to aerial adventures.
             </p>
+            <Button
+              size="lg"
+              className="font-semibold transition-all duration-300"
+              style={{ 
+                backgroundColor: `${NEON_COLORS.emerald}20`, 
+                color: NEON_COLORS.emerald, 
+                borderColor: `${NEON_COLORS.emerald}50`,
+                boxShadow: `0 0 20px ${NEON_COLORS.emerald}20`
+              }}
+              variant="outline"
+              onClick={() => window.location.href = 'mailto:adventure@matterhornprotects.com?subject=Adventure Sports Program Inquiry'}
+              data-testid="button-contact-team-adventure-programs"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              Contact Our Team
+            </Button>
           </div>
 
           {/* Program Cards Grid */}
