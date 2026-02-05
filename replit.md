@@ -114,11 +114,15 @@ Preferred communication style: Simple, everyday language.
   - Sports Organizations program
   - Adventure Sports program
 - `/sports-organizations` - Sports Organizations Program landing page with:
-  - Program Highlights section with 6 coverage types (General Liability up to $5M, Professional Liability, Property, Participant Accident, D&O, Cyber & Crime)
-  - Who We Cover section featuring 12 organization types (Fitness Centers, Training Academies, Indoor/Outdoor Facilities, Golf/Sports Simulators, Go-Karting, Sports Camps, Youth Organizations, Martial Arts, Aquatic Facilities, Dance/Gymnastics, Sports Leagues)
-  - Franchise Organization section with 5-step program building process (Discovery, Program Design, Carrier Negotiation, Implementation, Ongoing Management)
-  - Featured case study: National Fitness Franchise Network (250+ locations, 35 states, 28% premium savings)
+  - Program Highlights section (consolidated) with 3 accordion dropdowns:
+    - Coverage Highlights & Limits (6 coverage types up to $5M)
+    - Organizations We Cover (12 organization types in grid)
+    - Program Features & Benefits (8 program features)
+  - Quick Facts cards (24-48hr turnaround, 50 states, A+ rated, 15% commission)
+  - Contact info card with email/phone
+  - "Contact Team for Application" CTA button opening BrokerApplicationModal
   - Why Matterhorn section with 4 key benefits
+  - Franchise Organization section with 5-step process and National Fitness Franchise case study
   - Case Studies with tabbed navigation (3 success stories)
   - Leadership section
   - Emerald/cyan neon color theme

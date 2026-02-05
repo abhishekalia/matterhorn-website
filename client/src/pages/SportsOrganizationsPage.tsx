@@ -472,100 +472,253 @@ export default function SportsOrganizationsPage() {
         </div>
       </section>
 
-      {/* Program Highlights Section */}
-      <section id="programs" className={`py-24 ${isDarkMode ? "bg-slate-900" : "bg-gray-50"}`}>
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
-              Program Highlights
-            </Badge>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-              Comprehensive Coverage Solutions
-            </h2>
-            <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>
-              Our sports organizations program offers industry-leading coverage options designed to protect every aspect of your business.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {programHighlights.map((item, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className={`rounded-lg border ${isDarkMode ? "bg-slate-800/50 border-white/10" : "bg-white border-gray-200"}`}
-                >
-                  <AccordionTrigger className={`px-6 py-4 hover-elevate ${isDarkMode ? "text-white" : "text-gray-900"}`} data-testid={`accordion-${index}`}>
-                    <div className="flex items-center gap-4">
-                      <Shield className="w-5 h-5 text-emerald-500" />
-                      <div className="text-left">
-                        <div className="font-semibold">{item.title}</div>
-                        <div className={`text-sm ${isDarkMode ? "text-white/50" : "text-gray-500"}`}>Limits: {item.limit}</div>
-                      </div>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6">
-                    <p className={`mb-4 ${isDarkMode ? "text-white/70" : "text-gray-600"}`}>{item.description}</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {item.features.map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-emerald-500" />
-                          <span className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+      {/* Program Highlights Section - Combined with Who We Cover */}
+      <section id="programs" className="py-24 relative overflow-hidden">
+        {/* Coverage anchor for navigation */}
+        <div id="coverage" className="absolute top-0" />
+        {/* Animated Background */}
+        <div className={`absolute inset-0 ${isDarkMode ? "bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950" : "bg-gradient-to-br from-gray-50 via-emerald-50/30 to-gray-50"}`} />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-emerald-500/15" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse bg-cyan-500/10" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse bg-teal-500/8" style={{ animationDelay: "1s" }} />
         </div>
-      </section>
 
-      {/* Who We Cover Section */}
-      <section id="coverage" className={`py-24 ${isDarkMode ? "bg-slate-950" : "bg-white"}`}>
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
-              Who We Cover
+            <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 15px rgba(16, 185, 129, 0.3)' }}>
+              <Star className="w-3 h-3 mr-1" />
+              Comprehensive Program
             </Badge>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-              Coverage for Every Sports Organization
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 leading-tight ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+              Program{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                Highlights & Coverage
+              </span>
             </h2>
-            <p className={`text-lg max-w-2xl mx-auto ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>
-              From fitness centers to racing facilities, we provide specialized coverage for the full spectrum of sports and recreational businesses.
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto leading-relaxed ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+              Industry-leading coverage options designed specifically for sports and fitness organizations of all types and sizes.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {organizationTypes.map((org, index) => {
-              const IconComponent = org.icon;
-              return (
-                <Card key={index} className={`p-6 ${isDarkMode ? "bg-slate-800/50 border-white/10" : "bg-white border-gray-200"}`}>
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-emerald-500/20">
-                      <IconComponent className="w-6 h-6 text-emerald-400" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className={`font-semibold mb-2 ${isDarkMode ? "text-white" : "text-gray-900"}`}>{org.title}</h3>
-                      <p className={`text-sm mb-4 ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{org.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {org.coverages.slice(0, 2).map((coverage, i) => (
-                          <Badge key={i} variant="outline" className={`text-xs ${isDarkMode ? "border-white/20 text-white/70" : "border-gray-300 text-gray-600"}`}>
-                            {coverage}
-                          </Badge>
-                        ))}
-                        {org.coverages.length > 2 && (
-                          <Badge variant="outline" className={`text-xs ${isDarkMode ? "border-emerald-500/30 text-emerald-400" : "border-emerald-500/50 text-emerald-600"}`}>
-                            +{org.coverages.length - 2} more
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Program Details & Organization Types */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Main Card with Accordions */}
+              <Card className={`p-8 relative overflow-hidden ${isDarkMode ? "bg-slate-900/60 border-emerald-500/20" : "bg-white border-emerald-200"} backdrop-blur-sm`} data-testid="card-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.25)' }}>
+                    <Award className="w-6 h-6 text-emerald-400" />
                   </div>
+                  <div>
+                    <h3 className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>Sports Organizations Program</h3>
+                    <p className="text-sm text-emerald-400">Up to $5M limits available</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["highlights"]} className="space-y-3">
+                  {/* Coverage Highlights Accordion */}
+                  <AccordionItem value="highlights" className={`border rounded-lg overflow-hidden ${isDarkMode ? "border-white/10" : "border-gray-200"}`}>
+                    <AccordionTrigger 
+                      className={`text-base py-4 px-5 rounded-lg hover-elevate ${isDarkMode ? "text-white bg-white/5 [&[data-state=open]]:bg-emerald-500/10" : "text-gray-900 bg-gray-50 [&[data-state=open]]:bg-emerald-50"}`}
+                      data-testid="accordion-coverage-highlights"
+                    >
+                      <span className="flex items-center gap-3">
+                        <Shield className="w-5 h-5 text-emerald-400" />
+                        <span className="font-semibold">Coverage Highlights & Limits</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {programHighlights.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group">
+                            <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-emerald-400" />
+                            <div className="flex-1">
+                              <span className={`text-sm font-medium ${isDarkMode ? "text-emerald-300" : "text-emerald-700"}`}>
+                                {item.title}
+                              </span>
+                              <span className={`text-sm ml-2 ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>
+                                — {item.limit}
+                              </span>
+                            </div>
+                          </li>
+                        ))}
+                        <li className="flex items-start gap-3 group">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-emerald-400" />
+                          <span className={`text-sm font-medium ${isDarkMode ? "text-emerald-300" : "text-emerald-700"}`}>
+                            15% Commission for Brokers
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3 group">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-slate-500" />
+                          <span className={`text-sm ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+                            Coverage tailored with flexible terms
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-3 group">
+                          <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-slate-500" />
+                          <span className={`text-sm ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+                            No deductible on qualifying risks
+                          </span>
+                        </li>
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Who We Cover Accordion */}
+                  <AccordionItem value="who-we-cover" className={`border rounded-lg overflow-hidden ${isDarkMode ? "border-white/10" : "border-gray-200"}`}>
+                    <AccordionTrigger 
+                      className={`text-base py-4 px-5 rounded-lg hover-elevate ${isDarkMode ? "text-white bg-white/5 [&[data-state=open]]:bg-teal-500/10" : "text-gray-900 bg-gray-50 [&[data-state=open]]:bg-teal-50"}`}
+                      data-testid="accordion-who-we-cover"
+                    >
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5 text-teal-400" />
+                        <span className="font-semibold">Organizations We Cover</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {organizationTypes.map((org, idx) => {
+                          const IconComponent = org.icon;
+                          return (
+                            <div key={idx} className={`flex items-center gap-2 text-sm ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+                              <IconComponent className="w-4 h-4 text-teal-400 flex-shrink-0" />
+                              <span>{org.title}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Key Features Accordion */}
+                  <AccordionItem value="features" className={`border rounded-lg overflow-hidden ${isDarkMode ? "border-white/10" : "border-gray-200"}`}>
+                    <AccordionTrigger 
+                      className={`text-base py-4 px-5 rounded-lg hover-elevate ${isDarkMode ? "text-white bg-white/5 [&[data-state=open]]:bg-cyan-500/10" : "text-gray-900 bg-gray-50 [&[data-state=open]]:bg-cyan-50"}`}
+                      data-testid="accordion-key-features"
+                    >
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-cyan-400" />
+                        <span className="font-semibold">Program Features & Benefits</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          "All Risk Coverage included",
+                          "Participants Liability included",
+                          "All trainers working on your behalf covered",
+                          "Property coverage available",
+                          "In-house binding authority for faster turnarounds",
+                          "Same-day broker appointments available",
+                          "Dedicated claims support team",
+                          "Digital certificate generation",
+                        ].map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${idx < 4 ? 'bg-cyan-400' : 'bg-slate-500'}`} />
+                            <span className={`text-sm ${idx < 4 ? (isDarkMode ? "text-cyan-300 font-medium" : "text-cyan-700 font-medium") : (isDarkMode ? "text-slate-300" : "text-gray-600")}`}>
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className={`mt-8 pt-6 border-t ${isDarkMode ? "border-white/10" : "border-gray-200"}`}>
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30 transition-all duration-300"
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-contact-team"
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    Contact Team for Application
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Quick Facts & Contact */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Competitive Advantage Callout */}
+              <Card className={`p-6 relative overflow-hidden ${isDarkMode ? "bg-gradient-to-br from-emerald-900/50 to-teal-900/30 border-emerald-500/30" : "bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200"}`} data-testid="card-competitive-advantage">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-500/15 rounded-full blur-2xl" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center mb-4" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}>
+                    <DollarSign className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? "text-white" : "text-gray-900"}`}>Industry-Leading Limits</h3>
+                  <p className={`text-lg font-medium mb-4 ${isDarkMode ? "text-emerald-300" : "text-emerald-600"}`}>
+                    Up to $5M General Liability
+                  </p>
+                  <p className={`text-sm leading-relaxed ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+                    Our program offers comprehensive limits with in-house binding authority, providing faster turnarounds and more competitive pricing for your sports organization clients.
+                  </p>
+                </div>
+              </Card>
+
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className={`p-5 ${isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-white border-gray-200"}`} data-testid="card-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3">
+                    <Clock className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>24-48hr</p>
+                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>Quote Turnaround</p>
                 </Card>
-              );
-            })}
+                <Card className={`p-5 ${isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-white border-gray-200"}`} data-testid="card-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center mb-3">
+                    <Globe className="w-5 h-5 text-teal-400" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>50 States</p>
+                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>National Coverage</p>
+                </Card>
+                <Card className={`p-5 ${isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-white border-gray-200"}`} data-testid="card-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-3">
+                    <Shield className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>A+ Rated</p>
+                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>Carrier Partners</p>
+                </Card>
+                <Card className={`p-5 ${isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-white border-gray-200"}`} data-testid="card-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3">
+                    <Users className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>15%</p>
+                  <p className={`text-sm ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>Commission</p>
+                </Card>
+              </div>
+
+              {/* Contact Card */}
+              <Card className={`p-5 ${isDarkMode ? "bg-slate-800/50 border-slate-700" : "bg-white border-gray-200"}`} data-testid="card-contact-info">
+                <h4 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                  <Mail className="w-4 h-4 text-emerald-400" />
+                  Need More Information?
+                </h4>
+                <p className={`text-sm mb-3 ${isDarkMode ? "text-slate-400" : "text-gray-500"}`}>
+                  Reach out to our team for program details and custom quotes.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-emerald-400 text-sm transition-colors flex items-center gap-2 hover-elevate" data-testid="link-email-contact">
+                    <Mail className="w-4 h-4" />
+                    support@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-emerald-400 text-sm transition-colors flex items-center gap-2 hover-elevate" data-testid="link-phone-contact">
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
