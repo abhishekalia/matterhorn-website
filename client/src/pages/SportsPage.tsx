@@ -369,21 +369,25 @@ export default function SportsPage() {
       title: "Sports Industry Veterans",
       description: "Our team includes former athletes, agents, and sports executives who understand the unique risks of the industry.",
       icon: Trophy,
+      microTag: "60+ Years Experience",
     },
     {
       title: "Comprehensive Market Access",
       description: "One application connects you to curated A-rated markets covering all sports segments from youth to professional.",
       icon: Target,
+      microTag: "A+ Rated Carriers",
     },
     {
       title: "Specialized Expertise",
       description: "Deep knowledge of participant liability, event coverage, and athlete protection programs.",
       icon: Shield,
+      microTag: "Full Binding Authority",
     },
     {
       title: "Technology-Enabled",
       description: "Digital enrollment, instant certificates, and automated participant management for associations and leagues.",
       icon: Settings,
+      microTag: "24-Hour Turnaround",
     },
   ];
 
@@ -613,7 +617,7 @@ export default function SportsPage() {
               return (
                 <Card 
                   key={index}
-                  className={`p-6 relative overflow-hidden bg-[#1B2A41]/40 border-white/5 backdrop-blur-xl transition-all duration-700 group hover:scale-[1.03] hover:-translate-y-2 ${getAnimationClass("why-us")}`}
+                  className={`p-5 h-full relative overflow-hidden bg-[#1B2A41]/40 border-white/5 backdrop-blur-xl transition-all duration-700 group hover:scale-[1.02] hover:-translate-y-1 ${getAnimationClass("why-us")}`}
                   style={{ 
                     transitionDelay: `${index * 150}ms`,
                     boxShadow: 'none'
@@ -648,10 +652,10 @@ export default function SportsPage() {
                     style={{ backgroundColor: neonColor }}
                   />
                   
-                  <div className="relative z-10">
+                  <div className="relative z-10 h-full flex flex-col">
                     {/* Icon with animated glow */}
                     <div 
-                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110"
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110"
                       style={{ 
                         backgroundColor: `${neonColor}15`,
                         boxShadow: `0 0 0px ${neonColor}00`,
@@ -663,25 +667,24 @@ export default function SportsPage() {
                         e.currentTarget.style.boxShadow = `0 0 0px ${neonColor}00`;
                       }}
                     >
-                      <item.icon className="w-7 h-7 transition-transform duration-300 group-hover:scale-110" style={{ color: neonColor }} />
+                      <item.icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" style={{ color: neonColor }} />
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-lg font-bold mb-3 text-white group-hover:text-transparent group-hover:bg-clip-text transition-all duration-300" style={{ ['--tw-gradient-from' as string]: neonColor, ['--tw-gradient-to' as string]: '#ffffff' }}>
-                      <span className="group-hover:hidden">{item.title}</span>
-                      <span className="hidden group-hover:inline bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">{item.title}</span>
+                    <h3 className="text-base font-bold mb-2 text-white leading-tight min-h-[40px] flex items-center">
+                      {item.title}
                     </h3>
                     
                     {/* Description */}
-                    <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                    <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/75 transition-colors duration-300 flex-1 min-h-[72px]">
                       {item.description}
                     </p>
                     
-                    {/* Bottom accent */}
-                    <div className="mt-4 pt-4 border-t border-white/5 group-hover:border-white/10 transition-colors">
+                    {/* Bottom accent with unique micro tag */}
+                    <div className="mt-4 pt-3 border-t border-white/5 group-hover:border-white/10 transition-colors">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: neonColor }} />
-                        <span className="text-xs font-medium" style={{ color: `${neonColor}cc` }}>Industry Proven</span>
+                        <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: neonColor }} />
+                        <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: `${neonColor}` }}>{item.microTag}</span>
                       </div>
                     </div>
                   </div>
