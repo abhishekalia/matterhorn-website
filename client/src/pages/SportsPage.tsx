@@ -563,6 +563,148 @@ export default function SportsPage() {
         </button>
       </section>
 
+      {/* Why Matterhorn Section - Enhanced with Animations */}
+      <section 
+        id="why-us" 
+        data-animate
+        className="py-20 md:py-28 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #0A1628 0%, #0D1B2A 50%, #1B2A41 100%)' }}
+      >
+        {/* Animated background elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#00ff88]/8 rounded-full blur-[180px] animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#00d4ff]/6 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff00ff]/4 rounded-full blur-[200px] animate-pulse" style={{ animationDelay: '3s' }} />
+          
+          {/* Floating particles effect */}
+          <div className="absolute top-[20%] left-[10%] w-2 h-2 bg-[#00ff88]/40 rounded-full animate-bounce" style={{ animationDuration: '3s' }} />
+          <div className="absolute top-[40%] right-[15%] w-1.5 h-1.5 bg-[#00d4ff]/50 rounded-full animate-bounce" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
+          <div className="absolute bottom-[30%] left-[20%] w-2.5 h-2.5 bg-[#ff00ff]/30 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+          <div className="absolute top-[60%] right-[25%] w-2 h-2 bg-primary/40 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1.5s' }} />
+        </div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className={`text-center mb-16 ${getAnimationClass("why-us")}`}>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#00ff88]/50 to-[#00ff88]" />
+              <Badge className="bg-[#00ff88]/15 text-[#00ff88] border-[#00ff88]/30 text-[10px] uppercase tracking-widest px-4 py-1.5 shadow-[0_0_20px_rgba(0,255,136,0.2)]">
+                Why Matterhorn
+              </Badge>
+              <div className="w-16 h-[1px] bg-gradient-to-l from-transparent via-[#00ff88]/50 to-[#00ff88]" />
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+              The Sports Insurance{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff] animate-gradient bg-[length:200%_auto]">
+                Advantage
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              Partner with industry veterans who understand sports risks from the inside out
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {whyMatterhorn.map((item, index) => {
+              const neonColors = ['#00ff88', '#00d4ff', '#ff00ff', '#ffff00'];
+              const neonColor = neonColors[index % neonColors.length];
+              return (
+                <Card 
+                  key={index}
+                  className={`p-6 relative overflow-hidden bg-[#1B2A41]/40 border-white/5 backdrop-blur-xl transition-all duration-700 group hover:scale-[1.03] hover:-translate-y-2 ${getAnimationClass("why-us")}`}
+                  style={{ 
+                    transitionDelay: `${index * 150}ms`,
+                    boxShadow: 'none'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = `0 20px 60px ${neonColor}20, 0 0 40px ${neonColor}10`;
+                    e.currentTarget.style.borderColor = `${neonColor}40`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)';
+                  }}
+                  data-testid={`card-why-matterhorn-${index}`}
+                >
+                  {/* Animated gradient background on hover */}
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                    style={{ 
+                      background: `radial-gradient(circle at 50% 0%, ${neonColor}15 0%, transparent 70%)`
+                    }}
+                  />
+                  
+                  {/* Top accent line that animates on hover */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-[2px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                    style={{ background: `linear-gradient(90deg, ${neonColor}, ${neonColor}80, transparent)` }}
+                  />
+                  
+                  {/* Corner glow */}
+                  <div 
+                    className="absolute -top-10 -right-10 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
+                    style={{ backgroundColor: neonColor }}
+                  />
+                  
+                  <div className="relative z-10">
+                    {/* Icon with animated glow */}
+                    <div 
+                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 group-hover:scale-110"
+                      style={{ 
+                        backgroundColor: `${neonColor}15`,
+                        boxShadow: `0 0 0px ${neonColor}00`,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = `0 0 30px ${neonColor}40`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = `0 0 0px ${neonColor}00`;
+                      }}
+                    >
+                      <item.icon className="w-7 h-7 transition-transform duration-300 group-hover:scale-110" style={{ color: neonColor }} />
+                    </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-lg font-bold mb-3 text-white group-hover:text-transparent group-hover:bg-clip-text transition-all duration-300" style={{ ['--tw-gradient-from' as string]: neonColor, ['--tw-gradient-to' as string]: '#ffffff' }}>
+                      <span className="group-hover:hidden">{item.title}</span>
+                      <span className="hidden group-hover:inline bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">{item.title}</span>
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors duration-300">
+                      {item.description}
+                    </p>
+                    
+                    {/* Bottom accent */}
+                    <div className="mt-4 pt-4 border-t border-white/5 group-hover:border-white/10 transition-colors">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: neonColor }} />
+                        <span className="text-xs font-medium" style={{ color: `${neonColor}cc` }}>Industry Proven</span>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+          
+          {/* Bottom CTA */}
+          <div className={`text-center mt-14 ${getAnimationClass("why-us")}`}>
+            <Button 
+              size="lg"
+              className="group bg-transparent border-2 border-[#00ff88]/50 text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition-all duration-300"
+              onClick={() => setApplicationModalOpen(true)}
+              data-testid="button-get-started-why"
+            >
+              Get Appointed Today
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Pickleball Program Section */}
       <section 
         id="featured-program" 
@@ -819,44 +961,6 @@ export default function SportsPage() {
                 </div>
               </div>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Matterhorn Section */}
-      <section 
-        id="why-us" 
-        data-animate
-        className="py-24 relative overflow-hidden"
-        style={{ background: 'linear-gradient(to bottom, #0A1628, #1B2A41)' }}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 ${getAnimationClass("why-us")}`}>
-            <Badge className="bg-primary/20 text-primary border-primary/30 mb-4">
-              Why Matterhorn
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-              The Sports Insurance{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
-                Advantage
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {whyMatterhorn.map((item, index) => (
-              <Card 
-                key={index}
-                className={`p-6 bg-[#1B2A41]/50 border-white/10 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.03] transition-all duration-500 group ${getAnimationClass("why-us")}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="w-12 h-12 rounded-md bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-white group-hover:text-primary transition-colors">{item.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{item.description}</p>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
