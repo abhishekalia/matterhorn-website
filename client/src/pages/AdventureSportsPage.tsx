@@ -58,6 +58,7 @@ import bcFishingTripImg from "@/assets/images/bc-fishing-trip.png";
 import mountainHuntingImg from "@/assets/images/mountain-hunting-trip.png";
 import seaKayakingImg from "@/assets/images/sea-kayaking.png";
 import bushplaneLandingImg from "@/assets/images/bushplane-landing.png";
+import whitewaterGuidedTourImg from "@/assets/images/whitewater-guided-tour.png";
 import wayneGutridgePhoto from "@assets/avatars/wayne_gutridge_avatar.png";
 import isaacAllenPhoto from "@assets/avatars/isaac_allen_avatar.png";
 import mikeAsselinPhoto from "@assets/avatars/mike_asselin_avatar.png";
@@ -807,83 +808,330 @@ export default function AdventureSportsPage() {
       <section 
         id="paddle-sports" 
         data-animate 
-        className={`py-20 relative overflow-hidden ${isDarkMode ? 'bg-gradient-to-b from-[#0D1B2A] to-[#0A1628]' : 'bg-gradient-to-b from-gray-50 to-white'}`}
+        className="py-24 relative overflow-hidden"
+        data-testid="section-paddle-program-highlights"
       >
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full blur-[150px] animate-pulse" style={{ backgroundColor: `${NEON_COLORS.cyan}08` }} />
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-cyan-950/20 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-cyan-500/15" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-[100px] animate-pulse bg-blue-500/10" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full blur-[80px] animate-pulse bg-teal-500/8" style={{ animationDelay: "1s" }} />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className={`text-center mb-12 ${getAnimationClass("paddle-sports")}`}>
-            <Badge className="mb-4 px-4 py-1.5" style={{ backgroundColor: `${NEON_COLORS.cyan}20`, color: NEON_COLORS.cyan, borderColor: `${NEON_COLORS.cyan}40` }}>
-              <Star className="w-3 h-3 mr-2" />
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-cyan-500/20 text-cyan-400 border-cyan-500/40" style={{ boxShadow: '0 0 15px rgba(6, 182, 212, 0.3)' }}>
+              <Star className="w-3 h-3 mr-1" />
               Featured Program
             </Badge>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight" data-testid="heading-paddle-program-highlights">
               Paddle Sport{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400">
                 Operators
               </span>
             </h2>
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Comprehensive coverage for whitewater outfitters, sea kayak tours, SUP rentals, and canoe liveries across all skill levels.
+            </p>
           </div>
 
-          <Card className={`relative overflow-hidden ${isDarkMode ? 'bg-[#1B2A41]/60 border-cyan-500/30' : 'bg-white border-cyan-200'}`}>
-            <div className="grid lg:grid-cols-2 gap-0">
-              <div className="relative h-64 lg:h-auto">
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Highlights & Risk Types */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Main Card with Accordions */}
+              <Card className="p-8 bg-slate-900/60 border-cyan-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-paddle-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-400 to-teal-500" />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(6, 182, 212, 0.25)' }}>
+                    <Waves className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Paddle Program Details</h3>
+                    <p className="text-sm text-cyan-400">Up to $5M limits available</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["highlights"]} className="space-y-3">
+                  {/* Program Highlights Accordion */}
+                  <AccordionItem value="highlights" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-cyan-400 py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-cyan-500/10 rounded-lg">
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-cyan-400" />
+                        <span className="font-semibold">Coverage Highlights</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          { text: "Guide Professional Liability", highlight: true },
+                          { text: "Up to $5,000,000 CGL", highlight: true },
+                          { text: "Watercraft Hull Coverage", highlight: false },
+                          { text: "Participant Accident Medical", highlight: false },
+                          { text: "Swift Water Rescue Extension", highlight: true },
+                          { text: "Equipment Floater (paddles, PFDs, gear)", highlight: false },
+                          { text: "Remote Evacuation Coverage", highlight: false },
+                          { text: "Trip Cancellation Protection", highlight: false },
+                          { text: "Hired & Non-Owned Auto", highlight: false },
+                          { text: "Coverage for Class I-V rapids", highlight: false },
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3 group">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${item.highlight ? 'bg-cyan-400' : 'bg-slate-500'}`} />
+                            <span className={`text-sm ${item.highlight ? 'text-cyan-300 font-medium' : 'text-slate-300'} group-hover:text-white transition-colors`}>
+                              {item.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Risk Types Accordion */}
+                  <AccordionItem value="risk-types" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-cyan-400 py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors [&[data-state=open]]:bg-blue-500/10 rounded-lg">
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5 text-blue-400" />
+                        <span className="font-semibold">Operations We Cover</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          "Whitewater Rafting Outfitters",
+                          "Sea Kayak Tour Operators",
+                          "SUP Rental Operations",
+                          "Canoe Liveries",
+                          "Kayak Fishing Guides",
+                          "Multi-Day Float Trips",
+                          "Paddleboard Yoga Classes",
+                          "River Guide Services",
+                          "Kayak Instruction Schools",
+                          "Corporate Team Building",
+                        ].map((risk, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors group">
+                            <ArrowRight className="w-3 h-3 text-blue-400 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                            <span>{risk}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300"
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-start-paddle-application"
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    Request Appointment
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+
+              {/* Paddling Travel Program Card */}
+              <Card className="p-6 bg-[#0D1B2A] border-blue-500/40 relative overflow-hidden group hover:border-blue-400/50 transition-all duration-500" data-testid="card-paddle-travel-program">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-teal-900/20 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/15 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 30px rgba(59, 130, 246, 0.4)' }}>
+                      <Plane className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">Paddling Travel Program</h3>
+                      <p className="text-blue-400 text-sm font-medium">International & Domestic Coverage</p>
+                    </div>
+                  </div>
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">
+                    Specialized travel insurance for paddle sport expeditions including kayak touring trips, international whitewater destinations, and multi-day river adventures with emergency evacuation coverage.
+                  </p>
+                  <Button
+                    variant="outline"
+                    className="border-blue-500/50 text-blue-400 hover:bg-blue-500/10"
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-paddle-travel-contact"
+                  >
+                    <Mail className="w-4 h-4 mr-2" />
+                    Contact for Details
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Image & Quick Facts */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Hero Image */}
+              <Card className="relative overflow-hidden border-cyan-500/30 h-64" data-testid="card-paddle-hero-image">
                 <img 
-                  src={kayakingImg} 
-                  alt="Paddle Sports" 
+                  src={whitewaterGuidedTourImg} 
+                  alt="Guided whitewater rafting tour" 
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-transparent to-[#1B2A41]' : 'bg-gradient-to-r from-transparent to-white'} lg:block hidden`} />
-                <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-t from-[#1B2A41] to-transparent' : 'bg-gradient-to-t from-white to-transparent'} lg:hidden`} />
-              </div>
-              
-              <div className="p-8 lg:p-12">
-                <div className="flex items-center gap-3 mb-6">
-                  <Waves className="w-8 h-8 text-cyan-500" />
-                  <div>
-                    <h3 className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Comprehensive Paddle Coverage</h3>
-                    <p className="text-cyan-500 font-medium">Rafting • Kayaking • SUP • Canoeing</p>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/40">
+                    <Camera className="w-3 h-3 mr-1" />
+                    Rapid Media Film Festival Partner
+                  </Badge>
                 </div>
+              </Card>
 
-                <p className={`mb-6 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                  Our paddle sport program provides specialized coverage for whitewater outfitters, sea kayak tours, SUP rental operations, and canoe liveries. From calm flatwater to Class V rapids, we understand the unique exposures of water-based adventures.
-                </p>
-
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  {["Guide Professional Liability", "Watercraft Hull Coverage", "Participant Accident Medical", "Swift Water Rescue Extension", "Equipment Floater", "Remote Evacuation"].map((item, i) => (
-                    <div key={i} className={`flex items-center gap-2 ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>
-                      <CheckCircle className="w-4 h-4 text-cyan-500 flex-shrink-0" />
-                      <span className="text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Rapid Media Film Festival Partnership */}
-                <Card className={`p-4 mb-6 ${isDarkMode ? 'bg-cyan-500/10 border-cyan-500/30' : 'bg-cyan-50 border-cyan-200'}`}>
-                  <div className="flex items-center gap-3 mb-2">
-                    <Camera className="w-5 h-5 text-cyan-500" />
-                    <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Official Partner: Rapid Media Film Festival</span>
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-cyan-500/40 transition-all group" data-testid="card-paddle-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Clock className="w-5 h-5 text-cyan-400" />
                   </div>
-                  <p className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-                    Matterhorn is proud to partner with the International Rapid Media Film Festival, celebrating the art and adventure of paddle sports. As the official insurance partner, we support the global paddling community and help protect the operators who make these adventures possible.
-                  </p>
+                  <p className="text-2xl font-bold text-white">24-48hr</p>
+                  <p className="text-slate-400 text-sm">Quote Turnaround</p>
                 </Card>
-
-                <Button
-                  size="lg"
-                  onClick={() => setApplicationModalOpen(true)}
-                  className="bg-cyan-500 text-black font-bold"
-                  data-testid="button-paddle-quote"
-                >
-                  Get Paddle Sports Quote
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-blue-500/40 transition-all group" data-testid="card-paddle-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Globe className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">50 States</p>
+                  <p className="text-slate-400 text-sm">National Coverage</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-teal-500/40 transition-all group" data-testid="card-paddle-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Shield className="w-5 h-5 text-teal-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">A-Rated</p>
+                  <p className="text-slate-400 text-sm">Carrier Partners</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-cyan-500/40 transition-all group" data-testid="card-paddle-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Award className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">Class I-V</p>
+                  <p className="text-slate-400 text-sm">Rapids Covered</p>
+                </Card>
               </div>
+
+              {/* Contact Card */}
+              <Card className="p-5 bg-slate-800/50 border-slate-700" data-testid="card-paddle-contact-info">
+                <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-cyan-400" />
+                  Need More Information?
+                </h4>
+                <p className="text-slate-400 text-sm mb-3">
+                  Reach out to our paddle sports specialists for program details.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:support@matterhornprotects.com" className="text-cyan-400 text-sm hover:text-cyan-300 transition-colors flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    support@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-cyan-400 text-sm hover:text-cyan-300 transition-colors flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
             </div>
-          </Card>
+          </div>
+
+          {/* Paddle Sports Case Study */}
+          <div className="max-w-6xl mx-auto mt-16">
+            <div className="text-center mb-8">
+              <Badge className="mb-4 px-4 py-1.5 bg-blue-500/20 text-blue-400 border-blue-500/40">
+                <TrendingUp className="w-3 h-3 mr-1" />
+                Success Story
+              </Badge>
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                Paddle Sports{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                  Case Study
+                </span>
+              </h3>
+            </div>
+
+            <Card className="overflow-hidden bg-slate-900/60 border-cyan-500/20" data-testid="card-paddle-case-study">
+              <div className="grid lg:grid-cols-2 gap-0">
+                <div className="relative h-64 lg:h-auto min-h-[280px]">
+                  <img 
+                    src={whitewaterGuidedTourImg} 
+                    alt="Colorado Whitewater Outfitter" 
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-900 lg:block hidden" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent lg:hidden" />
+                </div>
+                
+                <div className="p-8 lg:p-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/40">
+                      Whitewater Outfitter
+                    </Badge>
+                    <span className="text-sm text-slate-400">
+                      <MapPin className="w-3 h-3 inline mr-1" />
+                      Colorado
+                    </span>
+                  </div>
+
+                  <h4 className="text-xl font-bold text-white mb-4">
+                    Multi-Location Rafting Company Expands with Comprehensive Coverage
+                  </h4>
+
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <h5 className="text-cyan-400 font-semibold text-sm mb-1">Challenge</h5>
+                      <p className="text-sm text-slate-300">
+                        A Colorado whitewater outfitter with 3 river locations needed unified coverage for Class III-IV rapids, guide liability, and equipment across multiple counties.
+                      </p>
+                    </div>
+                    <div>
+                      <h5 className="text-emerald-400 font-semibold text-sm mb-1">Solution</h5>
+                      <p className="text-sm text-slate-300">
+                        Matterhorn created a consolidated program with $3M CGL, swift water rescue extension, and equipment floater covering 45 rafts and 200+ paddles across all locations.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Results Stats */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="text-center p-3 rounded-lg bg-white/5">
+                      <div className="text-lg font-bold text-cyan-400">28%</div>
+                      <div className="text-[10px] uppercase tracking-wider text-slate-400">Premium Savings</div>
+                    </div>
+                    <div className="text-center p-3 rounded-lg bg-white/5">
+                      <div className="text-lg font-bold text-cyan-400">3 Days</div>
+                      <div className="text-[10px] uppercase tracking-wider text-slate-400">Quote to Bind</div>
+                    </div>
+                    <div className="text-center p-3 rounded-lg bg-white/5">
+                      <div className="text-lg font-bold text-cyan-400">1 Policy</div>
+                      <div className="text-[10px] uppercase tracking-wider text-slate-400">All Locations</div>
+                    </div>
+                  </div>
+
+                  {/* Broker Benefits */}
+                  <div>
+                    <h5 className="font-semibold text-sm mb-2 text-white">Broker Benefits</h5>
+                    <div className="space-y-2">
+                      {[
+                        "Consolidated policy simplified renewals",
+                        "Specialized endorsements for swift water operations",
+                        "Dedicated adventure sports underwriter",
+                      ].map((benefit, i) => (
+                        <div key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                          <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                          <span>{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
