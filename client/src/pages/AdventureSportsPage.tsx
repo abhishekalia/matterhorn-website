@@ -1314,46 +1314,6 @@ export default function AdventureSportsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className={`py-20 relative overflow-hidden ${isDarkMode ? 'bg-gradient-to-b from-[#0A1628] to-[#0D1B2A]' : 'bg-gradient-to-b from-white to-gray-50'}`}>
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[200px]" style={{ backgroundColor: `${NEON_COLORS.amber}08` }} />
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Ready to Protect Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-emerald-500">
-              Adventure Operation?
-            </span>
-          </h2>
-          <p className={`text-lg mb-8 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-            Connect with our adventure sports specialists to discuss your coverage needs. 
-            We'll design a program that protects your business while supporting your growth.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              onClick={() => setApplicationModalOpen(true)}
-              className="bg-amber-500 text-black font-bold"
-              data-testid="button-cta-apply"
-            >
-              Request Appointment
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className={`${isDarkMode ? 'border-white/30 text-white hover:bg-white/10' : 'border-gray-300 text-gray-900 hover:bg-gray-100'}`}
-              data-testid="button-cta-contact"
-            >
-              <Phone className="mr-2 w-5 h-5" />
-              1-844-600-0611
-            </Button>
-          </div>
-        </div>
-      </section>
-
       <Footer />
 
       <BrokerApplicationModal 
