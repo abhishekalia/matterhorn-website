@@ -1003,20 +1003,20 @@ export default function YouthSportsPage() {
                   <div className={`grid grid-cols-3 gap-4 mb-8 p-4 rounded-xl ${isDarkMode ? 'bg-black/20' : 'bg-gray-50'}`}>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-[#ff00ff]">20%</div>
-                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Savings</div>
+                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>Savings</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-[#00d4ff]">$5M</div>
-                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Limits</div>
+                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>Limits</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-[#00ff88]">3M+</div>
-                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>Participants</div>
+                      <div className={`text-[10px] uppercase tracking-wider ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>Participants</div>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className={`mb-8 ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                  <p className={`mb-8 ${isDarkMode ? 'text-white/75' : 'text-gray-600'}`}>
                     As a NAYS member, you and your clients qualify for exclusive rates, enhanced coverage limits, and priority processing. Explore the full partnership benefits.
                   </p>
 

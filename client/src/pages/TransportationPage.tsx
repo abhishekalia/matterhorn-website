@@ -1093,7 +1093,7 @@ export default function TransportationPage() {
                         <p className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400 relative z-10">
                           {value}
                         </p>
-                        <p className="text-[10px] uppercase tracking-widest text-white/40 mt-1 font-medium relative z-10">
+                        <p className="text-[10px] uppercase tracking-widest text-white/60 mt-1 font-medium relative z-10">
                           {key}
                         </p>
                       </div>
@@ -1111,7 +1111,7 @@ export default function TransportationPage() {
                           Challenge
                         </h4>
                       </div>
-                      <p className="text-white/60 text-sm leading-relaxed pl-10">
+                      <p className="text-white/75 text-sm leading-relaxed pl-10">
                         {caseStudies[activeCaseStudy].challenge}
                       </p>
                     </div>
@@ -1124,7 +1124,7 @@ export default function TransportationPage() {
                           Solution
                         </h4>
                       </div>
-                      <p className="text-white/60 text-sm leading-relaxed pl-10">
+                      <p className="text-white/75 text-sm leading-relaxed pl-10">
                         {caseStudies[activeCaseStudy].solution}
                       </p>
                     </div>
@@ -1146,7 +1146,7 @@ export default function TransportationPage() {
                         {caseStudies[activeCaseStudy].brokerBenefits.map((benefit, idx) => (
                           <li 
                             key={idx} 
-                            className="flex items-start gap-2 text-white/60 text-sm group hover:text-white/80 transition-colors"
+                            className="flex items-start gap-2 text-white/75 text-sm group hover:text-white/90 transition-colors"
                           >
                             <CheckCircle className="w-4 h-4 text-cyan-400/70 flex-shrink-0 mt-0.5 group-hover:text-cyan-400 transition-colors" />
                             <span>{benefit}</span>
@@ -1169,7 +1169,7 @@ export default function TransportationPage() {
                         {caseStudies[activeCaseStudy].clientBenefits.map((benefit, idx) => (
                           <li 
                             key={idx} 
-                            className="flex items-start gap-2 text-white/60 text-sm group hover:text-white/80 transition-colors"
+                            className="flex items-start gap-2 text-white/75 text-sm group hover:text-white/90 transition-colors"
                           >
                             <CheckCircle className="w-4 h-4 text-purple-400/70 flex-shrink-0 mt-0.5 group-hover:text-purple-400 transition-colors" />
                             <span>{benefit}</span>
