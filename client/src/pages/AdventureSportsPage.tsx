@@ -44,6 +44,9 @@ import {
   Crosshair,
   Plane,
   Ship,
+  Package,
+  Calendar,
+  Layers,
 } from "lucide-react";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
 import CustomCursor from "@/components/CustomCursor";
@@ -1311,6 +1314,266 @@ export default function AdventureSportsPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Adventure Travel Programs Section */}
+      <section 
+        id="adventure-travel" 
+        data-animate 
+        className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-gradient-to-b from-[#0D1B2A] to-[#0A1628]' : 'bg-gradient-to-b from-gray-50 to-white'}`}
+      >
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-[150px] animate-pulse bg-sky-500/10" />
+          <div className="absolute -bottom-40 -right-40 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-orange-500/8" style={{ animationDelay: "1.5s" }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className={`text-center mb-16 ${getAnimationClass("adventure-travel")}`}>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-[1px]" style={{ background: `linear-gradient(to right, transparent, #0ea5e9)` }} />
+              <Badge className="text-[10px] uppercase tracking-widest px-4 bg-sky-500/20 text-sky-400 border-sky-500/40">
+                <Plane className="w-3 h-3 mr-1" />
+                Travel Programs
+              </Badge>
+              <div className="w-12 h-[1px]" style={{ background: `linear-gradient(to left, transparent, #0ea5e9)` }} />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+              Adventure{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-400 to-orange-400">
+                Travel Programs
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Embedded travel protection solutions for tour operators, booking platforms, and adventure travel companies.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Program Highlights */}
+            <div className="lg:col-span-7 space-y-6">
+              <Card className="p-8 bg-slate-900/60 border-sky-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-adventure-travel-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-orange-400" />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-sky-500/20 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(14, 165, 233, 0.25)' }}>
+                    <Globe className="w-6 h-6 text-sky-400" />
+                  </div>
+                  <div>
+                    <p className="text-[8px] uppercase tracking-[0.3em] text-sky-400/70 font-medium">Embedded Solutions</p>
+                    <h3 className="text-xl font-bold text-white">Adventure Travel Coverage</h3>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["highlights"]} className="space-y-3">
+                  {/* Program Highlights Accordion */}
+                  <AccordionItem value="highlights" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-sky-400 py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors rounded-lg" data-testid="accordion-travel-highlights">
+                      <span className="flex items-center gap-3">
+                        <Shield className="w-5 h-5 text-sky-400" />
+                        <span className="font-semibold">Program Highlights</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-1 gap-3">
+                        {[
+                          { icon: Shield, title: "Trip Cancellation & Interruption", desc: "Cancel for any reason (CFAR) and covered reasons protection" },
+                          { icon: Heart, title: "Emergency Medical Coverage", desc: "Up to $500K medical evacuation and repatriation" },
+                          { icon: Compass, title: "Adventure Activity Coverage", desc: "Hazardous sports endorsements for high-risk activities" },
+                          { icon: Plane, title: "Travel Delay Protection", desc: "Missed connections, delays, and itinerary changes" },
+                          { icon: Package, title: "Baggage & Equipment", desc: "Specialized gear and equipment protection for adventurers" },
+                          { icon: Clock, title: "24/7 Assistance Services", desc: "Global support and emergency coordination" },
+                        ].map((item, idx) => {
+                          const IconComponent = item.icon;
+                          return (
+                            <div key={idx} className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors">
+                              <div className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0 bg-sky-500/20">
+                                <IconComponent className="w-4 h-4 text-sky-400" />
+                              </div>
+                              <div className="flex-1">
+                                <span className="text-sm font-semibold text-white block">{item.title}</span>
+                                <p className="text-xs text-slate-400">{item.desc}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Who We Build Programs For */}
+                  <AccordionItem value="clients" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-cyan-400 py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors rounded-lg" data-testid="accordion-travel-clients">
+                      <span className="flex items-center gap-3">
+                        <Users className="w-5 h-5 text-cyan-400" />
+                        <span className="font-semibold">Who We Build Programs For</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          "Adventure Tour Operators",
+                          "Expedition Companies",
+                          "Eco-Tourism Outfitters",
+                          "Specialty Travel Agencies",
+                          "Group Travel Organizers",
+                          "Cruise & Yacht Charters",
+                          "Wellness Retreat Centers",
+                          "Photography Tour Leaders",
+                          "Cycling & Hiking Tours",
+                          "Scuba & Diving Operations",
+                        ].map((client, idx) => (
+                          <div key={idx} className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors group">
+                            <ArrowRight className="w-3 h-3 text-cyan-400 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                            <span>{client}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Platform Integration */}
+                  <AccordionItem value="integration" className="border-white/10 rounded-lg overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-orange-400 py-4 px-5 bg-white/5 hover:bg-white/10 transition-colors rounded-lg" data-testid="accordion-travel-integration">
+                      <span className="flex items-center gap-3">
+                        <Layers className="w-5 h-5 text-orange-400" />
+                        <span className="font-semibold">Booking Platform Integration</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="space-y-4">
+                        <p className="text-sm text-slate-300 leading-relaxed">
+                          We design custom travel protection programs that integrate directly into your booking flow—whether you're using a custom platform, third-party reservation system, or managing annual trip schedules.
+                        </p>
+                        <div className="grid grid-cols-1 gap-3">
+                          {[
+                            { icon: Globe, title: "API Integration", desc: "Seamless embedding into your booking platform checkout" },
+                            { icon: Calendar, title: "Annual Schedule Programs", desc: "Blanket coverage for recurring trips and seasonal schedules" },
+                            { icon: FileText, title: "White-Label Solutions", desc: "Branded insurance products under your company identity" },
+                            { icon: Zap, title: "Real-Time Quotes", desc: "Instant pricing based on trip details and participant count" },
+                          ].map((feature, idx) => {
+                            const IconComponent = feature.icon;
+                            return (
+                              <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-orange-500/10 border border-orange-500/20">
+                                <div className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0 bg-orange-500/20">
+                                  <IconComponent className="w-4 h-4 text-orange-400" />
+                                </div>
+                                <div className="flex-1">
+                                  <span className="text-sm font-semibold text-white block">{feature.title}</span>
+                                  <p className="text-xs text-slate-400">{feature.desc}</p>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                {/* CTA Button */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-semibold shadow-lg shadow-sky-500/30 hover:shadow-sky-500/50 transition-all duration-300"
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-adventure-travel-apply"
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    Discuss Your Program
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Benefits & Stats */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Annual Programs Card */}
+              <Card className="p-6 bg-gradient-to-br from-sky-900/40 to-cyan-900/30 border-sky-500/30 relative overflow-hidden" data-testid="card-annual-programs">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/15 rounded-full blur-3xl" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-sky-500 flex items-center justify-center mb-4" style={{ boxShadow: '0 0 30px rgba(14, 165, 233, 0.4)' }}>
+                    <Calendar className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">Annual Schedule Programs</h3>
+                  <p className="text-sky-400 text-lg font-medium mb-4">Blanket Coverage for Tour Operators</p>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-4">
+                    Perfect for operators with recurring trips. One policy covers your entire season—no per-trip administration required.
+                  </p>
+                  <ul className="space-y-2">
+                    {[
+                      "Cover unlimited departures per season",
+                      "Simplified participant enrollment",
+                      "Predictable annual premium",
+                      "Custom coverage tiers available",
+                    ].map((benefit, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-slate-300">
+                        <CheckCircle className="w-4 h-4 text-sky-400 flex-shrink-0" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-sky-500/40 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center mb-3">
+                    <Globe className="w-5 h-5 text-sky-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">180+</p>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-400">Countries Covered</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-cyan-500/40 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-3">
+                    <Shield className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">$500K</p>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-400">Medical Evac Limit</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-orange-500/40 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center mb-3">
+                    <Zap className="w-5 h-5 text-orange-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">API</p>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-400">Integration Ready</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-sky-500/40 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/20 flex items-center justify-center mb-3">
+                    <Award className="w-5 h-5 text-sky-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">White</p>
+                  <p className="text-[10px] uppercase tracking-wider text-slate-400">Label Options</p>
+                </Card>
+              </div>
+
+              {/* Contact Card */}
+              <Card className="p-5 bg-slate-800/50 border-slate-700">
+                <h4 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-sky-400" />
+                  Travel Programs Team
+                </h4>
+                <p className="text-slate-400 text-sm mb-3">
+                  Ready to discuss custom travel protection for your operation?
+                </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:travel@matterhornprotects.com" className="text-sky-400 text-sm hover:text-sky-300 transition-colors flex items-center gap-2">
+                    <Mail className="w-4 h-4" />
+                    travel@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-cyan-400 text-sm hover:text-cyan-300 transition-colors flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    1-844-600-0611
+                  </a>
+                </div>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
 
