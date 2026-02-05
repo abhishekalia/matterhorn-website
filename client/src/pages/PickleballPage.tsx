@@ -441,31 +441,6 @@ export default function PickleballPage() {
                   </div>
                 </Card>
               ))}
-
-              {/* CTA Card */}
-              <Card className="p-5 bg-[#0D1B2A] border-emerald-500/40 mt-6 relative overflow-hidden" data-testid="card-cta-apply">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/25 to-teal-900/15 pointer-events-none" />
-                <div className="flex items-center gap-3 mb-3 relative z-10">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.4)' }}>
-                    <Zap className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest text-emerald-400">Ready to Start?</p>
-                    <p className="font-semibold text-white">Get Your Quote Today</p>
-                  </div>
-                </div>
-                <Button
-                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium"
-                  asChild
-                  data-testid="button-apply-coverage-section"
-                >
-                  <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
-                    <FileText className="w-4 h-4 mr-2" />
-                    Start Application
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
-              </Card>
             </div>
           </div>
         </div>
