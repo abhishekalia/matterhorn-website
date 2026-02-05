@@ -127,37 +127,55 @@ export default function AdventureSportsPage() {
     return `${baseClasses} ${visibleSections.has(sectionId) ? visibleClasses : hiddenClasses}`;
   };
 
-  // Program highlights for Adventure Tour & Guide Operators
+  // Program highlights for Adventure Tour & Guide Operators - with detailed limits
   const programHighlights = [
     {
       title: "General Liability Coverage",
-      content: "Comprehensive GL coverage up to $5M per occurrence protecting tour operators, outfitters, and guides against third-party bodily injury and property damage claims arising from adventure activities.",
-      limit: "$5M per occurrence",
+      content: "Comprehensive GL coverage protecting outfitters and guides against third-party bodily injury and property damage claims arising from hunting, fishing, and adventure activities.",
+      limit: "Up to $5M per occurrence",
+      icon: Shield,
     },
     {
       title: "Professional Liability / E&O",
-      content: "Protection for claims arising from alleged negligent acts, errors, or omissions in providing guide services, instruction, or adventure activity supervision. Critical coverage for certified guides and instructors.",
-      limit: "$2M aggregate",
+      content: "Protection for claims arising from alleged negligent acts, errors, or omissions in providing guide services, instruction, or activity supervision. Critical coverage for licensed guides and outfitters.",
+      limit: "Up to $2M aggregate",
+      icon: Briefcase,
+    },
+    {
+      title: "Firearms Liability",
+      content: "Specialized coverage for hunting operations including accidental discharge, firearm instruction liability, and range safety incidents.",
+      limit: "Up to $1M per occurrence",
+      icon: Crosshair,
     },
     {
       title: "Participant Accident Medical",
-      content: "Primary medical coverage for participants regardless of fault, covering immediate medical expenses, emergency evacuation, and follow-up care for injuries sustained during guided activities.",
-      limit: "$50K per participant",
+      content: "Primary medical coverage for participants regardless of fault, covering immediate medical expenses, emergency evacuation, and follow-up care for injuries.",
+      limit: "Up to $100K per participant",
+      icon: Heart,
     },
     {
-      title: "Equipment & Property",
-      content: "Coverage for owned, leased, or rented adventure equipment including watercraft, climbing gear, ATVs, snowmobiles, and specialized outdoor equipment used in operations.",
-      limit: "$500K per location",
+      title: "Watercraft & Equipment",
+      content: "Coverage for owned, leased, or rented equipment including fishing boats, ATVs, snowmobiles, firearms, and specialized outdoor gear.",
+      limit: "Up to $500K per location",
+      icon: Anchor,
+    },
+    {
+      title: "Aviation Liability",
+      content: "Coverage for fly-in operations, bush plane transportation, and helicopter access to remote hunting and fishing locations.",
+      limit: "Up to $5M per occurrence",
+      icon: Plane,
     },
     {
       title: "Remote Evacuation & Rescue",
-      content: "Specialized coverage for search and rescue operations, helicopter evacuation, and emergency medical transport from remote wilderness locations.",
-      limit: "$100K per incident",
+      content: "Specialized coverage for search and rescue operations, helicopter evacuation, and emergency medical transport from remote wilderness.",
+      limit: "Up to $100K per incident",
+      icon: Navigation,
     },
     {
-      title: "Waiver Enhancement Coverage",
-      content: "Additional protection that responds when participant waivers are challenged or deemed unenforceable, providing an extra layer of defense for operators.",
-      limit: "Included",
+      title: "Lodge & Property Coverage",
+      content: "Property protection for remote lodges, cabins, camps, and all associated structures including equipment storage and guest facilities.",
+      limit: "Up to $2M per location",
+      icon: Tent,
     },
   ];
 
@@ -170,10 +188,10 @@ export default function AdventureSportsPage() {
       activities: ["Whitewater Rafting", "Sea Kayaking", "SUP Tours", "Surf Schools", "Scuba Operations"],
     },
     {
-      title: "Mountain & Climbing",
-      description: "Rock climbing guides, mountaineering expeditions, via ferrata operations, and alpine touring.",
-      icon: Mountain,
-      activities: ["Rock Climbing", "Mountaineering", "Ice Climbing", "Via Ferrata", "Alpine Skiing"],
+      title: "Backcountry Fishing",
+      description: "Fly-in lodges, remote fishing camps, guided river trips, and backcountry fishing operations.",
+      icon: Fish,
+      activities: ["Fly-In Lodges", "River Guides", "Backcountry Camps", "Saltwater Charters", "Ice Fishing"],
     },
     {
       title: "Aerial Adventures",
@@ -182,10 +200,10 @@ export default function AdventureSportsPage() {
       activities: ["Zip Line Tours", "Paragliding", "Hang Gliding", "Skydiving", "Canopy Tours"],
     },
     {
-      title: "Wilderness Expeditions",
-      description: "Multi-day backcountry trips, wilderness survival courses, and remote camping operations.",
-      icon: Compass,
-      activities: ["Backpacking Trips", "Wilderness Survival", "Remote Camping", "Desert Expeditions", "Arctic Tours"],
+      title: "Hunting Outfitters",
+      description: "Big game hunting guides, waterfowl operations, upland bird hunts, and remote hunting camps.",
+      icon: Crosshair,
+      activities: ["Big Game Guides", "Waterfowl Hunts", "Upland Birds", "Remote Camps", "Trophy Hunts"],
     },
     {
       title: "Eco-Tourism & Wildlife",
@@ -246,16 +264,16 @@ export default function AdventureSportsPage() {
       ],
     },
     {
-      title: "Alpine Climbing & Mountaineering School",
-      category: "Mountain Sports",
-      location: "Washington State",
-      challenge: "A mountaineering school offering courses from basic rock climbing to technical alpine ascents needed coverage that scaled with activity risk and included international expedition coverage.",
-      solution: "Designed a tiered program with activity-specific limits, instructor professional liability, and a separate expedition endorsement for their annual international climbing trips.",
-      results: { premium: "$92K", students: "800+", summits: "50+" },
+      title: "Big Game Hunting Outfitter Network",
+      category: "Hunting Outfitters",
+      location: "Montana / Wyoming / Colorado",
+      challenge: "A network of three big game hunting outfitters with backcountry camps, horse pack strings, and guided hunts across three western states needed unified coverage with firearms liability and remote evacuation.",
+      solution: "Designed a master program with unified $5M limits across all operations, firearms liability, livestock coverage for pack horses, and remote wilderness evacuation endorsements.",
+      results: { premium: "$145K", camps: "8", hunters: "400+" },
       image: rockClimbingImg,
       brokerBenefits: [
-        "Accessed specialty mountaineering markets",
-        "Built niche expertise in climbing sector",
+        "Accessed specialty hunting outfitter markets",
+        "Built niche expertise in backcountry operations",
         "Generated referrals from outdoor industry",
       ],
     },
@@ -407,7 +425,7 @@ export default function AdventureSportsPage() {
           </p>
           
           <p className={`text-lg mb-10 max-w-3xl mx-auto leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-            From whitewater rapids to mountain summits, we understand the unique risks of adventure operations and design coverage that protects your business and your participants.
+            From backcountry fishing lodges to remote hunting outfitters, we understand the unique risks of adventure operations and design coverage that protects your business and your participants.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -470,93 +488,243 @@ export default function AdventureSportsPage() {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className={`text-center mb-12 ${getAnimationClass("programs")}`}>
-            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-medium mb-2" style={{ color: NEON_COLORS.amber }}>
-              Program Highlights
-            </p>
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Adventure Tour & Guide{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
-                Operators
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-[1px]" style={{ background: `linear-gradient(to right, transparent, ${NEON_COLORS.amber})` }} />
+              <Badge className="text-[10px] uppercase tracking-widest px-4" style={{ backgroundColor: `${NEON_COLORS.amber}20`, color: NEON_COLORS.amber, borderColor: `${NEON_COLORS.amber}40` }}>
+                Program Highlights
+              </Badge>
+              <div className="w-12 h-[1px]" style={{ background: `linear-gradient(to left, transparent, ${NEON_COLORS.amber})` }} />
+            </div>
+            <h2 className={`text-3xl md:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              Backcountry Fishing &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-emerald-500">
+                Hunting Coverage
               </span>
             </h2>
-            <p className={`text-lg max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-              Comprehensive coverage designed specifically for adventure tourism businesses, outdoor outfitters, and professional guides.
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+              Comprehensive coverage designed specifically for hunting outfitters, fishing guides, and remote lodge operators.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Accordion */}
-            <div className="lg:col-span-2">
-              <Card className={`p-6 ${isDarkMode ? 'bg-[#1B2A41]/50 border-amber-500/20' : 'bg-white border-gray-200'}`}>
-                <Accordion type="single" collapsible className="space-y-2">
-                  {programHighlights.map((item, index) => (
-                    <AccordionItem 
-                      key={index} 
-                      value={`item-${index}`}
-                      className={`border rounded-lg px-4 transition-all duration-300 ${
-                        isDarkMode ? 'border-white/10 hover:border-amber-500/30' : 'border-gray-200 hover:border-amber-500/30'
-                      }`}
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Main Program Card with Accordions */}
+            <div className="lg:col-span-7 space-y-6">
+              <Card className={`p-8 relative overflow-hidden ${isDarkMode ? 'bg-[#1B2A41]/60 border-amber-500/20' : 'bg-white border-amber-200'} backdrop-blur-sm`} data-testid="card-program-details">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: `linear-gradient(90deg, ${NEON_COLORS.amber}, ${NEON_COLORS.orange}, ${NEON_COLORS.emerald})` }} />
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${NEON_COLORS.amber}20`, boxShadow: `0 0 25px ${NEON_COLORS.amber}25` }}>
+                    <Crosshair className="w-6 h-6" style={{ color: NEON_COLORS.amber }} />
+                  </div>
+                  <div>
+                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Outfitter & Guide Programs</h3>
+                    <p className="text-sm" style={{ color: NEON_COLORS.amber }}>Coverage limits up to $5M available</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["coverages"]} className="space-y-3">
+                  {/* Coverage Highlights Accordion */}
+                  <AccordionItem value="coverages" className={`border rounded-lg overflow-hidden ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <AccordionTrigger 
+                      className={`text-base py-4 px-5 rounded-lg hover-elevate ${isDarkMode ? 'text-white bg-white/5' : 'text-gray-900 bg-gray-50'}`}
+                      style={{ 
+                        ['--tw-bg-opacity' as string]: isDarkMode ? undefined : undefined,
+                      }}
+                      data-testid="accordion-coverage-highlights"
                     >
-                      <AccordionTrigger className={`text-left py-4 ${isDarkMode ? 'text-white hover:text-amber-500' : 'text-gray-900 hover:text-amber-600'}`}>
-                        <div className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                          <span className="font-medium">{item.title}</span>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className={`pb-4 ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
-                        <p className="mb-3">{item.content}</p>
-                        <Badge className="bg-amber-500/20 text-amber-500 border-amber-500/30">
-                          {item.limit}
-                        </Badge>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
+                      <span className="flex items-center gap-3">
+                        <Shield className="w-5 h-5" style={{ color: NEON_COLORS.amber }} />
+                        <span className="font-semibold">Coverage Highlights & Limits</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-1 gap-3">
+                        {programHighlights.map((item, idx) => {
+                          const IconComponent = item.icon;
+                          return (
+                            <div key={idx} className={`flex items-start gap-3 group p-3 rounded-lg transition-colors ${isDarkMode ? 'hover:bg-white/5' : 'hover:bg-gray-50'}`}>
+                              <div className="w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${NEON_COLORS.amber}20` }}>
+                                <IconComponent className="w-4 h-4" style={{ color: NEON_COLORS.amber }} />
+                              </div>
+                              <div className="flex-1">
+                                <div className="flex items-center justify-between gap-2 mb-1">
+                                  <span className={`text-sm font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                                    {item.title}
+                                  </span>
+                                  <Badge className="text-[10px] font-bold whitespace-nowrap" style={{ backgroundColor: `${NEON_COLORS.amber}20`, color: NEON_COLORS.amber, borderColor: `${NEON_COLORS.amber}30` }}>
+                                    {item.limit}
+                                  </Badge>
+                                </div>
+                                <p className={`text-xs ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>{item.content}</p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Operations We Cover Accordion */}
+                  <AccordionItem value="operations" className={`border rounded-lg overflow-hidden ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <AccordionTrigger 
+                      className={`text-base py-4 px-5 rounded-lg hover-elevate ${isDarkMode ? 'text-white bg-white/5' : 'text-gray-900 bg-gray-50'}`}
+                      data-testid="accordion-operations"
+                    >
+                      <span className="flex items-center gap-3">
+                        <Target className="w-5 h-5" style={{ color: NEON_COLORS.emerald }} />
+                        <span className="font-semibold">Operations We Cover</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          { icon: Fish, label: "Fly-In Fishing Lodges" },
+                          { icon: Crosshair, label: "Big Game Outfitters" },
+                          { icon: Anchor, label: "Charter Fishing Boats" },
+                          { icon: Tent, label: "Remote Hunting Camps" },
+                          { icon: Compass, label: "Backcountry Guides" },
+                          { icon: TreePine, label: "Wilderness Lodges" },
+                          { icon: Ship, label: "Fishing Expeditions" },
+                          { icon: Navigation, label: "Float Trip Operators" },
+                          { icon: Globe, label: "International Outfitters" },
+                          { icon: Plane, label: "Fly-In Operations" },
+                        ].map((op, idx) => {
+                          const OpIcon = op.icon;
+                          return (
+                            <div key={idx} className={`flex items-center gap-2 text-sm ${isDarkMode ? 'text-white/80' : 'text-gray-700'}`}>
+                              <OpIcon className="w-4 h-4 flex-shrink-0" style={{ color: NEON_COLORS.emerald }} />
+                              <span>{op.label}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Program Features Accordion */}
+                  <AccordionItem value="features" className={`border rounded-lg overflow-hidden ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <AccordionTrigger 
+                      className={`text-base py-4 px-5 rounded-lg hover-elevate ${isDarkMode ? 'text-white bg-white/5' : 'text-gray-900 bg-gray-50'}`}
+                      data-testid="accordion-features"
+                    >
+                      <span className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5" style={{ color: NEON_COLORS.orange }} />
+                        <span className="font-semibold">Program Features & Benefits</span>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-2 px-2">
+                      <ul className="space-y-3">
+                        {[
+                          { text: "Firearms liability included for hunting operations", highlight: true },
+                          { text: "Aviation coverage for fly-in lodges", highlight: true },
+                          { text: "Watercraft hull and liability coverage", highlight: true },
+                          { text: "Remote wilderness evacuation coverage", highlight: true },
+                          { text: "In-house binding authority for faster quotes", highlight: false },
+                          { text: "Same-day broker appointments available", highlight: false },
+                          { text: "Worldwide territory options", highlight: false },
+                          { text: "Claims advocacy and support", highlight: false },
+                        ].map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0`} style={{ backgroundColor: feature.highlight ? NEON_COLORS.orange : isDarkMode ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.3)' }} />
+                            <span className={`text-sm ${feature.highlight ? 'font-medium' : ''}`} style={{ color: feature.highlight ? NEON_COLORS.orange : isDarkMode ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.6)' }}>
+                              {feature.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
                 </Accordion>
+
+                {/* CTA Button */}
+                <div className={`mt-8 pt-6 border-t ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                  <Button
+                    size="lg"
+                    className="w-full font-semibold shadow-lg transition-all duration-300"
+                    style={{ backgroundColor: NEON_COLORS.amber, color: '#000', boxShadow: `0 0 20px ${NEON_COLORS.amber}40` }}
+                    onClick={() => setApplicationModalOpen(true)}
+                    data-testid="button-get-quote"
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    Get a Quote Today
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
               </Card>
             </div>
 
-            {/* Quick Facts Sidebar */}
-            <div className="space-y-6">
-              <Card className={`p-6 ${isDarkMode ? 'bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-amber-500/30' : 'bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200'}`}>
-                <h3 className={`font-bold text-lg mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Quick Facts</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Coverage Limits</span>
-                    <span className="text-amber-500 font-semibold">Up to $5M</span>
+            {/* Right Column - Quick Facts & Contact */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Competitive Advantage Callout */}
+              <Card className={`p-6 relative overflow-hidden ${isDarkMode ? 'border-amber-500/30' : 'border-amber-200'}`} style={{ background: isDarkMode ? `linear-gradient(135deg, ${NEON_COLORS.amber}15, ${NEON_COLORS.orange}10)` : `linear-gradient(135deg, #fef3c7, #fed7aa)` }} data-testid="card-competitive-advantage">
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl" style={{ backgroundColor: `${NEON_COLORS.amber}20` }} />
+                <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full blur-2xl" style={{ backgroundColor: `${NEON_COLORS.orange}15` }} />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: NEON_COLORS.amber, boxShadow: `0 0 30px ${NEON_COLORS.amber}40` }}>
+                    <Fish className="w-7 h-7 text-black" />
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Quote Turnaround</span>
-                    <span className="text-amber-500 font-semibold">24-48 hrs</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Territory</span>
-                    <span className="text-amber-500 font-semibold">Worldwide</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>Carrier Rating</span>
-                    <span className="text-amber-500 font-semibold">A+ Rated</span>
-                  </div>
+                  <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Backcountry Specialists</h3>
+                  <p className="text-lg font-medium mb-4" style={{ color: NEON_COLORS.amber }}>
+                    Fly-In Fishing & Remote Hunting
+                  </p>
+                  <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/70' : 'text-gray-600'}`}>
+                    We understand the unique exposures of remote operations—from bush plane transportation to bear country liability. Our programs are built for the backcountry.
+                  </p>
                 </div>
               </Card>
 
-              <Button
-                size="lg"
-                onClick={() => setApplicationModalOpen(true)}
-                className="w-full bg-amber-500 text-black font-bold"
-                data-testid="button-apply-programs"
-              >
-                Request Quote
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              {/* Quick Facts Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className={`p-5 ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10' : 'bg-white border-gray-200'}`} data-testid="card-quick-fact-1">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${NEON_COLORS.amber}20` }}>
+                    <Clock className="w-5 h-5" style={{ color: NEON_COLORS.amber }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>24-48hr</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Quote Turnaround</p>
+                </Card>
+                <Card className={`p-5 ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10' : 'bg-white border-gray-200'}`} data-testid="card-quick-fact-2">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${NEON_COLORS.emerald}20` }}>
+                    <Globe className="w-5 h-5" style={{ color: NEON_COLORS.emerald }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Worldwide</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Territory Options</p>
+                </Card>
+                <Card className={`p-5 ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10' : 'bg-white border-gray-200'}`} data-testid="card-quick-fact-3">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${NEON_COLORS.orange}20` }}>
+                    <Shield className="w-5 h-5" style={{ color: NEON_COLORS.orange }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>A+ Rated</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Carrier Partners</p>
+                </Card>
+                <Card className={`p-5 ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10' : 'bg-white border-gray-200'}`} data-testid="card-quick-fact-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: `${NEON_COLORS.amber}20` }}>
+                    <Award className="w-5 h-5" style={{ color: NEON_COLORS.amber }} />
+                  </div>
+                  <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Same Day</p>
+                  <p className={`text-sm ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>Appointments</p>
+                </Card>
+              </div>
 
-              <Card className={`p-6 ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10' : 'bg-white border-gray-200'}`}>
-                <div className="flex items-center gap-3 mb-3">
-                  <Award className="w-6 h-6 text-amber-500" />
-                  <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Industry Recognition</span>
-                </div>
-                <p className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
-                  Trusted by adventure operators across 50 states and 30+ countries with specialized expertise in high-risk outdoor activities.
+              {/* Contact Card */}
+              <Card className={`p-5 ${isDarkMode ? 'bg-[#1B2A41]/50 border-white/10' : 'bg-white border-gray-200'}`} data-testid="card-contact-info">
+                <h4 className={`text-sm font-semibold mb-3 flex items-center gap-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <Mail className="w-4 h-4" style={{ color: NEON_COLORS.amber }} />
+                  Need More Information?
+                </h4>
+                <p className={`text-sm mb-3 ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
+                  Reach out to our adventure sports team for program details and custom quotes.
                 </p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:adventure@matterhornprotects.com" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.amber }}>
+                    <Mail className="w-3 h-3" />
+                    adventure@matterhornprotects.com
+                  </a>
+                  <a href="tel:1-844-600-0611" className="text-sm hover:opacity-80 transition-colors flex items-center gap-2" style={{ color: NEON_COLORS.emerald }}>
+                    <Phone className="w-3 h-3" />
+                    1-844-600-0611
+                  </a>
+                </div>
               </Card>
             </div>
           </div>
