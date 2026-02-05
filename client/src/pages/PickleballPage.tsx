@@ -960,11 +960,11 @@ export default function PickleballPage() {
                     Case Study
                   </Badge>
                   
-                  <h3 className="text-2xl font-bold text-white mb-2">Pickleball Kingdom</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">Dink & Drive Clubs</h3>
                   <p className="text-emerald-400 font-medium mb-4">National Franchise Network</p>
                   
                   <p className="text-white/80 text-sm leading-relaxed mb-6">
-                    Pickleball Kingdom, one of the fastest-growing pickleball franchise networks, partnered with Matterhorn to create a comprehensive insurance program for their 50+ locations nationwide.
+                    Dink & Drive Clubs, one of the fastest-growing pickleball franchise networks, partnered with Matterhorn to create a comprehensive insurance program for their 50+ locations nationwide.
                   </p>
 
                   <div className="grid grid-cols-2 gap-4 mb-6">
