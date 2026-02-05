@@ -938,6 +938,255 @@ export default function PickleballPage() {
         </div>
       </section>
 
+      {/* Cost Comparison Section */}
+      <section id="cost-comparison" className="py-24 relative overflow-hidden" data-testid="section-cost-comparison">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 right-1/4 w-96 h-96 rounded-full blur-[150px] animate-pulse bg-emerald-500/15" />
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-teal-500/12" style={{ animationDelay: "2s" }} />
+          <div className="absolute top-1/2 right-0 w-64 h-64 rounded-full blur-[100px] animate-pulse bg-cyan-500/10" style={{ animationDelay: "1s" }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' }}>
+              <TrendingDown className="w-3 h-3 mr-1" />
+              Real Savings Analysis
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-comparison-title">
+              See How We{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                Beat Market Rates
+              </span>
+            </h2>
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Our specialized program delivers consistent savings across every coverage type. See the detailed breakdown for a 16-court indoor facility.
+            </p>
+          </div>
+
+          {/* Facility Profile Card */}
+          <div className="max-w-5xl mx-auto mb-12">
+            <Card className="p-6 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-facility-profile">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
+              <div className="flex flex-wrap items-center justify-between gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.2)' }}>
+                    <Building2 className="w-7 h-7 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Sample Facility Profile</h3>
+                    <p className="text-sm text-emerald-400">Mid-Size Indoor Complex</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
+                    <p className="text-2xl font-bold text-white">16</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Courts</p>
+                  </div>
+                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
+                    <p className="text-2xl font-bold text-white">45K</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Sq Ft</p>
+                  </div>
+                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
+                    <p className="text-2xl font-bold text-white">$2.8M</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Revenue</p>
+                  </div>
+                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
+                    <p className="text-2xl font-bold text-white">12</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Staff</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Main Comparison Grid */}
+          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
+            {/* Left Column - Visual Bar Comparison */}
+            <div className="lg:col-span-7">
+              <Card className="p-8 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-visual-comparison">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
+                
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center">
+                      <BarChart3 className="w-6 h-6 text-emerald-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">Coverage Comparison</h3>
+                      <p className="text-sm text-emerald-400">Line-by-Line Analysis</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 text-xs">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded bg-slate-500" />
+                      <span className="text-slate-400">Market</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded bg-gradient-to-r from-emerald-500 to-teal-400" />
+                      <span className="text-emerald-400">Matterhorn</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Coverage Bars */}
+                <div className="space-y-6">
+                  {[
+                    { name: "General Liability", market: 35000, matterhorn: 28000, icon: Shield, savings: "20%" },
+                    { name: "Property Coverage", market: 18000, matterhorn: 14400, icon: Building2, savings: "20%" },
+                    { name: "Equipment Breakdown", market: 8000, matterhorn: 6000, icon: Wrench, savings: "25%" },
+                    { name: "Directors & Officers", market: 7500, matterhorn: 5625, icon: Users, savings: "25%" },
+                    { name: "Employment Practices", market: 6000, matterhorn: 4800, icon: Scale, savings: "20%" },
+                    { name: "Cyber Liability", market: 4000, matterhorn: 3000, icon: Lock, savings: "25%" },
+                    { name: "Liquor Liability", market: 3500, matterhorn: 2800, icon: Wine, savings: "20%" },
+                    { name: "Abuse & Molestation", market: 2500, matterhorn: 1875, icon: Shield, savings: "25%" },
+                  ].map((item, index) => (
+                    <div key={index} className="group">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2">
+                          <item.icon className="w-4 h-4 text-slate-400 group-hover:text-emerald-400 transition-colors" />
+                          <span className="text-sm text-white font-medium">{item.name}</span>
+                        </div>
+                        <div className="flex items-center gap-4 text-xs">
+                          <span className="text-slate-400">${item.market.toLocaleString()}</span>
+                          <span className="text-emerald-400 font-semibold">${item.matterhorn.toLocaleString()}</span>
+                          <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-[10px] px-2 py-0">
+                            -{item.savings}
+                          </Badge>
+                        </div>
+                      </div>
+                      <div className="relative h-4 bg-slate-800 rounded-full overflow-hidden">
+                        {/* Market bar (background) */}
+                        <div 
+                          className="absolute inset-y-0 left-0 bg-slate-600/50 rounded-full"
+                          style={{ width: `${(item.market / 35000) * 100}%` }}
+                        />
+                        {/* Matterhorn bar (overlay) */}
+                        <div 
+                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500 group-hover:shadow-lg group-hover:shadow-emerald-500/30"
+                          style={{ width: `${(item.matterhorn / 35000) * 100}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Totals */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-slate-400 mb-1">Annual Premium Totals</p>
+                      <div className="flex items-center gap-6">
+                        <div>
+                          <span className="text-slate-400 text-sm">Market: </span>
+                          <span className="text-white font-bold text-xl line-through decoration-red-400/50">$84,500</span>
+                        </div>
+                        <div>
+                          <span className="text-emerald-400 text-sm">Matterhorn: </span>
+                          <span className="text-emerald-400 font-bold text-2xl">$66,500</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Right Column - Savings Summary */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Total Savings Card */}
+              <Card className="p-6 bg-[#0D1B2A] border-emerald-500/40 relative overflow-hidden group" data-testid="card-total-savings">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 to-teal-900/20 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/15 rounded-full blur-3xl group-hover:bg-emerald-500/25 transition-all pointer-events-none" />
+                
+                <div className="relative z-10 text-center">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-400 mb-2">Your Annual Savings</p>
+                  <div className="relative">
+                    <p className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400" style={{ textShadow: '0 0 40px rgba(16, 185, 129, 0.3)' }}>
+                      $18,000
+                    </p>
+                    <div className="absolute -inset-4 bg-emerald-500/10 blur-2xl rounded-full -z-10" />
+                  </div>
+                  <p className="text-slate-300 mt-2">Per Year</p>
+                  
+                  <div className="grid grid-cols-2 gap-4 mt-6">
+                    <div className="p-4 rounded-lg bg-white/[0.03] border border-white/10">
+                      <p className="text-3xl font-bold text-emerald-400">21%</p>
+                      <p className="text-xs text-slate-400">Average Savings</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white/[0.03] border border-white/10">
+                      <p className="text-3xl font-bold text-teal-400">$90K</p>
+                      <p className="text-xs text-slate-400">5-Year Savings</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* What You Get Card */}
+              <Card className="p-6 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm" data-testid="card-what-you-get">
+                <h4 className="font-bold text-white mb-4 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-emerald-400" />
+                  What's Included
+                </h4>
+                <div className="space-y-3">
+                  {[
+                    "8 coverage lines in single program",
+                    "A-rated carrier backing",
+                    "Dedicated claims advocate",
+                    "Certificate management portal",
+                    "Annual coverage review",
+                    "Risk management resources",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="w-3 h-3 text-emerald-400" />
+                      </div>
+                      <span className="text-sm text-white/80">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              {/* Broker Quote */}
+              <Card className="p-5 bg-gradient-to-br from-emerald-900/20 to-teal-900/10 border-emerald-500/20" data-testid="card-broker-quote">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                    <Star className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <p className="text-white/90 text-sm italic leading-relaxed">
+                      "My client was paying $92K with their previous carrier. We moved them to Matterhorn and cut that to $71K with better coverage. The savings sold itself."
+                    </p>
+                    <p className="text-emerald-400 text-sm font-medium mt-3">— Commercial Lines Broker, Texas</p>
+                  </div>
+                </div>
+              </Card>
+
+              {/* CTA */}
+              <Button
+                size="lg"
+                className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
+                asChild
+                data-testid="button-get-custom-quote"
+              >
+                <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
+                  <Target className="w-5 h-5 mr-2" />
+                  Get Your Custom Quote
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Disclaimer */}
+          <p className="text-center text-slate-500 text-sm mt-10 max-w-3xl mx-auto">
+            Rates shown are representative examples based on a typical mid-size facility profile. Your actual premium will be determined by location, claims history, coverage limits, and specific risk factors. All savings are illustrative and not guaranteed.
+          </p>
+        </div>
+      </section>
+
       {/* New Facilities Program Section */}
       <section id="new-facilities" className="py-24 relative overflow-hidden" data-testid="section-new-facilities">
         {/* Animated Background */}
@@ -1257,255 +1506,6 @@ export default function PickleballPage() {
               </Card>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Cost Comparison Section */}
-      <section id="cost-comparison" className="py-24 relative overflow-hidden" data-testid="section-cost-comparison">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-950" />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 right-1/4 w-96 h-96 rounded-full blur-[150px] animate-pulse bg-emerald-500/15" />
-          <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-teal-500/12" style={{ animationDelay: "2s" }} />
-          <div className="absolute top-1/2 right-0 w-64 h-64 rounded-full blur-[100px] animate-pulse bg-cyan-500/10" style={{ animationDelay: "1s" }} />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' }}>
-              <TrendingDown className="w-3 h-3 mr-1" />
-              Real Savings Analysis
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-comparison-title">
-              See How We{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
-                Beat Market Rates
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Our specialized program delivers consistent savings across every coverage type. See the detailed breakdown for a 16-court indoor facility.
-            </p>
-          </div>
-
-          {/* Facility Profile Card */}
-          <div className="max-w-5xl mx-auto mb-12">
-            <Card className="p-6 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-facility-profile">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
-              <div className="flex flex-wrap items-center justify-between gap-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.2)' }}>
-                    <Building2 className="w-7 h-7 text-emerald-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">Sample Facility Profile</h3>
-                    <p className="text-sm text-emerald-400">Mid-Size Indoor Complex</p>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
-                    <p className="text-2xl font-bold text-white">16</p>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Courts</p>
-                  </div>
-                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
-                    <p className="text-2xl font-bold text-white">45K</p>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Sq Ft</p>
-                  </div>
-                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
-                    <p className="text-2xl font-bold text-white">$2.8M</p>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Revenue</p>
-                  </div>
-                  <div className="text-center px-5 py-3 rounded-lg bg-white/[0.03] border border-white/10">
-                    <p className="text-2xl font-bold text-white">12</p>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-400">Staff</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Main Comparison Grid */}
-          <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
-            {/* Left Column - Visual Bar Comparison */}
-            <div className="lg:col-span-7">
-              <Card className="p-8 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-visual-comparison">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
-                
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center">
-                      <BarChart3 className="w-6 h-6 text-emerald-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">Coverage Comparison</h3>
-                      <p className="text-sm text-emerald-400">Line-by-Line Analysis</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded bg-slate-500" />
-                      <span className="text-slate-400">Market</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded bg-gradient-to-r from-emerald-500 to-teal-400" />
-                      <span className="text-emerald-400">Matterhorn</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Coverage Bars */}
-                <div className="space-y-6">
-                  {[
-                    { name: "General Liability", market: 35000, matterhorn: 28000, icon: Shield, savings: "20%" },
-                    { name: "Property Coverage", market: 18000, matterhorn: 14400, icon: Building2, savings: "20%" },
-                    { name: "Equipment Breakdown", market: 8000, matterhorn: 6000, icon: Wrench, savings: "25%" },
-                    { name: "Directors & Officers", market: 7500, matterhorn: 5625, icon: Users, savings: "25%" },
-                    { name: "Employment Practices", market: 6000, matterhorn: 4800, icon: Scale, savings: "20%" },
-                    { name: "Cyber Liability", market: 4000, matterhorn: 3000, icon: Lock, savings: "25%" },
-                    { name: "Liquor Liability", market: 3500, matterhorn: 2800, icon: Wine, savings: "20%" },
-                    { name: "Abuse & Molestation", market: 2500, matterhorn: 1875, icon: Shield, savings: "25%" },
-                  ].map((item, index) => (
-                    <div key={index} className="group">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <item.icon className="w-4 h-4 text-slate-400 group-hover:text-emerald-400 transition-colors" />
-                          <span className="text-sm text-white font-medium">{item.name}</span>
-                        </div>
-                        <div className="flex items-center gap-4 text-xs">
-                          <span className="text-slate-400">${item.market.toLocaleString()}</span>
-                          <span className="text-emerald-400 font-semibold">${item.matterhorn.toLocaleString()}</span>
-                          <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-[10px] px-2 py-0">
-                            -{item.savings}
-                          </Badge>
-                        </div>
-                      </div>
-                      <div className="relative h-4 bg-slate-800 rounded-full overflow-hidden">
-                        {/* Market bar (background) */}
-                        <div 
-                          className="absolute inset-y-0 left-0 bg-slate-600/50 rounded-full"
-                          style={{ width: `${(item.market / 35000) * 100}%` }}
-                        />
-                        {/* Matterhorn bar (overlay) */}
-                        <div 
-                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500 group-hover:shadow-lg group-hover:shadow-emerald-500/30"
-                          style={{ width: `${(item.matterhorn / 35000) * 100}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Totals */}
-                <div className="mt-8 pt-6 border-t border-white/10">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-slate-400 mb-1">Annual Premium Totals</p>
-                      <div className="flex items-center gap-6">
-                        <div>
-                          <span className="text-slate-400 text-sm">Market: </span>
-                          <span className="text-white font-bold text-xl line-through decoration-red-400/50">$84,500</span>
-                        </div>
-                        <div>
-                          <span className="text-emerald-400 text-sm">Matterhorn: </span>
-                          <span className="text-emerald-400 font-bold text-2xl">$66,500</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            {/* Right Column - Savings Summary */}
-            <div className="lg:col-span-5 space-y-6">
-              {/* Total Savings Card */}
-              <Card className="p-6 bg-[#0D1B2A] border-emerald-500/40 relative overflow-hidden group" data-testid="card-total-savings">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 to-teal-900/20 pointer-events-none" />
-                <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/15 rounded-full blur-3xl group-hover:bg-emerald-500/25 transition-all pointer-events-none" />
-                
-                <div className="relative z-10 text-center">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-400 mb-2">Your Annual Savings</p>
-                  <div className="relative">
-                    <p className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400" style={{ textShadow: '0 0 40px rgba(16, 185, 129, 0.3)' }}>
-                      $18,000
-                    </p>
-                    <div className="absolute -inset-4 bg-emerald-500/10 blur-2xl rounded-full -z-10" />
-                  </div>
-                  <p className="text-slate-300 mt-2">Per Year</p>
-                  
-                  <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div className="p-4 rounded-lg bg-white/[0.03] border border-white/10">
-                      <p className="text-3xl font-bold text-emerald-400">21%</p>
-                      <p className="text-xs text-slate-400">Average Savings</p>
-                    </div>
-                    <div className="p-4 rounded-lg bg-white/[0.03] border border-white/10">
-                      <p className="text-3xl font-bold text-teal-400">$90K</p>
-                      <p className="text-xs text-slate-400">5-Year Savings</p>
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* What You Get Card */}
-              <Card className="p-6 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm" data-testid="card-what-you-get">
-                <h4 className="font-bold text-white mb-4 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-emerald-400" />
-                  What's Included
-                </h4>
-                <div className="space-y-3">
-                  {[
-                    "8 coverage lines in single program",
-                    "A-rated carrier backing",
-                    "Dedicated claims advocate",
-                    "Certificate management portal",
-                    "Annual coverage review",
-                    "Risk management resources",
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="w-3 h-3 text-emerald-400" />
-                      </div>
-                      <span className="text-sm text-white/80">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-
-              {/* Broker Quote */}
-              <Card className="p-5 bg-gradient-to-br from-emerald-900/20 to-teal-900/10 border-emerald-500/20" data-testid="card-broker-quote">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Star className="w-5 h-5 text-emerald-400" />
-                  </div>
-                  <div>
-                    <p className="text-white/90 text-sm italic leading-relaxed">
-                      "My client was paying $92K with their previous carrier. We moved them to Matterhorn and cut that to $71K with better coverage. The savings sold itself."
-                    </p>
-                    <p className="text-emerald-400 text-sm font-medium mt-3">— Commercial Lines Broker, Texas</p>
-                  </div>
-                </div>
-              </Card>
-
-              {/* CTA */}
-              <Button
-                size="lg"
-                className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
-                asChild
-                data-testid="button-get-custom-quote"
-              >
-                <a href="https://form.jotform.com/252675157861264" target="_blank" rel="noopener noreferrer">
-                  <Target className="w-5 h-5 mr-2" />
-                  Get Your Custom Quote
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          {/* Disclaimer */}
-          <p className="text-center text-slate-500 text-sm mt-10 max-w-3xl mx-auto">
-            Rates shown are representative examples based on a typical mid-size facility profile. Your actual premium will be determined by location, claims history, coverage limits, and specific risk factors. All savings are illustrative and not guaranteed.
-          </p>
         </div>
       </section>
 
