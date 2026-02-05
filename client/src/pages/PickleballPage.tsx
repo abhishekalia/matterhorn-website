@@ -47,6 +47,13 @@ import {
   Target,
   Award,
   Star,
+  Briefcase,
+  TrendingUp,
+  Handshake,
+  BadgeCheck,
+  BarChart3,
+  Network,
+  Layers,
 } from "lucide-react";
 import CustomCursor from "@/components/CustomCursor";
 import { BrokerApplicationModal } from "@/components/BrokerApplicationModal";
@@ -735,82 +742,309 @@ export default function PickleballPage() {
       </section>
 
       {/* Franchise Programs Section */}
-      <section id="franchise" className="py-20" data-testid="section-franchise">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+      <section id="franchise" className="py-24 relative overflow-hidden" data-testid="section-franchise">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-emerald-950/30 to-slate-950" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-[150px] animate-pulse bg-emerald-500/20" />
+          <div className="absolute top-1/2 right-0 w-80 h-80 rounded-full blur-[120px] animate-pulse bg-teal-500/15" style={{ animationDelay: "2s" }} />
+          <div className="absolute -bottom-40 left-1/3 w-72 h-72 rounded-full blur-[100px] animate-pulse bg-cyan-500/10" style={{ animationDelay: "1s" }} />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <Badge className="mb-6 px-4 py-1.5 bg-emerald-500/20 text-emerald-400 border-emerald-500/40" style={{ boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' }}>
+              <Network className="w-3 h-3 mr-1" />
               For Franchise Organizations
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4" data-testid="text-franchise-title">
-              Franchise Programs That Work
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight" data-testid="text-franchise-title">
+              Franchise Insurance Programs{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                That Drive Growth
+              </span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-              Specialized insurance solutions designed for pickleball franchises. Leverage collective buying power while generating revenue for your organization.
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Transform insurance from a cost center into a competitive advantage. Our franchise programs leverage collective buying power while creating new revenue streams for your organization.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Why Franchise Programs Make Sense</h3>
-              <div className="space-y-6">
-                <Card className="bg-slate-800/50 border-slate-700 p-6">
-                  <h4 className="text-lg font-bold text-emerald-400 mb-2">Leverage Buying Power</h4>
-                  <p className="text-slate-400">Take advantage of our collective negotiating power to secure better rates and terms for your franchise network.</p>
-                </Card>
-                <Card className="bg-slate-800/50 border-slate-700 p-6">
-                  <h4 className="text-lg font-bold text-emerald-400 mb-2">Generate Revenue</h4>
-                  <p className="text-slate-400">Earn additional revenue streams through our franchise program while providing valuable protection to your network.</p>
-                </Card>
-                <Card className="bg-slate-800/50 border-slate-700 p-6">
-                  <h4 className="text-lg font-bold text-emerald-400 mb-2">Eliminate Coverage Gaps</h4>
-                  <p className="text-slate-400">Ensure consistent, comprehensive coverage across all franchise locations with standardized protection.</p>
-                </Card>
-                <Card className="bg-slate-800/50 border-slate-700 p-6">
-                  <h4 className="text-lg font-bold text-emerald-400 mb-2">Support Your Franchisees</h4>
-                  <p className="text-slate-400">Provide your franchise partners with access to specialized insurance at competitive group rates.</p>
-                </Card>
-              </div>
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-12 gap-10 max-w-7xl mx-auto">
+            {/* Left Column - Benefits Accordions */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Benefits Card with Accordions */}
+              <Card className="p-8 bg-slate-900/70 border-emerald-500/20 backdrop-blur-sm relative overflow-hidden" data-testid="card-franchise-benefits-accordion">
+                {/* Top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500" />
+                
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 flex items-center justify-center" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.2)' }}>
+                    <Layers className="w-7 h-7 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">Franchise Program Benefits</h3>
+                    <p className="text-sm text-emerald-400">For Franchisors & Franchisees</p>
+                  </div>
+                </div>
+
+                <Accordion type="multiple" defaultValue={["franchisor-benefits"]} className="space-y-4">
+                  {/* Benefits for Franchisors */}
+                  <AccordionItem value="franchisor-benefits" className="border-white/10 rounded-xl overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-emerald-400 py-5 px-6 bg-gradient-to-r from-emerald-500/10 to-transparent hover:from-emerald-500/20 transition-all [&[data-state=open]]:bg-gradient-to-r [&[data-state=open]]:from-emerald-500/20 [&[data-state=open]]:to-teal-500/10 rounded-xl">
+                      <span className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                          <Building2 className="w-5 h-5 text-emerald-400" />
+                        </div>
+                        <div className="text-left">
+                          <span className="font-bold block">Benefits for Franchisors</span>
+                          <span className="text-xs text-emerald-400/80">Corporate-level advantages</span>
+                        </div>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-6 px-6">
+                      <div className="grid gap-4">
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <TrendingUp className="w-5 h-5 text-emerald-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">New Revenue Stream</h4>
+                            <p className="text-sm text-slate-400">Earn ongoing revenue through our franchise program structure. Create a profit center from a traditionally expense-only category.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <Shield className="w-5 h-5 text-emerald-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Brand Protection</h4>
+                            <p className="text-sm text-slate-400">Ensure all locations maintain proper coverage. Protect your brand reputation with standardized, vetted insurance across the network.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <BarChart3 className="w-5 h-5 text-emerald-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Compliance Dashboard</h4>
+                            <p className="text-sm text-slate-400">Real-time visibility into franchisee coverage status. Track renewals, claims, and compliance across your entire network.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <DollarSign className="w-5 h-5 text-emerald-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Volume Pricing Power</h4>
+                            <p className="text-sm text-slate-400">Leverage the collective purchasing power of your network to negotiate better rates than any single location could achieve.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* Benefits for Franchisees */}
+                  <AccordionItem value="franchisee-benefits" className="border-white/10 rounded-xl overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-teal-400 py-5 px-6 bg-gradient-to-r from-teal-500/10 to-transparent hover:from-teal-500/20 transition-all [&[data-state=open]]:bg-gradient-to-r [&[data-state=open]]:from-teal-500/20 [&[data-state=open]]:to-cyan-500/10 rounded-xl">
+                      <span className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center">
+                          <Users className="w-5 h-5 text-teal-400" />
+                        </div>
+                        <div className="text-left">
+                          <span className="font-bold block">Benefits for Franchisees</span>
+                          <span className="text-xs text-teal-400/80">Location-level advantages</span>
+                        </div>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-6 px-6">
+                      <div className="grid gap-4">
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <TrendingDown className="w-5 h-5 text-teal-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">15-25% Premium Savings</h4>
+                            <p className="text-sm text-slate-400">Access group pricing not available to individual operators. Reduce your largest fixed cost with enterprise-level rates.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <Clock className="w-5 h-5 text-teal-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Simplified Enrollment</h4>
+                            <p className="text-sm text-slate-400">Pre-negotiated terms mean faster onboarding. Get covered in days, not weeks, with streamlined applications.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <BadgeCheck className="w-5 h-5 text-teal-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Pre-Approved Coverage</h4>
+                            <p className="text-sm text-slate-400">Coverage designed specifically for your franchise model. No guessing about what's covered or excluded.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.03] border border-white/5 hover:border-teal-500/30 transition-colors group">
+                          <div className="w-10 h-10 rounded-lg bg-teal-500/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <Handshake className="w-5 h-5 text-teal-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Dedicated Support</h4>
+                            <p className="text-sm text-slate-400">Access to specialists who know your business. Get expert help with claims, certificates, and coverage questions.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  {/* How We Set It Up */}
+                  <AccordionItem value="setup-process" className="border-white/10 rounded-xl overflow-hidden">
+                    <AccordionTrigger className="text-base text-white hover:text-cyan-400 py-5 px-6 bg-gradient-to-r from-cyan-500/10 to-transparent hover:from-cyan-500/20 transition-all [&[data-state=open]]:bg-gradient-to-r [&[data-state=open]]:from-cyan-500/20 [&[data-state=open]]:to-emerald-500/10 rounded-xl">
+                      <span className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                          <Briefcase className="w-5 h-5 text-cyan-400" />
+                        </div>
+                        <div className="text-left">
+                          <span className="font-bold block">How We Set Up Your Program</span>
+                          <span className="text-xs text-cyan-400/80">Our implementation process</span>
+                        </div>
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-4 pb-6 px-6">
+                      <div className="space-y-6">
+                        {[
+                          { step: 1, title: "Discovery Call", desc: "We analyze your franchise structure, current coverage, and goals. Our team reviews your FDD and existing requirements.", time: "Week 1" },
+                          { step: 2, title: "Program Design", desc: "Custom coverage specifications tailored to your operations. We negotiate preferred rates with A-rated carriers.", time: "Week 2-3" },
+                          { step: 3, title: "Platform Setup", desc: "Configure your branded enrollment portal. Set up compliance tracking and automated renewals.", time: "Week 3-4" },
+                          { step: 4, title: "Rollout & Training", desc: "Launch communication to franchisees. Training for your team on program management and reporting.", time: "Week 4-5" },
+                          { step: 5, title: "Ongoing Support", desc: "Dedicated account manager for your network. Quarterly reviews and annual program optimization.", time: "Ongoing" },
+                        ].map((item) => (
+                          <div key={item.step} className="flex items-start gap-4 group">
+                            <div className="relative">
+                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-cyan-500/30 group-hover:scale-110 transition-transform">
+                                {item.step}
+                              </div>
+                              {item.step < 5 && (
+                                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-0.5 h-12 bg-gradient-to-b from-cyan-500/50 to-transparent" />
+                              )}
+                            </div>
+                            <div className="flex-1 pb-4">
+                              <div className="flex items-center gap-3 mb-1">
+                                <h4 className="font-semibold text-white">{item.title}</h4>
+                                <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">{item.time}</span>
+                              </div>
+                              <p className="text-sm text-slate-400">{item.desc}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </Card>
             </div>
 
-            <div>
-              <Card className="bg-slate-800/50 border-slate-700 p-8" data-testid="card-franchise-benefits">
-                <h3 className="text-2xl font-bold text-white mb-6">Franchise Program Benefits</h3>
-                <div className="text-center mb-6">
-                  <p className="text-5xl font-bold text-emerald-400">15-25%</p>
-                  <p className="text-slate-400">Additional Group Savings</p>
+            {/* Right Column - Case Study & Stats */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Case Study Card */}
+              <Card className="p-6 bg-[#0D1B2A] border-emerald-500/40 relative overflow-hidden group" data-testid="card-franchise-case-study">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 to-teal-900/20 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/15 rounded-full blur-3xl group-hover:bg-emerald-500/25 transition-all pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <Badge className="mb-4 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+                    <Star className="w-3 h-3 mr-1" />
+                    Case Study
+                  </Badge>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-2">Pickleball Kingdom</h3>
+                  <p className="text-emerald-400 font-medium mb-4">National Franchise Network</p>
+                  
+                  <p className="text-white/80 text-sm leading-relaxed mb-6">
+                    Pickleball Kingdom, one of the fastest-growing pickleball franchise networks, partnered with Matterhorn to create a comprehensive insurance program for their 50+ locations nationwide.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">23%</p>
+                      <p className="text-xs text-slate-400 mt-1">Average Savings</p>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">50+</p>
+                      <p className="text-xs text-slate-400 mt-1">Locations Covered</p>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">3 Days</p>
+                      <p className="text-xs text-slate-400 mt-1">New Location Setup</p>
+                    </div>
+                    <div className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
+                      <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">100%</p>
+                      <p className="text-xs text-slate-400 mt-1">Compliance Rate</p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                    <p className="text-white/90 text-sm italic leading-relaxed">
+                      "Matterhorn transformed our insurance from a headache into a competitive advantage. New franchisees get covered in days, and we've created a meaningful revenue stream while protecting our brand."
+                    </p>
+                    <p className="text-emerald-400 text-sm font-medium mt-3">— Franchise Operations Director</p>
+                  </div>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center py-2 border-b border-slate-700">
-                    <span className="text-slate-300">Standardized Coverage</span>
-                    <span className="text-emerald-400">✓ Included</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-slate-700">
-                    <span className="text-slate-300">Revenue Sharing</span>
-                    <span className="text-emerald-400">✓ Available</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-slate-700">
-                    <span className="text-slate-300">Dedicated Support</span>
-                    <span className="text-emerald-400">✓ Included</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2">
-                    <span className="text-slate-300">Flexible Terms</span>
-                    <span className="text-emerald-400">✓ Available</span>
-                  </div>
-                </div>
-                <Button
-                  className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700"
-                  data-testid="button-franchise-learn-more"
-                >
-                  Learn More About Franchise Programs
-                </Button>
               </Card>
 
-              <Card className="bg-slate-800/50 border-slate-700 p-6 mt-6">
-                <h4 className="text-lg font-bold text-white mb-2">Ready to Explore Franchise Options?</h4>
-                <p className="text-slate-400 mb-4">Contact our franchise specialist to discuss how our program can benefit your organization and create new revenue opportunities.</p>
-                <Button variant="outline" className="border-emerald-600 text-emerald-400 hover:bg-emerald-600/20" data-testid="button-contact-franchise">
-                  Contact Franchise Specialist
-                </Button>
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-emerald-500/40 transition-all group" data-testid="card-stat-savings">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <DollarSign className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">15-25%</p>
+                  <p className="text-slate-400 text-sm">Group Savings</p>
+                </Card>
+                <Card className="p-5 bg-slate-800/50 border-slate-700 hover:border-teal-500/40 transition-all group" data-testid="card-stat-setup">
+                  <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Clock className="w-5 h-5 text-teal-400" />
+                  </div>
+                  <p className="text-2xl font-bold text-white">4-5 Weeks</p>
+                  <p className="text-slate-400 text-sm">Program Launch</p>
+                </Card>
+              </div>
+
+              {/* CTA Card */}
+              <Card className="p-6 bg-gradient-to-br from-emerald-900/30 to-teal-900/20 border-emerald-500/30 relative overflow-hidden" data-testid="card-franchise-cta">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}>
+                      <Handshake className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-widest text-emerald-400">Ready to Get Started?</p>
+                      <p className="font-bold text-white text-lg">Schedule a Franchise Consultation</p>
+                    </div>
+                  </div>
+                  <p className="text-white/75 text-sm mb-5">
+                    Our franchise specialists will analyze your network and design a custom program that protects your brand while creating new revenue opportunities.
+                  </p>
+                  <Button
+                    size="lg"
+                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all"
+                    asChild
+                    data-testid="button-schedule-franchise-consultation"
+                  >
+                    <a href="mailto:franchise@matterhornprotects.com?subject=Franchise Program Inquiry">
+                      <Mail className="w-5 h-5 mr-2" />
+                      Contact Franchise Team
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
+                  </Button>
+                  <p className="text-center text-emerald-400/70 text-xs mt-4">
+                    Or call us directly: 1-844-600-0611
+                  </p>
+                </div>
               </Card>
             </div>
           </div>
