@@ -437,18 +437,19 @@ export default function PickleballPage() {
             {/* Right Column - Callout & Quick Facts */}
             <div className="lg:col-span-5 space-y-6">
               {/* Competitive Advantage Callout */}
-              <Card className="p-6 bg-gradient-to-br from-emerald-900/50 to-teal-900/30 border-emerald-500/30 relative overflow-hidden group hover:border-emerald-400/50 transition-all duration-500" data-testid="card-competitive-advantage">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl group-hover:bg-emerald-500/30 transition-all" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-500/15 rounded-full blur-2xl" />
+              <Card className="p-6 bg-[#0D1B2A] border-emerald-500/40 relative overflow-hidden group hover:border-emerald-400/50 transition-all duration-500" data-testid="card-competitive-advantage">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-teal-900/20 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/15 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}>
                     <DollarSign className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Much Higher Starting Limits</h3>
-                  <p className="text-emerald-300 text-lg font-medium mb-4">
+                  <p className="text-emerald-400 text-lg font-medium mb-4">
                     Than our main competitors can offer
                   </p>
-                  <p className="text-slate-300 text-sm leading-relaxed">
+                  <p className="text-white/80 text-sm leading-relaxed">
                     Our program offers up to $5,000,000 in CGL limits with in-house binding authority, providing faster turnarounds and more competitive pricing.
                   </p>
                 </div>
@@ -638,13 +639,14 @@ export default function PickleballPage() {
               ))}
 
               {/* CTA Card */}
-              <Card className="p-5 bg-gradient-to-br from-emerald-900/40 to-teal-900/20 border-emerald-500/30 mt-6" data-testid="card-cta-apply">
-                <div className="flex items-center gap-3 mb-3">
+              <Card className="p-5 bg-[#0D1B2A] border-emerald-500/40 mt-6 relative overflow-hidden" data-testid="card-cta-apply">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/25 to-teal-900/15 pointer-events-none" />
+                <div className="flex items-center gap-3 mb-3 relative z-10">
                   <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center" style={{ boxShadow: '0 0 25px rgba(16, 185, 129, 0.4)' }}>
                     <Zap className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-widest text-emerald-400/80">Ready to Start?</p>
+                    <p className="text-[10px] uppercase tracking-widest text-emerald-400">Ready to Start?</p>
                     <p className="font-semibold text-white">Get Your Quote Today</p>
                   </div>
                 </div>
@@ -855,14 +857,15 @@ export default function PickleballPage() {
             </Card>
 
             {/* Book a Call CTA */}
-            <Card className="bg-gradient-to-br from-emerald-900/50 to-teal-900/50 border-emerald-500/30 p-6 relative overflow-hidden" data-testid="card-book-call">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl" />
+            <Card className="bg-[#0D1B2A] border-emerald-500/40 p-6 relative overflow-hidden" data-testid="card-book-call">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-teal-900/20 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center mb-4">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Book a Territory Call</h3>
-                <p className="text-slate-300 mb-6">Schedule a 15-minute call with our team to discuss available territories and get started.</p>
+                <p className="text-white/80 mb-6">Schedule a 15-minute call with our team to discuss available territories and get started.</p>
                 <Button 
                   size="lg"
                   className="w-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30"

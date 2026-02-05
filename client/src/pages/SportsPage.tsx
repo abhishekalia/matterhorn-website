@@ -1258,18 +1258,19 @@ export default function SportsPage() {
             {/* Right Column - Quick Facts & Contact */}
             <div className="lg:col-span-5 space-y-6">
               {/* Competitive Advantage Callout */}
-              <Card className="p-6 relative overflow-hidden bg-gradient-to-br from-primary/20 to-cyan-500/10 border-primary/30" data-testid="card-competitive-advantage">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-500/15 rounded-full blur-2xl" />
+              <Card className="p-6 relative overflow-hidden bg-[#0D1B2A] border-primary/40" data-testid="card-competitive-advantage">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-cyan-500/10 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center mb-4" style={{ boxShadow: '0 0 30px rgba(0, 168, 199, 0.4)' }}>
                     <Zap className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-white">One Submission</h3>
-                  <p className="text-lg font-medium mb-4 text-primary">
+                  <p className="text-lg font-medium mb-4 text-[#00d4ff]">
                     Access 15+ A-Rated Markets
                   </p>
-                  <p className="text-sm leading-relaxed text-white/70">
+                  <p className="text-sm leading-relaxed text-white/80">
                     Our curated market access means your sports risks reach the right underwriters the first time—no shopping, no delays.
                   </p>
                 </div>

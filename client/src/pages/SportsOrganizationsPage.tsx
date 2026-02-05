@@ -643,18 +643,19 @@ export default function SportsOrganizationsPage() {
             {/* Right Column - Quick Facts & Contact */}
             <div className="lg:col-span-5 space-y-6">
               {/* Competitive Advantage Callout */}
-              <Card className={`p-6 relative overflow-hidden ${isDarkMode ? "bg-gradient-to-br from-emerald-900/50 to-teal-900/30 border-emerald-500/30" : "bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200"}`} data-testid="card-competitive-advantage">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-500/15 rounded-full blur-2xl" />
+              <Card className={`p-6 relative overflow-hidden ${isDarkMode ? "bg-[#0D1B2A] border-emerald-500/40" : "bg-white border-emerald-200"}`} data-testid="card-competitive-advantage">
+                <div className={`absolute inset-0 ${isDarkMode ? "bg-gradient-to-br from-emerald-900/30 to-teal-900/20" : "bg-gradient-to-br from-emerald-50/50 to-teal-50/50"} pointer-events-none`} />
+                <div className={`absolute top-0 right-0 w-32 h-32 ${isDarkMode ? "bg-emerald-500/15" : "bg-emerald-500/10"} rounded-full blur-3xl pointer-events-none`} />
+                <div className={`absolute bottom-0 left-0 w-24 h-24 ${isDarkMode ? "bg-teal-500/10" : "bg-teal-500/10"} rounded-full blur-2xl pointer-events-none`} />
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-full bg-emerald-500 flex items-center justify-center mb-4" style={{ boxShadow: '0 0 30px rgba(16, 185, 129, 0.4)' }}>
                     <DollarSign className="w-7 h-7 text-white" />
                   </div>
                   <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? "text-white" : "text-gray-900"}`}>Industry-Leading Limits</h3>
-                  <p className={`text-lg font-medium mb-4 ${isDarkMode ? "text-emerald-300" : "text-emerald-600"}`}>
+                  <p className={`text-lg font-medium mb-4 ${isDarkMode ? "text-emerald-400" : "text-emerald-600"}`}>
                     Up to $5M General Liability
                   </p>
-                  <p className={`text-sm leading-relaxed ${isDarkMode ? "text-slate-300" : "text-gray-600"}`}>
+                  <p className={`text-sm leading-relaxed ${isDarkMode ? "text-white/80" : "text-gray-600"}`}>
                     Our program offers comprehensive limits with in-house binding authority, providing faster turnarounds and more competitive pricing for your sports organization clients.
                   </p>
                 </div>
@@ -793,14 +794,15 @@ export default function SportsOrganizationsPage() {
 
           {/* Franchise Case Study */}
           <div className="max-w-5xl mx-auto">
-            <Card className={`overflow-hidden ${isDarkMode ? "bg-gradient-to-br from-purple-900/30 to-slate-800/50 border-purple-500/20" : "bg-gradient-to-br from-purple-50 to-white border-purple-200"}`}>
-              <div className="p-8 md:p-12">
+            <Card className={`overflow-hidden relative ${isDarkMode ? "bg-[#0D1B2A] border-purple-500/30" : "bg-white border-purple-200"}`}>
+              <div className={`absolute inset-0 ${isDarkMode ? "bg-gradient-to-br from-purple-900/20 to-slate-800/30" : "bg-gradient-to-br from-purple-50/50 to-white"} pointer-events-none`} />
+              <div className="p-8 md:p-12 relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/30">
                     <Star className="w-3 h-3 mr-1" />
                     Featured Case Study
                   </Badge>
-                  <Badge variant="outline" className={`${isDarkMode ? "border-white/20 text-white/70" : "border-gray-300 text-gray-600"}`}>
+                  <Badge variant="outline" className={`${isDarkMode ? "border-white/20 text-white/80" : "border-gray-300 text-gray-600"}`}>
                     {franchiseCaseStudy.locations}
                   </Badge>
                 </div>
@@ -815,7 +817,7 @@ export default function SportsOrganizationsPage() {
                       <Target className="w-5 h-5 text-purple-400" />
                       The Challenge
                     </h4>
-                    <p className={`${isDarkMode ? "text-white/70" : "text-gray-600"}`}>{franchiseCaseStudy.challenge}</p>
+                    <p className={`${isDarkMode ? "text-white/80" : "text-gray-600"}`}>{franchiseCaseStudy.challenge}</p>
                   </div>
 
                   <div>
@@ -823,12 +825,12 @@ export default function SportsOrganizationsPage() {
                       <Zap className="w-5 h-5 text-purple-400" />
                       Our Solution
                     </h4>
-                    <p className={`mb-4 ${isDarkMode ? "text-white/70" : "text-gray-600"}`}>{franchiseCaseStudy.solution}</p>
+                    <p className={`mb-4 ${isDarkMode ? "text-white/80" : "text-gray-600"}`}>{franchiseCaseStudy.solution}</p>
                     <div className="grid md:grid-cols-2 gap-2">
                       {franchiseCaseStudy.implementation.map((item, i) => (
                         <div key={i} className="flex items-start gap-2">
                           <CheckCircle className="w-4 h-4 text-purple-400 mt-0.5" />
-                          <span className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{item}</span>
+                          <span className={`text-sm ${isDarkMode ? "text-white/75" : "text-gray-600"}`}>{item}</span>
                         </div>
                       ))}
                     </div>
@@ -843,7 +845,7 @@ export default function SportsOrganizationsPage() {
                       {Object.entries(franchiseCaseStudy.results).map(([key, value], i) => (
                         <div key={i} className={`p-4 rounded-lg ${isDarkMode ? "bg-slate-800/50" : "bg-purple-50"}`}>
                           <div className="text-2xl font-bold text-purple-400">{value}</div>
-                          <div className={`text-sm ${isDarkMode ? "text-white/60" : "text-gray-600"}`}>{key}</div>
+                          <div className={`text-sm ${isDarkMode ? "text-white/75" : "text-gray-600"}`}>{key}</div>
                         </div>
                       ))}
                     </div>

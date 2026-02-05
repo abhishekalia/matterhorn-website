@@ -118,10 +118,10 @@ function ClosingSection() {
             </span>
           ))}
         </div>
-        <p className="text-white/60 text-sm md:text-base tracking-[0.3em] uppercase font-medium">
+        <p className="text-white/80 text-sm md:text-base tracking-[0.3em] uppercase font-medium">
           Entertainment Coverage
         </p>
-        <p className="text-white/70 mt-4 text-sm md:text-base max-w-xl mx-auto text-center">
+        <p className="text-white/75 mt-4 text-sm md:text-base max-w-xl mx-auto text-center">
           Specialty insurance programs for the entertainment industry
         </p>
       </div>

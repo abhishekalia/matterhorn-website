@@ -798,26 +798,32 @@ export default function RideSharePage() {
             className="grid md:grid-cols-2 gap-8"
           >
             <motion.div variants={fadeInUp}>
-              <div className="bg-gradient-to-br from-[#155DFC]/20 to-[#155DFC]/5 p-8 rounded-2xl border border-[#155DFC]/20 h-full">
-                <div className="w-14 h-14 rounded-xl bg-[#155DFC]/30 flex items-center justify-center mb-6">
-                  <Users className="w-7 h-7 text-[#155DFC]" />
+              <div className="bg-[#0D1B2A] p-8 rounded-2xl border border-[#155DFC]/30 h-full relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#155DFC]/15 to-[#155DFC]/5 pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-xl bg-[#155DFC]/30 flex items-center justify-center mb-6">
+                    <Users className="w-7 h-7 text-[#155DFC]" />
+                  </div>
+                  <h3 className="text-2xl font-medium mb-4 text-white">For Carriers</h3>
+                  <p className="text-white/80">
+                    Manage multiple active loads, track total spend, and auto-assign pilots based on proximity.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-medium mb-4">For Carriers</h3>
-                <p className="text-[#99A1AF]">
-                  Manage multiple active loads, track total spend, and auto-assign pilots based on proximity.
-                </p>
               </div>
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <div className="bg-gradient-to-br from-purple-500/20 to-purple-500/5 p-8 rounded-2xl border border-purple-500/20 h-full">
-                <div className="w-14 h-14 rounded-xl bg-purple-500/30 flex items-center justify-center mb-6">
-                  <Truck className="w-7 h-7 text-purple-400" />
+              <div className="bg-[#0D1B2A] p-8 rounded-2xl border border-purple-500/30 h-full relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/15 to-purple-500/5 pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-xl bg-purple-500/30 flex items-center justify-center mb-6">
+                    <Truck className="w-7 h-7 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-medium mb-4 text-white">For Pilot Fleets</h3>
+                  <p className="text-white/80">
+                    Dispatch your drivers, track vehicle locations, and manage consolidated invoicing for your entire team.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-medium mb-4">For Pilot Fleets</h3>
-                <p className="text-[#99A1AF]">
-                  Dispatch your drivers, track vehicle locations, and manage consolidated invoicing for your entire team.
-                </p>
               </div>
             </motion.div>
           </motion.div>
