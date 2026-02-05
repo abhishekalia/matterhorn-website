@@ -50,6 +50,7 @@ import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import adventureHero from "@/assets/images/adventure-hiking-hero.jpg";
 import bcFishingLodgeHero from "@/assets/images/bc-fishing-lodge-hero.png";
+import mountainMooseHuntingImg from "@/assets/images/mountain-moose-hunting.png";
 import kayakingImg from "@/assets/images/kayaking-rapids.jpg";
 import rockClimbingImg from "@/assets/images/rock-climbing.jpg";
 import flyFishingImg from "@/assets/images/fly-fishing.jpg";
@@ -288,7 +289,7 @@ export default function AdventureSportsPage() {
       challenge: "A network of three big game hunting outfitters with backcountry camps, horse pack strings, and guided hunts across three western states needed unified coverage with firearms liability and remote evacuation.",
       solution: "Designed a master program with unified $5M limits across all operations, firearms liability, livestock coverage for pack horses, and remote wilderness evacuation endorsements.",
       results: { premium: "$145K", camps: "8", hunters: "400+" },
-      image: rockClimbingImg,
+      image: mountainMooseHuntingImg,
       brokerBenefits: [
         "Accessed specialty hunting outfitter markets",
         "Built niche expertise in backcountry operations",
