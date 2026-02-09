@@ -1,0 +1,83 @@
+I have completed another review of the website.  Here are my edits.
+
+
+Home Page
+Under “Featured Programs"
+Link to “Motor Carrier” should be "Motor Carrier + IC"
+Link to “Logistics” should be Logistics + Freight Brokers"
+Under “Curated Markets. Built In Tech. Bigger Wins."
+Under "Transportation Market" - “Segments"
+Remove Motor Carrier segment
+Independent Contractors - replace "Occupational Accident, Non-trucking-liability, Physical Damage, EO/DO” with “Occupational Accident, Contingent Liability, Workers Compensation, Physical Damage, Non-Trucking Liability"
+Freight Brokers - replace "General Liability, Truck Broker Liability, Contingent Auto, Cargo Liability” with “Truck Broker Liability, Contingent Auto Liability, Contingent Cargo Liability, General Liability, Errors & Omissions, Cyber"
+Under "Transportation Market" - “Coverages” - Replace the products with the following:
+Occupational Accident
+Contingent Liability
+Workers Compensation
+Physical Damage
+Non-Trucking Liability
+Truck Broker Liability
+Contingent Auto Liability
+Contingent Cargo Liability
+General Liability
+Errors & Omissions
+Cyber
+Under “Travel Market” - “Coverages"
+Add Accident and Accident Medical Expense
+“Medical + Emergency” - should be changed to “Medical Evacuation"
+Under “Entertainment Market” - “Coverages"
+Add Accident and Accident Medical Expense
+
+Transportation Page
+Under "The Boutique Advantage for IC & Owner-Operator Fleets” heading:
+Add WC after CL to the sub heading:  "We are specialized problem solvers for OA, CL, PD, and NTL programs"
+At the bottom of the first section, change "OA, CL WK, PD, & NTL Focus” to "OA, CL WC, PD, & NTL Focus”
+Under "Built for Modern Transportation Risk” - “Motor Carrier + Independent Contractors” add and “s” to "Motor Carrier"
+Under “Coverage:” replace with: “Occupational Accident, Contingent Liability, Workers Compensation, Physical Damage, Non-Trucking Liability"
+Under "Program Highlights” - replace with:
+Up to $1,500,000 Occupational Accident Combined Single Limit
+Up to Statutory Coverage for Contingent Liability
+Physical Damage Coverage available
+Non-Trucking Liability Coverage available
+Workers Compensation Coverage available
+Fleet and Non-Fleet Coverage options
+Quick turnaround on quotes
+Under “Risk Types” - replace with:
+Owner-Operators
+Independent Contractors
+Box Truck
+Straight Trucks
+Dry Van
+Intermodal / Container
+Refrigerated
+Flatbed & Specialized
+Tanker
+Auto Haulers
+Aggregate Haulers
+Hot Shot
+Expedited
+Courier
+Last Mile
+Under "Built for Modern Transportation Risk” - “Logistics + Freight Brokers"
+Under “Coverage:” replace with: “Contingent Cargo, Errors & Omissions, General Liability, Truck Broker Liability, Cyber Liability” with “Truck Broker Liability, Contingent Auto Liability, Contingent Cargo Liability, General Liability, Errors & Omissions, Cyber"
+Under "Program Highlights” - replace with:
+Truck Broker Limits up to $1,000,000
+Contingent Auto Liability up to $1,000,000
+Excess Contingent Auto Liability available
+Contingent Cargo Liability available
+Options for General Liability, E&O and Cyber
+Quick turnaround on quotes
+Under “Risk Types” - replace with:
+Freight Brokers
+Freight Forwarders
+3PL & 4PL Providers
+Under “Why Work With Matterhorn” - “IC & Owner operator Specialists"
+Replace "Deep expertise in OA, CL, PD, and NTL products. Indications in 24-48 hours, most quotes within 5 business days.” With "Deep expertise in OA, CL, WC, PD, and NTL products. Indications in 24-48 hours, most quotes within 5 business days."
+
+Sports Page
+Under “Youth Sports Program"
+We list mention “NAYS” and “NAYS Partnership” - Don’t we also sell youth sports to non-NAYS members?  I think we should downplay it a bit and just state we have a partnership with NAYS which demonstrates our commitment to the education of league directors, coaches and officials…or something like that.
+
+Entertainment Page
+Under "Access to All Entertainment Coverages Through Curated Markets” 
+Please add “Accident and Accident Medical Expense” as a product.

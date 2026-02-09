@@ -30,17 +30,20 @@ const markets = [
       "Marketing Scrapes"
     ],
     segments: [
-      "Independent Contractors - Occupational Accident, Non-trucking-liability, Physical Damage, EO/DO",
-      "Motor Carriers - General Liability, Commercial Auto, Non-Trucking Liability, Motor Truck Cargo",
-      "Freight Brokers - General Liability, Truck Broker Liability, Contingent Auto, Cargo Liability"
+      "Independent Contractors - Occupational Accident, Contingent Liability, Workers Compensation, Physical Damage, Non-Trucking Liability",
+      "Freight Brokers - Truck Broker Liability, Contingent Auto Liability, Contingent Cargo Liability, General Liability, Errors & Omissions, Cyber"
     ],
     clients: [],
     coverages: [
       "Occupational Accident",
-      "Commercial Auto Liability",
-      "Motor Truck Cargo",
-      "Physical Damage",
+      "Contingent Liability",
       "Workers Compensation",
+      "Physical Damage",
+      "Non-Trucking Liability",
+      "Truck Broker Liability",
+      "Contingent Auto Liability",
+      "Contingent Cargo Liability",
+      "General Liability",
       "Errors & Omissions",
       "Cyber"
     ],
@@ -118,7 +121,8 @@ const markets = [
     clients: [],
     coverages: [
       "Trip Protection",
-      "Medical + Emergency",
+      "Accident and Accident Medical Expense",
+      "Medical Evacuation",
       "Baggage + Equipment",
       "Adventure Travel",
       "Custom Design"
@@ -161,6 +165,7 @@ const markets = [
     coverages: [
       "Event Cancellation",
       "General Liability",
+      "Accident and Accident Medical Expense",
       "Production Insurance",
       "Equipment & Property",
       "Non-Appearance",

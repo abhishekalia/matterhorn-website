@@ -207,6 +207,7 @@ export default function EntertainmentPage() {
 
   const coverageTypes = [
     { name: "General Liability", description: "Premises and operations coverage for venues and productions" },
+    { name: "Accident and Accident Medical Expense", description: "Coverage for participant and attendee injuries at events" },
     { name: "Cast Insurance", description: "Protection for key performers and talent" },
     { name: "Equipment Coverage", description: "Cameras, lighting, sound, and production equipment" },
     { name: "Errors & Omissions", description: "Content liability and intellectual property protection" },

@@ -121,13 +121,13 @@ export default function HeroSection() {
             <Link href="/transportation/motor-carrier-application">
               <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-wider px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white/60 hover:text-amber-400 hover:border-amber-500/40 hover:bg-amber-500/10 transition-all duration-300 cursor-pointer group" data-testid="link-motor-carrier">
                 <Truck className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                Motor Carriers
+                Motor Carrier + IC
               </span>
             </Link>
             <Link href="/transportation/logistics-application">
               <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-wider px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white/60 hover:text-cyan-400 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-300 cursor-pointer group" data-testid="link-logistics">
                 <Package className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-                Logistics
+                Logistics + Freight Brokers
               </span>
             </Link>
             <Link href="/pickleball">

@@ -206,7 +206,7 @@ export default function TransportationPage() {
 
   const marketSegments = [
     {
-      title: "Motor Carrier + Independent Contractors",
+      title: "Motor Carriers + Independent Contractors",
       description: "Scalable onboarding, compliance-ready documentation, simpler adds/deletes.",
       coverage: "OA, CL, WC, PD, NTL",
       icon: Briefcase,
@@ -214,9 +214,9 @@ export default function TransportationPage() {
       link: "/transportation/motor-carrier-application",
     },
     {
-      title: "Logistics & Freight Brokers",
+      title: "Logistics + Freight Brokers",
       description: "Operational liability clarity, contract-driven support, claims-ready documentation.",
-      coverage: "Contingent Cargo, Errors & Omissions, General Liability",
+      coverage: "Truck Broker Liability, Contingent Auto Liability, Contingent Cargo Liability, GL, E&O, Cyber",
       icon: Package,
       highlight: "Comprehensive protection for brokerage operations",
       link: "/transportation/logistics-application",
@@ -225,56 +225,57 @@ export default function TransportationPage() {
 
   const featuredPrograms = [
     {
-      title: "Motor Carrier + Independent Contractors",
+      title: "Motor Carriers + Independent Contractors",
       description: "Comprehensive coverage for motor carriers and 1099 IC fleets with scalable onboarding and compliance-ready documentation.",
-      coverage: "Occupational Accident, Commercial Liability, Physical Damage, Non-Trucking Liability, Workers Comp",
+      coverage: "Occupational Accident, Contingent Liability, Workers Compensation, Physical Damage, Non-Trucking Liability",
       icon: Truck,
       highlight: "Turnkey protection for IC fleets and owner-operators",
       programHighlights: [
-        "Up to $5,000,000 Occupational Accident coverage",
-        "Up to $5,000,000 Commercial Auto Liability",
-        "Physical Damage coverage available",
-        "Non-Trucking Liability included",
-        "Workers Compensation options",
-        "No minimum fleet size requirements",
-        "Quick 24-48 hour turnaround on quotes",
+        "Up to $1,500,000 Occupational Accident Combined Single Limit",
+        "Up to Statutory Coverage for Contingent Liability",
+        "Physical Damage Coverage available",
+        "Non-Trucking Liability Coverage available",
+        "Workers Compensation Coverage available",
+        "Fleet and Non-Fleet Coverage options",
+        "Quick turnaround on quotes",
       ],
       riskTypes: [
-        "Long-Haul Trucking",
-        "Regional Carriers",
-        "Last-Mile Delivery",
-        "Hotshot & Expedited",
-        "Flatbed & Specialized",
-        "Intermodal Drayage",
         "Owner-Operators",
-        "1099 IC Fleets",
+        "Independent Contractors",
+        "Box Truck",
+        "Straight Trucks",
+        "Dry Van",
+        "Intermodal / Container",
+        "Refrigerated",
+        "Flatbed & Specialized",
+        "Tanker",
+        "Auto Haulers",
+        "Aggregate Haulers",
+        "Hot Shot",
+        "Expedited",
+        "Courier",
+        "Last Mile",
       ],
       jotformUrl: "https://form.jotform.com/251257386293060",
     },
     {
       title: "Logistics + Freight Brokers",
       description: "Operational liability protection for freight brokerages with contract-driven support and claims-ready documentation.",
-      coverage: "Contingent Cargo, Errors & Omissions, General Liability, Truck Broker Liability, Cyber Liability",
+      coverage: "Truck Broker Liability, Contingent Auto Liability, Contingent Cargo Liability, General Liability, Errors & Omissions, Cyber",
       icon: Package,
       highlight: "Comprehensive protection for brokerage operations",
       programHighlights: [
-        "Up to $5,000,000 Contingent Cargo limits",
-        "Up to $5,000,000 Errors & Omissions",
-        "General Liability coverage included",
-        "Truck Broker Liability options",
-        "Contract-compliant documentation",
-        "High-value freight coverage available",
-        "Quick 24-48 hour turnaround on quotes",
+        "Truck Broker Limits up to $1,000,000",
+        "Contingent Auto Liability up to $1,000,000",
+        "Excess Contingent Auto Liability available",
+        "Contingent Cargo Liability available",
+        "Options for General Liability, E&O and Cyber",
+        "Quick turnaround on quotes",
       ],
       riskTypes: [
-        "Property Brokers",
+        "Freight Brokers",
         "Freight Forwarders",
-        "3PL Providers",
-        "Customs Brokers",
-        "NVOCC Operations",
-        "Intermodal Brokers",
-        "Specialized Freight",
-        "Temperature-Controlled",
+        "3PL & 4PL Providers",
       ],
       jotformUrl: "https://form.jotform.com/251255738573060",
     },
@@ -404,7 +405,7 @@ export default function TransportationPage() {
     },
     {
       title: "IC & Owner-Operator Specialists",
-      description: "Deep expertise in OA, CL, PD, and NTL products. Indications in 24-48 hours, most quotes within 5 business days.",
+      description: "Deep expertise in OA, CL, WC, PD, and NTL products. Indications in 24-48 hours, most quotes within 5 business days.",
       icon: Truck,
     },
     {
@@ -546,7 +547,7 @@ export default function TransportationPage() {
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-4xl mx-auto font-medium">
-            We aren't a giant wholesaler. We are specialized problem solvers for OA, CL, PD, and NTL programs.
+            We aren't a giant wholesaler. We are specialized problem solvers for OA, CL, WC, PD, and NTL programs.
           </p>
           
           <p className="text-lg text-white/70 mb-10 max-w-3xl mx-auto leading-relaxed">One application connects you to curated transportation markets plus a digital servicing platform that automates driver and equipment management, fleet changes, and COI delivery.</p>
@@ -600,7 +601,7 @@ export default function TransportationPage() {
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60 mb-12">
             <div className="flex items-center gap-2 transition-colors duration-300" style={{ '--hover-color': NEON_COLORS.amber } as React.CSSProperties}>
               <Target className="w-4 h-4" style={{ color: NEON_COLORS.amber }} />
-              <span className="hover:text-[#ffaa00]">OA, CL WK, PD, & NTL Focus</span>
+              <span className="hover:text-[#ffaa00]">OA, CL, WC, PD, & NTL Focus</span>
             </div>
             <div className="flex items-center gap-2 transition-colors duration-300">
               <Zap className="w-4 h-4" style={{ color: NEON_COLORS.cyan }} />

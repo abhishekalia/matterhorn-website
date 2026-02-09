@@ -875,8 +875,8 @@ export default function SportsPage() {
               </span>
             </h2>
             <p className="text-lg text-white/60 max-w-3xl mx-auto">
-              Partner with the National Alliance for Youth Sports (NAYS) to provide comprehensive coverage 
-              for youth sports organizations, leagues, and recreational programs nationwide.
+              Comprehensive coverage for youth sports organizations, leagues, and recreational programs nationwide. 
+              Our partnership with the National Alliance for Youth Sports (NAYS) demonstrates our commitment to the education of league directors, coaches, and officials.
             </p>
           </div>
 
@@ -894,7 +894,7 @@ export default function SportsPage() {
                       </div>
                       <div>
                         <h3 className="text-2xl md:text-3xl font-bold text-white">Youth Sports Program</h3>
-                        <p className="text-[#00ff88] font-medium">NAYS Partnership</p>
+                        <p className="text-[#00ff88] font-medium">Youth Sports Coverage</p>
                       </div>
                     </div>
                     
@@ -951,7 +951,7 @@ export default function SportsPage() {
                       </div>
                       <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-[#00ff88]/30 transition-colors">
                         <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">60+</div>
-                        <div className="text-white/60 text-sm mt-1">Years NAYS Experience</div>
+                        <div className="text-white/60 text-sm mt-1">Years Combined Experience</div>
                       </div>
                       <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:border-[#00ff88]/30 transition-colors">
                         <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00d4ff]">A+</div>
